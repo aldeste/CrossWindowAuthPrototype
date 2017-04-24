@@ -1,0 +1,14 @@
+// @flow
+
+// this file will be required by flow to instill static types to config variables.
+// Since the config file could potentially be included in non-parsed files
+// it's better for now to include these in a separate file that mirrors the clean
+// js file. Since this file always will be parsed, we're free to use ES6 modules.
+export const APP_PORT: string = process.env.APP_PORT || '2000';
+export const APP_HOST: string = process.env.APP_HOST || "localhost";
+export const APP_PROTOCOL: string = process.env.APP_PROTOCOL || "http";
+export const DB_HOST: string = process.env.DB_HOST || "127.0.0.1";
+export const DB_PORT: string = process.env.DB_PORT || "3306";
+export const DB_USER: string = process.env.DB_USER || "root";
+export const DB_PASS: string = process.env.DB_PASS || "password";
+export const DB_NAME: string = process.env.DB_NAME || "development";
