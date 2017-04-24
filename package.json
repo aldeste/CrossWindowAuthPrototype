@@ -29,8 +29,9 @@
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "flow-bin": "0.44.2",
+    "husky": "^0.13.3",
     "jest": "^19.0.2",
-    "pre-commit": "^1.2.2",
+    "lint-staged": "^3.4.0",
     "prettier": "^1.2.2",
     "styled-components": "^1.4.5",
     "supertest": "^3.0.0"
@@ -39,7 +40,14 @@
     "lint": "eslint **/*.js",
     "start": "nodemon ./src",
     "test": "jest",
-    "test:cov": "jest --coverage"
+    "test:cov": "jest --coverage",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "jest": {
     "collectCoverageFrom": [
