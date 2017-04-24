@@ -1,3 +1,4 @@
+// @flow
 import Sequelize from "sequelize";
 import {
   DB_HOST,
@@ -7,7 +8,7 @@ import {
   DB_PORT
 } from "../../config/config";
 
-export default new Sequelize(DB_NAME, DB_USER, DB_PASS, {
+const connection = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
   ...(process.env.NODE_ENV !== "production"
     ? {
         dialect: "sqlite",
@@ -28,3 +29,5 @@ export default new Sequelize(DB_NAME, DB_USER, DB_PASS, {
     timestamps: true
   }
 });
+
+export default connection;

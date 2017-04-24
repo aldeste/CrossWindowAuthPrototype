@@ -1,16 +1,16 @@
 // @flow
 import connection from "./databaseConnection";
-import { Person } from "./modules";
+import { Person, Planet } from "./modules";
 import chalk from "chalk";
 
 /**
  * We define relations here, so they'll be defined before
  * databse is syncronised and included in the export.
  */
-// Planet.hasMany(Person, {
-//   constraints: false,
-//   as: "habitants"
-// });
+Planet.hasMany(Person, {
+  constraints: false,
+  as: "habitants"
+});
 
 /**
  * Scopes define additional sequelize settings which are
@@ -66,4 +66,4 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 export default connection;
-export { Person };
+export { Person, Planet };
