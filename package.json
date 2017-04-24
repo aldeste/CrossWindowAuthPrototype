@@ -20,7 +20,7 @@
     "sequelize": "^3.30.4"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.2",
+    "babel-eslint": "^7.2.3",
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-config-react-app": "^0.6.2",
@@ -38,16 +38,10 @@
   },
   "scripts": {
     "lint": "eslint **/*.js",
+    "precommit": "lint-staged",
     "start": "nodemon ./src",
     "test": "jest",
-    "test:cov": "jest --coverage",
-    "precommit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
-    ]
+    "test:cov": "jest --coverage"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -69,6 +63,12 @@
     ],
     "unmockedModulePathPatterns": [
       "node_modules/react/"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
     ]
   }
 }
