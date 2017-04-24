@@ -3,6 +3,7 @@ This is a multi-auth plugin system.
 
 ## Development
 Development is simple.
+
  * We use Prettier to style everything.
  * Jest for testing, supertest available to test server.
  * Flow type notations.
