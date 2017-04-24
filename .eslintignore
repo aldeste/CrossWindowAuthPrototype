@@ -1,0 +1,6 @@
+/coverage
+/flow-typed
+**/build/*
+!config/**/*.js
+!example/**/*.js
+!src/**/*.js
