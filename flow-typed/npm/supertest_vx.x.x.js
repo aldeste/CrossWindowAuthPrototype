@@ -1,4 +1,4 @@
-// flow-typed signature: ccfc0121c84941350b2ff93ee87084f1
+// flow-typed signature: 9a68eb19b0d30180273da873cef26455
 // flow-typed version: <<STUB>>/supertest_v^3.0.0/flow_v0.44.2
 
 /**
@@ -8,12 +8,12 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 
-declare module 'supertest' {
+declare module "supertest" {
   declare module.exports: any;
 }
 
@@ -22,31 +22,31 @@ declare module 'supertest' {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module 'supertest/lib/agent' {
+declare module "supertest/lib/agent" {
   declare module.exports: any;
 }
 
-declare module 'supertest/lib/test' {
+declare module "supertest/lib/test" {
   declare module.exports: any;
 }
 
-declare module 'supertest/test/supertest' {
+declare module "supertest/test/supertest" {
   declare module.exports: any;
 }
 
 // Filename aliases
-declare module 'supertest/index' {
-  declare module.exports: $Exports<'supertest'>;
+declare module "supertest/index" {
+  declare module.exports: $Exports<"supertest">;
 }
-declare module 'supertest/index.js' {
-  declare module.exports: $Exports<'supertest'>;
+declare module "supertest/index.js" {
+  declare module.exports: $Exports<"supertest">;
 }
-declare module 'supertest/lib/agent.js' {
-  declare module.exports: $Exports<'supertest/lib/agent'>;
+declare module "supertest/lib/agent.js" {
+  declare module.exports: $Exports<"supertest/lib/agent">;
 }
-declare module 'supertest/lib/test.js' {
-  declare module.exports: $Exports<'supertest/lib/test'>;
+declare module "supertest/lib/test.js" {
+  declare module.exports: $Exports<"supertest/lib/test">;
 }
-declare module 'supertest/test/supertest.js' {
-  declare module.exports: $Exports<'supertest/test/supertest'>;
+declare module "supertest/test/supertest.js" {
+  declare module.exports: $Exports<"supertest/test/supertest">;
 }
