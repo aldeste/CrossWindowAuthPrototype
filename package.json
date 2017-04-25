@@ -21,6 +21,10 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "babel-plugin-dynamic-import-node": "^1.0.1",
+    "babel-plugin-relay": "^1.0.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-config-react-app": "^0.6.2",
@@ -33,6 +37,10 @@
     "jest": "^19.0.2",
     "lint-staged": "^3.4.0",
     "prettier": "^1.2.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-relay": "^0.10.0",
+    "react-test-renderer": "^15.5.4",
     "sqlite3": "^3.1.8",
     "styled-components": "^1.4.5",
     "supertest": "^3.0.0"
@@ -46,10 +54,11 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.js"
+      "src/**/*.js",
+      "example/**/*.js"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>[/\\\\](build|node_modules|scripts|config|example)[/\\\\]"
+      "<rootDir>[/\\\\](build|node_modules|scripts|config|example/config)[/\\\\]"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
