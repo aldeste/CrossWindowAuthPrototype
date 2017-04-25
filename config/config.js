@@ -1,4 +1,6 @@
-const APP_PORT = process.env.APP_PORT || 2000;
+const APP_PORT = process.env.APP_PORT || process.env.NODE_ENV === "test"
+  ? "3000"
+  : "2000";
 const APP_HOST = process.env.APP_HOST || "localhost";
 const APP_PROTOCOL = process.env.APP_PROTOCOL || "http";
 const DB_HOST = process.env.DB_HOST || "127.0.0.1";
