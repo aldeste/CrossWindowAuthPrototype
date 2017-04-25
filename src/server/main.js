@@ -2,6 +2,7 @@
 import express from "express";
 import graphqlHTTP from "express-graphql";
 import chalk from "chalk";
+import "../database";
 
 import { APP_PROTOCOL, APP_HOST, APP_PORT } from "../../config/config";
 // import swapiSchema from '../schema';
