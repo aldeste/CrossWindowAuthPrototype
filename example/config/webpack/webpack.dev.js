@@ -32,23 +32,23 @@ module.exports = {
       inject: true,
       template: join(process.cwd(), "src/index.html")
     })
-  ]
-  // devServer: {
-  //   publicPath: "/",
-  //   hot: true,
-  //   inline: true,
-  //   host: APP_HOST,
-  //   port: APP_PORT,
-  //   // Serve gzipped versions of everything for better
-  //   // bottleneck troubleshooting
-  //   compress: true,
-  //   // Ignore node_modules, as this can cause memory issues on some machines
-  //   watchOptions: { ignored: /node_modules/ },
-  //   // This all requests will be sent to index.html, as we're using a
-  //   // history API based router.
-  //   historyApiFallback: true,
-  //   contentBase: join(process.cwd(), "build"),
-  //   stats: "errors-only",
-  //   overlay: { errors: true, warnings: false }
-  // }
+  ],
+  devServer: {
+    publicPath: "/",
+    hot: true,
+    inline: true,
+    host: APP_HOST,
+    port: APP_PORT,
+    // Serve gzipped versions of everything for better
+    // bottleneck troubleshooting
+    compress: true,
+    // Ignore node_modules, as this can cause memory issues on some machines
+    watchOptions: { ignored: /node_modules/ },
+    // This all requests will be sent to index.html, as we're using a
+    // history API based router.
+    historyApiFallback: true,
+    contentBase: join(process.cwd(), "build"),
+    stats: "errors-only",
+    overlay: { errors: true, warnings: false }
+  }
 };

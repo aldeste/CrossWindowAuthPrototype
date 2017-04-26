@@ -68,6 +68,6 @@ const baseSettup = {
 };
 
 module.exports = env =>
-  env === "production"
+  (env === "production"
     ? merge.smart(baseSettup, require("./webpack.prod.js"))
-    : merge.smart(baseSettup, require("./webpack.dev.js"));
+    : merge.smart(baseSettup, require("./webpack.dev.js")));
