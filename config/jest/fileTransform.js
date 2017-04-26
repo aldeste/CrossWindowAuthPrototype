@@ -1,4 +1,3 @@
-"use strict";
 // Transform jest file imports to return filename as string
 // http://facebook.github.io/jest/docs/tutorial-webpack.html
 
