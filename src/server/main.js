@@ -5,7 +5,7 @@ import chalk from "chalk";
 import "../database";
 
 import { APP_PROTOCOL, APP_HOST, APP_PORT } from "../../config/config";
-// import swapiSchema from '../schema';
+// import Scheme from '../schema';
 import type { $Request, $Response, $Application } from "express";
 
 const app: $Application = express();
@@ -18,7 +18,7 @@ app.all("/graphql", (req: $Request, res: $Response): $Response =>
 app.use(
   "/",
   graphqlHTTP((): Object => ({
-    schema: "swapiSchema",
+    schema: "Scheme",
     graphiql: true
   }))
 );

@@ -14,7 +14,7 @@ afterEach(() => {
 describe("Express server starts server", () => {
   it("gives a response when accessing '/'", async () => {
     const response = await supertest(server).get("/");
-    expect(response.status).toMatchSnapshot();
+    expect(response.status).toBe(400);
   });
 
   it("redirects '/graphql' to '/'", async () => {

@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Express server starts server gives a response when accessing '/' 1`] = `400`;
