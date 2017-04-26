@@ -22,7 +22,7 @@
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-plugin-dynamic-import-node": "^1.0.1",
-    "babel-plugin-relay": "^1.0.0",
+    "babel-plugin-relay": "1.0.1-rc.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -55,7 +55,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
-      "example/**/*.js"
+      "example/src/**/*.js"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>[/\\\\](build|node_modules|scripts|config|example/config)[/\\\\]"
