@@ -9,3 +9,6 @@ require("dotenv").config({ silent: true });
 
 // Require the entry to our application.
 require("./server/main");
+
+// Initialize database
+require("./database").initializeDatabase();

@@ -10,7 +10,12 @@ export default async function generateMockData(
 
     await Promise.all(
       peopleDummy.map(({ node: person }) =>
-        Person.create({ ...person, id: null, password: "password" })
+        Person.create({
+          ...person,
+          id: null,
+          token: person.id,
+          password: "password"
+        })
       )
     );
 
