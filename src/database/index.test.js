@@ -20,7 +20,12 @@ jest.mock("./databaseConnection", () => ({
   }
 }));
 
-const { default: connection, Person, Planet } = require("./");
+const {
+  default: connection,
+  Person,
+  Planet,
+  initializeDatabase
+} = require("./");
 
 describe("Modules are defined", () => {
   Promise.all(
@@ -31,6 +36,7 @@ describe("Modules are defined", () => {
 });
 
 describe("Connection goes through settup", () => {
+  initializeDatabase();
   it("Passes connection", () => expect(connection).toBeDefined());
 });
 

@@ -10,6 +10,9 @@ jest.mock("dotenv", () => {
   };
 });
 jest.mock("babel-register", () => mockFunctionFileLoaded("babel-register"));
+jest.mock("./database", () => ({
+  initializeDatabase: () => mockFunctionFileLoaded("initializeDatabase()")
+}));
 
 describe("index file", () => {
   require("./");
@@ -24,4 +27,8 @@ describe("index file", () => {
     ));
   it("Includes babel-register", () =>
     expect(mockFunctionFileLoaded).toHaveBeenCalledWith("babel-register"));
+  it("Initializes the database", () =>
+    expect(mockFunctionFileLoaded).toHaveBeenCalledWith(
+      "initializeDatabase()"
+    ));
 });
