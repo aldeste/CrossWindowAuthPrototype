@@ -37,10 +37,11 @@
     "jest": "^19.0.2",
     "lint-staged": "^3.4.0",
     "prettier": "^1.2.2",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-relay": "^0.10.0",
-    "react-test-renderer": "^15.5.4",
+    "react": "16.0.0-alpha.11",
+    "react-dom": "16.0.0-alpha.11",
+    "react-hot-loader": "3.0.0-beta.6",
+    "react-relay": "1.0.0-rc.2",
+    "react-test-renderer": "16.0.0-alpha.11",
     "sqlite3": "^3.1.8",
     "styled-components": "^1.4.5",
     "supertest": "^3.0.0"
@@ -48,7 +49,7 @@
   "scripts": {
     "lint": "eslint **/*.js",
     "precommit": "lint-staged",
-    "start": "nodemon ./src",
+    "start": "nodemon ./src && webpack-dev-server ./example/config/webpack/webpack.base.js --env=dev",
     "test": "jest",
     "test:cov": "jest --coverage"
   },
