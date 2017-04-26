@@ -12,7 +12,7 @@ const renderApp = Component =>
     </AppContainer>,
     document.getElementById("root")
   );
-
+export default renderApp;
 renderApp(App);
 
 // Hot Module Replacement API.
