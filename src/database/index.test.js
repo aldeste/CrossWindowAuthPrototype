@@ -1,3 +1,5 @@
+const mockFunctionFileLoaded = jest.fn();
+
 jest.mock("./modules", () => ({
   Planet: {
     hasMany: () => jest.fn()
@@ -10,12 +12,15 @@ jest.mock("./modules", () => ({
 }));
 
 jest.mock("./databaseConnection", () => ({
-  sync: () => ({
-    then: () => jest.fn()
-  })
+  sync: () => {
+    mockFunctionFileLoaded("databaseConnection.sync");
+    return {
+      then: () => jest.fn()
+    };
+  }
 }));
 
-const { default: connection, Person, Planet, generateMockData } = require("./");
+const { default: connection, Person, Planet } = require("./");
 
 describe("Modules are defined", () => {
   Promise.all(
@@ -29,10 +34,9 @@ describe("Connection goes through settup", () => {
   it("Passes connection", () => expect(connection).toBeDefined());
 });
 
-// describe("generateMockData", () => {
-//   console.log = () => ({});
-//   it("Generates mock data if forced is true", async () =>
-//     await generateMockData(true));
-//   it("Goesnt generates mock data if forced is false", async () =>
-//     await generateMockData(false));
-// });
+describe("Connection is synched", () => {
+  it("Passes connection", () =>
+    expect(mockFunctionFileLoaded).toHaveBeenCalledWith(
+      "databaseConnection.sync"
+    ));
+});

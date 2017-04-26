@@ -1,11 +1,14 @@
-const connection = require("./databaseConnection").default;
+jest.mock("sequelize", () => jest.fn());
+const sequelize = require("sequelize");
+const configure = require("../../config/config");
+const connection = require("./databaseConnection");
 
 describe("databseConnections", () => {
   it("runs without problems", () => expect(connection).toBeDefined());
   it("contains a username", () =>
-    expect(connection.config.username).toBeDefined());
+    expect(sequelize.mock.calls[0][1]).toBe(configure.DB_USER));
   it("contains a password", () =>
-    expect(connection.config.password).toBeDefined());
+    expect(sequelize.mock.calls[0][2]).toBe(configure.DB_PASS));
   it("defines a current dialect", () =>
-    expect(connection.options.dialect).toBeDefined());
+    expect(sequelize.mock.calls[0][3].dialect).toBe("sqlite"));
 });
