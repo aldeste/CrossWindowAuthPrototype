@@ -1,10 +1,27 @@
 // We don't need to run each file,
 // we just check that it's included
-jest.mock("./server/main", () => "main.js");
-jest.mock("dotenv", () => ({ config: () => "dotenv.config" }));
-jest.mock("babel-register", () => "babel-register");
+const mockFunctionFileLoaded = jest.fn();
+jest.mock("./server/main", () => mockFunctionFileLoaded("main"));
+jest.mock("dotenv", () => {
+  mockFunctionFileLoaded("dotenv");
+  return {
+    config: config =>
+      mockFunctionFileLoaded(`dotenv.config({silent: ${config.silent}})`)
+  };
+});
+jest.mock("babel-register", () => mockFunctionFileLoaded("babel-register"));
 
 describe("index file", () => {
   require("./");
-  it("includes all setup dependencies", done => done());
+  it("It runs without failing", done => done());
+  it("Includes ./server/main", () =>
+    expect(mockFunctionFileLoaded).toHaveBeenCalledWith("main"));
+  it("Includes dotenv", () =>
+    expect(mockFunctionFileLoaded).toHaveBeenCalledWith("dotenv"));
+  it("Silently fails if dotenv isn't present", () =>
+    expect(mockFunctionFileLoaded).toHaveBeenCalledWith(
+      "dotenv.config({silent: true})"
+    ));
+  it("Includes babel-register", () =>
+    expect(mockFunctionFileLoaded).toHaveBeenCalledWith("babel-register"));
 });
