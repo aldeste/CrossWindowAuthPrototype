@@ -1,7 +1,7 @@
 const { join } = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { APP_PORT, APP_HOST } = require("../config");
+const { APP_PORT, APP_HOST } = require("../../../config/config");
 
 const sharedCache = {};
 
@@ -9,10 +9,10 @@ module.exports = {
   cache: sharedCache,
   entry: [
     "react-hot-loader/patch",
-    // `webpack-dev-server/client?http://${APP_HOST}:${APP_PORT}`,
-    // "webpack/hot/only-dev-server",
-    "webpack-hot-middleware/client?reload=true",
-    join(process.cwd(), "src/index.js")
+    `webpack-dev-server/client?http://${APP_HOST}:${APP_PORT * 2}`,
+    "webpack/hot/only-dev-server",
+    // "webpack-hot-middleware/client?reload=true",
+    join(process.cwd(), "example/src/index.js")
   ],
   output: {
     filename: "[name].js",
@@ -30,7 +30,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: true,
-      template: join(process.cwd(), "src/index.html")
+      template: join(process.cwd(), "example/src/index.html")
     })
   ],
   devServer: {
@@ -38,7 +38,8 @@ module.exports = {
     hot: true,
     inline: true,
     host: APP_HOST,
-    port: APP_PORT,
+    port: APP_PORT * 2,
+    proxy: { "/graphql": `http://${APP_HOST}:${APP_PORT}/graphql` },
     // Serve gzipped versions of everything for better
     // bottleneck troubleshooting
     compress: true,

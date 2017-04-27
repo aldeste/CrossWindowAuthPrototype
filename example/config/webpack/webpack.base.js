@@ -12,7 +12,13 @@ const baseSettup = {
     loaders: [
       {
         test: /\.jsx?$/,
-        use: "babel-loader?cacheDirectory",
+        use: {
+          loader: "babel-loader",
+          options: {
+            cacheDirectory: true,
+            presets: ["../config/babel.js"]
+          }
+        },
         exclude: /node_modules/,
         parser: {
           amd: false, // disable AMD
@@ -27,18 +33,23 @@ const baseSettup = {
           node: true // disable __dirname, __filename, module, require.extensions, require.main, etc.
         }
       },
+      // We don't need CSS files.
       {
         test: /\.css$/,
         use: [
           "style-loader",
-          "css-loader?modules&importLoaders=1&localIdentName=[emoji]",
-          "postcss-loader"
+          "css-loader?modules&importLoaders=1&localIdentName=[emoji]"
         ]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         use: "file-loader?name=[name].[ext]&limit=10000"
       },
+      // We don't need json files
+      // {
+      //   test: /\.json$/,
+      //   use: "json-loader"
+      // },
       {
         exclude: [/\.html$/, /\.js$/, /\.css$/, /\.json$/, /\.svg$/],
         loader: "url-loader",
@@ -46,10 +57,6 @@ const baseSettup = {
           limit: 10000,
           name: "media/[name].[hash:5].[ext]"
         }
-      },
-      {
-        test: /\.json$/,
-        use: "json-loader"
       }
     ]
   },
