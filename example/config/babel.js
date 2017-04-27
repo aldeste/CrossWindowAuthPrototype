@@ -12,7 +12,7 @@ const plugins = [
       // Othwehise hash name.
       displayName: env !== "production",
       // Remove stylis from runtime, preproccessing css using babel
-      preprocess: true
+      preprocess: env === "production"
     }
   ],
   [
