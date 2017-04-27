@@ -14,5 +14,8 @@ exports[`renders without crashing 1`] = `
   >
     I am button
   </button>
+  <input
+    className="TextInput__Text-jwTuSF hJjHLQ"
+  />
 </div>
 `;

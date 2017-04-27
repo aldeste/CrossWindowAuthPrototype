@@ -8,5 +8,6 @@ exports[`Login react component Matches earlier configuration 1`] = `
   <button__Button>
     I am button
   </button__Button>
+  <TextInput__Text />
 </View__View>
 `;

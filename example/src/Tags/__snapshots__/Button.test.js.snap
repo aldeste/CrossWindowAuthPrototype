@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button tag Matches earlier configuration 1`] = `
+
+
+.jgSpaE {
+  padding: .5rem 1rem;
+  cursor: pointer;
+  -webkit-transition: background 100ms linear;
+  transition: background 100ms linear;
+  color: white;
+  border: 0;
+  background: hsl(161,97%,38%);
+}
+
+.jgSpaE:hover {
+  background: hsl(161,97%,33%);
+}
+
+<button
+  className="button__Button-hQGLow jgSpaE"
+/>
+`;
+
+exports[`Button tag Matches earlier configuration if alt prop is true 1`] = `
+
+
+.fxSRBs {
+  padding: .5rem 1rem;
+  cursor: pointer;
+  -webkit-transition: background 100ms linear;
+  transition: background 100ms linear;
+  color: white;
+  border: 0;
+  background: hsl(289,65%,52%);
+}
+
+.fxSRBs:hover {
+  background: hsl(289,65%,47%);
+}
+
+<button
+  alt={true}
+  className="button__Button-hQGLow fxSRBs"
+/>
+`;
