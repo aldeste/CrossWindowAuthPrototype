@@ -15,7 +15,7 @@
     "express": "^4.15.2",
     "express-graphql": "^0.6.4",
     "graphql": "^0.9.3",
-    "immutable": "^3.8.1",
+    "immutable": "4.0.0-rc.2",
     "mysql": "^2.13.0",
     "sequelize": "^3.30.4"
   },
@@ -40,10 +40,10 @@
     "react": "16.0.0-alpha.11",
     "react-dom": "16.0.0-alpha.11",
     "react-hot-loader": "3.0.0-beta.6",
-    "react-relay": "1.0.0-rc.2",
+    "react-relay": "1.0.0-rc.3",
     "react-test-renderer": "16.0.0-alpha.11",
     "sqlite3": "^3.1.8",
-    "styled-components": "^1.4.5",
+    "styled-components": "2.0.0-15",
     "supertest": "^3.0.0"
   },
   "scripts": {
@@ -77,7 +77,7 @@
     ]
   },
   "lint-staged": {
-    "*.{js,js.flow}": [
+    "{config,example,src}/**/*.{js,js.flow}": [
       "eslint --fix",
       "prettier --write",
       "git add"

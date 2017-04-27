@@ -13,7 +13,7 @@
  * https://github.com/flowtype/flow-typed
  */
 
-declare module "express-graphql" {
+declare module 'express-graphql' {
   declare module.exports: any;
 }
 
@@ -22,25 +22,25 @@ declare module "express-graphql" {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module "express-graphql/dist/index" {
+declare module 'express-graphql/dist/index' {
   declare module.exports: any;
 }
 
-declare module "express-graphql/dist/parseBody" {
+declare module 'express-graphql/dist/parseBody' {
   declare module.exports: any;
 }
 
-declare module "express-graphql/dist/renderGraphiQL" {
+declare module 'express-graphql/dist/renderGraphiQL' {
   declare module.exports: any;
 }
 
 // Filename aliases
-declare module "express-graphql/dist/index.js" {
-  declare module.exports: $Exports<"express-graphql/dist/index">;
+declare module 'express-graphql/dist/index.js' {
+  declare module.exports: $Exports<'express-graphql/dist/index'>;
 }
-declare module "express-graphql/dist/parseBody.js" {
-  declare module.exports: $Exports<"express-graphql/dist/parseBody">;
+declare module 'express-graphql/dist/parseBody.js' {
+  declare module.exports: $Exports<'express-graphql/dist/parseBody'>;
 }
-declare module "express-graphql/dist/renderGraphiQL.js" {
-  declare module.exports: $Exports<"express-graphql/dist/renderGraphiQL">;
+declare module 'express-graphql/dist/renderGraphiQL.js' {
+  declare module.exports: $Exports<'express-graphql/dist/renderGraphiQL'>;
 }

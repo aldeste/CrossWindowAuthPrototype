@@ -13,7 +13,7 @@
  * https://github.com/flowtype/flow-typed
  */
 
-declare module "lint-staged" {
+declare module 'lint-staged' {
   declare module.exports: any;
 }
 
@@ -22,80 +22,80 @@ declare module "lint-staged" {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module "lint-staged/src/findBin" {
+declare module 'lint-staged/src/findBin' {
   declare module.exports: any;
 }
 
-declare module "lint-staged/src/generateTasks" {
+declare module 'lint-staged/src/generateTasks' {
   declare module.exports: any;
 }
 
-declare module "lint-staged/src/index" {
+declare module 'lint-staged/src/index' {
   declare module.exports: any;
 }
 
-declare module "lint-staged/src/runScript" {
+declare module 'lint-staged/src/runScript' {
   declare module.exports: any;
 }
 
-declare module "lint-staged/test/__mocks__/execa" {
+declare module 'lint-staged/test/__mocks__/execa' {
   declare module.exports: any;
 }
 
-declare module "lint-staged/test/__mocks__/npm-which" {
+declare module 'lint-staged/test/__mocks__/npm-which' {
   declare module.exports: any;
 }
 
-declare module "lint-staged/test/findBin.spec" {
+declare module 'lint-staged/test/findBin.spec' {
   declare module.exports: any;
 }
 
-declare module "lint-staged/test/generateTasks.spec" {
+declare module 'lint-staged/test/generateTasks.spec' {
   declare module.exports: any;
 }
 
-declare module "lint-staged/test/runScript.spec" {
+declare module 'lint-staged/test/runScript.spec' {
   declare module.exports: any;
 }
 
-declare module "lint-staged/wallaby" {
+declare module 'lint-staged/wallaby' {
   declare module.exports: any;
 }
 
 // Filename aliases
-declare module "lint-staged/index" {
-  declare module.exports: $Exports<"lint-staged">;
+declare module 'lint-staged/index' {
+  declare module.exports: $Exports<'lint-staged'>;
 }
-declare module "lint-staged/index.js" {
-  declare module.exports: $Exports<"lint-staged">;
+declare module 'lint-staged/index.js' {
+  declare module.exports: $Exports<'lint-staged'>;
 }
-declare module "lint-staged/src/findBin.js" {
-  declare module.exports: $Exports<"lint-staged/src/findBin">;
+declare module 'lint-staged/src/findBin.js' {
+  declare module.exports: $Exports<'lint-staged/src/findBin'>;
 }
-declare module "lint-staged/src/generateTasks.js" {
-  declare module.exports: $Exports<"lint-staged/src/generateTasks">;
+declare module 'lint-staged/src/generateTasks.js' {
+  declare module.exports: $Exports<'lint-staged/src/generateTasks'>;
 }
-declare module "lint-staged/src/index.js" {
-  declare module.exports: $Exports<"lint-staged/src/index">;
+declare module 'lint-staged/src/index.js' {
+  declare module.exports: $Exports<'lint-staged/src/index'>;
 }
-declare module "lint-staged/src/runScript.js" {
-  declare module.exports: $Exports<"lint-staged/src/runScript">;
+declare module 'lint-staged/src/runScript.js' {
+  declare module.exports: $Exports<'lint-staged/src/runScript'>;
 }
-declare module "lint-staged/test/__mocks__/execa.js" {
-  declare module.exports: $Exports<"lint-staged/test/__mocks__/execa">;
+declare module 'lint-staged/test/__mocks__/execa.js' {
+  declare module.exports: $Exports<'lint-staged/test/__mocks__/execa'>;
 }
-declare module "lint-staged/test/__mocks__/npm-which.js" {
-  declare module.exports: $Exports<"lint-staged/test/__mocks__/npm-which">;
+declare module 'lint-staged/test/__mocks__/npm-which.js' {
+  declare module.exports: $Exports<'lint-staged/test/__mocks__/npm-which'>;
 }
-declare module "lint-staged/test/findBin.spec.js" {
-  declare module.exports: $Exports<"lint-staged/test/findBin.spec">;
+declare module 'lint-staged/test/findBin.spec.js' {
+  declare module.exports: $Exports<'lint-staged/test/findBin.spec'>;
 }
-declare module "lint-staged/test/generateTasks.spec.js" {
-  declare module.exports: $Exports<"lint-staged/test/generateTasks.spec">;
+declare module 'lint-staged/test/generateTasks.spec.js' {
+  declare module.exports: $Exports<'lint-staged/test/generateTasks.spec'>;
 }
-declare module "lint-staged/test/runScript.spec.js" {
-  declare module.exports: $Exports<"lint-staged/test/runScript.spec">;
+declare module 'lint-staged/test/runScript.spec.js' {
+  declare module.exports: $Exports<'lint-staged/test/runScript.spec'>;
 }
-declare module "lint-staged/wallaby.js" {
-  declare module.exports: $Exports<"lint-staged/wallaby">;
+declare module 'lint-staged/wallaby.js' {
+  declare module.exports: $Exports<'lint-staged/wallaby'>;
 }

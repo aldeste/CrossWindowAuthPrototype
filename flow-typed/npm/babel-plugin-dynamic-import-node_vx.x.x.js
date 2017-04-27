@@ -13,7 +13,7 @@
  * https://github.com/flowtype/flow-typed
  */
 
-declare module "babel-plugin-dynamic-import-node" {
+declare module 'babel-plugin-dynamic-import-node' {
   declare module.exports: any;
 }
 
@@ -22,13 +22,11 @@ declare module "babel-plugin-dynamic-import-node" {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module "babel-plugin-dynamic-import-node/lib/index" {
+declare module 'babel-plugin-dynamic-import-node/lib/index' {
   declare module.exports: any;
 }
 
 // Filename aliases
-declare module "babel-plugin-dynamic-import-node/lib/index.js" {
-  declare module.exports: $Exports<
-    "babel-plugin-dynamic-import-node/lib/index"
-  >;
+declare module 'babel-plugin-dynamic-import-node/lib/index.js' {
+  declare module.exports: $Exports<'babel-plugin-dynamic-import-node/lib/index'>;
 }

@@ -13,7 +13,7 @@
  * https://github.com/flowtype/flow-typed
  */
 
-declare module "sqlite3" {
+declare module 'sqlite3' {
   declare module.exports: any;
 }
 
@@ -22,32 +22,32 @@ declare module "sqlite3" {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module "sqlite3/lib/index" {
+declare module 'sqlite3/lib/index' {
   declare module.exports: any;
 }
 
-declare module "sqlite3/lib/sqlite3" {
+declare module 'sqlite3/lib/sqlite3' {
   declare module.exports: any;
 }
 
-declare module "sqlite3/lib/trace" {
+declare module 'sqlite3/lib/trace' {
   declare module.exports: any;
 }
 
-declare module "sqlite3/sqlite3" {
+declare module 'sqlite3/sqlite3' {
   declare module.exports: any;
 }
 
 // Filename aliases
-declare module "sqlite3/lib/index.js" {
-  declare module.exports: $Exports<"sqlite3/lib/index">;
+declare module 'sqlite3/lib/index.js' {
+  declare module.exports: $Exports<'sqlite3/lib/index'>;
 }
-declare module "sqlite3/lib/sqlite3.js" {
-  declare module.exports: $Exports<"sqlite3/lib/sqlite3">;
+declare module 'sqlite3/lib/sqlite3.js' {
+  declare module.exports: $Exports<'sqlite3/lib/sqlite3'>;
 }
-declare module "sqlite3/lib/trace.js" {
-  declare module.exports: $Exports<"sqlite3/lib/trace">;
+declare module 'sqlite3/lib/trace.js' {
+  declare module.exports: $Exports<'sqlite3/lib/trace'>;
 }
-declare module "sqlite3/sqlite3.js" {
-  declare module.exports: $Exports<"sqlite3/sqlite3">;
+declare module 'sqlite3/sqlite3.js' {
+  declare module.exports: $Exports<'sqlite3/sqlite3'>;
 }

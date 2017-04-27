@@ -1,6 +1,6 @@
 // @flow
 import express from "express";
-import graphqlHTTP from "express-graphql";
+import GraphHTTP from "express-graphql";
 import chalk from "chalk";
 
 import { APP_PROTOCOL, APP_HOST, APP_PORT } from "../../config/config";
@@ -16,10 +16,25 @@ app.all("/graphql", (req: $Request, res: $Response): $Response =>
 
 app.use(
   "/",
-  graphqlHTTP((): Object => ({
-    schema: "Scheme",
-    graphiql: true
-  }))
+  // graphqlHTTP((): Object => ({
+  //   schema: "Scheme",
+  //   graphiql: true
+  // }))
+  GraphHTTP(() => {
+    const startTime = process.hrtime();
+    return {
+      schema: "Schema",
+      graphiql: true,
+      pretty: true,
+      context: { loaders: "createLoaders()" },
+      extensions({ document, variables, operationName, result }) {
+        const endTime = process.hrtime(startTime);
+        return {
+          runTime: `${endTime[0]} ${endTime[1] / 1000000}ms`
+        };
+      }
+    };
+  })
 );
 
 // start listening to random ports and addresses

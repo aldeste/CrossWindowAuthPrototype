@@ -13,7 +13,7 @@
  * https://github.com/flowtype/flow-typed
  */
 
-declare module "react-test-renderer" {
+declare module 'react-test-renderer' {
   declare module.exports: any;
 }
 
@@ -22,51 +22,45 @@ declare module "react-test-renderer" {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module "react-test-renderer/cjs/react-test-renderer-shallow.development" {
+declare module 'react-test-renderer/cjs/react-test-renderer-shallow.development' {
   declare module.exports: any;
 }
 
-declare module "react-test-renderer/cjs/react-test-renderer-stack.development" {
+declare module 'react-test-renderer/cjs/react-test-renderer-stack.development' {
   declare module.exports: any;
 }
 
-declare module "react-test-renderer/cjs/react-test-renderer.development" {
+declare module 'react-test-renderer/cjs/react-test-renderer.development' {
   declare module.exports: any;
 }
 
-declare module "react-test-renderer/shallow" {
+declare module 'react-test-renderer/shallow' {
   declare module.exports: any;
 }
 
-declare module "react-test-renderer/stack" {
+declare module 'react-test-renderer/stack' {
   declare module.exports: any;
 }
 
 // Filename aliases
-declare module "react-test-renderer/cjs/react-test-renderer-shallow.development.js" {
-  declare module.exports: $Exports<
-    "react-test-renderer/cjs/react-test-renderer-shallow.development"
-  >;
+declare module 'react-test-renderer/cjs/react-test-renderer-shallow.development.js' {
+  declare module.exports: $Exports<'react-test-renderer/cjs/react-test-renderer-shallow.development'>;
 }
-declare module "react-test-renderer/cjs/react-test-renderer-stack.development.js" {
-  declare module.exports: $Exports<
-    "react-test-renderer/cjs/react-test-renderer-stack.development"
-  >;
+declare module 'react-test-renderer/cjs/react-test-renderer-stack.development.js' {
+  declare module.exports: $Exports<'react-test-renderer/cjs/react-test-renderer-stack.development'>;
 }
-declare module "react-test-renderer/cjs/react-test-renderer.development.js" {
-  declare module.exports: $Exports<
-    "react-test-renderer/cjs/react-test-renderer.development"
-  >;
+declare module 'react-test-renderer/cjs/react-test-renderer.development.js' {
+  declare module.exports: $Exports<'react-test-renderer/cjs/react-test-renderer.development'>;
 }
-declare module "react-test-renderer/index" {
-  declare module.exports: $Exports<"react-test-renderer">;
+declare module 'react-test-renderer/index' {
+  declare module.exports: $Exports<'react-test-renderer'>;
 }
-declare module "react-test-renderer/index.js" {
-  declare module.exports: $Exports<"react-test-renderer">;
+declare module 'react-test-renderer/index.js' {
+  declare module.exports: $Exports<'react-test-renderer'>;
 }
-declare module "react-test-renderer/shallow.js" {
-  declare module.exports: $Exports<"react-test-renderer/shallow">;
+declare module 'react-test-renderer/shallow.js' {
+  declare module.exports: $Exports<'react-test-renderer/shallow'>;
 }
-declare module "react-test-renderer/stack.js" {
-  declare module.exports: $Exports<"react-test-renderer/stack">;
+declare module 'react-test-renderer/stack.js' {
+  declare module.exports: $Exports<'react-test-renderer/stack'>;
 }
