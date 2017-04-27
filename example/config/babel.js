@@ -6,6 +6,16 @@ const plugins = [
   // Remove flow types
   require.resolve("babel-plugin-transform-flow-strip-types"),
   [
+    require.resolve("babel-plugin-styled-components"),
+    {
+      // Display name of module if we're not in production,
+      // Othwehise hash name.
+      displayName: env !== "production",
+      // Remove stylis from runtime, preproccessing css using babel
+      preprocess: true
+    }
+  ],
+  [
     require.resolve("babel-plugin-transform-runtime"),
     {
       helpers: false,
