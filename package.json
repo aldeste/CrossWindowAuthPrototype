@@ -63,6 +63,8 @@
     "lint": "eslint **/*.js",
     "precommit": "lint-staged",
     "start": "nodemon ./src & cross-env NODE_ENV=development webpack-dev-server --config=./example/config/webpack/webpack.base.js --env=development",
+    "start:app": "nodemon ./src",
+    "start:example": "NODE_ENV=development webpack-dev-server --config=./example/config/webpack/webpack.base.js --env=development",
     "test": "jest",
     "test:cov": "jest --coverage"
   },
@@ -72,7 +74,7 @@
       "example/src/**/*.js"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>[/\\\\](build|node_modules|scripts|config|example/config)[/\\\\]"
+      "<rootDir>[/\\\\](coverage|node_modules|scripts|config|example/config)[/\\\\]"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
