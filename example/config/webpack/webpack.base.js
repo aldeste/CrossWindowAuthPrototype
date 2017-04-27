@@ -16,7 +16,7 @@ const baseSettup = {
           loader: "babel-loader",
           options: {
             cacheDirectory: true,
-            presets: ["../config/babel.js"]
+            presets: [resolve(process.cwd(), "example/config/babel.js")]
           }
         },
         exclude: /node_modules/,
