@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button tag Matches earlier configuration 1`] = `
+
+
+<currentTag />
+`;
+
+exports[`Text tag Matches earlier configuration 1`] = `
+
+
+<currentTag />
+`;
+
+exports[`TextInput tag Matches earlier configuration 1`] = `
+
+
+<currentTag />
+`;
+
+exports[`View tag Matches earlier configuration 1`] = `
+
+
+<currentTag />
+`;

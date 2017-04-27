@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login react component Matches earlier configuration 1`] = `
-<div>
-  TODO: MAKE COMPONENT
-</div>
+<View__View>
+  <Text__Text>
+    This is a logyn system for a Star Wars fansite
+  </Text__Text>
+  <button__Button>
+    I am button
+  </button__Button>
+</View__View>
 `;

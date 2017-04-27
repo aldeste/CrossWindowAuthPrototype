@@ -1,7 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing 1`] = `
-<p>
-  Rendered
-</p>
+<div
+  className="View__View-jelnfZ fIwvJd"
+>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
+    This is a logyn system for a Star Wars fansite
+  </p>
+  <button
+    className="button__Button-hQGLow jgSpaE"
+  >
+    I am button
+  </button>
+</div>
 `;

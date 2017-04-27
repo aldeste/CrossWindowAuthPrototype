@@ -1,7 +1,8 @@
 jest.mock("react-dom", () => ({ render: () => jest.fn() }));
+jest.mock("./App", () => jest.fn());
 const React = require("react");
 
-describe("Root", () => {
+describe("Root.dev", () => {
   global.document = {
     getElementById: () => ({
       on: () => ({})

@@ -1,5 +1,5 @@
 jest.mock("react-dom", () => ({ render: () => jest.fn() }));
-const React = require("react");
+jest.mock("./App", () => jest.fn());
 
 describe("Root", () => {
   global.document = {
