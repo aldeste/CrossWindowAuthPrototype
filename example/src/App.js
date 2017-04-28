@@ -1,14 +1,15 @@
 // @flow
 import React, { Component } from "react";
 import Login from "./Login/Login";
-import { ThemeProvider } from "styled-components";
+import Wrapper from "./Tags/Wrapper";
 
 class App extends Component<*, *, *> {
   render() {
     return (
-      <ThemeProvider theme={{ main: "hsl(283,79%,57%)" }}>
-        <Login />
-      </ThemeProvider>
+      <Wrapper>
+        <Login title="Star Wars fanclub login terminal" />
+        <Login title="Breaking Bad fanclub login terminal" />
+      </Wrapper>
     );
   }
 }
