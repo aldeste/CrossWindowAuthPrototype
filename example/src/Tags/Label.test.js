@@ -1,4 +1,4 @@
-import Text from "./Text";
+import Label from "./Label";
 import renderer from "react-test-renderer";
 import React from "react";
 // BUG: Theres a bug with jest-styled-components and styled-components 2.0.0-17, fix when updated.
@@ -9,17 +9,17 @@ import React from "react";
 //
 // Once fixed, replace toMatchSnapshot() with toMatchStyledComponentsSnapshot()
 
-describe("Text tag", () => {
+describe("Label tag", () => {
   it("Should be defined", () => {
-    expect(Text).toBeDefined();
+    expect(Label).toBeDefined();
   });
 
   it("Is a styled component", () => {
-    expect(Text.name).toBe("StyledComponent");
+    expect(Label.name).toBe("StyledComponent");
   });
 
   it("Matches earlier configuration", () => {
-    const tree = renderer.create(<Text />).toJSON();
+    const tree = renderer.create(<Label />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
