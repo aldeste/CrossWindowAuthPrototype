@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginButton react component Matches earlier configuration 1`] = `
+Object {
+  "children": "Form isn't disabled",
+  "disabled": false,
+}
+`;
+
+exports[`LoginButton react component Matches earlier configuration if disabled is activated 1`] = `
+Object {
+  "children": "Form is disabled",
+  "disabled": true,
+}
+`;

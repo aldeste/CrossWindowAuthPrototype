@@ -2,20 +2,95 @@
 
 exports[`renders without crashing 1`] = `
 <div
-  className="View__View-jelnfZ fIwvJd"
+  className="sc-bwzfXH bgBGiw View__View-jelnfZ fqjbqR"
 >
-  <p
-    className="Text__Text-jpiXUO hvuOVR"
+  <div
+    className="View__View-jelnfZ fqjbqR"
   >
-    This is a logyn system for a Star Wars fansite
-  </p>
-  <button
-    className="button__Button-hQGLow jgSpaE"
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
+      Star Wars fanclub login terminal
+    </p>
+    <form
+      className="sc-htpNat bKrULw"
+    >
+      <label
+        className="Label__Label-jsURsk cLnDMX"
+      >
+        Enter username
+      </label>
+      <input
+        className="TextInput__Text-jwTuSF eOsJoT"
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        value=""
+      />
+      <label
+        className="Label__Label-jsURsk cLnDMX"
+      >
+        Enter password
+      </label>
+      <input
+        className="TextInput__Text-jwTuSF eOsJoT"
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+      <button
+        className="sc-bdVaJa cQyNrO"
+        disabled={true}
+      >
+        Form fields not valid
+      </button>
+    </form>
+  </div>
+  <div
+    className="View__View-jelnfZ fqjbqR"
   >
-    I am button
-  </button>
-  <input
-    className="TextInput__Text-jwTuSF hJjHLQ"
-  />
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
+      Breaking Bad fanclub login terminal
+    </p>
+    <form
+      className="sc-htpNat bKrULw"
+    >
+      <label
+        className="Label__Label-jsURsk cLnDMX"
+      >
+        Enter username
+      </label>
+      <input
+        className="TextInput__Text-jwTuSF eOsJoT"
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        value=""
+      />
+      <label
+        className="Label__Label-jsURsk cLnDMX"
+      >
+        Enter password
+      </label>
+      <input
+        className="TextInput__Text-jwTuSF eOsJoT"
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+      <button
+        className="sc-bdVaJa cQyNrO"
+        disabled={true}
+      >
+        Form fields not valid
+      </button>
+    </form>
+  </div>
 </div>
 `;

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form tag Horizontal matches earlier configuration 1`] = `
+<form
+  className="sc-bdVaJa egBWns"
+/>
+`;
+
+exports[`Form tag Matches earlier configuration 1`] = `
+<form
+  className="sc-bdVaJa fmXROn"
+/>
+`;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`View tag Matches earlier configuration 1`] = `
+exports[`Wrapper tag Matches earlier configuration 1`] = `
 <div
   className=""
 />

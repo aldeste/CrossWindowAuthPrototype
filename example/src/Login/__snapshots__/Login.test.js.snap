@@ -1,13 +1,126 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Login react component Enterint text in input changes value 1`] = `
+Array [
+  <input
+    className="TextInput__Text-jwTuSF eOsJoT"
+    name="username"
+    onChange={[Function]}
+    placeholder="Username"
+    value=""
+/>,
+  <input
+    className="TextInput__Text-jwTuSF eOsJoT"
+    name="password"
+    onChange={[Function]}
+    placeholder="Password"
+    type="password"
+    value=""
+/>,
+]
+`;
+
+exports[`Login react component Enterint text in input changes value 2`] = `
+Array [
+  <input
+    className="TextInput__Text-jwTuSF eOsJoT"
+    name="username"
+    onChange={[Function]}
+    placeholder="Username"
+    value="haschanged"
+/>,
+  <input
+    className="TextInput__Text-jwTuSF eOsJoT"
+    name="password"
+    onChange={[Function]}
+    placeholder="Password"
+    type="password"
+    value="haschanged"
+/>,
+]
+`;
+
 exports[`Login react component Matches earlier configuration 1`] = `
-<View__View>
-  <Text__Text>
-    This is a logyn system for a Star Wars fansite
-  </Text__Text>
-  <button__Button>
-    I am button
-  </button__Button>
-  <TextInput__Text />
-</View__View>
+<div
+  className="View__View-jelnfZ fqjbqR"
+>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  />
+  <form
+    className="sc-htpNat bKrULw"
+  >
+    <label
+      className="Label__Label-jsURsk cLnDMX"
+    >
+      Enter username
+    </label>
+    <input
+      className="TextInput__Text-jwTuSF eOsJoT"
+      name="username"
+      onChange={[Function]}
+      placeholder="Username"
+      value=""
+    />
+    <label
+      className="Label__Label-jsURsk cLnDMX"
+    >
+      Enter password
+    </label>
+    <input
+      className="TextInput__Text-jwTuSF eOsJoT"
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value=""
+    />
+    <button
+      className="sc-bdVaJa cQyNrO"
+      disabled={true}
+    >
+      Form fields not valid
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Login react component enterint text in input changes value 1`] = `
+Array [
+  <input
+    className="TextInput__Text-jwTuSF eOsJoT"
+    name="username"
+    onChange={[Function]}
+    placeholder="Username"
+    value=""
+/>,
+  <input
+    className="TextInput__Text-jwTuSF eOsJoT"
+    name="password"
+    onChange={[Function]}
+    placeholder="Password"
+    type="password"
+    value=""
+/>,
+]
+`;
+
+exports[`Login react component enterint text in input changes value 2`] = `
+Array [
+  <input
+    className="TextInput__Text-jwTuSF eOsJoT"
+    name="username"
+    onChange={[Function]}
+    placeholder="Username"
+    value="haschanged"
+/>,
+  <input
+    className="TextInput__Text-jwTuSF eOsJoT"
+    name="password"
+    onChange={[Function]}
+    placeholder="Password"
+    type="password"
+    value="haschanged"
+/>,
+]
 `;
