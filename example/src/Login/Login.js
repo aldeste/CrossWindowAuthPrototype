@@ -1,18 +1,19 @@
 // @flow
 import React from "react";
-import { Text, View, Label, Form, TextInput } from "../Tags";
+import { Text, View, Form, Title } from "../Tags";
 import LoginButton from "./LoginButton";
-
-type Props = {
-  title: string
-};
+import Input from "./Input";
 
 type State = {
   username: string,
   password: string
 };
 
-class Login extends React.Component<void, Props, State> {
+type Props = {
+  title: string
+};
+
+class Login extends React.PureComponent<*, Props, State> {
   state = {
     username: "",
     password: ""
@@ -32,32 +33,29 @@ class Login extends React.Component<void, Props, State> {
 
     return (
       <View>
-        <Text>{this.props.title}</Text>
+        <Title>{this.props.title}</Title>
+        <Text>Please log in</Text>
         <Form>
-
-          <Label>Enter username</Label>
-          <TextInput
+          <Input
+            label="Username"
             placeholder="Username"
             name="username"
             value={this.state.username}
             onChange={this.handleInputChange}
           />
-
-          <Label>Enter password</Label>
-          <TextInput
+          <Input
+            label="Password"
             placeholder="Password"
-            type="password"
             name="password"
+            type="password"
             value={this.state.password}
             onChange={this.handleInputChange}
           />
-
           <LoginButton
             disabled={!formValid}
             value="Sign in"
             disabledValue={"Form fields not valid"}
           />
-
         </Form>
       </View>
     );

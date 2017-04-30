@@ -7,8 +7,8 @@ class App extends Component<*, *, *> {
   render() {
     return (
       <Wrapper>
-        <Login title="Star Wars fanclub login terminal" />
-        <Login title="Breaking Bad fanclub login terminal" />
+        <Login title="Star Wars login" />
+        <Login title="Breaking Bad login" />
       </Wrapper>
     );
   }

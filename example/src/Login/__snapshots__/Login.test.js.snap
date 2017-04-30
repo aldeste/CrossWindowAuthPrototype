@@ -3,14 +3,14 @@
 exports[`Login react component Enterint text in input changes value 1`] = `
 Array [
   <input
-    className="TextInput__Text-jwTuSF eOsJoT"
+    className="sc-htpNat dEzyOx"
     name="username"
     onChange={[Function]}
     placeholder="Username"
     value=""
 />,
   <input
-    className="TextInput__Text-jwTuSF eOsJoT"
+    className="sc-htpNat dEzyOx"
     name="password"
     onChange={[Function]}
     placeholder="Password"
@@ -23,14 +23,14 @@ Array [
 exports[`Login react component Enterint text in input changes value 2`] = `
 Array [
   <input
-    className="TextInput__Text-jwTuSF eOsJoT"
+    className="sc-htpNat dEzyOx"
     name="username"
     onChange={[Function]}
     placeholder="Username"
     value="haschanged"
 />,
   <input
-    className="TextInput__Text-jwTuSF eOsJoT"
+    className="sc-htpNat dEzyOx"
     name="password"
     onChange={[Function]}
     placeholder="Password"
@@ -42,85 +42,62 @@ Array [
 
 exports[`Login react component Matches earlier configuration 1`] = `
 <div
-  className="View__View-jelnfZ fqjbqR"
+  className="sc-bwzfXH LjeLm"
 >
+  <h1
+    className="sc-ifAKCX bCoRWN"
+  />
   <p
     className="Text__Text-jpiXUO hvuOVR"
-  />
-  <form
-    className="sc-htpNat bKrULw"
   >
-    <label
-      className="Label__Label-jsURsk cLnDMX"
+    Please log in
+  </p>
+  <form
+    className="sc-bZQynM frHjIn"
+  >
+    <div
+      className="sc-bwzfXH LjeLm"
     >
-      Enter username
-    </label>
-    <input
-      className="TextInput__Text-jwTuSF eOsJoT"
-      name="username"
-      onChange={[Function]}
-      placeholder="Username"
-      value=""
-    />
-    <label
-      className="Label__Label-jsURsk cLnDMX"
+      <label
+        className="sc-EHOje iuNngy"
+        htmlFor="username"
+        required={false}
+      >
+        Username
+      </label>
+      <input
+        className="sc-htpNat dEzyOx"
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        value=""
+      />
+    </div>
+    <div
+      className="sc-bwzfXH LjeLm"
     >
-      Enter password
-    </label>
-    <input
-      className="TextInput__Text-jwTuSF eOsJoT"
-      name="password"
-      onChange={[Function]}
-      placeholder="Password"
-      type="password"
-      value=""
-    />
+      <label
+        className="sc-EHOje iuNngy"
+        htmlFor="password"
+        required={false}
+      >
+        Password
+      </label>
+      <input
+        className="sc-htpNat dEzyOx"
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+    </div>
     <button
-      className="sc-bdVaJa cQyNrO"
+      className="sc-bdVaJa VFhxl"
       disabled={true}
     >
       Form fields not valid
     </button>
   </form>
 </div>
-`;
-
-exports[`Login react component enterint text in input changes value 1`] = `
-Array [
-  <input
-    className="TextInput__Text-jwTuSF eOsJoT"
-    name="username"
-    onChange={[Function]}
-    placeholder="Username"
-    value=""
-/>,
-  <input
-    className="TextInput__Text-jwTuSF eOsJoT"
-    name="password"
-    onChange={[Function]}
-    placeholder="Password"
-    type="password"
-    value=""
-/>,
-]
-`;
-
-exports[`Login react component enterint text in input changes value 2`] = `
-Array [
-  <input
-    className="TextInput__Text-jwTuSF eOsJoT"
-    name="username"
-    onChange={[Function]}
-    placeholder="Username"
-    value="haschanged"
-/>,
-  <input
-    className="TextInput__Text-jwTuSF eOsJoT"
-    name="password"
-    onChange={[Function]}
-    placeholder="Password"
-    type="password"
-    value="haschanged"
-/>,
-]
 `;

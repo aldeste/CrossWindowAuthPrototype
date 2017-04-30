@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Welcome react component Matches earlier configuration 1`] = `
-<View__View>
-  <Text__Text />
+<styled.div>
+  <styled.h1 />
   <Text__Text>
     You're logged in as 
   </Text__Text>
@@ -11,5 +11,5 @@ exports[`Welcome react component Matches earlier configuration 1`] = `
   >
     Log out
   </styled.button>
-</View__View>
+</styled.div>
 `;

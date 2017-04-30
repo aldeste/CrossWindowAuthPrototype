@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i');*/
 
 * {
   box-sizing: border-box;
@@ -10,14 +10,14 @@
   box-sizing: inherit;
 }
 
-:root {
+/*:root {
   font-family: sans-serif;
   font-size: 18px;
   line-height: 1.7;
   color: #333;
-}
+}*/
 
-html {
+/*html {
   cursor: default;
 }
 
@@ -44,4 +44,4 @@ a {
 
 a:hover {
   opacity: 0.8;
-}
+}*/

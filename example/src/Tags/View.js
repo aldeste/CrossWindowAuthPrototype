@@ -7,6 +7,10 @@ const View = styled.div`
   flex-flow: column;
   min-height: : 0;
   min-width: 0;
+
+  > * + * {
+    margin-top: 0.75em;
+  }
 `;
 
 export default View;

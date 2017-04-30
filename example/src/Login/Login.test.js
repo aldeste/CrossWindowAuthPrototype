@@ -14,24 +14,32 @@ describe("Login react component", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  const arrayOfInputFields = tree =>
+    tree.children
+      .find(e => e.type === "form")
+      .children.filter(e => e.type === "div")
+      .reduce(
+        (prev, next) => [
+          ...prev,
+          ...next.children.filter(e => e.type === "input")
+        ],
+        []
+      );
+
   it("Enterint text in input changes value", () => {
     const component = renderer.create(<Login />);
-    const inputFields = tree =>
-      tree.children
-        .find(e => e.type === "form")
-        .children.filter(e => e.type === "input");
     let tree = component.toJSON();
 
-    expect(inputFields(tree)).toMatchSnapshot();
+    expect(arrayOfInputFields(tree)).toMatchSnapshot();
 
-    inputFields(tree).forEach(e =>
+    arrayOfInputFields(tree).forEach(e =>
       e.props.onChange({
         target: { name: e.props.name, value: "haschanged" }
       })
     );
 
     tree = component.toJSON();
-    expect(inputFields(tree)).toMatchSnapshot();
+    expect(arrayOfInputFields(tree)).toMatchSnapshot();
   });
 
   it("Makrs button as valid if both fields has 5 characters", () => {
@@ -44,7 +52,7 @@ describe("Login react component", () => {
 
     expect(getFields(tree)("button")[0].props.disabled).toBe(true);
 
-    getFields(tree)("input").forEach(e =>
+    arrayOfInputFields(tree).forEach(e =>
       e.props.onChange({
         target: { name: e.props.name, value: "5 characters atleast" }
       })
@@ -59,37 +67,36 @@ describe("Login react component", () => {
     gen.string,
     randomString => {
       const component = renderer.create(<Login />);
-      const inputFields = tree =>
-        tree.children
-          .find(e => e.type === "form")
-          .children.find(e => e.type === "input");
-
       const tree = component.toJSON();
 
-      inputFields(tree).props.onChange({
-        target: { name: inputFields(tree).props.name, value: randomString }
+      arrayOfInputFields(tree)[0].props.onChange({
+        target: {
+          name: arrayOfInputFields(tree)[0].props.name,
+          value: randomString
+        }
       });
 
       const changedTree = component.toJSON();
 
-      expect(typeof inputFields(changedTree).props.value).toBe("string");
+      expect(typeof arrayOfInputFields(changedTree)[0].props.value).toBe(
+        "string"
+      );
     }
   );
 
   check.it("Removes whitespaces fom input", gen.string, randomString => {
     const component = renderer.create(<Login />);
-    const inputFields = tree =>
-      tree.children
-        .find(e => e.type === "form")
-        .children.find(e => e.type === "input");
     const tree = component.toJSON();
 
-    inputFields(tree).props.onChange({
-      target: { name: inputFields(tree).props.name, value: randomString }
+    arrayOfInputFields(tree)[0].props.onChange({
+      target: {
+        name: arrayOfInputFields(tree)[0].props.name,
+        value: randomString
+      }
     });
 
     const secondTree = component.toJSON();
 
-    expect(inputFields(secondTree).props.value).not.toContain(" ");
+    expect(arrayOfInputFields(secondTree)[0].props.value).not.toContain(" ");
   });
 });

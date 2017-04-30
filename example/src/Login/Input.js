@@ -1,9 +1,21 @@
 // @flow
 import React from "react";
-import { TextInput } from "../Tags";
+import { TextInput, Label, View } from "../Tags";
 
-const Input = (props: { type: string, placeholder: string }) => (
-  <TextInput {...props} />
+type Props = {
+  label: string,
+  placeholder: string,
+  name: string,
+  value: string,
+  onChange: Function,
+  type?: string,
+  required?: boolean
+};
+const Input = ({ required, label, ...inputProps }: Props): React$Element<*> => (
+  <View>
+    <Label required={!!required} htmlFor={inputProps.name}>{label}</Label>
+    <TextInput {...inputProps} />
+  </View>
 );
 
 export default Input;

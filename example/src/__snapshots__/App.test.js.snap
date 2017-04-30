@@ -2,46 +2,63 @@
 
 exports[`renders without crashing 1`] = `
 <div
-  className="sc-bwzfXH bgBGiw View__View-jelnfZ fqjbqR"
+  className="sc-bxivhb fDdtND sc-bwzfXH LjeLm"
 >
   <div
-    className="View__View-jelnfZ fqjbqR"
+    className="sc-bwzfXH LjeLm"
   >
+    <h1
+      className="sc-ifAKCX bCoRWN"
+    >
+      Star Wars login
+    </h1>
     <p
       className="Text__Text-jpiXUO hvuOVR"
     >
-      Star Wars fanclub login terminal
+      Please log in
     </p>
     <form
-      className="sc-htpNat bKrULw"
+      className="sc-bZQynM frHjIn"
     >
-      <label
-        className="Label__Label-jsURsk cLnDMX"
+      <div
+        className="sc-bwzfXH LjeLm"
       >
-        Enter username
-      </label>
-      <input
-        className="TextInput__Text-jwTuSF eOsJoT"
-        name="username"
-        onChange={[Function]}
-        placeholder="Username"
-        value=""
-      />
-      <label
-        className="Label__Label-jsURsk cLnDMX"
+        <label
+          className="sc-EHOje iuNngy"
+          htmlFor="username"
+          required={false}
+        >
+          Username
+        </label>
+        <input
+          className="sc-htpNat dEzyOx"
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          value=""
+        />
+      </div>
+      <div
+        className="sc-bwzfXH LjeLm"
       >
-        Enter password
-      </label>
-      <input
-        className="TextInput__Text-jwTuSF eOsJoT"
-        name="password"
-        onChange={[Function]}
-        placeholder="Password"
-        type="password"
-        value=""
-      />
+        <label
+          className="sc-EHOje iuNngy"
+          htmlFor="password"
+          required={false}
+        >
+          Password
+        </label>
+        <input
+          className="sc-htpNat dEzyOx"
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
       <button
-        className="sc-bdVaJa cQyNrO"
+        className="sc-bdVaJa VFhxl"
         disabled={true}
       >
         Form fields not valid
@@ -49,43 +66,60 @@ exports[`renders without crashing 1`] = `
     </form>
   </div>
   <div
-    className="View__View-jelnfZ fqjbqR"
+    className="sc-bwzfXH LjeLm"
   >
+    <h1
+      className="sc-ifAKCX bCoRWN"
+    >
+      Breaking Bad login
+    </h1>
     <p
       className="Text__Text-jpiXUO hvuOVR"
     >
-      Breaking Bad fanclub login terminal
+      Please log in
     </p>
     <form
-      className="sc-htpNat bKrULw"
+      className="sc-bZQynM frHjIn"
     >
-      <label
-        className="Label__Label-jsURsk cLnDMX"
+      <div
+        className="sc-bwzfXH LjeLm"
       >
-        Enter username
-      </label>
-      <input
-        className="TextInput__Text-jwTuSF eOsJoT"
-        name="username"
-        onChange={[Function]}
-        placeholder="Username"
-        value=""
-      />
-      <label
-        className="Label__Label-jsURsk cLnDMX"
+        <label
+          className="sc-EHOje iuNngy"
+          htmlFor="username"
+          required={false}
+        >
+          Username
+        </label>
+        <input
+          className="sc-htpNat dEzyOx"
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          value=""
+        />
+      </div>
+      <div
+        className="sc-bwzfXH LjeLm"
       >
-        Enter password
-      </label>
-      <input
-        className="TextInput__Text-jwTuSF eOsJoT"
-        name="password"
-        onChange={[Function]}
-        placeholder="Password"
-        type="password"
-        value=""
-      />
+        <label
+          className="sc-EHOje iuNngy"
+          htmlFor="password"
+          required={false}
+        >
+          Password
+        </label>
+        <input
+          className="sc-htpNat dEzyOx"
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
       <button
-        className="sc-bdVaJa cQyNrO"
+        className="sc-bdVaJa VFhxl"
         disabled={true}
       >
         Form fields not valid

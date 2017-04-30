@@ -2,6 +2,13 @@
 
 exports[`Label tag Matches earlier configuration 1`] = `
 <label
-  className="Label__Label-jsURsk cLnDMX"
+  className="sc-bdVaJa QTUjL"
+/>
+`;
+
+exports[`Label tag Matches earlier configuration if required is passed 1`] = `
+<label
+  className="sc-bdVaJa gPpDMU"
+  required={true}
 />
 `;
