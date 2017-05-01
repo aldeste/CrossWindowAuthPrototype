@@ -6,6 +6,7 @@ import chalk from "chalk";
 import { APP_PROTOCOL, APP_HOST, APP_PORT } from "../../config/config";
 // import Scheme from '../schema';
 import type { $Request, $Response, $Application } from "express";
+import hrTimer from "../utils/hrTimer";
 
 const app: $Application = express();
 
@@ -21,17 +22,14 @@ app.use(
   //   graphiql: true
   // }))
   GraphHTTP(() => {
-    const startTime = process.hrtime();
+    const timer = hrTimer();
     return {
       schema: "Schema",
       graphiql: true,
       pretty: true,
       context: { loaders: "createLoaders()" },
       extensions({ document, variables, operationName, result }) {
-        const endTime = process.hrtime(startTime);
-        return {
-          runTime: `${endTime[0]} ${endTime[1] / 1000000}ms`
-        };
+        return timer();
       }
     };
   })

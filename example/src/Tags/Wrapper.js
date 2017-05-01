@@ -1,11 +1,8 @@
-// @flow
 import styled from "styled-components";
 import View from "./View";
 
 const Wrapper = styled(View)`
-  margin-left: 5rem;
-  margin-right: 5rem;
-  margin-top: 2rem;
+  margin: 2rem 5rem;
   font-size: 17px;
   line-height: 1.52947;
   font-weight: 400;

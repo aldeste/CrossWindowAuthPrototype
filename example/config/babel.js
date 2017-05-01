@@ -73,7 +73,7 @@ if (env === "development") {
         require.resolve("babel-preset-env"),
         {
           targets: { browsers: "last 1 Chrome version, last 1 Safari version" },
-          useBuiltIns: true,
+          useBuiltIns: "usage",
           modules: false,
           loose: true,
           useESModules: true
@@ -93,7 +93,7 @@ if (env === "production") {
           targets: {
             ie: 11
           },
-          useBuiltIns: true,
+          useBuiltIns: "usage",
           modules: false,
           loose: true,
           useESModules: true
