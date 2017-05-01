@@ -3,9 +3,9 @@
 exports[`Welcome react component Matches earlier configuration 1`] = `
 <styled.div>
   <styled.h1 />
-  <Text__Text>
+  <styled.p>
     You're logged in as 
-  </Text__Text>
+  </styled.p>
   <styled.button
     alternative={true}
   >

@@ -1,55 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing 1`] = `
-<div
-  className="sc-bxivhb fDdtND sc-bwzfXH LjeLm"
->
-  <div
-    className="sc-bwzfXH LjeLm"
-  >
-    <h1
-      className="sc-ifAKCX bCoRWN"
-    >
+<div>
+  <div>
+    <h1>
       Star Wars login
     </h1>
-    <p
-      className="Text__Text-jpiXUO hvuOVR"
-    >
+    <p>
       Please log in
     </p>
-    <form
-      className="sc-bZQynM frHjIn"
-    >
-      <div
-        className="sc-bwzfXH LjeLm"
-      >
+    <form>
+      <div>
         <label
-          className="sc-EHOje iuNngy"
           htmlFor="username"
           required={false}
         >
           Username
         </label>
         <input
-          className="sc-htpNat dEzyOx"
           name="username"
           onChange={[Function]}
           placeholder="Username"
           value=""
         />
       </div>
-      <div
-        className="sc-bwzfXH LjeLm"
-      >
+      <div>
         <label
-          className="sc-EHOje iuNngy"
           htmlFor="password"
           required={false}
         >
           Password
         </label>
         <input
-          className="sc-htpNat dEzyOx"
           name="password"
           onChange={[Function]}
           placeholder="Password"
@@ -58,59 +40,42 @@ exports[`renders without crashing 1`] = `
         />
       </div>
       <button
-        className="sc-bdVaJa VFhxl"
         disabled={true}
       >
         Form fields not valid
       </button>
     </form>
   </div>
-  <div
-    className="sc-bwzfXH LjeLm"
-  >
-    <h1
-      className="sc-ifAKCX bCoRWN"
-    >
+  <div>
+    <h1>
       Breaking Bad login
     </h1>
-    <p
-      className="Text__Text-jpiXUO hvuOVR"
-    >
+    <p>
       Please log in
     </p>
-    <form
-      className="sc-bZQynM frHjIn"
-    >
-      <div
-        className="sc-bwzfXH LjeLm"
-      >
+    <form>
+      <div>
         <label
-          className="sc-EHOje iuNngy"
           htmlFor="username"
           required={false}
         >
           Username
         </label>
         <input
-          className="sc-htpNat dEzyOx"
           name="username"
           onChange={[Function]}
           placeholder="Username"
           value=""
         />
       </div>
-      <div
-        className="sc-bwzfXH LjeLm"
-      >
+      <div>
         <label
-          className="sc-EHOje iuNngy"
           htmlFor="password"
           required={false}
         >
           Password
         </label>
         <input
-          className="sc-htpNat dEzyOx"
           name="password"
           onChange={[Function]}
           placeholder="Password"
@@ -119,7 +84,6 @@ exports[`renders without crashing 1`] = `
         />
       </div>
       <button
-        className="sc-bdVaJa VFhxl"
         disabled={true}
       >
         Form fields not valid

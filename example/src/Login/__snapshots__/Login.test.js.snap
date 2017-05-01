@@ -3,14 +3,12 @@
 exports[`Login react component Enterint text in input changes value 1`] = `
 Array [
   <input
-    className="sc-htpNat dEzyOx"
     name="username"
     onChange={[Function]}
     placeholder="Username"
     value=""
 />,
   <input
-    className="sc-htpNat dEzyOx"
     name="password"
     onChange={[Function]}
     placeholder="Password"
@@ -23,14 +21,12 @@ Array [
 exports[`Login react component Enterint text in input changes value 2`] = `
 Array [
   <input
-    className="sc-htpNat dEzyOx"
     name="username"
     onChange={[Function]}
     placeholder="Username"
     value="haschanged"
 />,
   <input
-    className="sc-htpNat dEzyOx"
     name="password"
     onChange={[Function]}
     placeholder="Password"
@@ -41,50 +37,34 @@ Array [
 `;
 
 exports[`Login react component Matches earlier configuration 1`] = `
-<div
-  className="sc-bwzfXH LjeLm"
->
-  <h1
-    className="sc-ifAKCX bCoRWN"
-  />
-  <p
-    className="Text__Text-jpiXUO hvuOVR"
-  >
+<div>
+  <h1 />
+  <p>
     Please log in
   </p>
-  <form
-    className="sc-bZQynM frHjIn"
-  >
-    <div
-      className="sc-bwzfXH LjeLm"
-    >
+  <form>
+    <div>
       <label
-        className="sc-EHOje iuNngy"
         htmlFor="username"
         required={false}
       >
         Username
       </label>
       <input
-        className="sc-htpNat dEzyOx"
         name="username"
         onChange={[Function]}
         placeholder="Username"
         value=""
       />
     </div>
-    <div
-      className="sc-bwzfXH LjeLm"
-    >
+    <div>
       <label
-        className="sc-EHOje iuNngy"
         htmlFor="password"
         required={false}
       >
         Password
       </label>
       <input
-        className="sc-htpNat dEzyOx"
         name="password"
         onChange={[Function]}
         placeholder="Password"
@@ -93,7 +73,6 @@ exports[`Login react component Matches earlier configuration 1`] = `
       />
     </div>
     <button
-      className="sc-bdVaJa VFhxl"
       disabled={true}
     >
       Form fields not valid
