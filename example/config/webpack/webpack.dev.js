@@ -39,7 +39,10 @@ module.exports = {
     inline: true,
     host: APP_HOST,
     port: APP_PORT * 2,
-    proxy: { "/graphql": `http://${APP_HOST}:${APP_PORT}/graphql` },
+    proxy: {
+      "/graphql": `http://${APP_HOST}:${APP_PORT}/graphql`,
+      "/connect": `http://${APP_HOST}:${APP_PORT}/connect`
+    },
     // Serve gzipped versions of everything for better
     // bottleneck troubleshooting
     compress: true,
