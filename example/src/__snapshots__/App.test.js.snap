@@ -4,6 +4,20 @@ exports[`renders without crashing 1`] = `
 <div>
   <div>
     <h1>
+      This is just for active testing
+    </h1>
+    <button
+      alternative={true}
+      onClick={[Function]}
+    >
+      Click to ping
+    </button>
+    <p>
+      
+    </p>
+  </div>
+  <div>
+    <h1>
       Star Wars login
     </h1>
     <p>

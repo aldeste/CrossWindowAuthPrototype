@@ -6,7 +6,7 @@ import React from "react";
 //
 // expect.addSnapshotSerializer(serializer);
 // expect.extend(matcher);
-//
+
 // Once fixed, replace toMatchSnapshot() with toMatchStyledComponentsSnapshot()
 
 describe("Wrapper tag", () => {

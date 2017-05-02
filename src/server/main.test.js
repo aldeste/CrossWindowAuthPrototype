@@ -4,7 +4,7 @@ const server = require("./main").default;
 jest.unmock("supertest").unmock("express");
 
 beforeEach(() => {
-  console.log = () => ({});
+  console.log = () => jest.fn();
 });
 
 afterEach(() => {
@@ -16,9 +16,18 @@ describe("Express server starts server", () => {
     const response = await supertest(server).get("/");
     expect(response.status).toBe(400);
   });
-
-  it("redirects '/graphql' to '/'", async () => {
-    const response = await supertest(server).get("/graphql");
-    expect(response.header.location).toBe("/");
-  });
 });
+
+describe("Accessing /connect yields response", () => {
+  it("recieves a response", async () => {
+    const response = await supertest(server).get("/connect");
+    expect(response.status).toBe(200)
+  });
+})
+
+describe("Accessing /graphql yields response", () => {
+  it("recieves a response", async () => {
+    const response = await supertest(server).get("/graphql");
+    expect(response.status).not.toBe(400)
+  });
+})
