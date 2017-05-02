@@ -1,7 +1,7 @@
 import database from "../databaseConnection";
 import { STRING, INTEGER } from "sequelize";
 
-const Planet: sequelize = database.define("planet", {
+const Planet = database.define("planet", {
   id: { type: INTEGER, autoIncrement: true, primaryKey: true },
   name: { type: STRING, allowNull: false },
   diameter: { type: INTEGER },
