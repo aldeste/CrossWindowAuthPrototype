@@ -21,13 +21,13 @@ describe("Express server starts server", () => {
 describe("Accessing /connect yields response", () => {
   it("recieves a response", async () => {
     const response = await supertest(server).get("/connect");
-    expect(response.status).toBe(200)
+    expect(response.status).toBe(200);
   });
-})
+});
 
 describe("Accessing /graphql yields response", () => {
   it("recieves a response", async () => {
     const response = await supertest(server).get("/graphql");
-    expect(response.status).not.toBe(400)
+    expect(response.status).not.toBe(400);
   });
-})
+});
