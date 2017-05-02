@@ -17,11 +17,7 @@ app.all("/graphql", (req: $Request, res: $Response): $Response =>
 
 app.use(
   "/",
-  // graphqlHTTP((): Object => ({
-  //   schema: "Scheme",
-  //   graphiql: true
-  // }))
-  GraphHTTP(() => {
+  GraphHTTP((): Object => {
     const timer = hrTimer();
     return {
       schema: "Schema",
@@ -34,20 +30,6 @@ app.use(
     };
   })
 );
-
-// start listening to random ports and addresses
-// const listeners = [].map(() => {
-//   const listener = app.listen(() => {
-//     const { address: host, port } = listener.address();
-//     const address = "http://" +
-//       (host === "::" ? "localhost" : host) +
-//       (port === 80 ? "" : `:${port}`);
-
-//     console.log(
-//       chalk.blue(`One app is running at ${chalk.magenta.bold(address)}`)
-//     );
-//   });
-// });
 
 const server: $Application = app.listen(APP_PORT, (): void => {
   const address: string = `${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/`;
