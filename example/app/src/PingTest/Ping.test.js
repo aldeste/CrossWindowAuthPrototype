@@ -38,7 +38,12 @@ describe("PingTest / Ping", () => {
   it("Clicking button changes state", async () => {
     global.fetch = () =>
       new Promise(resolve =>
-        resolve({ json: () => ({ user: "foo bar", time: "foo bar" }) })
+        resolve({
+          json: () => ({
+            data: { viewer: { name: "foo bar" } },
+            extensions: { timeTaken: "foo bar" }
+          })
+        })
       );
 
     const component = renderer.create(<Ping token="foo bar" />);
