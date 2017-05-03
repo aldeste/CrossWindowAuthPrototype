@@ -2,30 +2,53 @@
 import express from "express";
 import GraphHTTP from "express-graphql";
 import chalk from "chalk";
+import bodyParser from "body-parser";
 
 import { APP_PROTOCOL, APP_HOST, APP_PORT } from "../../config/config";
-// import Scheme from '../schema';
-import type { $Request, $Response, $Application } from "express";
+import Schema from "../schema";
 import hrTimer from "../utils/hrTimer";
+import { validate } from "../authjazz";
+import { createLoaders } from "../schema/apiHelper";
+
+import type { $Request, $Response, $Application, Middleware } from "express";
 
 const app: $Application = express();
+const jsonParser: Middleware = bodyParser.json();
 
-// Requests to /graphql redirect to /
 app.all("/graphql", (req: $Request, res: $Response): $Response =>
   res.redirect("/")
 );
 
+app.use("/connect", jsonParser, (req: Object, res: $Response): $Response => {
+  const timeTaken = hrTimer();
+  const { token }: { token: string } = req.body;
+  const response = {
+    user: validate(token, "", ""),
+    time: timeTaken().prettyPrint
+  };
+
+  if (process.env.NODE_ENV !== "production") {
+    console.log(
+      chalk.blue(`Returned response is ${chalk.bold(response.user)}`)
+    );
+    console.log(chalk.yellow(`This took ${response.time}`));
+  }
+
+  return res.send(JSON.stringify(response));
+});
+
 app.use(
   "/",
-  GraphHTTP((): Object => {
+  GraphHTTP((req: $Request): Object => {
+    console.log(req.query.authToken);
     const timer = hrTimer();
     return {
-      schema: "Schema",
+      schema: Schema,
       graphiql: true,
       pretty: true,
-      context: { loaders: "createLoaders()" },
+      context: { loaders: createLoaders(), user: "fromAuthToken()" },
       extensions({ document, variables, operationName, result }) {
-        return timer();
+        return { timeTaken: timer().prettyPrint };
       }
     };
   })
