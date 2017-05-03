@@ -58,11 +58,13 @@
     "supertest": "^3.0.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.4.1",
+    "webpack-bundle-analyzer": "^2.4.0",
     "webpack-dev-server": "^2.4.5",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"
   },
   "scripts": {
+    "build": "NODE_ENV=production webpack --config=./example/config/webpack/webpack.base.js --env=production",
     "lint": "eslint **/*.js",
     "precommit": "lint-staged",
     "start": "nodemon ./src & cross-env NODE_ENV=development webpack-dev-server --config=./example/config/webpack/webpack.base.js --env=development",
