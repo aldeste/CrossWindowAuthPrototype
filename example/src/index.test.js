@@ -4,9 +4,8 @@ jest.mock("./Root.dev", () => {
   return "./Root.dev";
 });
 
-const index = require("./");
-
 describe("Example index.js", () => {
+  const index = require("./");
   it("runs without crashing", done => done());
   it("includes Root", () => expect(mockFunctionFileLoaded).toHaveBeenCalled());
   it("Exports Root", () => expect(index).toBe("./Root.dev"));

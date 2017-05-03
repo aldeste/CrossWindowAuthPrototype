@@ -2,6 +2,9 @@ import React from "react";
 import App from "./App";
 import renderer from "react-test-renderer";
 
+jest.mock("./Document/Title", () => ({ children }) => (
+  <title>{children}</title>
+));
 // Remove all class names from tags as they're auto generated,
 // will cause tests to fail
 jest.mock("./Tags/Button", () => ({ className, children, ...props }) => (

@@ -2,9 +2,12 @@
 
 exports[`renders without crashing 1`] = `
 <div>
+  <title>
+    This is a demo page
+  </title>
   <div>
     <h1>
-      This is just for active testing
+      Connection testing field
     </h1>
     <button
       alternative={true}
@@ -12,9 +15,6 @@ exports[`renders without crashing 1`] = `
     >
       Click to ping
     </button>
-    <p>
-      
-    </p>
   </div>
   <div>
     <h1>

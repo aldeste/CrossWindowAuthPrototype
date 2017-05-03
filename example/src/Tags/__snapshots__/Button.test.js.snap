@@ -8,14 +8,13 @@ exports[`Button tag Matches earlier configuration 1`] = `
 
 exports[`Button tag Matches earlier configuration if alt prop is true 1`] = `
 <button
-  alt={true}
   className=""
+  disabled={true}
 />
 `;
 
-exports[`Button tag Matches earlier configuration if alt prop is true 2`] = `
+exports[`Button tag Matches earlier configuration if alternative is true 1`] = `
 <button
   className=""
-  disabled={true}
 />
 `;

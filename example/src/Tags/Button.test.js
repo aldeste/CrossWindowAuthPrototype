@@ -26,8 +26,8 @@ describe("Button tag", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("Matches earlier configuration if alt prop is true", () => {
-    const tree = renderer.create(<Button alt />).toJSON();
+  it("Matches earlier configuration if alternative is true", () => {
+    const tree = renderer.create(<Button alternative />).toJSON();
     // BUG: jest-styled-component bug, remove when fixed
     tree.props.className = "";
     expect(tree).toMatchSnapshot();
