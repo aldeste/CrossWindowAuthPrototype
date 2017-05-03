@@ -39,6 +39,7 @@
     "eslint-plugin-react": "^6.10.3",
     "file-loader": "^0.11.1",
     "flow-bin": "^0.45.0",
+    "graphql-relay": "^0.5.1",
     "html-webpack-plugin": "^2.28.0",
     "husky": "^0.13.3",
     "jasmine-check": "1.0.0-rc.0",
@@ -73,7 +74,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
-      "example/src/**/*.js"
+      "example/app/**/*.js"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>[/\\\\](coverage|node_modules|scripts|config|example/config)[/\\\\]"
