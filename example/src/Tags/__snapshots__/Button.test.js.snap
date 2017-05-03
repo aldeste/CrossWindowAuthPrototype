@@ -18,3 +18,9 @@ exports[`Button tag Matches earlier configuration if alternative is true 1`] = `
   className=""
 />
 `;
+
+exports[`Button tag Matches earlier configuration ifu alternative is true 1`] = `
+<button
+  className=""
+/>
+`;

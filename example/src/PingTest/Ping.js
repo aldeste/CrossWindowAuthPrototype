@@ -13,7 +13,7 @@ type Props = { token?: ?string };
 
 export async function resolveToken(token: ?string): Promise<Object> {
   if (token) {
-    const user = await fetch("/connect", {
+    const user: State = await fetch("/connect", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -39,9 +39,7 @@ export default class extends React.PureComponent<*, Props, State> {
 
   handleClick = async () => {
     const user = await resolveToken(this.props.token);
-    if (user.hasOwnProperty("user")) {
-      this.setState(user);
-    }
+    this.setState(user);
   };
 
   render() {

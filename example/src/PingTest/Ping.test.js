@@ -1,5 +1,5 @@
 import React from "react";
-import Ping, { resolveToken } from "./Ping";
+import Ping from "./Ping";
 import renderer from "react-test-renderer";
 
 jest.mock("../Document/Title", () => ({ children }) => (

@@ -26,7 +26,7 @@ class App extends React.Component<*, *, *> {
     return (
       <Wrapper>
         <DocumentTitle>This is a demo page</DocumentTitle>
-        <Ping />
+        <Ping token="Hello" />
         <Login title="Star Wars login" />
         <Login title="Breaking Bad login" />
       </Wrapper>
