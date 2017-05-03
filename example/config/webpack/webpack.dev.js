@@ -3,8 +3,8 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { APP_PORT, APP_HOST } = require("../../../config/config");
 
-const FRONTEND = "app/src";
-const PUBLIC = "app/public";
+const FRONTEND = "example/app/src";
+const PUBLIC = "example/app/public";
 
 const sharedCache = {};
 
@@ -14,7 +14,7 @@ module.exports = {
     "react-hot-loader/patch",
     `webpack-dev-server/client?http://${APP_HOST}:${APP_PORT * 2}`,
     "webpack/hot/only-dev-server",
-    join(process.cwd(), `example/${FRONTEND}/index.js`)
+    join(process.cwd(), `${FRONTEND}/index.js`)
   ],
   output: {
     filename: "[name].js",
@@ -32,7 +32,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: true,
-      template: join(process.cwd(), `example/${PUBLIC}/index.html`)
+      template: join(process.cwd(), `${PUBLIC}/index.html`)
     })
   ],
   devServer: {

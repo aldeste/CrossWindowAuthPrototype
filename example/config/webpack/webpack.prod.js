@@ -1,12 +1,15 @@
 const { join } = require("path");
 const webpack = require("webpack");
-const ManifestPlugin = require("webpack-manifest-plugin");
+// const ManifestPlugin = require("webpack-manifest-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
+const FRONTEND = "example/app/src";
+const PUBLIC = "example/app/public";
+
 module.exports = {
   entry: {
-    app: join(process.cwd(), "src/index.js")
+    app: join(process.cwd(), `${FRONTEND}/index.js`)
   },
   // Utilize long-term caching by adding content hashes to compiled assets
   output: {
@@ -19,7 +22,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     // Prune Moment for unused locales. If you add more locales,
     // make sure you change sv to sv|othrlocale and so forth.
-    new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(sv)$/),
+    // new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(sv)$/),
     // Place vendors in own file, better caching
     // new webpack.optimize.CommonsChunkPlugin({
     //   name: "vendor",
@@ -69,7 +72,7 @@ module.exports = {
     }),
     // Generate minified and optimized index.html from template
     new HtmlWebpackPlugin({
-      template: join(process.cwd(), "src/index.html"),
+      template: join(process.cwd(), `${PUBLIC}/index.html`),
       inject: true,
       minify: {
         collapseWhitespace: true,
@@ -84,9 +87,9 @@ module.exports = {
         useShortDoctype: true
       }
     }),
-    new ManifestPlugin({
-      fileName: "manifest.json"
-    }),
-    new BundleAnalyzerPlugin({ openAnalyzer: false })
+    // new ManifestPlugin({
+    //   fileName: "manifest.json"
+    // }),
+    new BundleAnalyzerPlugin({ openAnalyzer: true })
   ]
 };
