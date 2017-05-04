@@ -19,23 +19,23 @@ app.all("/graphql", (req: $Request, res: $Response): $Response =>
   res.redirect("/")
 );
 
-app.use("/connect", jsonParser, (req: Object, res: $Response): $Response => {
-  const timeTaken = hrTimer();
-  const { token }: { token: string } = req.body;
-  const response = {
-    user: validate(token, "", ""),
-    time: timeTaken().prettyPrint
-  };
-
-  if (process.env.NODE_ENV !== "production") {
-    console.log(
-      chalk.blue(`Returned response is ${chalk.bold(response.user)}`)
-    );
-    console.log(chalk.yellow(`This took ${response.time}`));
-  }
-
-  return res.send(JSON.stringify(response));
-});
+// app.use("/connect", jsonParser, (req: Object, res: $Response): $Response => {
+//   const timeTaken = hrTimer();
+//   const { token }: { token: string } = req.body;
+//   const response = {
+//     user: validate(token, "", ""),
+//     time: timeTaken().prettyPrint
+//   };
+//
+//   if (process.env.NODE_ENV !== "production") {
+//     console.log(
+//       chalk.blue(`Returned response is ${chalk.bold(response.user)}`)
+//     );
+//     console.log(chalk.yellow(`This took ${response.time}`));
+//   }
+//
+//   return res.send(JSON.stringify(response));
+// });
 
 app.use(
   "/",
