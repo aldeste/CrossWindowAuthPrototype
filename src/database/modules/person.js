@@ -1,7 +1,7 @@
 import database from "../databaseConnection";
 import { STRING, INTEGER, VIRTUAL } from "sequelize";
 
-const Person: sequelize = database.define("person", {
+const Person = database.define("person", {
   id: { type: INTEGER, autoIncrement: true, primaryKey: true },
   name: { type: STRING, allowNull: false },
   password: { type: STRING, allowNull: false },
@@ -11,7 +11,7 @@ const Person: sequelize = database.define("person", {
   GraphQLType: {
     type: VIRTUAL,
     get() {
-      return "personType";
+      return "Person";
     }
   }
 });
