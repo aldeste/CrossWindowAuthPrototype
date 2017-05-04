@@ -1,8 +1,6 @@
 const supertest = require("supertest");
 const server = require("./main").default;
 
-// jest.unmock("supertest").unmock("express");
-
 beforeEach(() => {
   console.log = () => jest.fn();
 });
