@@ -26,7 +26,7 @@ Planet.hasMany(Person, {
 // );
 
 export function initializeDatabase(): void {
-  connection.sync({ force: true }).then(generateMockData);
+  return connection.sync({ force: true }).then(generateMockData);
 }
 
 export default connection;
