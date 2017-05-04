@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`personType is a GraphQL type should return on every field 1`] = `
+Object {
+  "viewer": Object {
+    "birthYear": "41.9BBY",
+    "eyeColor": "yellow",
+    "gender": null,
+    "hairColor": null,
+    "height": null,
+    "id": "UGVyc29uOjQ=",
+    "mass": null,
+    "name": "Darth Vader",
+    "password": "password",
+    "skinColor": null,
+    "token": "cGVvcGxlOjQ=",
+  },
+}
+`;
+
+exports[`personType is a GraphQL type should return on every field with id 1`] = `
+Object {
+  "viewer": Object {
+    "birthYear": "41.9BBY",
+    "eyeColor": "yellow",
+    "gender": null,
+    "hairColor": null,
+    "height": null,
+    "id": "UGVyc29uOjQ=",
+    "mass": null,
+    "name": "Darth Vader",
+    "password": "password",
+    "skinColor": null,
+    "token": "cGVvcGxlOjQ=",
+  },
+}
+`;

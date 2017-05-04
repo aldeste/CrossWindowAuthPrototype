@@ -1,7 +1,7 @@
 import Person from "./person";
+import personType from "../../schema/types/personType";
 
 describe("Person", () => {
-  // const attributes = Object.keys(Person.attributes);
   it("Should contain a password field", () =>
     expect(Person.attributes.password).toBeDefined());
   it("Should not be able to have an empty password", () =>
@@ -14,6 +14,13 @@ describe("Person", () => {
     expect(Person.attributes.token).toBeDefined());
   it("Should not be able to have an empty token", () =>
     expect(Person.attributes.token.allowNull).toBe(false));
+});
+
+describe("Person should have a graphql type", () => {
+  it("Should contain a GraphQLType field", () =>
+    expect(Person.attributes.GraphQLType).toBeDefined());
+  it("Should contain the correct GraphQLType", () =>
+    expect(Person.attributes.GraphQLType.get()).toBe(personType.name));
 });
 
 describe("Person should have extra fields, which will be used later in context if users are authorized", () => {

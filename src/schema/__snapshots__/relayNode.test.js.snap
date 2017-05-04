@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nodeInterface should fail if called with false value 1`] = `
+Object {
+  "node": null,
+}
+`;
+
+exports[`nodeInterface should return field with id 1`] = `
+Object {
+  "node": Object {
+    "name": "Darth Vader",
+  },
+}
+`;
