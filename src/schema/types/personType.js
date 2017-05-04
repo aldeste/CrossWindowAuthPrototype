@@ -4,6 +4,7 @@ import { globalIdField } from "graphql-relay";
 
 import { nodeInterface } from "../relayNode";
 import { createdField, editedField } from "../commonFields";
+
 /**
  * The GraphQL type equivalent of the People resource
  */
