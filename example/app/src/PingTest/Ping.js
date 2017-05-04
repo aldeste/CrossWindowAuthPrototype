@@ -13,16 +13,6 @@ type Props = { token?: ?string };
 
 export async function resolveToken(token: ?string): Promise<Object> {
   if (token) {
-    // const user: State = await fetch("/connect", {
-    //   method: "POST",
-    //   credentials: "include",
-    //   headers: {
-    //     Accept: "application/json, text/plain, */*",
-    //     "Content-Type": "application/json"
-    //   },
-    //   mode: "cors",
-    //   cache: "default",
-    //   body: JSON.stringify({ token })
     const {
       data: { viewer: { name: user } },
       extensions: { timeTaken: time }
@@ -35,12 +25,7 @@ export async function resolveToken(token: ?string): Promise<Object> {
       },
       mode: "cors",
       cache: "default",
-      body: `{
-        viewer(personId: 4)
-        {
-          name
-        }
-      }`
+      body: `{ viewer(personId: 4) { name } }`
     }).then(response => response.json());
 
     // window.postMessage(
