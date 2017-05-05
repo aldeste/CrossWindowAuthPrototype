@@ -10,6 +10,7 @@ import { Person } from "../database";
  * meaning the same ID won't be fetched twice in the same query.
  */
 export function getResolve(
+  authToken?: Object,
   type: Class<*>,
   ids: Array<string | number>
 ): Promise<*> {
@@ -26,9 +27,9 @@ export function getResolve(
  * practice is to create each per request, this will help if
  * same data is fetched multiple times durning the same request.
  */
-export function createLoaders(authToken?: string): Object {
+export function createLoaders(authToken?: Object): Object {
   return {
-    Person: new DataLoader(ids => getResolve(Person, ids))
+    Person: new DataLoader(ids => getResolve(authToken, Person, ids))
   };
 }
 
@@ -40,7 +41,6 @@ export async function getObjectFromTypeAndId(
   id: string,
   viewer?: Object
 ): Promise<Object> {
-  const Loaders = viewer ? viewer.loaders : createLoaders();
-
+  const Loaders = (viewer && viewer.loaders) || createLoaders();
   return await Loaders[type.name].load(id);
 }
