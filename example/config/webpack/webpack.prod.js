@@ -1,6 +1,5 @@
 const { join } = require("path");
 const webpack = require("webpack");
-// const ManifestPlugin = require("webpack-manifest-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
@@ -20,19 +19,9 @@ module.exports = {
   stats: true,
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
-    // Prune Moment for unused locales. If you add more locales,
-    // make sure you change sv to sv|othrlocale and so forth.
-    // new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(sv)$/),
     // Place vendors in own file, better caching
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: "vendor",
-    //   minChunks: module =>
-    //     module.context && module.context.indexOf("node_modules") !== -1
-    // }),
     new webpack.optimize.CommonsChunkPlugin({
       name: "vendor",
-      // minChunks: module =>
-      //   module.context && module.context.indexOf("node_modules") !== -1
       minChunks: (module, count) =>
         module.resource && /node_modules/.test(module.resource)
     }),
@@ -45,10 +34,6 @@ module.exports = {
       children: true,
       name: "commonlazy"
     }),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   children: true,
-    //   minChunks: 2
-    // }),
     // Minify output
     new webpack.LoaderOptionsPlugin({
       minimize: true,
@@ -87,9 +72,6 @@ module.exports = {
         useShortDoctype: true
       }
     }),
-    // new ManifestPlugin({
-    //   fileName: "manifest.json"
-    // }),
     new BundleAnalyzerPlugin({ openAnalyzer: true })
   ]
 };
