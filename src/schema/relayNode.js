@@ -4,7 +4,10 @@ import { fromGlobalId, nodeDefinitions } from "graphql-relay";
 import personType from "./types/personType";
 import { getObjectFromTypeAndId } from "./apiHelper";
 
-export function idFetcher(globalId: string, context?: Object): Object | null {
+export function idFetcher(
+  globalId: string,
+  context: Object
+): Promise<Object> | null {
   const { type, id } = fromGlobalId(globalId);
   if (type === "Person") {
     return getObjectFromTypeAndId(personType, id, context);
