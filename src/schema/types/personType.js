@@ -64,6 +64,11 @@ person does not have hair.`
       resolve: person => person.token,
       description: "A uniquely identifiable token."
     },
+    personId: {
+      type: GraphQLString,
+      resolve: person => person.id,
+      description: "A uniquely identifiable local id."
+    },
     created: createdField(),
     edited: editedField(),
     id: globalIdField("Person")
