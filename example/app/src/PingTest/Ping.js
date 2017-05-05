@@ -20,6 +20,7 @@ export async function resolveToken(token: ?string): Promise<Object> {
       method: "POST",
       credentials: "include",
       headers: {
+        "Accept-Encoding": "gzip",
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/graphql"
       },
