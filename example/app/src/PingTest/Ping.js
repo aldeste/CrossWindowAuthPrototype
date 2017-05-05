@@ -14,7 +14,7 @@ type Props = { token?: ?string };
 export async function resolveToken(token: ?string): Promise<Object> {
   if (token) {
     const {
-      data: { viewer: { name: user } },
+      data: { person: { name: user } },
       extensions: { timeTaken: time }
     }: Object = await fetch("/graphql", {
       method: "POST",
@@ -26,7 +26,7 @@ export async function resolveToken(token: ?string): Promise<Object> {
       },
       mode: "cors",
       cache: "default",
-      body: `{ viewer(personId: 4) { name } }`
+      body: `{ person(personId: 4) { name } }`
     }).then(response => response.json());
 
     // window.postMessage(
