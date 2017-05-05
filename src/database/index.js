@@ -2,7 +2,7 @@
 import connection from "./databaseConnection";
 import { Person, Planet } from "./modules";
 import generateMockData from "./generateMockData";
-// import chalk from "chalk";
+
 /**
  * We define relations here, so they'll be defined before
  * databse is syncronised and included in the export.
