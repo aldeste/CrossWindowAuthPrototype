@@ -18,7 +18,7 @@ describe("personType is a GraphQL type", () => {
 
   it("should return on every field", async () => {
     const query = `query Test {
-      viewer(personId:4) {
+      person(personId:4) {
         name
         birthYear
         eyeColor
@@ -39,7 +39,7 @@ describe("personType is a GraphQL type", () => {
 
   it("should return on every field with id", async () => {
     const query = `query Test {
-      viewer(id: "UGVyc29uOjQ=") {
+      person(id: "UGVyc29uOjQ=") {
         name
         birthYear
         eyeColor

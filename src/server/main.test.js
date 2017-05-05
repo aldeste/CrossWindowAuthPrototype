@@ -37,7 +37,7 @@ describe("Queries", () => {
 
   it("queries with graphql", async () => {
     const response = await supertest(server).get(
-      "/?query={viewer(personId:4){id,name}}"
+      "/?query={person(personId:4){id,name}}"
     );
     expect(response.text.data).toMatchSnapshot();
     expect(response.status).toBe(200);

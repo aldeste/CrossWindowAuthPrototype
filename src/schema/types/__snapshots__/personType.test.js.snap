@@ -2,7 +2,7 @@
 
 exports[`personType is a GraphQL type should return on every field 1`] = `
 Object {
-  "viewer": Object {
+  "person": Object {
     "birthYear": "41.9BBY",
     "eyeColor": "yellow",
     "gender": null,
@@ -20,7 +20,7 @@ Object {
 
 exports[`personType is a GraphQL type should return on every field with id 1`] = `
 Object {
-  "viewer": Object {
+  "person": Object {
     "birthYear": "41.9BBY",
     "eyeColor": "yellow",
     "gender": null,

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fromAuthToken should validate users if valid token is requested 1`] = `
+Object {
+  "id": "UGVyc29uOjQ=",
+  "name": "Darth Vader",
+  "personId": "4",
+  "token": "cGVvcGxlOjQ=",
+}
+`;
+
+exports[`validateUser should validate users by username and password 1`] = `
+Object {
+  "id": "cGVvcGxlOjQ=",
+  "name": "Darth Vader",
+  "personId": 4,
+  "token": "cGVvcGxlOjQ=",
+}
+`;

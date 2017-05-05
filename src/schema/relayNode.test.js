@@ -11,7 +11,8 @@ describe("idFetcher", () => {
   it("should default to null if unresolvable", () => {
     expect(idFetcher("IiI6IiI=")).toBeNull();
   });
-  it("should return an object if valid parameters", async () => {
+
+  it("should return an object if parameters are valid ", async () => {
     await require("../database").initializeDatabase();
     const result = await idFetcher("UGVyc29uOjQ=");
     expect(result.name).toBeDefined();
