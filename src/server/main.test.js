@@ -16,13 +16,6 @@ describe("Express server starts server", () => {
   });
 });
 
-// describe("Accessing /connect yields response", () => {
-//   it("recieves a response", async () => {
-//     const response = await supertest(server).get("/connect");
-//     expect(response.status).toBe(200);
-//   });
-// });
-
 describe("Accessing /graphql", () => {
   it("yields response", async () => {
     const response = await supertest(server).get("/graphql");
@@ -45,7 +38,7 @@ describe("Queries", () => {
 
   it("runs timer diagnostics", async () => {
     const response = await supertest(server).get(
-      "/?query={viewer(personId:4){id,name}}"
+      "/?query={person(personId:4){id,name}}"
     );
     expect(JSON.parse(response.text).extensions.timeTaken).toBeDefined();
   });
