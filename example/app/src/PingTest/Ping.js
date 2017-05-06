@@ -16,7 +16,7 @@ export async function resolveToken(token: ?string): Promise<Object> {
     const {
       data: { person: { name: user } },
       extensions: { timeTaken: time }
-    }: Object = await fetch("/graphql", {
+    }: Object = await fetch("/api/graphql", {
       method: "POST",
       credentials: "include",
       headers: {
