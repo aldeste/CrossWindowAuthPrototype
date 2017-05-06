@@ -42,8 +42,10 @@ module.exports = {
     host: APP_HOST,
     port: APP_PORT * 2,
     proxy: {
-      "/graphql": `http://${APP_HOST}:${APP_PORT}/graphql`,
-      "/connect": `http://${APP_HOST}:${APP_PORT}/connect`
+      "/api": {
+        target: `http://${APP_HOST}:${APP_PORT}`,
+        pathRewrite: { "^/api": "" }
+      }
     },
     // Serve gzipped versions of everything for better
     // bottleneck troubleshooting
