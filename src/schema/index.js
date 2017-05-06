@@ -14,8 +14,20 @@ const Root = new GraphQLObjectType({
   fields: () => ({
     viewer: {
       type: personType,
-      resolve: (_: *, args: arguments, viewer: Object): Promise<Object> =>
-        getObjectFromTypeAndId(personType, viewer.viewer.personId, viewer)
+      resolve: (
+        _: *,
+        args: arguments,
+        viewer: Object
+      ): Promise<Object> | null => {
+        if (viewer.viewer && viewer.viewer.personId) {
+          return getObjectFromTypeAndId(
+            personType,
+            viewer.viewer.personId,
+            viewer
+          );
+        }
+        return null;
+      }
     },
     person: {
       type: personType,
