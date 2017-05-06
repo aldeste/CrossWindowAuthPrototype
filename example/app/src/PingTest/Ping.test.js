@@ -40,7 +40,7 @@ describe("PingTest / Ping", () => {
       new Promise(resolve =>
         resolve({
           json: () => ({
-            data: { viewer: { name: "foo bar" } },
+            data: { person: { name: "foo bar" } },
             extensions: { timeTaken: "foo bar" }
           })
         })
