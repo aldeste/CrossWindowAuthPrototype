@@ -1,17 +1,32 @@
 import hrTimer from "./hrTimer";
 
-jest.useRealTimers();
+// jest.useRealTimers();
 
 describe("hr Timer returns time formated as string", () => {
-  const sleep = time => new Promise(resolve => setTimeout(resolve, time));
+  const withTimeout = hrTimer();
+  const endTime = withTimeout();
 
-  it("times accurately", async () => {
-    const withTimeout = hrTimer();
-    await sleep(100);
-    const endTime = withTimeout();
-    // We account for a margin of error, as this function is
-    // run in paralell with others, making it unprecise at best.
-    expect(endTime.ms).toBeGreaterThanOrEqual(95);
-    expect(endTime.ms).toBeLessThanOrEqual(110);
+  it("Returns millisecconds", async () => {
+    expect(typeof endTime.ms).toBe("number");
+  });
+
+  it("times nanoseconds", async () => {
+    expect(typeof endTime.ns).toBe("number");
+  });
+
+  it("times seconds", async () => {
+    expect(typeof endTime.seconds).toBe("number");
+  });
+
+  it("returns pretty printed string", async () => {
+    expect(typeof endTime.prettyPrint).toBe("string");
+  });
+
+  it("returns pretty printed string formatted correctly", async () => {
+    expect(endTime.prettyPrint).toBe(`${endTime.seconds}s ${endTime.ms}ms`);
+  });
+
+  it("returns an object", async () => {
+    expect(typeof endTime).toBe("object");
   });
 });
