@@ -6,36 +6,67 @@ import Input from "./Input";
 
 type State = {
   username: string,
-  password: string
+  password: string,
+  error?: boolean
 };
 
 type Props = {
-  title: string
+  title: string,
+  onLoginSubmit: Function
 };
 
 class Login extends React.PureComponent<*, Props, State> {
-  state = {
-    username: "",
-    password: ""
-  };
+  state = { username: "", password: "" };
 
   handleInputChange = (event: SyntheticInputEvent) => {
     const { value, name } = event.target;
 
     this.setState(() => ({
-      [name]: value.replace(/\s/g, "")
+      // Strings can't start with space,
+      // Strings can't have a double space
+      [name]: value.replace(/^\s+/, "").replace(/\s{2,}/g, " ")
     }));
   };
 
+  handleOnSubmit = async (event: SyntheticEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const user = await fetch("/api/login", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Accept-Encoding": "gzip",
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+      },
+      mode: "cors",
+      body: JSON.stringify({
+        name: this.state.username,
+        password: this.state.password
+      })
+    }).then(response => response.json());
+
+    if (user.error) {
+      return this.setState(() => ({ error: true }));
+    }
+
+    return this.props.onLoginSubmit(user);
+  };
+
   render() {
+    // Username must have a minimum of 3 characters.
+    // Password must have atleast 5 characters.
     const formValid =
-      this.state.username.length > 5 && this.state.password.length > 5;
+      this.state.username.length > 2 && this.state.password.length > 4;
 
     return (
       <View>
         <Title>{this.props.title}</Title>
         <Text>Please log in</Text>
-        <Form>
+        {this.state.error &&
+          <Text>It appears something went terribly wrong!</Text>}
+        <Form onSubmit={this.handleOnSubmit}>
           <Input
             label="Username"
             placeholder="Username"

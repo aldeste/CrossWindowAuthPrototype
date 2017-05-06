@@ -1,7 +1,5 @@
 // @flow
 import React from "react";
-// import { QueryRenderer, graphql } from "react-relay";
-// import environment from "./createRelayEnvironment";
 import Wrapper from "./Tags/Wrapper";
 import DocumentTitle from "./Document/Title";
 import Login from "./Login/Login";
@@ -24,13 +22,24 @@ class App extends React.Component<*, *, *> {
   //   window && window.addEventListener("message", this.receiveMessage, false);
   // }
 
+  signIn = (formName: string) => (props: Object) => {
+    this.setState(() => ({ [formName]: { props } }));
+  };
+
   render() {
     return (
       <Wrapper>
         <DocumentTitle>This is a demo page</DocumentTitle>
+        {this.state && <p>{JSON.stringify(this.state, null, 2)}</p>}
         <Ping token="Hello" />
-        <Login title="Star Wars login" />
-        <Login title="Breaking Bad login" />
+        <Login
+          title="Star Wars login"
+          onLoginSubmit={this.signIn("StarWars")}
+        />
+        <Login
+          title="Breaking Bad login"
+          onLoginSubmit={this.signIn("BreakingBad")}
+        />
       </Wrapper>
     );
   }
