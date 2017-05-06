@@ -36,134 +36,82 @@ describe("Login react component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  const arrayOfInputFields = tree =>
-    tree.children
-      .find(e => e.type === "form")
-      .children.filter(e => e.type === "div")
-      .reduce(
-        (prev, next) => [
-          ...prev,
-          ...next.children.filter(e => e.type === "input")
-        ],
-        []
-      );
-
-  const getFields = tree => fieldToFind =>
-    tree.children
-      .find(e => e.type === "form")
-      .children.filter(e => e.type === fieldToFind);
-
   it("Enterint text in input changes value", () => {
     const component = renderer.create(<Login />);
-    let tree = component.toJSON();
-
-    expect(arrayOfInputFields(tree)).toMatchSnapshot();
-
-    arrayOfInputFields(tree).forEach(e =>
-      e.props.onChange({
-        target: { name: e.props.name, value: "haschanged" }
-      })
+    ["username", "password"].forEach(name =>
+      component
+        .getInstance()
+        .handleInputChange({ target: { name, value: "haschanged" } })
     );
-
-    tree = component.toJSON();
-    expect(arrayOfInputFields(tree)).toMatchSnapshot();
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   it("Makrs button as valid if both fields has 5 characters", () => {
     const component = renderer.create(<Login />);
     let tree = component.toJSON();
-
-    expect(getFields(tree)("button")[0].props.disabled).toBe(true);
-
-    arrayOfInputFields(tree).forEach(e =>
-      e.props.onChange({
-        target: { name: e.props.name, value: "5 characters atleast" }
-      })
+    expect(tree).toMatchSnapshot();
+    ["username", "password"].forEach(name =>
+      component
+        .getInstance()
+        .handleInputChange({ target: { name, value: "More than 5" } })
     );
-
     tree = component.toJSON();
-    expect(getFields(tree)("button")[0].props.disabled).toBe(false);
+    expect(tree).toMatchSnapshot();
   });
 
-  check.it(
-    "Accepts string values in input fields",
-    gen.string,
-    randomString => {
-      const component = renderer.create(<Login />);
-      let tree = component.toJSON();
-      arrayOfInputFields(tree)[0].props.onChange({
-        target: {
-          name: arrayOfInputFields(tree)[0].props.name,
-          value: randomString
-        }
-      });
-      tree = component.toJSON();
+  check.it("Accepts string values in input fields", gen.string, value => {
+    const component = renderer.create(<Login />);
+    const fields = ["username", "password"];
 
-      expect(typeof arrayOfInputFields(tree)[0].props.value).toBe("string");
-    }
-  );
+    fields.forEach(name =>
+      component.getInstance().handleInputChange({ target: { name, value } })
+    );
+    fields.forEach(name =>
+      expect(typeof component.getInstance().state[name]).toBe("string")
+    );
+  });
 
   check.it("can't start with a whitespace", gen.string, randomString => {
     const component = renderer.create(<Login />);
-    let tree = component.toJSON();
-    arrayOfInputFields(tree)[0].props.onChange({
-      target: {
-        name: arrayOfInputFields(tree)[0].props.name,
-        value: randomString
-      }
-    });
-    tree = component.toJSON();
-
-    expect(arrayOfInputFields(tree)[0].props.value.match(/^\s+/)).toBeFalsy();
+    component
+      .getInstance()
+      .handleInputChange({ target: { name: "username", value: randomString } });
+    expect(component.getInstance().state.username.match(/^\s+/)).toBeFalsy();
   });
 
   check.it("can't have double whitespace strings", gen.string, randomString => {
     const component = renderer.create(<Login />);
-    let tree = component.toJSON();
-    arrayOfInputFields(tree)[0].props.onChange({
-      target: {
-        name: arrayOfInputFields(tree)[0].props.name,
-        value: randomString
-      }
-    });
-    tree = component.toJSON();
-    expect(arrayOfInputFields(tree)[0].props.value).not.toContain("  ");
+    component
+      .getInstance()
+      .handleInputChange({ target: { name: "username", value: randomString } });
+    expect(component.getInstance().state.username).not.toContain("  ");
   });
 
   it("Returns an error if username is invalid", async () => {
     global.fetch = () =>
       new Promise(resolve =>
-        resolve({
-          json: () => ({
-            error: "This is an error"
-          })
-        })
+        resolve({ json: () => ({ error: "This is an error" }) })
       );
 
     const component = renderer.create(
       <Login title="This is a title" onLoginSubmit={jest.fn} />
     );
+
     let tree = component.toJSON();
 
-    const inputFields = arrayOfInputFields(tree);
-
-    inputFields[0].props.onChange({
+    component.getInstance().handleInputChange({
       target: {
-        name: arrayOfInputFields(tree)[0].props.name,
-        value: "This name doesn't exist in starwars"
+        name: "username",
+        value: "This name doesn't exist in Star Wars"
       }
     });
-
-    inputFields[1].props.onChange({
-      target: {
-        name: arrayOfInputFields(tree)[1].props.name,
-        value: "password"
-      }
-    });
-
-    await tree.children
-      .find(e => e.type === "form")
-      .props.onSubmit({ preventDefault: jest.fn, stopPropagation: jest.fn });
+    component
+      .getInstance()
+      .handleInputChange({ target: { name: "password", value: "password" } });
+    await component
+      .getInstance()
+      .handleOnSubmit({ preventDefault: jest.fn, stopPropagation: jest.fn });
 
     tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -172,39 +120,23 @@ describe("Login react component", () => {
   it("Returns an error if password is invalid", async () => {
     global.fetch = () =>
       new Promise(resolve =>
-        resolve({
-          json: () => ({
-            error: "This is an error"
-          })
-        })
+        resolve({ json: () => ({ error: "This is an error" }) })
       );
 
     const component = renderer.create(
       <Login title="This is a title" onLoginSubmit={jest.fn} />
     );
-    let tree = component.toJSON();
-
-    const inputFields = arrayOfInputFields(tree);
-
-    inputFields[0].props.onChange({
-      target: {
-        name: arrayOfInputFields(tree)[0].props.name,
-        value: "Yoda"
-      }
+    component
+      .getInstance()
+      .handleInputChange({ target: { name: "username", value: "Yoda" } });
+    component.getInstance().handleInputChange({
+      target: { name: "password", value: "Wrong password this is" }
     });
+    await component
+      .getInstance()
+      .handleOnSubmit({ preventDefault: jest.fn, stopPropagation: jest.fn });
+    const tree = component.toJSON();
 
-    inputFields[1].props.onChange({
-      target: {
-        name: arrayOfInputFields(tree)[1].props.name,
-        value: "Wrong password this is"
-      }
-    });
-
-    await tree.children
-      .find(e => e.type === "form")
-      .props.onSubmit({ preventDefault: jest.fn, stopPropagation: jest.fn });
-
-    tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -221,29 +153,17 @@ describe("Login react component", () => {
     const component = renderer.create(
       <Login title="This is a title" onLoginSubmit={jest.fn} />
     );
-    let tree = component.toJSON();
+    component
+      .getInstance()
+      .handleInputChange({ target: { name: "username", value: "Yoda" } });
+    component
+      .getInstance()
+      .handleInputChange({ target: { name: "password", value: "password" } });
+    await component
+      .getInstance()
+      .handleOnSubmit({ preventDefault: jest.fn, stopPropagation: jest.fn });
 
-    const inputFields = arrayOfInputFields(tree);
-
-    inputFields[0].props.onChange({
-      target: {
-        name: arrayOfInputFields(tree)[0].props.name,
-        value: "Yoda"
-      }
-    });
-
-    inputFields[1].props.onChange({
-      target: {
-        name: arrayOfInputFields(tree)[1].props.name,
-        value: "password"
-      }
-    });
-
-    await tree.children
-      .find(e => e.type === "form")
-      .props.onSubmit({ preventDefault: jest.fn, stopPropagation: jest.fn });
-
-    tree = component.toJSON();
+    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -258,29 +178,19 @@ describe("Login react component", () => {
       );
 
     const onLoginSubmit = jest.fn();
-
     const component = renderer.create(
       <Login title="This is a title" onLoginSubmit={onLoginSubmit} />
     );
-    let tree = component.toJSON();
 
-    const inputFields = arrayOfInputFields(tree);
-    inputFields[0].props.onChange({
-      target: {
-        name: arrayOfInputFields(tree)[0].props.name,
-        value: "Yoda"
-      }
-    });
-    inputFields[1].props.onChange({
-      target: {
-        name: arrayOfInputFields(tree)[1].props.name,
-        value: "password"
-      }
-    });
-    await tree.children
-      .find(e => e.type === "form")
-      .props.onSubmit({ preventDefault: jest.fn, stopPropagation: jest.fn });
-    tree = component.toJSON();
+    component
+      .getInstance()
+      .handleInputChange({ target: { name: "username", value: "Yoda" } });
+    component
+      .getInstance()
+      .handleInputChange({ target: { name: "password", value: "password" } });
+    await component
+      .getInstance()
+      .handleOnSubmit({ preventDefault: jest.fn, stopPropagation: jest.fn });
     expect(onLoginSubmit).toHaveBeenCalled();
   });
 
@@ -295,29 +205,19 @@ describe("Login react component", () => {
       );
 
     const onLoginSubmit = jest.fn();
-
     const component = renderer.create(
       <Login title="This is a title" onLoginSubmit={onLoginSubmit} />
     );
-    let tree = component.toJSON();
 
-    const inputFields = arrayOfInputFields(tree);
-    inputFields[0].props.onChange({
-      target: {
-        name: arrayOfInputFields(tree)[0].props.name,
-        value: "Yoda"
-      }
+    component
+      .getInstance()
+      .handleInputChange({ target: { name: "username", value: "Yoda" } });
+    component.getInstance().handleInputChange({
+      target: { name: "password", value: "Wrong password this is" }
     });
-    inputFields[1].props.onChange({
-      target: {
-        name: arrayOfInputFields(tree)[1].props.name,
-        value: "password"
-      }
-    });
-    await tree.children
-      .find(e => e.type === "form")
-      .props.onSubmit({ preventDefault: jest.fn, stopPropagation: jest.fn });
-    tree = component.toJSON();
+    await component
+      .getInstance()
+      .handleOnSubmit({ preventDefault: jest.fn, stopPropagation: jest.fn });
     expect(onLoginSubmit).not.toHaveBeenCalled();
   });
 });

@@ -1,39 +1,144 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login react component Enterint text in input changes value 1`] = `
-Array [
-  <input
-    name="username"
-    onChange={[Function]}
-    placeholder="Username"
-    value=""
-/>,
-  <input
-    name="password"
-    onChange={[Function]}
-    placeholder="Password"
-    type="password"
-    value=""
-/>,
-]
+<div>
+  <h1 />
+  <p>
+    Please log in
+  </p>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <label
+        htmlFor="username"
+        required={false}
+      >
+        Username
+      </label>
+      <input
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        value="haschanged"
+      />
+    </div>
+    <div>
+      <label
+        htmlFor="password"
+        required={false}
+      >
+        Password
+      </label>
+      <input
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value="haschanged"
+      />
+    </div>
+    <button
+      disabled={false}
+    >
+      Sign in
+    </button>
+  </form>
+</div>
 `;
 
-exports[`Login react component Enterint text in input changes value 2`] = `
-Array [
-  <input
-    name="username"
-    onChange={[Function]}
-    placeholder="Username"
-    value="haschanged"
-/>,
-  <input
-    name="password"
-    onChange={[Function]}
-    placeholder="Password"
-    type="password"
-    value="haschanged"
-/>,
-]
+exports[`Login react component Makrs button as valid if both fields has 5 characters 1`] = `
+<div>
+  <h1 />
+  <p>
+    Please log in
+  </p>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <label
+        htmlFor="username"
+        required={false}
+      >
+        Username
+      </label>
+      <input
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        value=""
+      />
+    </div>
+    <div>
+      <label
+        htmlFor="password"
+        required={false}
+      >
+        Password
+      </label>
+      <input
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+    </div>
+    <button
+      disabled={true}
+    >
+      Form fields not valid
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Login react component Makrs button as valid if both fields has 5 characters 2`] = `
+<div>
+  <h1 />
+  <p>
+    Please log in
+  </p>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <label
+        htmlFor="username"
+        required={false}
+      >
+        Username
+      </label>
+      <input
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        value="More than 5"
+      />
+    </div>
+    <div>
+      <label
+        htmlFor="password"
+        required={false}
+      >
+        Password
+      </label>
+      <input
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value="More than 5"
+      />
+    </div>
+    <button
+      disabled={false}
+    >
+      Sign in
+    </button>
+  </form>
+</div>
 `;
 
 exports[`Login react component Matches earlier configuration 1`] = `
@@ -162,7 +267,7 @@ exports[`Login react component Returns an error if username is invalid 1`] = `
         name="username"
         onChange={[Function]}
         placeholder="Username"
-        value="This name doesn't exist in starwars"
+        value="This name doesn't exist in Star Wars"
       />
     </div>
     <div>
