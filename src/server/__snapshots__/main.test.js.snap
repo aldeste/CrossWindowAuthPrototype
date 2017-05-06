@@ -1,3 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Accessing /login returns a user with corect parameters 1`] = `
+Object {
+  "id": "cGVvcGxlOjIw",
+  "name": "Yoda",
+  "personId": 19,
+  "token": "cGVvcGxlOjIw",
+}
+`;
+
 exports[`Queries queries with graphql 1`] = `undefined`;

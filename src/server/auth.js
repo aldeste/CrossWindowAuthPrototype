@@ -72,6 +72,6 @@ export async function validateUser({
       token: user.token
     };
   } catch (error) {
-    return { error };
+    return { error: error.message };
   }
 }

@@ -29,9 +29,44 @@ describe("Accessing /graphql", () => {
 });
 
 describe("Accessing /login", () => {
-  it("returns a valid response", async () => {
+  beforeEach(async () => {
+    await require("../database").initializeDatabase();
+  });
+
+  it("returns an invalid response without parameters", async () => {
     const response = await supertest(server).post("/login");
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(404);
+  });
+
+  it("returns an invalid response if it doesn't have the correct parameters", async () => {
+    const response = await supertest(server)
+      .post("/login")
+      .send({ mayTheForce: "be with you" });
+    expect(response.status).toBe(404);
+  });
+
+  it("returns a user with corect parameters", async () => {
+    const response = await supertest(server)
+      .post("/login")
+      .send({ name: "Yoda", password: "password" });
+    expect(JSON.parse(response.text)).toMatchSnapshot();
+  });
+
+  it("returns an error if it fails due to wrong password", async () => {
+    const response = await supertest(server)
+      .post("/login")
+      .send({ name: "Yoda", password: "Wrong Password" });
+    expect(JSON.parse(response.text).error).toBeDefined();
+  });
+
+  it("returns an error if it fails due to unexisting username", async () => {
+    const response = await supertest(server)
+      .post("/login")
+      .send({
+        name: "Someone WHo Isn't In Star Wars",
+        password: "Wrong Password"
+      });
+    expect(JSON.parse(response.text).error).toBeDefined();
   });
 });
 
