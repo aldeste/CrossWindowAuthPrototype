@@ -33,3 +33,11 @@ it("renders without crashing", () => {
   const tree = renderer.create(<App />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it("Updates satate to reflect login", () => {
+  const component = renderer.create(<App />);
+  let tree = component.toJSON();
+  component.getInstance().signIn("Star Wars")({ username: "Yoda" });
+  tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
