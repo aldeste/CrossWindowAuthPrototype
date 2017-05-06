@@ -38,7 +38,9 @@ Array [
 
 exports[`Login react component Matches earlier configuration 1`] = `
 <div>
-  <h1 />
+  <h1>
+    This is a title
+  </h1>
   <p>
     Please log in
   </p>
@@ -78,6 +80,159 @@ exports[`Login react component Matches earlier configuration 1`] = `
       disabled={true}
     >
       Form fields not valid
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Login react component Returns an error if password is invalid 1`] = `
+<div>
+  <h1>
+    This is a title
+  </h1>
+  <p>
+    Please log in
+  </p>
+  <p>
+    It appears something went terribly wrong!
+  </p>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <label
+        htmlFor="username"
+        required={false}
+      >
+        Username
+      </label>
+      <input
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        value="Yoda"
+      />
+    </div>
+    <div>
+      <label
+        htmlFor="password"
+        required={false}
+      >
+        Password
+      </label>
+      <input
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value="Wrong password this is"
+      />
+    </div>
+    <button
+      disabled={false}
+    >
+      Sign in
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Login react component Returns an error if username is invalid 1`] = `
+<div>
+  <h1>
+    This is a title
+  </h1>
+  <p>
+    Please log in
+  </p>
+  <p>
+    It appears something went terribly wrong!
+  </p>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <label
+        htmlFor="username"
+        required={false}
+      >
+        Username
+      </label>
+      <input
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        value="This name doesn't exist in starwars"
+      />
+    </div>
+    <div>
+      <label
+        htmlFor="password"
+        required={false}
+      >
+        Password
+      </label>
+      <input
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value="password"
+      />
+    </div>
+    <button
+      disabled={false}
+    >
+      Sign in
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Login react component Signs in the user of password and username are correct 1`] = `
+<div>
+  <h1>
+    This is a title
+  </h1>
+  <p>
+    Please log in
+  </p>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <label
+        htmlFor="username"
+        required={false}
+      >
+        Username
+      </label>
+      <input
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        value="Yoda"
+      />
+    </div>
+    <div>
+      <label
+        htmlFor="password"
+        required={false}
+      >
+        Password
+      </label>
+      <input
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value="password"
+      />
+    </div>
+    <button
+      disabled={false}
+    >
+      Sign in
     </button>
   </form>
 </div>
