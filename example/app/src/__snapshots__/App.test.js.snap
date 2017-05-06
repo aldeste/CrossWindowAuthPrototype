@@ -23,7 +23,9 @@ exports[`renders without crashing 1`] = `
     <p>
       Please log in
     </p>
-    <form>
+    <form
+      onSubmit={[Function]}
+    >
       <div>
         <label
           htmlFor="username"
@@ -67,7 +69,9 @@ exports[`renders without crashing 1`] = `
     <p>
       Please log in
     </p>
-    <form>
+    <form
+      onSubmit={[Function]}
+    >
       <div>
         <label
           htmlFor="username"

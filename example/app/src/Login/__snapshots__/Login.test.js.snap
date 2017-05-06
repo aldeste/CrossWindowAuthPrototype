@@ -42,7 +42,9 @@ exports[`Login react component Matches earlier configuration 1`] = `
   <p>
     Please log in
   </p>
-  <form>
+  <form
+    onSubmit={[Function]}
+  >
     <div>
       <label
         htmlFor="username"
