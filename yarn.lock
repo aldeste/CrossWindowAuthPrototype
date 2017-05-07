@@ -3489,9 +3489,9 @@ jest-snapshot@^20.0.0:
     natural-compare "^1.4.0"
     pretty-format "^20.0.0"
 
-jest-styled-components@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/jest-styled-components/-/jest-styled-components-2.0.0.tgz#eae464b8ff143a595a690e022c93ef1e7b8b9f64"
+jest-styled-components@next:
+  version "3.0.0-0"
+  resolved "https://registry.yarnpkg.com/jest-styled-components/-/jest-styled-components-3.0.0-0.tgz#d08cc17aa530752e7b4ea8f924ddca623983c05c"
   dependencies:
     css "^2.2.1"
 
@@ -5956,9 +5956,9 @@ webidl-conversions@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.1.tgz#8015a17ab83e7e1b311638486ace81da6ce206a0"
 
-webpack-bundle-analyzer@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-2.5.0.tgz#5e4116a1935e198dc353e5f21cd7bf09e137c9b6"
+webpack-bundle-analyzer@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-2.6.0.tgz#9b8052d6aa26004f49ab76e88c45445ecd03f15a"
   dependencies:
     acorn "^5.0.3"
     chalk "^1.1.3"
@@ -6024,9 +6024,9 @@ webpack-sources@^0.2.3:
     source-list-map "^1.1.1"
     source-map "~0.5.3"
 
-webpack@^2.4.1:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-2.5.0.tgz#5a17089f8d0e43442e606d6cf9b2a146c8ed9911"
+webpack@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-2.5.1.tgz#61742f0cf8af555b87460a9cd8bba2f1e3ee2fce"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"

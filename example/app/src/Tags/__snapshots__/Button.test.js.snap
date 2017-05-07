@@ -1,20 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button tag Matches earlier configuration 1`] = `
+.VFhxl {
+  -webkit-transition: background 100ms linear;
+  transition: background 100ms linear;
+  color: white;
+  border: 0;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  background: hsl(161,97%,38%);
+}
+
+.VFhxl:hover {
+  background: hsl(161,97%,33%);
+}
+
+.VFhxl:disabled {
+  background: hsl(161,57%,33%);
+}
+
+.VFhxl:not(:disabled) {
+  cursor: pointer;
+}
+
 <button
-  className=""
+  className="sc-bdVaJa VFhxl"
 />
 `;
 
 exports[`Button tag Matches earlier configuration if alt prop is true 1`] = `
+.VFhxl {
+  -webkit-transition: background 100ms linear;
+  transition: background 100ms linear;
+  color: white;
+  border: 0;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  background: hsl(161,97%,38%);
+}
+
+.VFhxl:hover {
+  background: hsl(161,97%,33%);
+}
+
+.VFhxl:disabled {
+  background: hsl(161,57%,33%);
+}
+
+.VFhxl:not(:disabled) {
+  cursor: pointer;
+}
+
 <button
-  className=""
+  className="sc-bdVaJa VFhxl"
   disabled={true}
 />
 `;
 
 exports[`Button tag Matches earlier configuration if alternative is true 1`] = `
+.dPPndZ {
+  -webkit-transition: background 100ms linear;
+  transition: background 100ms linear;
+  color: white;
+  border: 0;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  background: hsl(289,65%,52%);
+}
+
+.dPPndZ:hover {
+  background: hsl(289,65%,47%);
+}
+
+.dPPndZ:disabled {
+  background: hsl(289,25%,47%);
+}
+
+.dPPndZ:not(:disabled) {
+  cursor: pointer;
+}
+
 <button
-  className=""
+  className="sc-bdVaJa dPPndZ"
 />
 `;

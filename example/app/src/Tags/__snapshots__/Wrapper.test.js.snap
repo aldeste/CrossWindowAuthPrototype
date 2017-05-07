@@ -1,7 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Wrapper tag Matches earlier configuration 1`] = `
+.ezMmPX {
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  border: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  min-height: : 0;
+  min-width: 0;
+}
+
+.ezMmPX > * + * {
+  margin-top: 0.75em;
+}
+
+.ctvSpH {
+  margin: 2rem 5rem;
+  font-size: 17px;
+  line-height: 1.52947;
+  font-weight: 400;
+  letter-spacing: -0.021em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #333;
+}
+
+.ctvSpH > * + * {
+  margin-top: 2rem;
+}
+
 <div
-  className=""
+  className="sc-bwzfXH ctvSpH sc-bdVaJa ezMmPX"
 />
 `;

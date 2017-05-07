@@ -1,12 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Label tag Matches earlier configuration 1`] = `
+.QTUjL {
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.QTUjL + input {
+  margin-top: 0;
+}
+
 <label
   className="sc-bdVaJa QTUjL"
 />
 `;
 
 exports[`Label tag Matches earlier configuration if required is passed 1`] = `
+.gPpDMU {
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.gPpDMU + input {
+  margin-top: 0;
+}
+
+.gPpDMU::after {
+  content: '*';
+  margin: 0 0.1em;
+  color: hsl(343,88%,53%);
+}
+
 <label
   className="sc-bdVaJa gPpDMU"
   required={true}
