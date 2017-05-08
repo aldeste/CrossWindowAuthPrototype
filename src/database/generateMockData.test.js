@@ -2,6 +2,7 @@ import generateMockData from "./generateMockData";
 import chalk from "chalk";
 
 const mockFunctionCreate = jest.fn();
+const consoleLogMockFunction = jest.fn();
 
 jest.mock("./models", () => ({
   Planet: {
@@ -15,7 +16,7 @@ jest.mock("./models", () => ({
 }));
 
 describe("generateMockData", () => {
-  console.log = v => v;
+  console.log = v => consoleLogMockFunction(v);
 
   it("Doesn't generates mock data if forced is false", async () => {
     await generateMockData(false);
@@ -28,13 +29,13 @@ describe("generateMockData", () => {
   });
 
   it("Console logs friendly message if all fields are inserted", async () => {
-    expect(await generateMockData(true)).toBe(
+    expect(consoleLogMockFunction).toHaveBeenCalledWith(
       chalk.green.bold("All fields and connections are inserted")
     );
   });
 
   it("Console logs friendly message if all fields already were inserted", async () => {
-    expect(await generateMockData(false)).toBe(
+    expect(consoleLogMockFunction).toHaveBeenCalledWith(
       chalk.yellow.bold("Fields already in database, have fun")
     );
   });

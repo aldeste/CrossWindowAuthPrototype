@@ -2,7 +2,9 @@
 import chalk from "chalk";
 import { Person } from "./";
 
-export default async function generateMockData(forceInsert: boolean = false) {
+export default async function generateMockData(
+  forceInsert: boolean = false
+): Promise<void> {
   if (forceInsert || (await Person.count()) === 0) {
     const { peopleDummy } = require("./dummy/");
 
@@ -17,9 +19,7 @@ export default async function generateMockData(forceInsert: boolean = false) {
       )
     );
 
-    return console.log(
-      chalk.green.bold("All fields and connections are inserted")
-    );
+    console.log(chalk.green.bold("All fields and connections are inserted"));
   }
-  return console.log(chalk.yellow.bold("Fields already in database, have fun"));
+  console.log(chalk.yellow.bold("Fields already in database, have fun"));
 }
