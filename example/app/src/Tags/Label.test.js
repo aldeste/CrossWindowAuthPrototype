@@ -8,10 +8,6 @@ describe("Label tag", () => {
     expect(Label).toBeDefined();
   });
 
-  it("Is a styled component", () => {
-    expect(Label.name).toBe("StyledComponent");
-  });
-
   it("Matches earlier configuration", () => {
     const tree = renderer.create(<Label />).toJSON();
     expect(tree).toMatchStyledComponentsSnapshot();

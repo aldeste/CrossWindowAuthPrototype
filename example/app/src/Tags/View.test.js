@@ -8,10 +8,6 @@ describe("View tag", () => {
     expect(View).toBeDefined();
   });
 
-  it("Is a styled component", () => {
-    expect(View.name).toBe("StyledComponent");
-  });
-
   it("Matches earlier configuration", () => {
     const tree = renderer.create(<View />).toJSON();
     expect(tree).toMatchStyledComponentsSnapshot();

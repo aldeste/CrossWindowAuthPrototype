@@ -8,10 +8,6 @@ describe("Form tag", () => {
     expect(Form).toBeDefined();
   });
 
-  it("Is a styled component", () => {
-    expect(Form.name).toBe("StyledComponent");
-  });
-
   it("Matches earlier configuration", () => {
     const tree = renderer.create(<Form />).toJSON();
     expect(tree).toMatchStyledComponentsSnapshot();

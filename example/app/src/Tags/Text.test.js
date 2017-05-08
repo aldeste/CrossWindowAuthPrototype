@@ -8,10 +8,6 @@ describe("Text tag", () => {
     expect(Text).toBeDefined();
   });
 
-  it("Is a styled component", () => {
-    expect(Text.name).toBe("StyledComponent");
-  });
-
   it("Matches earlier configuration", () => {
     const tree = renderer.create(<Text />).toJSON();
     expect(tree).toMatchStyledComponentsSnapshot();

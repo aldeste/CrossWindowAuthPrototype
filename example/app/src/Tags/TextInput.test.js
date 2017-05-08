@@ -8,10 +8,6 @@ describe("TextInput tag", () => {
     expect(TextInput).toBeDefined();
   });
 
-  it("Is a styled component", () => {
-    expect(TextInput.name).toBe("StyledComponent");
-  });
-
   it("Matches earlier configuration", () => {
     const tree = renderer.create(<TextInput />).toJSON();
     expect(tree).toMatchStyledComponentsSnapshot();
