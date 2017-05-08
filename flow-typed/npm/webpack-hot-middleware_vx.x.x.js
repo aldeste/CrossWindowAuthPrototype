@@ -1,4 +1,4 @@
-// flow-typed signature: 34bd7124baf47415f2b19585f5a5b1be
+// flow-typed signature: 39885c5ddf9e757fcc7270cc6a0c5a27
 // flow-typed version: <<STUB>>/webpack-hot-middleware_v^2.18.0/flow_v0.45.0
 
 /**
@@ -30,6 +30,26 @@ declare module 'webpack-hot-middleware/client' {
   declare module.exports: any;
 }
 
+declare module 'webpack-hot-middleware/example/client' {
+  declare module.exports: any;
+}
+
+declare module 'webpack-hot-middleware/example/extra' {
+  declare module.exports: any;
+}
+
+declare module 'webpack-hot-middleware/example/server' {
+  declare module.exports: any;
+}
+
+declare module 'webpack-hot-middleware/example/webpack.config' {
+  declare module.exports: any;
+}
+
+declare module 'webpack-hot-middleware/example/webpack.config.multientry' {
+  declare module.exports: any;
+}
+
 declare module 'webpack-hot-middleware/helpers' {
   declare module.exports: any;
 }
@@ -42,12 +62,39 @@ declare module 'webpack-hot-middleware/process-update' {
   declare module.exports: any;
 }
 
+declare module 'webpack-hot-middleware/test/client-test' {
+  declare module.exports: any;
+}
+
+declare module 'webpack-hot-middleware/test/helpers-test' {
+  declare module.exports: any;
+}
+
+declare module 'webpack-hot-middleware/test/middleware-test' {
+  declare module.exports: any;
+}
+
 // Filename aliases
 declare module 'webpack-hot-middleware/client-overlay.js' {
   declare module.exports: $Exports<'webpack-hot-middleware/client-overlay'>;
 }
 declare module 'webpack-hot-middleware/client.js' {
   declare module.exports: $Exports<'webpack-hot-middleware/client'>;
+}
+declare module 'webpack-hot-middleware/example/client.js' {
+  declare module.exports: $Exports<'webpack-hot-middleware/example/client'>;
+}
+declare module 'webpack-hot-middleware/example/extra.js' {
+  declare module.exports: $Exports<'webpack-hot-middleware/example/extra'>;
+}
+declare module 'webpack-hot-middleware/example/server.js' {
+  declare module.exports: $Exports<'webpack-hot-middleware/example/server'>;
+}
+declare module 'webpack-hot-middleware/example/webpack.config.js' {
+  declare module.exports: $Exports<'webpack-hot-middleware/example/webpack.config'>;
+}
+declare module 'webpack-hot-middleware/example/webpack.config.multientry.js' {
+  declare module.exports: $Exports<'webpack-hot-middleware/example/webpack.config.multientry'>;
 }
 declare module 'webpack-hot-middleware/helpers.js' {
   declare module.exports: $Exports<'webpack-hot-middleware/helpers'>;
@@ -57,4 +104,13 @@ declare module 'webpack-hot-middleware/middleware.js' {
 }
 declare module 'webpack-hot-middleware/process-update.js' {
   declare module.exports: $Exports<'webpack-hot-middleware/process-update'>;
+}
+declare module 'webpack-hot-middleware/test/client-test.js' {
+  declare module.exports: $Exports<'webpack-hot-middleware/test/client-test'>;
+}
+declare module 'webpack-hot-middleware/test/helpers-test.js' {
+  declare module.exports: $Exports<'webpack-hot-middleware/test/helpers-test'>;
+}
+declare module 'webpack-hot-middleware/test/middleware-test.js' {
+  declare module.exports: $Exports<'webpack-hot-middleware/test/middleware-test'>;
 }
