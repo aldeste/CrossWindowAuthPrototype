@@ -8,6 +8,7 @@ exports[`PingTest / Ping Clicking button changes state 1`] = `
   <button
     alternative={true}
     onClick={[Function]}
+    outlined={true}
   >
     Click to ping
   </button>
@@ -28,6 +29,7 @@ exports[`PingTest / Ping Clicking button with no props changes nothing 1`] = `
   <button
     alternative={true}
     onClick={[Function]}
+    outlined={true}
   >
     Click to ping
   </button>
@@ -42,6 +44,7 @@ exports[`PingTest / Ping Matches previous setup 1`] = `
   <button
     alternative={true}
     onClick={[Function]}
+    outlined={true}
   >
     Click to ping
   </button>

@@ -5,7 +5,13 @@ exports[`Updates satate to reflect login 1`] = `
   <title>
     This is a demo page
   </title>
-  <p />
+  <p>
+    {
+      "StarWars": {
+        "name": "Yoda"
+      }
+    }
+  </p>
   <div>
     <h1>
       Connection testing field
@@ -13,59 +19,29 @@ exports[`Updates satate to reflect login 1`] = `
     <button
       alternative={true}
       onClick={[Function]}
+      outlined={true}
     >
       Click to ping
     </button>
   </div>
   <div>
     <h1>
-      Star Wars login
+      Star Wars user logged in!
     </h1>
     <p>
-      Please log in
+      You're logged in as 
+      Yoda
     </p>
-    <form
-      onSubmit={[Function]}
+    <button
+      alternative={true}
+      onClick={[Function]}
     >
-      <div>
-        <label
-          htmlFor="username"
-          required={false}
-        >
-          Username
-        </label>
-        <input
-          name="username"
-          onChange={[Function]}
-          placeholder="Username"
-          value=""
-        />
-      </div>
-      <div>
-        <label
-          htmlFor="password"
-          required={false}
-        >
-          Password
-        </label>
-        <input
-          name="password"
-          onChange={[Function]}
-          placeholder="Password"
-          type="password"
-          value=""
-        />
-      </div>
-      <button
-        disabled={true}
-      >
-        Form fields not valid
-      </button>
-    </form>
+      Log out
+    </button>
   </div>
   <div>
     <h1>
-      Breaking Bad login
+      Star Trek login
     </h1>
     <p>
       Please log in
@@ -124,6 +100,7 @@ exports[`renders without crashing 1`] = `
     <button
       alternative={true}
       onClick={[Function]}
+      outlined={true}
     >
       Click to ping
     </button>
@@ -176,7 +153,7 @@ exports[`renders without crashing 1`] = `
   </div>
   <div>
     <h1>
-      Breaking Bad login
+      Star Trek login
     </h1>
     <p>
       Please log in

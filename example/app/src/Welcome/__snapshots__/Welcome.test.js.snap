@@ -2,12 +2,16 @@
 
 exports[`Welcome react component Matches earlier configuration 1`] = `
 <styled.div>
-  <styled.h1 />
+  <styled.h1>
+    This is title
+  </styled.h1>
   <styled.p>
     You're logged in as 
+    This is username
   </styled.p>
   <styled.button
     alternative={true}
+    onClick={[Function]}
   >
     Log out
   </styled.button>
