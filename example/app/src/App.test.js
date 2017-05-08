@@ -36,8 +36,7 @@ it("renders without crashing", () => {
 
 it("Updates satate to reflect login", () => {
   const component = renderer.create(<App />);
-  let tree = component.toJSON();
   component.getInstance().signIn("Star Wars")({ username: "Yoda" });
-  tree = component.toJSON();
+  const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });

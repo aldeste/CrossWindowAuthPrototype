@@ -27,10 +27,10 @@ const {
   initializeDatabase
 } = require("./");
 
-describe("Modules are defined", () => {
+describe("Models are defined", () => {
   Promise.all(
-    [Person, Planet].map(module =>
-      it("Returns module " + module, () => expect(module).toBeDefined())
+    [Person, Planet].map(model =>
+      it("Returns model " + model, () => expect(model).toBeDefined())
     )
   );
 });

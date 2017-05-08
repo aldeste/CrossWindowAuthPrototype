@@ -5,15 +5,7 @@ exports[`Updates satate to reflect login 1`] = `
   <title>
     This is a demo page
   </title>
-  <p>
-    {
-      "Star Wars": {
-        "props": {
-          "username": "Yoda"
-        }
-      }
-    }
-  </p>
+  <p />
   <div>
     <h1>
       Connection testing field
