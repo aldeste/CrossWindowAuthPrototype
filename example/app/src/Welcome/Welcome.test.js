@@ -10,7 +10,7 @@ describe("Welcome react component", () => {
     <Welcome
       title="This is title"
       username="This is username"
-      handleLogOut={e => mockClickFunction()}
+      onLogoutSubmit={e => mockClickFunction()}
     />
   );
 

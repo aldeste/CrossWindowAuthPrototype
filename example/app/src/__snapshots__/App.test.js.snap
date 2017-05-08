@@ -1,6 +1,118 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Updates satate to reflect login 1`] = `
+exports[`Application start file Removes the welcome screen on logout 1`] = `
+<div>
+  <title>
+    This is a demo page
+  </title>
+  <div>
+    <h1>
+      Connection testing field
+    </h1>
+    <button
+      alternative={true}
+      onClick={[Function]}
+      outlined={true}
+    >
+      Click to ping
+    </button>
+  </div>
+  <div>
+    <h1>
+      Star Wars login
+    </h1>
+    <p>
+      Please log in
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <div>
+        <label
+          htmlFor="username"
+          required={false}
+        >
+          Username
+        </label>
+        <input
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="password"
+          required={false}
+        >
+          Password
+        </label>
+        <input
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        disabled={true}
+      >
+        Form fields not valid
+      </button>
+    </form>
+  </div>
+  <div>
+    <h1>
+      Star Trek login
+    </h1>
+    <p>
+      Please log in
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <div>
+        <label
+          htmlFor="username"
+          required={false}
+        >
+          Username
+        </label>
+        <input
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="password"
+          required={false}
+        >
+          Password
+        </label>
+        <input
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        disabled={true}
+      >
+        Form fields not valid
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Application start file Renders the welcome screen on login 1`] = `
 <div>
   <title>
     This is a demo page
@@ -88,7 +200,7 @@ exports[`Updates satate to reflect login 1`] = `
 </div>
 `;
 
-exports[`renders without crashing 1`] = `
+exports[`Application start file renders without crashing 1`] = `
 <div>
   <title>
     This is a demo page
