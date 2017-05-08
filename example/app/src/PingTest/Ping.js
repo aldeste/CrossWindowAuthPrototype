@@ -17,7 +17,7 @@ export default class extends React.PureComponent<*, Props, State> {
   resolveToken = async (token: ?string): Promise<Object> => {
     if (!token) return {};
     const {
-      data: { person: { name: user } },
+      data: { person: user },
       extensions: { timeTaken: time }
     }: Object = await fetch("/api/graphql", {
       method: "POST",
@@ -29,13 +29,14 @@ export default class extends React.PureComponent<*, Props, State> {
       },
       mode: "cors",
       cache: "default",
-      body: `{ person(personId: ${token}) { name } }`
+      body: `{ person(personId: ${token}) { name token personId id } }`
     }).then(response => response.json());
 
-    // window.postMessage(
-    //   { type: "AuthVerificationConnection", data: user },
-    //   "http://localhost:4000"
-    // );
+    window.postMessage(
+      { type: "AuthVerificationConnection", data: user },
+      "http://localhost:4000"
+    );
+
     return { user, time };
   };
 
@@ -51,7 +52,9 @@ export default class extends React.PureComponent<*, Props, State> {
         <Button onClick={this.handleClick} alternative outlined>
           Click to ping
         </Button>
-        {!!this.state.user && <Text>{this.state.user}</Text>}
+        {!!this.state.user &&
+          !!this.state.user.name &&
+          <Text>{this.state.user.name}</Text>}
         {!!this.state.time && <Text>{this.state.time}</Text>}
       </View>
     );

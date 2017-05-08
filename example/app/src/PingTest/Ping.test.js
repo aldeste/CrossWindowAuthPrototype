@@ -26,6 +26,8 @@ jest
     <div {...props}>{children}</div>
   ));
 
+const PostWindowMessage = jest.fn();
+
 describe("PingTest / Ping", () => {
   global.fetch = () =>
     new Promise(resolve =>
@@ -37,6 +39,8 @@ describe("PingTest / Ping", () => {
       })
     );
 
+  global.window = { postMessage: msg => PostWindowMessage(msg) };
+
   it("Matches previous setup", () => {
     const tree = renderer.create(<Ping />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -45,6 +49,15 @@ describe("PingTest / Ping", () => {
   it("Is a react component", () => {
     expect(typeof Ping).toBe("function");
     expect(<Ping />.$$typeof.toString()).toBe("Symbol(react.element)");
+  });
+
+  it("Posts a message event to window", async () => {
+    const component = renderer.create(<Ping token="foo bar" />);
+    await component.getInstance().handleClick();
+    expect(PostWindowMessage).toHaveBeenCalledWith({
+      data: { name: "Yoda" },
+      type: "AuthVerificationConnection"
+    });
   });
 
   it("Fetches and updates state if button is clicked", async () => {
