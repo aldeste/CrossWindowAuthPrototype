@@ -14,3 +14,19 @@ describe("Person should have extra fields, which will be used later in context i
   it("Should contain an birthYear field", () =>
     expect(Person.birthYear).toBeDefined());
 });
+describe("Person dummy data should include some key characters from Star Wars IV - VI for easy testing", () => {
+  [
+    "Yoda",
+    "Darth Vader",
+    "Luke Skywalker",
+    "Han Solo",
+    "Leia Organa",
+    "Chewbacca",
+    "R2-D2",
+    "C-3PO"
+  ].forEach(name =>
+    it("Includes " + name, () =>
+      expect(dummyPeople.find(x => x.node.name === name)).toBeDefined()
+    )
+  );
+});
