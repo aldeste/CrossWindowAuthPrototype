@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PingTest / Ping Clicking button changes state 1`] = `
+exports[`PingTest / Ping Changes nothing if there's no prop passed in 1`] = `
 <div>
   <h1>
     Connection testing field
@@ -12,16 +12,10 @@ exports[`PingTest / Ping Clicking button changes state 1`] = `
   >
     Click to ping
   </button>
-  <p>
-    foo bar
-  </p>
-  <p>
-    foo bar
-  </p>
 </div>
 `;
 
-exports[`PingTest / Ping Clicking button with no props changes nothing 1`] = `
+exports[`PingTest / Ping Fetches and updates state if button is clicked 1`] = `
 <div>
   <h1>
     Connection testing field
@@ -33,6 +27,12 @@ exports[`PingTest / Ping Clicking button with no props changes nothing 1`] = `
   >
     Click to ping
   </button>
+  <p>
+    Yoda
+  </p>
+  <p>
+    Time string
+  </p>
 </div>
 `;
 

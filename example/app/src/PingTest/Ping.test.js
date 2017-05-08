@@ -27,6 +27,16 @@ jest
   ));
 
 describe("PingTest / Ping", () => {
+  global.fetch = () =>
+    new Promise(resolve =>
+      resolve({
+        json: () => ({
+          data: { person: { name: "Yoda" } },
+          extensions: { timeTaken: "Time string" }
+        })
+      })
+    );
+
   it("Matches previous setup", () => {
     const tree = renderer.create(<Ping />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -37,24 +47,36 @@ describe("PingTest / Ping", () => {
     expect(<Ping />.$$typeof.toString()).toBe("Symbol(react.element)");
   });
 
-  it("Clicking button changes state", async () => {
-    global.fetch = () =>
-      new Promise(resolve =>
-        resolve({
-          json: () => ({
-            data: { person: { name: "foo bar" } },
-            extensions: { timeTaken: "foo bar" }
-          })
-        })
-      );
-
+  it("Fetches and updates state if button is clicked", async () => {
     const component = renderer.create(<Ping token="foo bar" />);
     await component.getInstance().handleClick();
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("Clicking button with no props changes nothing", async () => {
+  it("Prints out timeTaken", async () => {
+    const component = renderer.create(<Ping token="foo bar" />);
+    await component.getInstance().handleClick();
+    const tree = component.toJSON();
+    expect(
+      tree.children
+        .filter(el => el.type === "p")
+        .find(el => el.children[0] === "Time string")
+    ).toBeDefined();
+  });
+
+  it("Prints out data", async () => {
+    const component = renderer.create(<Ping token="foo bar" />);
+    await component.getInstance().handleClick();
+    const tree = component.toJSON();
+    expect(
+      tree.children
+        .filter(el => el.type === "p")
+        .find(el => el.children[0] === "Yoda")
+    ).toBeDefined();
+  });
+
+  it("Changes nothing if there's no prop passed in", async () => {
     const component = renderer.create(<Ping />);
     await component.getInstance().handleClick();
     const tree = component.toJSON();
