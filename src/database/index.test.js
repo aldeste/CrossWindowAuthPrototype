@@ -1,6 +1,6 @@
 const mockFunctionFileLoaded = jest.fn();
 
-jest.mock("./modules", () => ({
+jest.mock("./models", () => ({
   Planet: {
     hasMany: () => jest.fn()
   },

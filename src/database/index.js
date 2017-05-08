@@ -1,6 +1,6 @@
 // @flow
 import connection from "./databaseConnection";
-import { Person, Planet } from "./modules";
+import { Person, Planet } from "./models";
 import generateMockData from "./generateMockData";
 
 /**

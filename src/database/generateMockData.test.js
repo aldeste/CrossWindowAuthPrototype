@@ -1,6 +1,6 @@
 import generateMockData from "./generateMockData";
 
-jest.mock("./modules", () => ({
+jest.mock("./models", () => ({
   Planet: {
     hasMany: () => jest.fn()
   },
