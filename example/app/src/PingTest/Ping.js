@@ -9,10 +9,13 @@ type State =
       time?: string
     };
 
-type Props = { token?: ?string };
+type Props = { token: ?string };
 
-export async function resolveToken(token: ?string): Promise<Object> {
-  if (token) {
+export default class extends React.PureComponent<*, Props, State> {
+  state = {};
+
+  resolveToken = async (token: ?string): Promise<Object> => {
+    if (!token) return {};
     const {
       data: { person: { name: user } },
       extensions: { timeTaken: time }
@@ -26,7 +29,7 @@ export async function resolveToken(token: ?string): Promise<Object> {
       },
       mode: "cors",
       cache: "default",
-      body: `{ person(personId: 4) { name } }`
+      body: `{ person(personId: ${token}) { name } }`
     }).then(response => response.json());
 
     // window.postMessage(
@@ -34,15 +37,10 @@ export async function resolveToken(token: ?string): Promise<Object> {
     //   "http://localhost:4000"
     // );
     return { user, time };
-  }
-  return {};
-}
-
-export default class extends React.PureComponent<*, Props, State> {
-  state = {};
+  };
 
   handleClick = async () => {
-    const user = await resolveToken(this.props.token);
+    const user = await this.resolveToken(this.props.token);
     this.setState(user);
   };
 
@@ -50,7 +48,7 @@ export default class extends React.PureComponent<*, Props, State> {
     return (
       <View>
         <Title>Connection testing field</Title>
-        <Button onClick={this.handleClick} alternative={true}>
+        <Button onClick={this.handleClick} alternative outlined>
           Click to ping
         </Button>
         {!!this.state.user && <Text>{this.state.user}</Text>}
