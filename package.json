@@ -77,10 +77,12 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
-      "example/app/**/*.js"
+      "example/**/*.js",
+      "!example/config/**/*.js",
+      "!config/**/*.js"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>[/\\\\](coverage|node_modules|scripts|config|example/config)[/\\\\]"
+      "<rootDir>[/\\\\](node_modules|flow-typed|coverage|config|example/config)[/\\\\]"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
