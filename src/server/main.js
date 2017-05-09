@@ -73,13 +73,14 @@ app.use(
       : {};
 
     // Sets cookie again to keep it fresh
-    res.cookie(
-      "herring",
-      JSON.stringify(
-        await validateUser({ name: "Yoda", password: "password" })
-      ),
-      { maxAge: 900000, httpOnly: true, signed: true, encode }
-    );
+    if (!!viewer.name) {
+      res.cookie("herring", JSON.stringify(viewer), {
+        maxAge: 900000,
+        httpOnly: true,
+        signed: true,
+        encode
+      });
+    }
     console.log("signed cookies", req.signedCookies);
 
     // A simple helper function to time our requests.
