@@ -81,7 +81,17 @@ app.use(
         encode
       });
     }
-    console.log("signed cookies", req.signedCookies);
+
+    // Display current cookies in coonsole, if there are any
+    if (Object.keys(req.signedCookies).length) {
+      console.log();
+      console.log(chalk.blue.bold("Current signed cookies"));
+      Object.keys(req.signedCookies).forEach((cookie: string): void => {
+        console.log(chalk.bold(cookie));
+        console.log(JSON.parse(req.signedCookies[cookie]));
+      });
+      console.log();
+    }
 
     // A simple helper function to time our requests.
     // Its a higher order function that initiates a timer,
