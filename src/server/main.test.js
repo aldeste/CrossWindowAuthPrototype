@@ -86,7 +86,30 @@ describe("Cookies", () => {
     expect(response.header["set-cookie"][0]).toContain("HttpOnly");
   });
 
-  it("Reads cookies and logs them", async () => {
+  it("Reads cookies and creates updated if cookie is older than offset", async () => {
+    const _Date = Date;
+    const LATER_DATE = new Date((new Date().getFullYear() + 1).toString());
+    const serverInstance = await supertest.agent(server);
+
+    await serverInstance
+      .post("/login")
+      .send({ name: "Yoda", password: "password" });
+
+    global.Date = jest.fn(() => LATER_DATE);
+    global.Date.UTC = _Date.UTC;
+    global.Date.parse = _Date.parse;
+    global.Date.now = _Date.now;
+    const gqlResponse = await serverInstance.post(
+      "/graphql?query={person(personId:4){id,name}}"
+    );
+
+    global.Date = _Date;
+    expect(gqlResponse.req._headers.cookie).toBeDefined();
+    expect(gqlResponse.header["set-cookie"][0]).toBeDefined();
+    expect(consoleLogMock).toBeCalledWith("Current signed cookies");
+  });
+
+  it("Reads cookies and doesn't make new if cookie is fresh", async () => {
     const serverInstance = await supertest.agent(server);
     await serverInstance
       .post("/login")
@@ -94,7 +117,9 @@ describe("Cookies", () => {
     const gqlResponse = await serverInstance.post(
       "/graphql?query={person(personId:4){id,name}}"
     );
+
     expect(gqlResponse.req._headers.cookie).toBeDefined();
+    expect(gqlResponse.header["set-cookie"]).toBeUndefined();
     expect(consoleLogMock).toBeCalledWith("Current signed cookies");
   });
 });

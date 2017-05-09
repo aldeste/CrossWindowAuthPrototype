@@ -24,6 +24,14 @@ const parseCookies: Middleware = cookieParser("v2TqCgORps-IgwsZmQRDl", {
   decode
 });
 
+const setCookie = (name: string, params: Object) => {
+  return [
+    name,
+    JSON.stringify({ ...params, cookieBirth: new Date() / 1000 }),
+    { maxAge: 900000, httpOnly: true, signed: true, encode }
+  ];
+};
+
 app.post(
   "/login",
   parseCookies,
@@ -41,12 +49,7 @@ app.post(
 
     // set a cookie containing the valid user
     if (!response.error) {
-      res.cookie("herring", JSON.stringify(response), {
-        maxAge: 900000,
-        httpOnly: true,
-        signed: true,
-        encode
-      });
+      res.cookie(...setCookie("herring", response));
     }
 
     return res.send(response);
@@ -71,18 +74,24 @@ app.use(
     // Get all signed cookies, then if our herring cookie exists,
     // get user from auth token, otherwise define viewer as empty object.
     const { signedCookies }: signedCookiesType = req;
-    const viewer: ViewerType = !!signedCookies && !!signedCookies.herring
-      ? await fromAuthToken(JSON.parse(signedCookies.herring).id)
+
+    // Check if herring cookie exists
+    const cookieExists: boolean = !!signedCookies && !!signedCookies.herring;
+
+    // If cookie is older than 60 seconds, this will be true. Otherwise false.
+    const updateCookie: boolean = cookieExists
+      ? new Date() / 1000 - JSON.parse(signedCookies.herring).cookieBirth > 60
+      : false;
+
+    const viewer: ViewerType = cookieExists
+      ? updateCookie
+          ? await fromAuthToken(JSON.parse(signedCookies.herring).id)
+          : JSON.parse(signedCookies.herring)
       : {};
 
     // Sets cookie again to keep it fresh
-    if (!!viewer.name) {
-      res.cookie("herring", JSON.stringify(viewer), {
-        maxAge: 900000,
-        httpOnly: true,
-        signed: true,
-        encode
-      });
+    if (updateCookie) {
+      res.cookie(...setCookie("herring", viewer));
     }
 
     // Display current cookies in coonsole, if there are any
