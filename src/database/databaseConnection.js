@@ -12,7 +12,6 @@ const connection = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
   ...(process.env.NODE_ENV !== "production"
     ? {
         dialect: "sqlite"
-        // storage: require("path").join(__dirname, `/${DB_NAME}.sqlite`)
       }
     : {
         dialect: "mariadb",
