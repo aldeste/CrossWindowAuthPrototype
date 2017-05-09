@@ -14,6 +14,7 @@ const Root = new GraphQLObjectType({
   fields: () => ({
     viewer: {
       type: personType,
+      description: "The viewr field is associated with the currently logged in viewer.",
       resolve: (
         _: *,
         args: arguments,
@@ -31,6 +32,7 @@ const Root = new GraphQLObjectType({
     },
     person: {
       type: personType,
+      description: "A person field to be used to query for people by id or personId",
       args: {
         id: { type: GraphQLID },
         personId: { type: GraphQLID }
