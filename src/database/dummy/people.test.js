@@ -1,6 +1,6 @@
-import dummyPeople from "./people";
+import dummyPeople from "./people.swapi";
 
-const Person = dummyPeople[0].node;
+const Person = dummyPeople[0];
 
 describe("Person", () => {
   it("Should contain an id field, which will stand in as a token", () =>
@@ -9,12 +9,13 @@ describe("Person", () => {
 });
 
 describe("Person should have extra fields, which will be used later in context if users are authorized", () => {
-  it("Should contain an eyeColor field", () =>
-    expect(Person.eyeColor).toBeDefined());
-  it("Should contain an birthYear field", () =>
-    expect(Person.birthYear).toBeDefined());
+  it("Should contain an eye color field", () =>
+    expect(Person.eye_color).toBeDefined());
+  it("Should contain a birth year field", () =>
+    expect(Person.birth_year).toBeDefined());
 });
-describe("Person dummy data should include some key characters from Star Wars IV - VI for easy testing", () => {
+
+describe("Person dummy data should include some key characters from Star Wars I - VII for easy testing", () => {
   [
     "Yoda",
     "Darth Vader",
@@ -23,10 +24,12 @@ describe("Person dummy data should include some key characters from Star Wars IV
     "Leia Organa",
     "Chewbacca",
     "R2-D2",
-    "C-3PO"
+    "C-3PO",
+    "Rey",
+    "BB8"
   ].forEach(name =>
     it("Includes " + name, () =>
-      expect(dummyPeople.find(x => x.node.name === name)).toBeDefined()
+      expect(dummyPeople.find(x => x.name === name)).toBeDefined()
     )
   );
 });

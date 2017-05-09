@@ -2,10 +2,10 @@
 
 exports[`Accessing /login returns a user with corect parameters 1`] = `
 Object {
-  "id": "cGVvcGxlOjIw",
+  "id": "cGVvcGxlOjE5",
   "name": "Yoda",
   "personId": 19,
-  "token": "cGVvcGxlOjIw",
+  "token": "cGVvcGxlOjE5",
 }
 `;
 
