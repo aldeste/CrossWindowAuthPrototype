@@ -65,11 +65,14 @@ app.use(
     type signedCookiesType = { signedCookies: Object | { herring: string } };
     type ViewerType = UserTokenData | {};
 
+    console.log("\x1B[2J\x1B[0f\u001b[0;0H");
+    console.log(chalk.green.inverse(new Date()));
+
     // Get all signed cookies, then if our herring cookie exists,
     // get user from auth token, otherwise define viewer as empty object.
     const { signedCookies }: signedCookiesType = req;
     const viewer: ViewerType = !!signedCookies && !!signedCookies.herring
-      ? await fromAuthToken(JSON.parse(signedCookies.herring).personId)
+      ? await fromAuthToken(JSON.parse(signedCookies.herring).id)
       : {};
 
     // Sets cookie again to keep it fresh
@@ -85,7 +88,7 @@ app.use(
     // Display current cookies in coonsole, if there are any
     if (Object.keys(req.signedCookies).length) {
       console.log();
-      console.log(chalk.blue.bold("Current signed cookies"));
+      console.log("Current signed cookies");
       Object.keys(req.signedCookies).forEach((cookie: string): void => {
         console.log(chalk.bold(cookie));
         console.log(JSON.parse(req.signedCookies[cookie]));

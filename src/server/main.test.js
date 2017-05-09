@@ -1,7 +1,8 @@
 const supertest = require("supertest");
 const server = require("./main").default;
 
-global.console.log = () => jest.fn();
+const consoleLogMock = jest.fn();
+global.console.log = msg => consoleLogMock(msg);
 
 afterEach(() => {
   server.close();
@@ -60,13 +61,41 @@ describe("Accessing /login", () => {
   });
 
   it("returns an error if it fails due to unexisting username", async () => {
+    const response = await supertest(server).post("/login").send({
+      name: "Someone WHo Isn't In Star Wars",
+      password: "Wrong Password"
+    });
+    expect(JSON.parse(response.text).error).toBeDefined();
+  });
+});
+
+describe("Cookies", () => {
+  beforeEach(async () => {
+    await require("../database").initializeDatabase();
+  });
+
+  // jest.mock("cookie-parser", () => ({
+  //
+  // }))
+
+  it("Returns a HttpOnly signed cookie", async () => {
     const response = await supertest(server)
       .post("/login")
-      .send({
-        name: "Someone WHo Isn't In Star Wars",
-        password: "Wrong Password"
-      });
-    expect(JSON.parse(response.text).error).toBeDefined();
+      .send({ name: "Yoda", password: "password" });
+    expect(response.header["set-cookie"][0]).toBeDefined();
+    expect(response.header["set-cookie"][0]).toContain("HttpOnly");
+  });
+
+  it("Reads cookies and logs them", async () => {
+    const serverInstance = await supertest.agent(server);
+    await serverInstance
+      .post("/login")
+      .send({ name: "Yoda", password: "password" });
+    const gqlResponse = await serverInstance.post(
+      "/graphql?query={person(personId:4){id,name}}"
+    );
+    expect(gqlResponse.req._headers.cookie).toBeDefined();
+    expect(consoleLogMock).toBeCalledWith("Current signed cookies");
   });
 });
 
