@@ -1,11 +1,9 @@
 // @flow
 import React from "react";
+import Loadable from "react-loadable";
+import { Map, type Map as ImmutableMap } from "immutable";
 import { Wrapper, Text } from "./Tags";
 import DocumentTitle from "./Document/Title";
-import Login from "./Login/Login";
-import Welcome from "./Welcome/Welcome";
-import { Map, type Map as ImmutableMap } from "immutable";
-import Ping from "./PingTest/Ping";
 
 type MessageEventWithOptions = {
   ...MessageEvent,
@@ -15,6 +13,37 @@ type MessageEventWithOptions = {
 type State = {
   signedIn: ImmutableMap<string, ImmutableMap<string, string>>
 };
+
+const LoadingComponent = ({ isLoading, error, pastDelay }) => {
+  if (isLoading) {
+    return pastDelay ? <div>Loading...</div> : null; // Don't flash "Loading..." when we don't need to.
+  }
+  if (error) {
+    return <div>Error! Component failed to load</div>;
+  }
+  return null;
+};
+
+const AsyncWelcome = Loadable({
+  loader: () => import("./Welcome/Welcome"),
+  LoadingComponent,
+  // optional config...
+  delay: 200
+});
+
+const AsyncLogin = Loadable({
+  loader: () => import("./Login/Login"),
+  LoadingComponent,
+  // optional config...
+  delay: 200
+});
+
+const AsyncPing = Loadable({
+  loader: () => import("./PingTest/Ping"),
+  LoadingComponent,
+  // optional config...
+  delay: 200
+});
 
 class App extends React.Component<*, State, *> {
   state = {
@@ -99,17 +128,17 @@ class App extends React.Component<*, State, *> {
         <DocumentTitle>This is a demo page</DocumentTitle>
         {UserBases.some(userBase => signedIn.has(userBase)) &&
           <Text>{JSON.stringify(signedIn, null, 2)}</Text>}
-        <Ping token={token} />
+        <AsyncPing token={token} />
         {UserBases.map(
           part =>
             signedIn.has(part)
-              ? <Welcome
+              ? <AsyncWelcome
                   key={part}
                   title={`${part.replace(/([a-z])([A-Z])/g, "$1 $2")} user logged in!`}
                   username={signedIn.getIn([part, "name"])}
                   onLogoutSubmit={this.handleLogOut(part)}
                 />
-              : <Login
+              : <AsyncLogin
                   key={part}
                   title={`${part.replace(/([a-z])([A-Z])/g, "$1 $2")} login`}
                   onLoginSubmit={this.handleLogin(part)}
