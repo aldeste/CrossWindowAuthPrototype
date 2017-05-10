@@ -67,34 +67,100 @@ describe("Application start file", () => {
 
   it("Processes messages with correct origin and type", () => {
     const component = renderer.create(<App />);
-    const message = component
-      .getInstance()
-      .receiveMessage({
-        origin: "http://localhost:4000",
-        data: { type: "AuthVerificationConnection", data: true }
-      });
+    const message = component.getInstance().receiveMessage({
+      origin: "http://localhost:4000",
+      data: { type: "AuthVerificationConnection", data: true }
+    });
     expect(message).toBeTruthy();
   });
 
+  it("Sends callback to fetch users if data is correct", async () => {
+    const fetchCall = jest.fn();
+    global.fetch = () =>
+      new Promise(resolve =>
+        resolve({
+          json: () => ({
+            data: {
+              person: {
+                name: "Darth Vader",
+                token: "cGVvcGxlOjQ=",
+                personId: "4",
+                id: "UGVyc29uOjQ="
+              }
+            }
+          })
+        })
+      );
+
+    global.fetch = () => fetchCall();
+
+    const component = renderer.create(<App />);
+    component.getInstance().receiveMessage({
+      origin: "http://localhost:4000",
+      data: {
+        type: "AuthVerificationConnection",
+        data: {
+          name: "R2-D2",
+          token: "cGVvcGxlOjM=",
+          personId: "3",
+          id: "UGVyc29uOjM="
+        }
+      }
+    });
+    expect(fetchCall).toHaveBeenCalled();
+  });
+
   it("Doesn't process on wrong origin", () => {
     const component = renderer.create(<App />);
-    const message = component
-      .getInstance()
-      .receiveMessage({
-        origin: "http://localhost:4",
-        data: { type: "AuthVerificationConnection", data: true }
-      });
+    const message = component.getInstance().receiveMessage({
+      origin: "http://localhost:4",
+      data: { type: "AuthVerificationConnection", data: true }
+    });
     expect(message).toBeFalsy();
   });
 
   it("Doesn't process on wrong origin", () => {
     const component = renderer.create(<App />);
-    const message = component
-      .getInstance()
-      .receiveMessage({
-        origin: "http://localhost:4",
-        data: { type: "NotCorrect", data: true }
-      });
+    const message = component.getInstance().receiveMessage({
+      origin: "http://localhost:4",
+      data: { type: "NotCorrect", data: true }
+    });
     expect(message).toBeFalsy();
+  });
+
+  it("Logs in users by token", () => {
+    global.fetch = () =>
+      new Promise(resolve =>
+        resolve({
+          json: () => ({
+            data: {
+              person: {
+                name: "Darth Vader",
+                token: "cGVvcGxlOjQ=",
+                personId: "4",
+                id: "UGVyc29uOjQ="
+              }
+            }
+          })
+        })
+      );
+    const component = renderer.create(<App />);
+    component.getInstance().connectUser("cGVvcGxlOjQ=");
+    expect(component.toJSON()).toMatchSnapshot();
+  });
+
+  it("Fails silentlry if token is invalid", () => {
+    global.fetch = () =>
+      new Promise(resolve =>
+        resolve({
+          json: () => ({
+            error: "There be dragons"
+          })
+        })
+      );
+    const component = renderer.create(<App />);
+    expect(() =>
+      component.getInstance().connectUser("Token That Fails")
+    ).not.toThrowError();
   });
 });

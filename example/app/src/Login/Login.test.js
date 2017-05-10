@@ -25,6 +25,9 @@ jest.mock("../Tags/View", () => ({ className, children, ...props }) => (
   <div {...props}>{children}</div>
 ));
 
+const PostWindowMessage = jest.fn();
+global.window = { postMessage: msg => PostWindowMessage(msg) };
+
 describe("Login react component", () => {
   it("Is a react component", () => {
     expect(typeof Login).toBe("function");
@@ -47,7 +50,7 @@ describe("Login react component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("Makrs button as valid if both fields has 5 characters", () => {
+  it("Marks button as valid if both fields has 5 characters", () => {
     const component = renderer.create(<Login />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();

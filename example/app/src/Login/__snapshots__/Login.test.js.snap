@@ -47,7 +47,7 @@ exports[`Login react component Enterint text in input changes value 1`] = `
 </div>
 `;
 
-exports[`Login react component Makrs button as valid if both fields has 5 characters 1`] = `
+exports[`Login react component Marks button as valid if both fields has 5 characters 1`] = `
 <div>
   <h1 />
   <p>
@@ -94,7 +94,7 @@ exports[`Login react component Makrs button as valid if both fields has 5 charac
 </div>
 `;
 
-exports[`Login react component Makrs button as valid if both fields has 5 characters 2`] = `
+exports[`Login react component Marks button as valid if both fields has 5 characters 2`] = `
 <div>
   <h1 />
   <p>
