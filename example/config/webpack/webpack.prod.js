@@ -2,6 +2,7 @@ const { join } = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const PrepackWebpackPlugin = require("prepack-webpack-plugin").default;
 
 const FRONTEND = "example/app/src";
 const PUBLIC = "example/app/public";
@@ -42,6 +43,7 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production")
     }),
+    new PrepackWebpackPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         screw_ie8: true,
@@ -72,6 +74,6 @@ module.exports = {
         useShortDoctype: true
       }
     }),
-    new BundleAnalyzerPlugin({ openAnalyzer: true })
+    new BundleAnalyzerPlugin({ openAnalyzer: false })
   ]
 };
