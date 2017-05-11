@@ -5,6 +5,8 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const PrepackWebpackPlugin = require("prepack-webpack-plugin").default;
 const ChunkManifestPlugin = require("chunk-manifest-webpack-plugin");
 const WebpackChunkHash = require("webpack-chunk-hash");
+const CompressionPlugin = require("compression-webpack-plugin");
+const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 
 const FRONTEND = "example/app/src";
 const PUBLIC = "example/app/public";
@@ -62,6 +64,9 @@ module.exports = {
     // Generate minified and optimized index.html from template
     new HtmlWebpackPlugin({
       template: join(process.cwd(), `${PUBLIC}/index.html`),
+      // Sets theme color, for PWA
+      themeColor: "#03bf83",
+      title: "AuthJazz",
       inject: true,
       minify: {
         collapseWhitespace: true,
@@ -80,10 +85,15 @@ module.exports = {
     new webpack.HashedModuleIdsPlugin(),
     new WebpackChunkHash(),
     new ChunkManifestPlugin({
-      filename: "chunk-manifest.json",
-      manifestVariable: "webpackManifest",
       inlineManifest: true
     }),
-    new BundleAnalyzerPlugin({ openAnalyzer: true })
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.(js|html)$/,
+      minRatio: 0.8
+    }),
+    new SWPrecacheWebpackPlugin(),
+    new BundleAnalyzerPlugin({ openAnalyzer: true, analyzerMode: "static" })
   ]
 };
