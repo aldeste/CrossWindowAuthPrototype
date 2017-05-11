@@ -3,6 +3,8 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const PrepackWebpackPlugin = require("prepack-webpack-plugin").default;
+const ChunkManifestPlugin = require("chunk-manifest-webpack-plugin");
+const WebpackChunkHash = require("webpack-chunk-hash");
 
 const FRONTEND = "example/app/src";
 const PUBLIC = "example/app/public";
@@ -13,8 +15,8 @@ module.exports = {
   },
   // Utilize long-term caching by adding content hashes to compiled assets
   output: {
-    filename: "[name].[chunkhash:5].js",
-    chunkFilename: "js/[name].[chunkhash:5].chunk.js"
+    filename: "[name].[chunkhash].js",
+    chunkFilename: "js/[name].[chunkhash].chunk.js"
   },
   devtool: "source-map",
   stats: true,
@@ -74,6 +76,14 @@ module.exports = {
         useShortDoctype: true
       }
     }),
-    new BundleAnalyzerPlugin({ openAnalyzer: false })
+    // Generate chunk manifest, used for caching.
+    new webpack.HashedModuleIdsPlugin(),
+    new WebpackChunkHash(),
+    new ChunkManifestPlugin({
+      filename: "chunk-manifest.json",
+      manifestVariable: "webpackManifest",
+      inlineManifest: true
+    }),
+    new BundleAnalyzerPlugin({ openAnalyzer: true })
   ]
 };
