@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input react component Matches earlier configuration 1`] = `
-<styled.div>
-  <styled.label
-    htmlFor={undefined}
+<View>
+  <Label
+    htmlFor={NaN}
     required={false}
   />
-  <styled.input />
-</styled.div>
+  <TextInput
+    id={NaN}
+  />
+</View>
 `;

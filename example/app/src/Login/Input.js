@@ -12,6 +12,7 @@ type Props = {
   type?: string,
   required?: boolean
 };
+
 const Input = ({
   required,
   label,

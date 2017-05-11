@@ -3,27 +3,23 @@ import Login from "./Login";
 import renderer from "react-test-renderer";
 require("jasmine-check").install();
 
-jest.mock("../Tags/Button", () => ({ className, children, ...props }) => (
-  <button {...props}>{children}</button>
-));
-jest.mock("../Tags/Text", () => ({ className, children, ...props }) => (
-  <p {...props}>{children}</p>
-));
-jest.mock("../Tags/Title", () => ({ className, children, ...props }) => (
-  <h1 {...props}>{children}</h1>
-));
-jest.mock("../Tags/Form", () => ({ className, children, ...props }) => (
-  <form {...props}>{children}</form>
-));
-jest.mock("../Tags/Label", () => ({ className, children, ...props }) => (
-  <label {...props}>{children}</label>
-));
-jest.mock("../Tags/TextInput", () => ({ className, children, ...props }) => (
-  <input {...props}>{children}</input>
-));
-jest.mock("../Tags/View", () => ({ className, children, ...props }) => (
-  <div {...props}>{children}</div>
-));
+jest.mock("../Tags", () => ({
+  Button: ({ className, children, ...props }) => (
+    <button {...props}>{children}</button>
+  ),
+  Text: ({ className, children, ...props }) => <p {...props}>{children}</p>,
+  Title: ({ className, children, ...props }) => <h1 {...props}>{children}</h1>,
+  Form: ({ className, children, ...props }) => (
+    <form {...props}>{children}</form>
+  ),
+  Label: ({ className, children, ...props }) => (
+    <label {...props}>{children}</label>
+  ),
+  TextInput: ({ className, children, ...props }) => (
+    <input {...props}>{children}</input>
+  ),
+  View: ({ className, children, ...props }) => <div {...props}>{children}</div>
+}));
 
 const PostWindowMessage = jest.fn();
 global.window = { postMessage: msg => PostWindowMessage(msg) };
@@ -35,12 +31,14 @@ describe("Login react component", () => {
   });
 
   it("Matches earlier configuration", () => {
-    const tree = renderer.create(<Login title="This is a title" />).toJSON();
+    const tree = renderer
+      .create(<Login title="This is a title" prefix="formName" />)
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("Enterint text in input changes value", () => {
-    const component = renderer.create(<Login />);
+    const component = renderer.create(<Login prefix="formName" />);
     ["username", "password"].forEach(name =>
       component
         .getInstance()
@@ -51,7 +49,7 @@ describe("Login react component", () => {
   });
 
   it("Marks button as valid if both fields has 5 characters", () => {
-    const component = renderer.create(<Login />);
+    const component = renderer.create(<Login prefix="formName" />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
     ["username", "password"].forEach(name =>
@@ -64,7 +62,7 @@ describe("Login react component", () => {
   });
 
   check.it("Accepts string values in input fields", gen.string, value => {
-    const component = renderer.create(<Login />);
+    const component = renderer.create(<Login prefix="formName" />);
     const fields = ["username", "password"];
 
     fields.forEach(name =>
@@ -76,7 +74,7 @@ describe("Login react component", () => {
   });
 
   check.it("can't start with a whitespace", gen.string, randomString => {
-    const component = renderer.create(<Login />);
+    const component = renderer.create(<Login prefix="formName" />);
     component
       .getInstance()
       .handleInputChange({ target: { name: "username", value: randomString } });
@@ -84,7 +82,7 @@ describe("Login react component", () => {
   });
 
   check.it("can't have double whitespace strings", gen.string, randomString => {
-    const component = renderer.create(<Login />);
+    const component = renderer.create(<Login prefix="formName" />);
     component
       .getInstance()
       .handleInputChange({ target: { name: "username", value: randomString } });
@@ -127,7 +125,11 @@ describe("Login react component", () => {
       );
 
     const component = renderer.create(
-      <Login title="This is a title" onLoginSubmit={jest.fn} />
+      <Login
+        title="This is a title"
+        prefix="formName"
+        onLoginSubmit={jest.fn}
+      />
     );
     component
       .getInstance()
@@ -154,7 +156,11 @@ describe("Login react component", () => {
       );
 
     const component = renderer.create(
-      <Login title="This is a title" onLoginSubmit={jest.fn} />
+      <Login
+        title="This is a title"
+        prefix="formName"
+        onLoginSubmit={jest.fn}
+      />
     );
     component
       .getInstance()
@@ -182,7 +188,11 @@ describe("Login react component", () => {
 
     const onLoginSubmit = jest.fn();
     const component = renderer.create(
-      <Login title="This is a title" onLoginSubmit={onLoginSubmit} />
+      <Login
+        title="This is a title"
+        prefix="formName"
+        onLoginSubmit={onLoginSubmit}
+      />
     );
 
     component
@@ -209,7 +219,11 @@ describe("Login react component", () => {
 
     const onLoginSubmit = jest.fn();
     const component = renderer.create(
-      <Login title="This is a title" onLoginSubmit={onLoginSubmit} />
+      <Login
+        title="This is a title"
+        prefix="formName"
+        onLoginSubmit={onLoginSubmit}
+      />
     );
 
     component

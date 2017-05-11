@@ -2,48 +2,73 @@ import React from "react";
 import App from "./App";
 import renderer from "react-test-renderer";
 
-const addEventListener = jest.fn();
-
 jest
   .mock("./Document/Title", () => ({ children }) => <title>{children}</title>)
-  .mock("./Tags/Button", () => ({ className, children, ...props }) => (
-    <button {...props}>{children}</button>
-  ))
-  .mock("./Tags/Text", () => ({ className, children, ...props }) => (
-    <p {...props}>{children}</p>
-  ))
-  .mock("./Tags/Title", () => ({ className, children, ...props }) => (
-    <h1 {...props}>{children}</h1>
-  ))
-  .mock("./Tags/Form", () => ({ className, children, ...props }) => (
-    <form {...props}>{children}</form>
-  ))
-  .mock("./Tags/Label", () => ({ className, children, ...props }) => (
-    <label {...props}>{children}</label>
-  ))
-  .mock("./Tags/TextInput", () => ({ className, children, ...props }) => (
-    <input {...props}>{children}</input>
-  ))
-  .mock("./Tags/View", () => ({ className, children, ...props }) => (
-    <div {...props}>{children}</div>
-  ));
+  .mock("./Tags", () => ({
+    Button: ({ className, children, ...props }) => (
+      <button {...props}>{children}</button>
+    ),
+    Text: ({ className, children, ...props }) => <p {...props}>{children}</p>,
+    Title: ({ className, children, ...props }) => (
+      <h1 {...props}>{children}</h1>
+    ),
+    Form: ({ className, children, ...props }) => (
+      <form {...props}>{children}</form>
+    ),
+    Label: ({ className, children, ...props }) => (
+      <label {...props}>{children}</label>
+    ),
+    TextInput: ({ className, children, ...props }) => (
+      <input {...props}>{children}</input>
+    ),
+    View: ({ className, children, ...props }) => (
+      <div {...props}>{children}</div>
+    ),
+    Wrapper: ({ className, children, ...props }) => (
+      <div {...props}>{children}</div>
+    )
+  }));
 
-describe("Application start file", () => {
+const sleep = ms =>
+  new Promise(res => {
+    setTimeout(res, ms);
+  });
+
+const addEventListener = jest.fn();
+
+beforeEach(() => {
   global.window = {
     addEventListener: (type, callback, options) =>
       addEventListener(type, callback, options)
   };
 
   global.console.log = jest.fn();
+});
 
-  it("renders without crashing", () => {
-    const tree = renderer.create(<App />).toJSON();
-    expect(tree).toMatchSnapshot();
+describe("Application loads asynchronously", () => {
+  it("starts of empty", () => {
+    const component = renderer.create(<App />);
+    expect(component.toJSON()).toMatchSnapshot();
   });
 
-  it("Renders the welcome screen on login", () => {
+  it("loads in the welcome screen asynchronously", () => {
     const component = renderer.create(<App />);
     component.getInstance().handleLogin("StarWars")({ name: "Yoda" });
+    expect(component.toJSON()).toMatchSnapshot();
+  });
+});
+
+describe("Application start file", () => {
+  it("renders without crashing", async () => {
+    const component = renderer.create(<App />);
+    await sleep(10);
+    expect(component.toJSON()).toMatchSnapshot();
+  });
+
+  it("Renders the welcome screen on login", async () => {
+    const component = renderer.create(<App />);
+    component.getInstance().handleLogin("StarWars")({ name: "Yoda" });
+    await sleep(10);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -74,7 +99,7 @@ describe("Application start file", () => {
     expect(message).toBeTruthy();
   });
 
-  it("Sends callback to fetch users if data is correct", async () => {
+  it("Sends callback to fetch users if data is correct", () => {
     const fetchCall = jest.fn();
     global.fetch = () =>
       new Promise(resolve =>

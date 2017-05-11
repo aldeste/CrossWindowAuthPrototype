@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Form tag Horizontal matches earlier configuration 1`] = `
-.egBWns {
+.gDiXKI {
   margin-top: 1rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -20,36 +20,40 @@ exports[`Form tag Horizontal matches earlier configuration 1`] = `
   align-items: center;
 }
 
-.egBWns label {
+.gDiXKI label {
   -webkit-flex: 1 20%;
   -ms-flex: 1 20%;
   flex: 1 20%;
 }
 
-.egBWns input {
+.gDiXKI input {
   -webkit-flex: 1 80%;
   -ms-flex: 1 80%;
   flex: 1 80%;
 }
 
-.egBWns button {
+.gDiXKI button {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-.egBWns *:not(*:first-of-type),
-.egBWns button {
+.gDiXKI * {
+  background: black !important;
+}
+
+.gDiXKI *:not(*:first-of-type),
+.gDiXKI button {
   margin-top: 1rem;
 }
 
 <form
-  className="sc-bdVaJa egBWns"
+  className="Form__Form-PASBS gDiXKI"
 />
 `;
 
 exports[`Form tag Matches earlier configuration 1`] = `
-.fmXROn {
+.imuxEL {
   margin-top: 1rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -60,11 +64,11 @@ exports[`Form tag Matches earlier configuration 1`] = `
   flex-flow: column;
 }
 
-.fmXROn *:not(label) + * {
+.imuxEL *:not(label) + * {
   margin-top: 1rem;
 }
 
 <form
-  className="sc-bdVaJa fmXROn"
+  className="Form__Form-PASBS imuxEL"
 />
 `;

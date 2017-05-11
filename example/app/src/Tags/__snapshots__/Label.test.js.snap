@@ -1,38 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Label tag Matches earlier configuration 1`] = `
-.QTUjL {
+.iCwAoZ {
   font-family: inherit;
   font-weight: 600;
 }
 
-.QTUjL + input {
+.iCwAoZ + input {
   margin-top: 0;
 }
 
 <label
-  className="sc-bdVaJa QTUjL"
+  className="Label__Label-jsURsk iCwAoZ"
 />
 `;
 
 exports[`Label tag Matches earlier configuration if required is passed 1`] = `
-.gPpDMU {
+.fahqFZ {
   font-family: inherit;
   font-weight: 600;
 }
 
-.gPpDMU + input {
+.fahqFZ + input {
   margin-top: 0;
 }
 
-.gPpDMU::after {
+.fahqFZ::after {
   content: '*';
   margin: 0 0.1em;
   color: hsl(343,88%,53%);
 }
 
 <label
-  className="sc-bdVaJa gPpDMU"
+  className="Label__Label-jsURsk fahqFZ"
   required={true}
 />
 `;

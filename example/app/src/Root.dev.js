@@ -4,7 +4,7 @@ import App from "./App";
 import { AppContainer } from "react-hot-loader";
 import "./Document/Styles";
 // babel-polyfill will be transformed to required polyfills
-import "babel-polyfill";
+// import "babel-polyfill";
 
 const renderApp = Component =>
   ReactDOM.render(

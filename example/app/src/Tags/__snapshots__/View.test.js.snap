@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`View tag Matches earlier configuration 1`] = `
-.ezMmPX {
+.bnYeJt {
   -webkit-align-items: stretch;
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
@@ -18,11 +18,11 @@ exports[`View tag Matches earlier configuration 1`] = `
   min-width: 0;
 }
 
-.ezMmPX > * + * {
+.bnYeJt > * + * {
   margin-top: 0.75em;
 }
 
 <div
-  className="sc-bdVaJa ezMmPX"
+  className="View__View-jelnfZ bnYeJt"
 />
 `;

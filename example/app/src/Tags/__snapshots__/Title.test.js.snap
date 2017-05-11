@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Title tag Matches earlier configuration 1`] = `
-.jobdvc {
+.fUQjbR {
   font-size: 2.824em;
   line-height: 1.04167;
   font-weight: 500;
@@ -10,6 +10,6 @@ exports[`Title tag Matches earlier configuration 1`] = `
 }
 
 <h1
-  className="sc-bdVaJa jobdvc"
+  className="Title__Text-hPdHUJ fUQjbR"
 />
 `;

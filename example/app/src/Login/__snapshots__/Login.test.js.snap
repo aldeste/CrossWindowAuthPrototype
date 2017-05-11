@@ -11,12 +11,13 @@ exports[`Login react component Enterint text in input changes value 1`] = `
   >
     <div>
       <label
-        htmlFor="username"
+        htmlFor="formNameusername"
         required={false}
       >
         Username
       </label>
       <input
+        id="formNameusername"
         name="username"
         onChange={[Function]}
         placeholder="Username"
@@ -25,12 +26,13 @@ exports[`Login react component Enterint text in input changes value 1`] = `
     </div>
     <div>
       <label
-        htmlFor="password"
+        htmlFor="formNamepassword"
         required={false}
       >
         Password
       </label>
       <input
+        id="formNamepassword"
         name="password"
         onChange={[Function]}
         placeholder="Password"
@@ -58,12 +60,13 @@ exports[`Login react component Marks button as valid if both fields has 5 charac
   >
     <div>
       <label
-        htmlFor="username"
+        htmlFor="formNameusername"
         required={false}
       >
         Username
       </label>
       <input
+        id="formNameusername"
         name="username"
         onChange={[Function]}
         placeholder="Username"
@@ -72,12 +75,13 @@ exports[`Login react component Marks button as valid if both fields has 5 charac
     </div>
     <div>
       <label
-        htmlFor="password"
+        htmlFor="formNamepassword"
         required={false}
       >
         Password
       </label>
       <input
+        id="formNamepassword"
         name="password"
         onChange={[Function]}
         placeholder="Password"
@@ -105,12 +109,13 @@ exports[`Login react component Marks button as valid if both fields has 5 charac
   >
     <div>
       <label
-        htmlFor="username"
+        htmlFor="formNameusername"
         required={false}
       >
         Username
       </label>
       <input
+        id="formNameusername"
         name="username"
         onChange={[Function]}
         placeholder="Username"
@@ -119,12 +124,13 @@ exports[`Login react component Marks button as valid if both fields has 5 charac
     </div>
     <div>
       <label
-        htmlFor="password"
+        htmlFor="formNamepassword"
         required={false}
       >
         Password
       </label>
       <input
+        id="formNamepassword"
         name="password"
         onChange={[Function]}
         placeholder="Password"
@@ -154,12 +160,13 @@ exports[`Login react component Matches earlier configuration 1`] = `
   >
     <div>
       <label
-        htmlFor="username"
+        htmlFor="formNameusername"
         required={false}
       >
         Username
       </label>
       <input
+        id="formNameusername"
         name="username"
         onChange={[Function]}
         placeholder="Username"
@@ -168,12 +175,13 @@ exports[`Login react component Matches earlier configuration 1`] = `
     </div>
     <div>
       <label
-        htmlFor="password"
+        htmlFor="formNamepassword"
         required={false}
       >
         Password
       </label>
       <input
+        id="formNamepassword"
         name="password"
         onChange={[Function]}
         placeholder="Password"
@@ -206,12 +214,13 @@ exports[`Login react component Returns an error if password is invalid 1`] = `
   >
     <div>
       <label
-        htmlFor="username"
+        htmlFor="formNameusername"
         required={false}
       >
         Username
       </label>
       <input
+        id="formNameusername"
         name="username"
         onChange={[Function]}
         placeholder="Username"
@@ -220,12 +229,13 @@ exports[`Login react component Returns an error if password is invalid 1`] = `
     </div>
     <div>
       <label
-        htmlFor="password"
+        htmlFor="formNamepassword"
         required={false}
       >
         Password
       </label>
       <input
+        id="formNamepassword"
         name="password"
         onChange={[Function]}
         placeholder="Password"
@@ -258,12 +268,13 @@ exports[`Login react component Returns an error if username is invalid 1`] = `
   >
     <div>
       <label
-        htmlFor="username"
+        htmlFor="undefinedusername"
         required={false}
       >
         Username
       </label>
       <input
+        id="undefinedusername"
         name="username"
         onChange={[Function]}
         placeholder="Username"
@@ -272,12 +283,13 @@ exports[`Login react component Returns an error if username is invalid 1`] = `
     </div>
     <div>
       <label
-        htmlFor="password"
+        htmlFor="undefinedpassword"
         required={false}
       >
         Password
       </label>
       <input
+        id="undefinedpassword"
         name="password"
         onChange={[Function]}
         placeholder="Password"
@@ -307,12 +319,13 @@ exports[`Login react component Signs in the user of password and username are co
   >
     <div>
       <label
-        htmlFor="username"
+        htmlFor="formNameusername"
         required={false}
       >
         Username
       </label>
       <input
+        id="formNameusername"
         name="username"
         onChange={[Function]}
         placeholder="Username"
@@ -321,12 +334,13 @@ exports[`Login react component Signs in the user of password and username are co
     </div>
     <div>
       <label
-        htmlFor="password"
+        htmlFor="formNamepassword"
         required={false}
       >
         Password
       </label>
       <input
+        id="formNamepassword"
         name="password"
         onChange={[Function]}
         placeholder="Password"

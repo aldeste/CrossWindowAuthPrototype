@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Welcome react component Matches earlier configuration 1`] = `
-<styled.div>
-  <styled.h1>
+<div>
+  <h1>
     This is title
-  </styled.h1>
-  <styled.p>
+  </h1>
+  <p>
     You're logged in as 
     This is username
-  </styled.p>
-  <styled.button
+  </p>
+  <button
     alternative={true}
     onClick={[Function]}
   >
     Log out
-  </styled.button>
-</styled.div>
+  </button>
+</div>
 `;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Wrapper tag Matches earlier configuration 1`] = `
-.ezMmPX {
+.bnYeJt {
   -webkit-align-items: stretch;
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
@@ -18,11 +18,11 @@ exports[`Wrapper tag Matches earlier configuration 1`] = `
   min-width: 0;
 }
 
-.ezMmPX > * + * {
+.bnYeJt > * + * {
   margin-top: 0.75em;
 }
 
-.ctvSpH {
+.eihKlA {
   margin: 2rem 5rem;
   font-size: 17px;
   line-height: 1.52947;
@@ -32,11 +32,11 @@ exports[`Wrapper tag Matches earlier configuration 1`] = `
   color: #333;
 }
 
-.ctvSpH > * + * {
+.eihKlA > * + * {
   margin-top: 2rem;
 }
 
 <div
-  className="sc-bwzfXH ctvSpH sc-bdVaJa ezMmPX"
+  className="Wrapper__Wrapper-cZxMuO eihKlA View__View-jelnfZ bnYeJt"
 />
 `;

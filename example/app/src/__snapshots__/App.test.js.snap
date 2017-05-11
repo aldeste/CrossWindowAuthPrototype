@@ -1,9 +1,92 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Application loads asynchronously loads in the welcome screen asynchronously 1`] = `
+<div>
+  <title>
+    AuthJazz
+  </title>
+  <p>
+    {
+      "StarWars": {
+        "name": "Yoda"
+      }
+    }
+  </p>
+  <div>
+    <h1>
+      Connection testing field
+    </h1>
+    <button
+      alternative={true}
+      onClick={[Function]}
+      outlined={true}
+    >
+      Click to ping
+    </button>
+  </div>
+  <div>
+    <h1>
+      Star Wars Characters login
+    </h1>
+    <p>
+      Please log in
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <div>
+        <label
+          htmlFor="StarWarsCharactersusername"
+          required={false}
+        >
+          Username
+        </label>
+        <input
+          id="StarWarsCharactersusername"
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="StarWarsCharacterspassword"
+          required={false}
+        >
+          Password
+        </label>
+        <input
+          id="StarWarsCharacterspassword"
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        disabled={true}
+      >
+        Form fields not valid
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Application loads asynchronously starts of empty 1`] = `
+<div>
+  <title>
+    AuthJazz
+  </title>
+</div>
+`;
+
 exports[`Application start file Logs in users by token 1`] = `
 <div>
   <title>
-    This is a demo page
+    AuthJazz
   </title>
   <div>
     <h1>
@@ -29,12 +112,13 @@ exports[`Application start file Logs in users by token 1`] = `
     >
       <div>
         <label
-          htmlFor="username"
+          htmlFor="StarWarsusername"
           required={false}
         >
           Username
         </label>
         <input
+          id="StarWarsusername"
           name="username"
           onChange={[Function]}
           placeholder="Username"
@@ -43,12 +127,13 @@ exports[`Application start file Logs in users by token 1`] = `
       </div>
       <div>
         <label
-          htmlFor="password"
+          htmlFor="StarWarspassword"
           required={false}
         >
           Password
         </label>
         <input
+          id="StarWarspassword"
           name="password"
           onChange={[Function]}
           placeholder="Password"
@@ -75,12 +160,13 @@ exports[`Application start file Logs in users by token 1`] = `
     >
       <div>
         <label
-          htmlFor="username"
+          htmlFor="StarWarsCharactersusername"
           required={false}
         >
           Username
         </label>
         <input
+          id="StarWarsCharactersusername"
           name="username"
           onChange={[Function]}
           placeholder="Username"
@@ -89,12 +175,13 @@ exports[`Application start file Logs in users by token 1`] = `
       </div>
       <div>
         <label
-          htmlFor="password"
+          htmlFor="StarWarsCharacterspassword"
           required={false}
         >
           Password
         </label>
         <input
+          id="StarWarsCharacterspassword"
           name="password"
           onChange={[Function]}
           placeholder="Password"
@@ -115,7 +202,7 @@ exports[`Application start file Logs in users by token 1`] = `
 exports[`Application start file Removes the welcome screen on logout 1`] = `
 <div>
   <title>
-    This is a demo page
+    AuthJazz
   </title>
   <div>
     <h1>
@@ -141,12 +228,13 @@ exports[`Application start file Removes the welcome screen on logout 1`] = `
     >
       <div>
         <label
-          htmlFor="username"
+          htmlFor="StarWarsusername"
           required={false}
         >
           Username
         </label>
         <input
+          id="StarWarsusername"
           name="username"
           onChange={[Function]}
           placeholder="Username"
@@ -155,12 +243,13 @@ exports[`Application start file Removes the welcome screen on logout 1`] = `
       </div>
       <div>
         <label
-          htmlFor="password"
+          htmlFor="StarWarspassword"
           required={false}
         >
           Password
         </label>
         <input
+          id="StarWarspassword"
           name="password"
           onChange={[Function]}
           placeholder="Password"
@@ -187,12 +276,13 @@ exports[`Application start file Removes the welcome screen on logout 1`] = `
     >
       <div>
         <label
-          htmlFor="username"
+          htmlFor="StarWarsCharactersusername"
           required={false}
         >
           Username
         </label>
         <input
+          id="StarWarsCharactersusername"
           name="username"
           onChange={[Function]}
           placeholder="Username"
@@ -201,12 +291,13 @@ exports[`Application start file Removes the welcome screen on logout 1`] = `
       </div>
       <div>
         <label
-          htmlFor="password"
+          htmlFor="StarWarsCharacterspassword"
           required={false}
         >
           Password
         </label>
         <input
+          id="StarWarsCharacterspassword"
           name="password"
           onChange={[Function]}
           placeholder="Password"
@@ -227,7 +318,7 @@ exports[`Application start file Removes the welcome screen on logout 1`] = `
 exports[`Application start file Renders the welcome screen on login 1`] = `
 <div>
   <title>
-    This is a demo page
+    AuthJazz
   </title>
   <p>
     {
@@ -275,12 +366,13 @@ exports[`Application start file Renders the welcome screen on login 1`] = `
     >
       <div>
         <label
-          htmlFor="username"
+          htmlFor="StarWarsCharactersusername"
           required={false}
         >
           Username
         </label>
         <input
+          id="StarWarsCharactersusername"
           name="username"
           onChange={[Function]}
           placeholder="Username"
@@ -289,12 +381,13 @@ exports[`Application start file Renders the welcome screen on login 1`] = `
       </div>
       <div>
         <label
-          htmlFor="password"
+          htmlFor="StarWarsCharacterspassword"
           required={false}
         >
           Password
         </label>
         <input
+          id="StarWarsCharacterspassword"
           name="password"
           onChange={[Function]}
           placeholder="Password"
@@ -315,7 +408,7 @@ exports[`Application start file Renders the welcome screen on login 1`] = `
 exports[`Application start file renders without crashing 1`] = `
 <div>
   <title>
-    This is a demo page
+    AuthJazz
   </title>
   <div>
     <h1>
@@ -341,12 +434,13 @@ exports[`Application start file renders without crashing 1`] = `
     >
       <div>
         <label
-          htmlFor="username"
+          htmlFor="StarWarsusername"
           required={false}
         >
           Username
         </label>
         <input
+          id="StarWarsusername"
           name="username"
           onChange={[Function]}
           placeholder="Username"
@@ -355,12 +449,13 @@ exports[`Application start file renders without crashing 1`] = `
       </div>
       <div>
         <label
-          htmlFor="password"
+          htmlFor="StarWarspassword"
           required={false}
         >
           Password
         </label>
         <input
+          id="StarWarspassword"
           name="password"
           onChange={[Function]}
           placeholder="Password"
@@ -387,12 +482,13 @@ exports[`Application start file renders without crashing 1`] = `
     >
       <div>
         <label
-          htmlFor="username"
+          htmlFor="StarWarsCharactersusername"
           required={false}
         >
           Username
         </label>
         <input
+          id="StarWarsCharactersusername"
           name="username"
           onChange={[Function]}
           placeholder="Username"
@@ -401,12 +497,13 @@ exports[`Application start file renders without crashing 1`] = `
       </div>
       <div>
         <label
-          htmlFor="password"
+          htmlFor="StarWarsCharacterspassword"
           required={false}
         >
           Password
         </label>
         <input
+          id="StarWarsCharacterspassword"
           name="password"
           onChange={[Function]}
           placeholder="Password"
