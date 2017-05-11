@@ -4,7 +4,6 @@ import Loadable from "react-loadable";
 import { Map, type Map as ImmutableMap } from "immutable";
 import { Wrapper, Text } from "./Tags";
 import DocumentTitle from "./Document/Title";
-import "./Document/Styles";
 
 type MessageEventWithOptions = {
   ...MessageEvent,
@@ -15,9 +14,19 @@ type State = {
   signedIn: ImmutableMap<string, ImmutableMap<string, string>>
 };
 
-const LoadingComponent = ({ isLoading, error, pastDelay }) => {
+// We load components in asynchronously using React Loadable.
+// That way we minimize initial paint time of files and perceved load time.
+const LoadingComponent = ({
+  isLoading,
+  error,
+  pastDelay
+}: {
+  isLoading: boolean,
+  error: boolean,
+  pastDelay: boolean
+}) => {
   if (isLoading) {
-    return pastDelay ? <div>Loading...</div> : null; // Don't flash "Loading..." when we don't need to.
+    return pastDelay ? <div>Loading...</div> : null;
   }
   if (error) {
     return <div>Error! Component failed to load</div>;
@@ -25,24 +34,21 @@ const LoadingComponent = ({ isLoading, error, pastDelay }) => {
   return null;
 };
 
-const AsyncWelcome = Loadable({
+const Welcome = Loadable({
   loader: () => import("./Welcome/Welcome"),
   LoadingComponent,
-  // optional config...
   delay: 200
 });
 
-const AsyncLogin = Loadable({
+const Login = Loadable({
   loader: () => import("./Login/Login"),
   LoadingComponent,
-  // optional config...
   delay: 200
 });
 
-const AsyncPing = Loadable({
+const Ping = Loadable({
   loader: () => import("./PingTest/Ping"),
   LoadingComponent,
-  // optional config...
   delay: 200
 });
 
@@ -126,20 +132,20 @@ class App extends React.Component<*, State, *> {
 
     return (
       <Wrapper>
-        <DocumentTitle>This is a demo page</DocumentTitle>
+        <DocumentTitle>AuthJazz</DocumentTitle>
         {UserBases.some(userBase => signedIn.has(userBase)) &&
           <Text>{JSON.stringify(signedIn, null, 2)}</Text>}
-        <AsyncPing token={token} />
+        <Ping token={token} />
         {UserBases.map(
           part =>
             signedIn.has(part)
-              ? <AsyncWelcome
+              ? <Welcome
                   key={part}
                   title={`${part.replace(/([a-z])([A-Z])/g, "$1 $2")} user logged in!`}
                   username={signedIn.getIn([part, "name"])}
                   onLogoutSubmit={this.handleLogOut(part)}
                 />
-              : <AsyncLogin
+              : <Login
                   key={part}
                   title={`${part.replace(/([a-z])([A-Z])/g, "$1 $2")} login`}
                   onLoginSubmit={this.handleLogin(part)}
