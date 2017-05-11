@@ -1,11 +1,11 @@
 // @flow
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Form = styled.form`
   margin-top: 1rem;
   display: flex;
-  ${({ horizontal }: { horizontal: ?string }) => (!!horizontal ? `
-    flex-flow: row wrap;
+  flex-flow: ${({ horizontal }: { horizontal: ?string }) => (!!horizontal ? "row wrap;" : "column;")}
+  ${({ horizontal }: { horizontal: ?string }) => (!!horizontal ? css`
     justify-content: center;
     align-items: center;
 
@@ -20,12 +20,15 @@ const Form = styled.form`
       flex: 1;
     }
 
-    *:not(*:first-of-type), button {
+    * {
+      background: black !important
+    }
+
+    *:not(*:first-of-type),
+    button {
       margin-top: 1rem;
     }
-  ` : `
-    flex-flow: column;
-
+  ` : css`
     *:not(label) + * {
       margin-top: 1rem;
     }`)}
