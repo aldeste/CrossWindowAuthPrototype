@@ -8,16 +8,17 @@ import {
   DB_PORT
 } from "../../config/config";
 
+const connectionOptions = process.env.NODE_ENV !== "production"
+  ? {
+      dialect: "sqlite"
+    }
+  : {
+      dialect: "mariadb",
+      host: DB_HOST,
+      port: DB_PORT
+    };
+
 const connection = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
-  ...(process.env.NODE_ENV !== "production"
-    ? {
-        dialect: "sqlite"
-      }
-    : {
-        dialect: "mariadb",
-        host: DB_HOST,
-        port: DB_PORT
-      }),
   logging: false,
   define: {
     underscored: false,
@@ -26,7 +27,8 @@ const connection = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
     charset: "utf8mb4",
     collate: "utf8mb4_general_ci",
     timestamps: true
-  }
+  },
+  ...connectionOptions
 });
 
 export default connection;
