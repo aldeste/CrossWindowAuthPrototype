@@ -24,7 +24,8 @@ const parseCookies: Middleware = cookieParser("v2TqCgORps-IgwsZmQRDl", {
   decode
 });
 
-const setCookie = (name: string, params: Object) => {
+// Returns an array of arguments needed to set cookies
+const setCookie = (name: string, params: Object): [string, string, Object] => {
   return [
     name,
     JSON.stringify({ ...params, cookieBirth: new Date() / 1000 }),
