@@ -4,6 +4,7 @@ import Loadable from "react-loadable";
 import { Map, type Map as ImmutableMap } from "immutable";
 import { Wrapper, Text } from "./Tags";
 import DocumentTitle from "./Document/Title";
+import "./Document/Styles";
 
 type MessageEventWithOptions = {
   ...MessageEvent,
