@@ -12,7 +12,8 @@ type State = {
 
 type Props = {
   title: string,
-  onLoginSubmit: Function
+  onLoginSubmit: Function,
+  prefix: string
 };
 
 class Login extends React.PureComponent<*, Props, State> {
@@ -77,6 +78,7 @@ class Login extends React.PureComponent<*, Props, State> {
             label="Username"
             placeholder="Username"
             name="username"
+            prefix={this.props.prefix}
             value={this.state.username}
             onChange={this.handleInputChange}
           />
@@ -85,6 +87,7 @@ class Login extends React.PureComponent<*, Props, State> {
             placeholder="Password"
             name="password"
             type="password"
+            prefix={this.props.prefix}
             value={this.state.password}
             onChange={this.handleInputChange}
           />

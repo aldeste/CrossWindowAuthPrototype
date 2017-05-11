@@ -7,14 +7,20 @@ type Props = {
   placeholder: string,
   name: string,
   value: string,
+  prefix: string,
   onChange: Function,
   type?: string,
   required?: boolean
 };
-const Input = ({ required, label, ...inputProps }: Props): React$Element<*> => (
+const Input = ({
+  required,
+  label,
+  prefix,
+  ...props
+}: Props): React$Element<*> => (
   <View>
-    <Label required={!!required} htmlFor={inputProps.name}>{label}</Label>
-    <TextInput {...inputProps} />
+    <Label required={!!required} htmlFor={prefix + props.name}>{label}</Label>
+    <TextInput id={prefix + props.name} {...props} />
   </View>
 );
 
