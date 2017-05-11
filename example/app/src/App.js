@@ -147,6 +147,7 @@ class App extends React.Component<*, State, *> {
                 />
               : <Login
                   key={part}
+                  prefix={part}
                   title={`${part.replace(/([a-z])([A-Z])/g, "$1 $2")} login`}
                   onLoginSubmit={this.handleLogin(part)}
                 />
