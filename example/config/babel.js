@@ -26,7 +26,8 @@ const plugins = [
       useESModules: true,
       useBuiltIns: true
     }
-  ]
+  ],
+  require.resolve("babel-plugin-transform-decorators")
 ];
 
 const presets = [
