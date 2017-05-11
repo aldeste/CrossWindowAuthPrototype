@@ -15,6 +15,7 @@
     "stage-0"
   ],
   "plugins": [
+    "transform-decorators",
     "transform-flow-strip-types"
   ]
 }
