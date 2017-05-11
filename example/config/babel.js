@@ -10,7 +10,7 @@ const plugins = [
     {
       // Display name of module if we're not in production,
       // Othwehise hash name.
-      displayName: env === "development",
+      displayName: env !== "production",
       // Remove stylis from runtime, preproccessing css using babel
       preprocess: env === "production"
     }
