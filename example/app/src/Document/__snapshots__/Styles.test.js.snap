@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Styles Matches previous settings 1`] = `
-"function InjectGlobalStyles() {/* istanbul ignore next */++cov_1qymlot120.f[0];++cov_1qymlot120.s[0];
-  /* istanbul ignore next */_styledComponents.injectGlobal\`
+"function InjectGlobalStyles() {
+  _styledComponents.injectGlobal\`
   * {
     box-sizing: border-box;
     margin: 0;
