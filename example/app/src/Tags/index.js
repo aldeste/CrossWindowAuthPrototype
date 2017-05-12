@@ -1,64 +1,29 @@
 // @flow
-import Loadable from "react-loadable";
-import React from "react";
+import LoadAsync from "../LoadAsync/LoadAsync";
 
-const LoadingComponent = ({
-  isLoading,
-  error,
-  pastDelay
-}: {
-  isLoading: boolean,
-  error: boolean,
-  pastDelay: boolean
-}) => {
-  if (isLoading) {
-    return pastDelay ? <div>Loading...</div> : null;
-  }
-  if (error) {
-    return <div>Error! Component failed to load</div>;
-  }
-  return null;
-};
-
-const Button = Loadable({
-  loader: () => import("./Button"),
-  LoadingComponent,
-  delay: 200
+const Button = LoadAsync({
+  loader: () => import("./Button")
 });
-const Text = Loadable({
-  loader: () => import("./Text"),
-  LoadingComponent,
-  delay: 200
+const Text = LoadAsync({
+  loader: () => import("./Text")
 });
-const View = Loadable({
-  loader: () => import("./View"),
-  LoadingComponent,
-  delay: 200
+const View = LoadAsync({
+  loader: () => import("./View")
 });
-const TextInput = Loadable({
-  loader: () => import("./TextInput"),
-  LoadingComponent,
-  delay: 200
+const TextInput = LoadAsync({
+  loader: () => import("./TextInput")
 });
-const Wrapper = Loadable({
-  loader: () => import("./Wrapper"),
-  LoadingComponent,
-  delay: 200
+const Wrapper = LoadAsync({
+  loader: () => import("./Wrapper")
 });
-const Title = Loadable({
-  loader: () => import("./Title"),
-  LoadingComponent,
-  delay: 200
+const Title = LoadAsync({
+  loader: () => import("./Title")
 });
-const Label = Loadable({
-  loader: () => import("./Label"),
-  LoadingComponent,
-  delay: 200
+const Label = LoadAsync({
+  loader: () => import("./Label")
 });
-const Form = Loadable({
-  loader: () => import("./Form"),
-  LoadingComponent,
-  delay: 200
+const Form = LoadAsync({
+  loader: () => import("./Form")
 });
 
 export { Button, Text, View, TextInput, Wrapper, Title, Label, Form };
