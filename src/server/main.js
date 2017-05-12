@@ -72,8 +72,33 @@ app.use(
     type signedCookiesType = { signedCookies: Object | { herring: string } };
     type ViewerType = UserTokenData | {};
 
+    // Refresh console
     console.log("\x1B[2J\x1B[0f\u001b[0;0H");
-    console.log(chalk.green.inverse(new Date()));
+    // Display current date, to keep track of updates
+    console.log(
+      chalk.green.inverse(
+        Array(7).join(" "),
+        "Updated at",
+        [
+          new Date().getHours(),
+          new Date().getMinutes(),
+          new Date().getSeconds()
+        ].join(":"),
+        Array(7).join(" ")
+      )
+    );
+    console.log();
+
+    // Display current cookies in coonsole, if there are any
+    if (Object.keys(req.signedCookies).length) {
+      console.log();
+      console.log("Current signed cookies");
+      Object.keys(req.signedCookies).forEach((cookie: string): void => {
+        console.log(chalk.bold(cookie));
+        console.log(JSON.parse(req.signedCookies[cookie]));
+      });
+      console.log();
+    }
 
     // Get all signed cookies, then if our herring cookie exists,
     // get user from auth token, otherwise define viewer as empty object.
@@ -97,17 +122,6 @@ app.use(
     // Sets cookie again to keep it fresh
     if (shouldCookieupdate) {
       res.cookie(...setCookie("herring", viewer));
-    }
-
-    // Display current cookies in coonsole, if there are any
-    if (Object.keys(req.signedCookies).length) {
-      console.log();
-      console.log("Current signed cookies");
-      Object.keys(req.signedCookies).forEach((cookie: string): void => {
-        console.log(chalk.bold(cookie));
-        console.log(JSON.parse(req.signedCookies[cookie]));
-      });
-      console.log();
     }
 
     // A simple helper function to time our requests.
