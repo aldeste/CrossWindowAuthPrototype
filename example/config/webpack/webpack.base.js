@@ -70,11 +70,12 @@ const baseSettup = {
   performance: {
     maxAssetSize: 100000,
     maxEntrypointSize: 300000,
-    hints: "warning"
+    hints: "warning",
+    assetFilter: file => file.endsWith(".js")
   }
 };
 
 module.exports = env =>
-  (env === "production"
+  env === "production"
     ? merge.smart(baseSettup, require("./webpack.prod.js"))
-    : merge.smart(baseSettup, require("./webpack.dev.js")));
+    : merge.smart(baseSettup, require("./webpack.dev.js"));
