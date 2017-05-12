@@ -34,7 +34,7 @@ exports[`Button tag Matches earlier configuration 1`] = `
 `;
 
 exports[`Button tag Matches earlier configuration if alternative and disabled prop is true 1`] = `
-.drtJCo {
+.iFOruw {
   -webkit-transition: background 100ms linear;
   transition: background 100ms linear;
   color: white;
@@ -44,35 +44,35 @@ exports[`Button tag Matches earlier configuration if alternative and disabled pr
   font-size: inherit;
   line-height: inherit;
   padding: 0.5rem 1rem;
-  background-color: hsl(289,65%,52%);
+  background-color: hsl(290,80%,44%);
 }
 
-.drtJCo:hover {
-  background-color: hsl(289,65%,47%);
+.iFOruw:hover {
+  background-color: hsl(290,80%,39%);
   border: 0;
 }
 
-.drtJCo:disabled {
-  background-color: hsl(289,25%,47%);
+.iFOruw:disabled {
+  background-color: hsl(290,40%,39%);
   border: 0;
 }
 
-.drtJCo:not(:disabled) {
+.iFOruw:not(:disabled) {
   cursor: pointer;
 }
 
 <button
-  className="Button__Button-jkHDFw drtJCo"
+  className="Button__Button-jkHDFw iFOruw"
   disabled={true}
 />
 `;
 
 exports[`Button tag Matches earlier configuration if alternative and outlined prop is true 1`] = `
-.fvfpcJ {
+.ksqNMt {
   -webkit-transition: background 100ms linear;
   transition: background 100ms linear;
   color: inherit;
-  border: 3px solid hsl(289,65%,52%);
+  border: 3px solid hsl(290,80%,44%);
   font-family: inherit;
   font-weight: inherit;
   font-size: inherit;
@@ -81,27 +81,27 @@ exports[`Button tag Matches earlier configuration if alternative and outlined pr
   background-color: transparent;
 }
 
-.fvfpcJ:hover {
+.ksqNMt:hover {
   background-color: transparent;
-  border: 3px solid hsl(289,65%,47%);
+  border: 3px solid hsl(290,80%,39%);
 }
 
-.fvfpcJ:disabled {
+.ksqNMt:disabled {
   background-color: transparent;
-  border: 3px solid hsl(289,25%,47%);
+  border: 3px solid hsl(290,40%,39%);
 }
 
-.fvfpcJ:not(:disabled) {
+.ksqNMt:not(:disabled) {
   cursor: pointer;
 }
 
 <button
-  className="Button__Button-jkHDFw fvfpcJ"
+  className="Button__Button-jkHDFw ksqNMt"
 />
 `;
 
 exports[`Button tag Matches earlier configuration if alternative is true 1`] = `
-.drtJCo {
+.iFOruw {
   -webkit-transition: background 100ms linear;
   transition: background 100ms linear;
   color: white;
@@ -111,34 +111,34 @@ exports[`Button tag Matches earlier configuration if alternative is true 1`] = `
   font-size: inherit;
   line-height: inherit;
   padding: 0.5rem 1rem;
-  background-color: hsl(289,65%,52%);
+  background-color: hsl(290,80%,44%);
 }
 
-.drtJCo:hover {
-  background-color: hsl(289,65%,47%);
+.iFOruw:hover {
+  background-color: hsl(290,80%,39%);
   border: 0;
 }
 
-.drtJCo:disabled {
-  background-color: hsl(289,25%,47%);
+.iFOruw:disabled {
+  background-color: hsl(290,40%,39%);
   border: 0;
 }
 
-.drtJCo:not(:disabled) {
+.iFOruw:not(:disabled) {
   cursor: pointer;
 }
 
 <button
-  className="Button__Button-jkHDFw drtJCo"
+  className="Button__Button-jkHDFw iFOruw"
 />
 `;
 
 exports[`Button tag Matches earlier configuration if alternative, disabled and outlined prop is true 1`] = `
-.fvfpcJ {
+.ksqNMt {
   -webkit-transition: background 100ms linear;
   transition: background 100ms linear;
   color: inherit;
-  border: 3px solid hsl(289,65%,52%);
+  border: 3px solid hsl(290,80%,44%);
   font-family: inherit;
   font-weight: inherit;
   font-size: inherit;
@@ -147,22 +147,22 @@ exports[`Button tag Matches earlier configuration if alternative, disabled and o
   background-color: transparent;
 }
 
-.fvfpcJ:hover {
+.ksqNMt:hover {
   background-color: transparent;
-  border: 3px solid hsl(289,65%,47%);
+  border: 3px solid hsl(290,80%,39%);
 }
 
-.fvfpcJ:disabled {
+.ksqNMt:disabled {
   background-color: transparent;
-  border: 3px solid hsl(289,25%,47%);
+  border: 3px solid hsl(290,40%,39%);
 }
 
-.fvfpcJ:not(:disabled) {
+.ksqNMt:not(:disabled) {
   cursor: pointer;
 }
 
 <button
-  className="Button__Button-jkHDFw fvfpcJ"
+  className="Button__Button-jkHDFw ksqNMt"
   disabled={true}
 />
 `;

@@ -25,7 +25,7 @@ exports[`LoadAsync renders loading element 1`] = `
     You're logged in as 
   </p>
   <button
-    className="Button__Button-jkHDFw drtJCo"
+    className="Button__Button-jkHDFw iFOruw"
     onClick={undefined}
   >
     Log out
