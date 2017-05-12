@@ -1,8 +1,8 @@
 // @flow
 import React from "react";
-import Loadable from "react-loadable";
 import { Map, type Map as ImmutableMap } from "immutable";
 import { Wrapper, Text } from "./Tags";
+import LoadAsync from "./LoadAsync/LoadAsync";
 import DocumentTitle from "./Document/Title";
 
 type MessageEventWithOptions = {
@@ -16,40 +16,16 @@ type State = {
 
 // We load components in asynchronously using React Loadable.
 // That way we minimize initial paint time of files and perceved load time.
-const LoadingComponent = ({
-  isLoading,
-  error,
-  pastDelay
-}: {
-  isLoading: boolean,
-  error: boolean,
-  pastDelay: boolean
-}) => {
-  if (isLoading) {
-    return pastDelay ? <div>Loading...</div> : null;
-  }
-  if (error) {
-    return <div>Error! Component failed to load</div>;
-  }
-  return null;
-};
-
-const Welcome = Loadable({
-  loader: () => import("./Welcome/Welcome"),
-  LoadingComponent,
-  delay: 200
+const Welcome = LoadAsync({
+  loader: () => import("./Welcome/Welcome")
 });
 
-const Login = Loadable({
-  loader: () => import("./Login/Login"),
-  LoadingComponent,
-  delay: 200
+const Login = LoadAsync({
+  loader: () => import("./Login/Login")
 });
 
-const Ping = Loadable({
-  loader: () => import("./PingTest/Ping"),
-  LoadingComponent,
-  delay: 200
+const Ping = LoadAsync({
+  loader: () => import("./PingTest/Ping")
 });
 
 class App extends React.Component<*, State, *> {

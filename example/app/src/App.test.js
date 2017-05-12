@@ -61,14 +61,14 @@ describe("Application loads asynchronously", () => {
 describe("Application start file", () => {
   it("renders without crashing", async () => {
     const component = renderer.create(<App />);
-    await sleep(10);
+    await sleep(1);
     expect(component.toJSON()).toMatchSnapshot();
   });
 
   it("Renders the welcome screen on login", async () => {
     const component = renderer.create(<App />);
     component.getInstance().handleLogin("StarWars")({ name: "Yoda" });
-    await sleep(10);
+    await sleep(1);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
