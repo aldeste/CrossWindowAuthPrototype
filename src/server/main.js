@@ -35,6 +35,7 @@ const setCookie = (name: string, params: Object): [string, string, Object] => {
   ];
 };
 
+// This will be used to login users with username and passwords
 app.post(
   "/login",
   parseCookies,
@@ -79,21 +80,22 @@ app.use(
     const { signedCookies }: signedCookiesType = req;
 
     // Check if herring cookie exists
-    const cookieExists: boolean = !!signedCookies && !!signedCookies.herring;
-
-    // If cookie is older than 60 seconds, this will be true. Otherwise false.
-    const updateCookie: boolean = cookieExists
-      ? new Date() / 1000 - JSON.parse(signedCookies.herring).cookieBirth > 60
-      : false;
-
-    const viewer: ViewerType = cookieExists
-      ? updateCookie
-          ? await fromAuthToken(JSON.parse(signedCookies.herring).id)
-          : JSON.parse(signedCookies.herring)
+    const currentUserByCookie: Object = !!signedCookies &&
+      !!signedCookies.herring
+      ? JSON.parse(signedCookies.herring)
       : {};
 
+    // If cookie is older than 60 seconds, this will be true. Otherwise false.
+    const shouldCookieupdate: boolean = !!currentUserByCookie.cookieBirth
+      ? new Date() / 1000 - currentUserByCookie.cookieBirth > 60
+      : false;
+
+    const viewer: ViewerType = shouldCookieupdate
+      ? await fromAuthToken(currentUserByCookie.id)
+      : currentUserByCookie;
+
     // Sets cookie again to keep it fresh
-    if (updateCookie) {
+    if (shouldCookieupdate) {
       res.cookie(...setCookie("herring", viewer));
     }
 
