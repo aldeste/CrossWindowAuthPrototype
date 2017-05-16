@@ -1,5 +1,5 @@
 // @flow
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Label = styled.label`
   font-family: inherit;
@@ -9,7 +9,7 @@ const Label = styled.label`
     margin-top: 0;
   }
 
-  ${props => !!props.required && `
+  ${props => !!props.required && css`
     ::after {
       content: '*';
       margin: 0 0.1em;

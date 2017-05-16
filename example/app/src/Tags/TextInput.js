@@ -2,15 +2,15 @@
 import styled from "styled-components";
 
 const Text = styled.input`
+  background-color: transparent;
+  border: solid 1px #333;
+  color: inherit;
+  cursor: text;
   font-family: inherit;
-  font-weight: inherit;
   font-size: inherit;
+  font-weight: inherit;
   line-height: inherit;
   padding: 0.5rem 1rem;
-  cursor: text;
-  color: inherit;
-  border: solid 1px #333;
-  background-color: transparent;
 `;
 
 export default Text;

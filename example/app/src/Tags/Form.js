@@ -12,6 +12,7 @@ const Form = styled.form`
     label {
       flex: 1 20%;
     }
+
     input {
       flex: 1 80%;
     }
