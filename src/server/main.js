@@ -13,7 +13,6 @@ import { fromAuthToken, validateUser } from "./auth";
 import { encode, decode } from "./encodeDecode";
 
 import type { $Request, $Response, $Application, Middleware } from "express";
-import type { UserTokenData } from "./auth";
 
 // Initialize express
 const app: $Application = express();
@@ -70,11 +69,10 @@ app.use(
   parseCookies,
   GraphHTTP(async (req: $Request, res: $Response): Object => {
     type signedCookiesType = { signedCookies: Object | { herring: string } };
-    type ViewerType = UserTokenData | {};
-
     // Refresh console
-    console.log("\x1B[2J\x1B[0f\u001b[0;0H");
+    // console.log("\x1B[2J\x1B[0f\u001b[0;0H");
     // Display current date, to keep track of updates
+    console.log();
     console.log(
       chalk.green.inverse(
         Array(7).join(" "),
@@ -91,7 +89,6 @@ app.use(
 
     // Display current cookies in coonsole, if there are any
     if (Object.keys(req.signedCookies).length) {
-      console.log();
       console.log("Current signed cookies");
       Object.keys(req.signedCookies).forEach((cookie: string): void => {
         console.log(chalk.bold(cookie));
@@ -102,26 +99,20 @@ app.use(
 
     // Get all signed cookies, then if our herring cookie exists,
     // get user from auth token, otherwise define viewer as empty object.
-    const { signedCookies }: signedCookiesType = req;
+    const { signedCookies: cookies }: signedCookiesType = req;
 
     // Check if herring cookie exists
-    const currentUserByCookie: Object = !!signedCookies &&
-      !!signedCookies.herring
-      ? JSON.parse(signedCookies.herring)
-      : {};
+    const currentUserByCookie: Object | null = cookies && cookies.herring
+      ? JSON.parse(cookies.herring)
+      : null;
 
-    // If cookie is older than 60 seconds, this will be true. Otherwise false.
-    const shouldCookieupdate: boolean = !!currentUserByCookie.cookieBirth
-      ? new Date() / 1000 - currentUserByCookie.cookieBirth > 60
-      : false;
-
-    const viewer: ViewerType = shouldCookieupdate
-      ? await fromAuthToken(currentUserByCookie.id)
-      : currentUserByCookie;
-
-    // Sets cookie again to keep it fresh
-    if (shouldCookieupdate) {
-      res.cookie(...setCookie("herring", viewer));
+    // If cookie is older than 60 seconds,
+    // set cookie again to keep it fresh
+    if (
+      !!currentUserByCookie &&
+      new Date() / 1000 - currentUserByCookie.cookieBirth > 60
+    ) {
+      res.cookie(...setCookie("herring", currentUserByCookie));
     }
 
     // A simple helper function to time our requests.
@@ -138,9 +129,9 @@ app.use(
         // Create loaders and pass current viewer down to loaders.
         // Loaders are our servielayer, and will be used to fetch
         // data uppon request
-        loaders: createLoaders(viewer),
+        loaders: createLoaders(currentUserByCookie),
         // Pass the fully hydrated viewer object down through the context
-        viewer
+        viewer: currentUserByCookie
       },
       extensions() {
         return { timeTaken: timer().prettyPrint };
