@@ -25,8 +25,9 @@ Planet.hasMany(Person, {
 //   { override: true }
 // );
 
-export function initializeDatabase(): void {
-  return connection.sync({ force: true }).then(generateMockData);
+export async function initializeDatabase(): Promise<*> {
+  await connection.sync({ force: false });
+  return generateMockData();
 }
 
 export default connection;
