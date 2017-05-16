@@ -1,235 +1,235 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button tag Matches earlier configuration 1`] = `
-.daTykl {
-  -webkit-transition: background 100ms linear;
-  transition: background 100ms linear;
-  color: white;
+.jklsEJ {
+  background-color: hsl(161,97%,38%);
   border: 0;
+  color: white;
   font-family: inherit;
-  font-weight: inherit;
   font-size: inherit;
+  font-weight: inherit;
   line-height: inherit;
   padding: 0.5rem 1rem;
-  background-color: hsl(161,97%,38%);
+  -webkit-transition: background 100ms linear;
+  transition: background 100ms linear;
 }
 
-.daTykl:hover {
+.jklsEJ:hover {
   background-color: hsl(161,97%,33%);
   border: 0;
 }
 
-.daTykl:disabled {
+.jklsEJ:disabled {
   background-color: hsl(161,57%,33%);
   border: 0;
 }
 
-.daTykl:not(:disabled) {
+.jklsEJ:not(:disabled) {
   cursor: pointer;
 }
 
 <button
-  className="Button__Button-jkHDFw daTykl"
+  className="Button__Button-jkHDFw jklsEJ"
 />
 `;
 
 exports[`Button tag Matches earlier configuration if alternative and disabled prop is true 1`] = `
-.iFOruw {
-  -webkit-transition: background 100ms linear;
-  transition: background 100ms linear;
-  color: white;
+.jHVgyi {
+  background-color: hsl(290,80%,44%);
   border: 0;
+  color: white;
   font-family: inherit;
-  font-weight: inherit;
   font-size: inherit;
+  font-weight: inherit;
   line-height: inherit;
   padding: 0.5rem 1rem;
-  background-color: hsl(290,80%,44%);
+  -webkit-transition: background 100ms linear;
+  transition: background 100ms linear;
 }
 
-.iFOruw:hover {
+.jHVgyi:hover {
   background-color: hsl(290,80%,39%);
   border: 0;
 }
 
-.iFOruw:disabled {
+.jHVgyi:disabled {
   background-color: hsl(290,40%,39%);
   border: 0;
 }
 
-.iFOruw:not(:disabled) {
+.jHVgyi:not(:disabled) {
   cursor: pointer;
 }
 
 <button
-  className="Button__Button-jkHDFw iFOruw"
+  className="Button__Button-jkHDFw jHVgyi"
   disabled={true}
 />
 `;
 
 exports[`Button tag Matches earlier configuration if alternative and outlined prop is true 1`] = `
-.ksqNMt {
-  -webkit-transition: background 100ms linear;
-  transition: background 100ms linear;
-  color: inherit;
+.hKMOLu {
+  background-color: transparent;
   border: 3px solid hsl(290,80%,44%);
+  color: inherit;
   font-family: inherit;
-  font-weight: inherit;
   font-size: inherit;
+  font-weight: inherit;
   line-height: inherit;
   padding: calc(0.5rem - 3px) calc(1rem - 3px);
-  background-color: transparent;
+  -webkit-transition: background 100ms linear;
+  transition: background 100ms linear;
 }
 
-.ksqNMt:hover {
+.hKMOLu:hover {
   background-color: transparent;
   border: 3px solid hsl(290,80%,39%);
 }
 
-.ksqNMt:disabled {
+.hKMOLu:disabled {
   background-color: transparent;
   border: 3px solid hsl(290,40%,39%);
 }
 
-.ksqNMt:not(:disabled) {
+.hKMOLu:not(:disabled) {
   cursor: pointer;
 }
 
 <button
-  className="Button__Button-jkHDFw ksqNMt"
+  className="Button__Button-jkHDFw hKMOLu"
 />
 `;
 
 exports[`Button tag Matches earlier configuration if alternative is true 1`] = `
-.iFOruw {
-  -webkit-transition: background 100ms linear;
-  transition: background 100ms linear;
-  color: white;
+.jHVgyi {
+  background-color: hsl(290,80%,44%);
   border: 0;
+  color: white;
   font-family: inherit;
-  font-weight: inherit;
   font-size: inherit;
+  font-weight: inherit;
   line-height: inherit;
   padding: 0.5rem 1rem;
-  background-color: hsl(290,80%,44%);
+  -webkit-transition: background 100ms linear;
+  transition: background 100ms linear;
 }
 
-.iFOruw:hover {
+.jHVgyi:hover {
   background-color: hsl(290,80%,39%);
   border: 0;
 }
 
-.iFOruw:disabled {
+.jHVgyi:disabled {
   background-color: hsl(290,40%,39%);
   border: 0;
 }
 
-.iFOruw:not(:disabled) {
+.jHVgyi:not(:disabled) {
   cursor: pointer;
 }
 
 <button
-  className="Button__Button-jkHDFw iFOruw"
+  className="Button__Button-jkHDFw jHVgyi"
 />
 `;
 
 exports[`Button tag Matches earlier configuration if alternative, disabled and outlined prop is true 1`] = `
-.ksqNMt {
-  -webkit-transition: background 100ms linear;
-  transition: background 100ms linear;
-  color: inherit;
+.hKMOLu {
+  background-color: transparent;
   border: 3px solid hsl(290,80%,44%);
+  color: inherit;
   font-family: inherit;
-  font-weight: inherit;
   font-size: inherit;
+  font-weight: inherit;
   line-height: inherit;
   padding: calc(0.5rem - 3px) calc(1rem - 3px);
-  background-color: transparent;
+  -webkit-transition: background 100ms linear;
+  transition: background 100ms linear;
 }
 
-.ksqNMt:hover {
+.hKMOLu:hover {
   background-color: transparent;
   border: 3px solid hsl(290,80%,39%);
 }
 
-.ksqNMt:disabled {
+.hKMOLu:disabled {
   background-color: transparent;
   border: 3px solid hsl(290,40%,39%);
 }
 
-.ksqNMt:not(:disabled) {
+.hKMOLu:not(:disabled) {
   cursor: pointer;
 }
 
 <button
-  className="Button__Button-jkHDFw ksqNMt"
+  className="Button__Button-jkHDFw hKMOLu"
   disabled={true}
 />
 `;
 
 exports[`Button tag Matches earlier configuration if disabled prop is true 1`] = `
-.daTykl {
-  -webkit-transition: background 100ms linear;
-  transition: background 100ms linear;
-  color: white;
+.jklsEJ {
+  background-color: hsl(161,97%,38%);
   border: 0;
+  color: white;
   font-family: inherit;
-  font-weight: inherit;
   font-size: inherit;
+  font-weight: inherit;
   line-height: inherit;
   padding: 0.5rem 1rem;
-  background-color: hsl(161,97%,38%);
+  -webkit-transition: background 100ms linear;
+  transition: background 100ms linear;
 }
 
-.daTykl:hover {
+.jklsEJ:hover {
   background-color: hsl(161,97%,33%);
   border: 0;
 }
 
-.daTykl:disabled {
+.jklsEJ:disabled {
   background-color: hsl(161,57%,33%);
   border: 0;
 }
 
-.daTykl:not(:disabled) {
+.jklsEJ:not(:disabled) {
   cursor: pointer;
 }
 
 <button
-  className="Button__Button-jkHDFw daTykl"
+  className="Button__Button-jkHDFw jklsEJ"
   disabled={true}
 />
 `;
 
 exports[`Button tag Matches earlier configuration if outlined is true 1`] = `
-.hBOGma {
-  -webkit-transition: background 100ms linear;
-  transition: background 100ms linear;
-  color: inherit;
+.brpYmf {
+  background-color: transparent;
   border: 3px solid hsl(161,97%,38%);
+  color: inherit;
   font-family: inherit;
-  font-weight: inherit;
   font-size: inherit;
+  font-weight: inherit;
   line-height: inherit;
   padding: calc(0.5rem - 3px) calc(1rem - 3px);
-  background-color: transparent;
+  -webkit-transition: background 100ms linear;
+  transition: background 100ms linear;
 }
 
-.hBOGma:hover {
+.brpYmf:hover {
   background-color: transparent;
   border: 3px solid hsl(161,97%,33%);
 }
 
-.hBOGma:disabled {
+.brpYmf:disabled {
   background-color: transparent;
   border: 3px solid hsl(161,57%,33%);
 }
 
-.hBOGma:not(:disabled) {
+.brpYmf:not(:disabled) {
   cursor: pointer;
 }
 
 <button
-  className="Button__Button-jkHDFw hBOGma"
+  className="Button__Button-jkHDFw brpYmf"
 />
 `;

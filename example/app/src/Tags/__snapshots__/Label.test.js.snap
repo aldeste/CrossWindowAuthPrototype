@@ -16,23 +16,23 @@ exports[`Label tag Matches earlier configuration 1`] = `
 `;
 
 exports[`Label tag Matches earlier configuration if required is passed 1`] = `
-.fahqFZ {
+.fOlxVT {
   font-family: inherit;
   font-weight: 600;
 }
 
-.fahqFZ + input {
+.fOlxVT + input {
   margin-top: 0;
 }
 
-.fahqFZ::after {
+.fOlxVT::after {
   content: '*';
   margin: 0 0.1em;
   color: hsl(343,88%,53%);
 }
 
 <label
-  className="Label__Label-jsURsk fahqFZ"
+  className="Label__Label-jsURsk fOlxVT"
   required={true}
 />
 `;

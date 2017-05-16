@@ -17,7 +17,7 @@ exports[`LoadAsync renders loading element 1`] = `
   className="View__View-jelnfZ bnYeJt"
 >
   <h1
-    className="Title__Text-hPdHUJ fUQjbR"
+    className="Title__Text-hPdHUJ cXYtHj"
   />
   <p
     className="Text__Text-jpiXUO hvuOVR"
@@ -25,7 +25,7 @@ exports[`LoadAsync renders loading element 1`] = `
     You're logged in as 
   </p>
   <button
-    className="Button__Button-jkHDFw iFOruw"
+    className="Button__Button-jkHDFw jHVgyi"
     onClick={undefined}
   >
     Log out
