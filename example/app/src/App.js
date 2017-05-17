@@ -16,17 +16,9 @@ type State = {
 
 // We load components in asynchronously using React Loadable.
 // That way we minimize initial paint time of files and perceved load time.
-const Welcome = LoadAsync({
-  loader: () => import("./Welcome/Welcome")
-});
-
-const Login = LoadAsync({
-  loader: () => import("./Login/Login")
-});
-
-const Ping = LoadAsync({
-  loader: () => import("./PingTest/Ping")
-});
+const Welcome = LoadAsync({ loader: () => import("./Welcome/Welcome") });
+const Login = LoadAsync({ loader: () => import("./Login/Login") });
+const Ping = LoadAsync({ loader: () => import("./PingTest/Ping") });
 
 class App extends React.Component<*, State, *> {
   state = {
