@@ -10,8 +10,7 @@ import {
 
 const connectionOptions = process.env.NODE_ENV !== "production"
   ? {
-      dialect: "sqlite",
-      storage: "./db.DELETE_ME_PLEASE.sqlite"
+      dialect: "sqlite"
     }
   : {
       dialect: "mariadb",
