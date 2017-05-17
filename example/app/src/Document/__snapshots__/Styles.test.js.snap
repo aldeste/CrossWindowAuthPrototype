@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Styles Matches previous settings 1`] = `
-"function InjectGlobalStyles() {
-  _styledComponents.injectGlobal\`
+Array [
+  Array [
+    "
   * {
     box-sizing: border-box;
     margin: 0;
@@ -12,6 +13,7 @@ exports[`Styles Matches previous settings 1`] = `
   *::after, *::before {
     box-sizing: inherit;
   }
-\`;
-}"
+",
+  ],
+]
 `;
