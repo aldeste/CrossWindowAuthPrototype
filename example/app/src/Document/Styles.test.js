@@ -1,7 +1,3 @@
-// jest.mock("styled-components", () => ({
-//   injectGlobal: () => jest.fn()
-// }));
-
 const mockFunctionInjectGlobal = jest.fn();
 jest.mock("styled-components", () => {
   return {
@@ -12,7 +8,6 @@ jest.mock("styled-components", () => {
 describe("Styles", () => {
   const InjectGlobalStyles = require("./Styles").default;
   it("Matches previous settings", () => {
-    // expect(setGlobalStyles.toString()).toMatchSnapshot();
     InjectGlobalStyles();
     expect(mockFunctionInjectGlobal.mock.calls[0]).toMatchSnapshot();
   });
