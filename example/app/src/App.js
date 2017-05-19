@@ -25,32 +25,25 @@ class App extends React.Component<*, State, *> {
     signedIn: Map()
   };
 
-  connectUser = async (token: string) => {
-    const response: Object = await fetch("/api/graphql", {
+  connectUser = async (data: Object) => {
+    const response: Object = await fetch("/api/connect", {
       method: "POST",
       credentials: "include",
       headers: {
         "Accept-Encoding": "gzip",
         Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/graphql"
+        "Content-Type": "application/json"
       },
       mode: "cors",
-      cache: "default",
-      body: `{
-        person(id: "${token}") {
-          name
-          token
-          personId
-          id
-        }
-      }`
+      body: JSON.stringify({ data: { key: "BOTTLE_OF_WINE", ...data } })
     }).then(response => response.json());
+
     const UserBases: Array<string> = ["StarWars", "StarWarsCharacters"];
 
-    if (!response.error && response.data && response.data.person) {
+    if (!response.error && response.name && response.token) {
       UserBases.forEach(userBase => {
         this.setState(() => ({
-          signedIn: this.state.signedIn.set(userBase, Map(response.data.person))
+          signedIn: this.state.signedIn.set(userBase, Map(response))
         }));
       });
     }
@@ -59,12 +52,13 @@ class App extends React.Component<*, State, *> {
   };
 
   receiveMessage = (event: MessageEventWithOptions): boolean => {
-    const { origin, data: { type, data } } = event;
+    const { origin, data } = event;
     if (
       origin === "http://localhost:4000" &&
-      type === "AuthVerificationConnection"
+      data.type === "AuthVerificationConnection"
     ) {
-      typeof data.token === "string" && this.connectUser(data.token);
+      const { data: submitData }: Object = data;
+      this.connectUser(submitData);
       return true;
     }
 

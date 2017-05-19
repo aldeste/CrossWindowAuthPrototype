@@ -100,6 +100,29 @@ app.post(
   }
 );
 
+app.use(
+  "/connect",
+  parseJson,
+  async (req: $Request, res: $Response): Object => {
+    const { body }: Object = req;
+
+    if (
+      (!body && !body.data) ||
+      !body.data.key ||
+      !body.data.token ||
+      body.data.key !== "BOTTLE_OF_WINE"
+    ) {
+      console.log(chalk.red.bold("THERE BE ERRORS!"));
+      console.log(chalk.red.inverse("THIS IS SERIOUSLY SERIOUS!"));
+      res.status(404);
+      return res.send({});
+    }
+
+    const user = await fromAuthToken(body.data.token);
+    return user ? res.send(user) : null;
+  }
+);
+
 // Redirect all requests to root to graphql
 app.all("/", (req: $Request, res: $Response): $Response =>
   res.redirect("/graphql")
