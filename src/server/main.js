@@ -12,7 +12,13 @@ import { createLoaders } from "../schema/apiHelper";
 import { fromAuthToken, validateUser } from "./auth";
 import { encode, decode } from "./encodeDecode";
 
-import type { $Request, $Response, $Application, Middleware } from "express";
+import type {
+  $Request,
+  $Response,
+  $Application,
+  Middleware,
+  NextFunction
+} from "express";
 
 // Initialize express
 const app: $Application = express();
@@ -33,6 +39,41 @@ const setCookie = (name: string, params: Object): [string, string, Object] => {
     { maxAge: 900000, httpOnly: true, signed: true, encode }
   ];
 };
+
+// Log to console on every request
+app.use(
+  parseCookies,
+  (req: $Request, res: $Response, next: NextFunction): void => {
+    // Display current date, to keep track of updates
+    console.log();
+    console.log();
+    console.log(
+      chalk.green.inverse(
+        Array(7).join(" "),
+        "Last request at",
+        [
+          new Date().getHours(),
+          new Date().getMinutes(),
+          new Date().getSeconds()
+        ].join(":"),
+        Array(7).join(" ")
+      )
+    );
+    console.log();
+
+    // Display current cookies in coonsole, if there are any
+    if (Object.keys(req.signedCookies).length) {
+      console.log("Current signed cookies");
+      Object.keys(req.signedCookies).forEach((cookie: string): void => {
+        console.log(chalk.bold(cookie));
+        console.log(JSON.parse(req.signedCookies[cookie]));
+      });
+      console.log();
+    }
+
+    next();
+  }
+);
 
 // This will be used to login users with username and passwords
 app.post(
@@ -69,33 +110,6 @@ app.use(
   parseCookies,
   GraphHTTP(async (req: $Request, res: $Response): Object => {
     type signedCookiesType = { signedCookies: Object | { herring: string } };
-    // Refresh console
-    // console.log("\x1B[2J\x1B[0f\u001b[0;0H");
-    // Display current date, to keep track of updates
-    console.log();
-    console.log(
-      chalk.green.inverse(
-        Array(7).join(" "),
-        "Updated at",
-        [
-          new Date().getHours(),
-          new Date().getMinutes(),
-          new Date().getSeconds()
-        ].join(":"),
-        Array(7).join(" ")
-      )
-    );
-    console.log();
-
-    // Display current cookies in coonsole, if there are any
-    if (Object.keys(req.signedCookies).length) {
-      console.log("Current signed cookies");
-      Object.keys(req.signedCookies).forEach((cookie: string): void => {
-        console.log(chalk.bold(cookie));
-        console.log(JSON.parse(req.signedCookies[cookie]));
-      });
-      console.log();
-    }
 
     // Get all signed cookies, then if our herring cookie exists,
     // get user from auth token, otherwise define viewer as empty object.

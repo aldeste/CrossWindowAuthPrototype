@@ -1,5 +1,6 @@
 const supertest = require("supertest");
-const server = require("./main").default;
+const main = require("./main");
+const { default: server } = main;
 
 const consoleLogMock = jest.fn();
 global.console.log = msg => consoleLogMock(msg);
