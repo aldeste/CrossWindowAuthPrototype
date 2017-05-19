@@ -10,9 +10,7 @@ const Person = database.define("person", {
   eyeColor: { type: STRING, allowNull: false },
   GraphQLType: {
     type: VIRTUAL,
-    get() {
-      return "Person";
-    }
+    get: () => "Person"
   }
 });
 
