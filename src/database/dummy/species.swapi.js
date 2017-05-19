@@ -1,4 +1,5 @@
-export default [
+// @flow
+const dummyData: Array<Object> = [
   {
     name: "Hutt",
     classification: "gastropod",
@@ -591,3 +592,5 @@ export default [
     id: "4"
   }
 ];
+
+export default dummyData;

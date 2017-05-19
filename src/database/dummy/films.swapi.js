@@ -1,4 +1,5 @@
-export default [
+// @flow
+const dummyData: Array<Object> = [
   {
     title: "A New Hope",
     episode_id: 4,
@@ -377,3 +378,5 @@ export default [
     id: "7"
   }
 ];
+
+export default dummyData;

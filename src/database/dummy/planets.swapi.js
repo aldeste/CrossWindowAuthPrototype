@@ -1,4 +1,5 @@
-export default [
+// @flow
+const dummyData: Array<Object> = [
   {
     name: "Alderaan",
     rotation_period: "24",
@@ -866,3 +867,5 @@ export default [
     id: "61"
   }
 ];
+
+export default dummyData;
