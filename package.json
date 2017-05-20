@@ -88,6 +88,9 @@
       "!example/config/**/*.js",
       "!config/**/*.js"
     ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>[/\\\\](node_modules|flow-typed|coverage|config|example/config)[/\\\\]"
     ],
