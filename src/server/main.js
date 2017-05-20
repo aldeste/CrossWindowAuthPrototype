@@ -41,7 +41,11 @@ const setCookie = (name: string, params: Object): [string, string, Object] => {
 };
 
 // Middleware to log requests
-app.use((req: $Request, res: $Response, next: NextFunction): void => {
+export const loggingMiddleware = (
+  req: $Request,
+  res: $Response,
+  next: NextFunction
+): void => {
   // Display current date, to keep track of updates
   const now = new Date();
   console.log();
@@ -59,7 +63,7 @@ app.use((req: $Request, res: $Response, next: NextFunction): void => {
   console.log();
 
   // Display current cookies in coonsole, if there are any
-  if (req.signedCookies && Object.keys(req.signedCookies).length) {
+  if (!!req.signedCookies && Object.keys(req.signedCookies).length) {
     console.log("Current signed cookies");
     Object.keys(req.signedCookies).forEach((cookie: string): void => {
       console.log(chalk.bold(cookie));
@@ -69,7 +73,9 @@ app.use((req: $Request, res: $Response, next: NextFunction): void => {
   }
 
   next();
-});
+};
+
+app.use(parseCookies, loggingMiddleware);
 
 // This will be used to login users with username and passwords
 app.post(
@@ -96,47 +102,30 @@ app.post(
   }
 );
 
+// Backend handshake to log in users
 app.use(
   "/connect",
   parseJson,
   async (req: $Request, res: $Response): Object => {
     const { body }: Object = req;
 
+    // Check if connection is from a relevant source
     if (
-      (!body && !body.data) ||
-      !body.data.key ||
-      !body.data.token ||
-      body.data.key !== "BOTTLE_OF_WINE"
+      body &&
+      body.data &&
+      body.data.key &&
+      body.data.token &&
+      body.data.key === "BOTTLE_OF_WINE"
     ) {
-      console.log(chalk.red.bold("THERE BE ERRORS!"));
-      console.log(chalk.red.inverse("THIS IS SERIOUSLY SERIOUS!"));
-      res.status(404);
-      return res.send({});
+      const user = await fromAuthToken(body.data.token);
+
+      return !!Object.keys(user).length ? res.send(user) : res.send(null);
     }
 
-    const user = await fromAuthToken(body.data.token);
-    return user ? res.send(user) : null;
+    res.status(404);
+    return res.send(null);
   }
 );
-
-app.use("/bridge", parseJson, async (req: $Request, res: $Response): Object => {
-  const { body }: Object = req;
-
-  if (
-    (!body && !body.data) ||
-    !body.data.key ||
-    !body.data.token ||
-    body.data.key !== "BOTTLE_OF_WINE"
-  ) {
-    console.log(chalk.red.bold("THERE BE ERRORS!"));
-    console.log(chalk.red.inverse("THIS IS SERIOUSLY SERIOUS!"));
-    res.status(404);
-    return res.send({});
-  }
-
-  const user = await fromAuthToken(body.data.token);
-  return user ? res.send(user) : null;
-});
 
 // Redirect all requests to root to graphql
 app.all("/", (req: $Request, res: $Response): $Response =>
