@@ -2263,9 +2263,9 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-react-app@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-1.0.0.tgz#6e359dc5479eb5faeaecad3160d4f27c8a2e53d5"
+eslint-config-react-app@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-1.0.1.tgz#8ce98d0b05d7075711ad3971458ed1fb3ab88855"
 
 eslint-import-resolver-node@^0.2.0:
   version "0.2.3"
