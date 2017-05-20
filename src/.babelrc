@@ -8,7 +8,7 @@
         },
         "modules": "commonjs",
         "loose": true,
-        "useBuiltIns": "usage",
+        "useBuiltIns": true,
         "useESModules": true
       }
     ],
