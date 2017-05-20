@@ -16,14 +16,27 @@ describe("User service layer with connection", () => {
     await require("../database").initializeDatabase();
   });
 
-  it("Returns a class with a valid parameter", async () => {
+  it("Returns a class with a valid integer id", async () => {
     const result = await User.gen(null, 3, loaders);
-    // Remove createdAt and editedAt as they're inconsistent
+    // Remove created and edited as they're inconsistent
     // after testing if they exist, as they should
-    expect(result.createdAt).toBeDefined();
-    expect(result.updatedAt).toBeDefined();
-    delete result.createdAt;
-    delete result.updatedAt;
+
+    expect(result.created).toBeDefined();
+    expect(result.edited).toBeDefined();
+    delete result.created;
+    delete result.edited;
+    expect(result).toMatchSnapshot();
+  });
+
+  it("Returns a class with a valid string id", async () => {
+    const result = await User.gen(null, "3", loaders);
+    // Remove created and edited as they're inconsistent
+    // after testing if they exist, as they should
+
+    expect(result.created).toBeDefined();
+    expect(result.edited).toBeDefined();
+    delete result.created;
+    delete result.edited;
     expect(result).toMatchSnapshot();
   });
 
