@@ -40,41 +40,36 @@ const setCookie = (name: string, params: Object): [string, string, Object] => {
   ];
 };
 
-// Log to console on every request
-app.use(
-  parseCookies,
-  (req: $Request, res: $Response, next: NextFunction): void => {
-    // Display current date, to keep track of updates
-    const now = new Date();
-    console.log();
-    console.log();
-    console.log(
-      chalk.green.inverse(
-        Array(7).join(" "),
-        "Last request at",
-        [
-          now.getHours().toString(10).padStart(2, "0"),
-          now.getMinutes().toString(10).padStart(2, "0"),
-          now.getSeconds().toString(10).padStart(2, "0")
-        ].join(":"),
-        Array(7).join(" ")
-      )
-    );
-    console.log();
+// Middleware to log requests
+app.use((req: $Request, res: $Response, next: NextFunction): void => {
+  // Display current date, to keep track of updates
+  const now = new Date();
+  console.log();
+  console.log();
+  console.log(
+    chalk.green.inverse(
+      Array(7).join(" "),
+      "Last request at",
+      [now.getHours(), now.getMinutes(), now.getSeconds()]
+        .map(time => time.toString(10).padStart(2, "0"))
+        .join(":"),
+      Array(7).join(" ")
+    )
+  );
+  console.log();
 
-    // Display current cookies in coonsole, if there are any
-    if (Object.keys(req.signedCookies).length) {
-      console.log("Current signed cookies");
-      Object.keys(req.signedCookies).forEach((cookie: string): void => {
-        console.log(chalk.bold(cookie));
-        console.log(JSON.parse(req.signedCookies[cookie]));
-      });
-      console.log();
-    }
-
-    next();
+  // Display current cookies in coonsole, if there are any
+  if (req.signedCookies && Object.keys(req.signedCookies).length) {
+    console.log("Current signed cookies");
+    Object.keys(req.signedCookies).forEach((cookie: string): void => {
+      console.log(chalk.bold(cookie));
+      console.log(JSON.parse(req.signedCookies[cookie]));
+    });
+    console.log();
   }
-);
+
+  next();
+});
 
 // This will be used to login users with username and passwords
 app.post(
