@@ -47,18 +47,14 @@ const PlanetType = new GraphQLObjectType({
     climates: {
       type: new GraphQLList(GraphQLString),
       resolve: planet => {
-        return planet.climate
-          ? planet.climate.split(",").map(s => s.trim())
-          : planet.climates.split(",").map(s => s.trim());
+        return planet.climates && planet.climates.split(",").map(s => s.trim());
       },
       description: "The climates of this planet."
     },
     terrains: {
       type: new GraphQLList(GraphQLString),
       resolve: planet => {
-        return planet.terrain
-          ? planet.terrain.split(",").map(s => s.trim())
-          : planet.terrains.split(",").map(s => s.trim());
+        return planet.terrains && planet.terrains.split(",").map(s => s.trim());
       },
       description: "The terrains of this planet."
     },
