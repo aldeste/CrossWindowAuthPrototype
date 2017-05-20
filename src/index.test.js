@@ -17,16 +17,21 @@ jest.mock("./database", () => ({
 describe("index file", () => {
   require("./");
   it("It runs without failing", done => done());
+
   it("Includes ./server/main", () =>
     expect(mockFunctionFileLoaded).toHaveBeenCalledWith("main"));
+
   it("Includes dotenv", () =>
     expect(mockFunctionFileLoaded).toHaveBeenCalledWith("dotenv"));
+
   it("Silently fails if dotenv isn't present", () =>
     expect(mockFunctionFileLoaded).toHaveBeenCalledWith(
       "dotenv.config({silent: true})"
     ));
+
   it("Includes babel-register", () =>
     expect(mockFunctionFileLoaded).toHaveBeenCalledWith("babel-register"));
+
   it("Initializes the database", () =>
     expect(mockFunctionFileLoaded).toHaveBeenCalledWith(
       "initializeDatabase()"
