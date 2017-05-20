@@ -6,12 +6,19 @@ const consoleLogMockFunction = jest.fn();
 
 jest.mock("./models", () => ({
   Planet: {
-    hasMany: () => jest.fn()
+    hasMany: () => jest.fn(),
+    belongsToMany: () => jest.fn(),
+    create: () => jest.fn(),
+    findOne: () => new Promise(resolve => resolve({ addResidents: jest.fn() }))
   },
   Person: {
     hasMany: () => jest.fn(),
     create: () => mockFunctionCreate(),
-    count: () => new Promise(resolve => resolve(2))
+    count: () => new Promise(resolve => resolve(2)),
+    findOne: () => new Promise(resolve => resolve({ setHomeworld: jest.fn() })),
+    belongsTo: () => jest.fn(),
+    findAll: () => jest.fn(),
+    addScope: () => jest.fn()
   }
 }));
 
