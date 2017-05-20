@@ -45,6 +45,7 @@ app.use(
   parseCookies,
   (req: $Request, res: $Response, next: NextFunction): void => {
     // Display current date, to keep track of updates
+    const now = new Date();
     console.log();
     console.log();
     console.log(
@@ -52,9 +53,9 @@ app.use(
         Array(7).join(" "),
         "Last request at",
         [
-          new Date().getHours(),
-          new Date().getMinutes(),
-          new Date().getSeconds()
+          now.getHours().toString(10).padStart(2, "0"),
+          now.getMinutes().toString(10).padStart(2, "0"),
+          now.getSeconds().toString(10).padStart(2, "0")
         ].join(":"),
         Array(7).join(" ")
       )
