@@ -26,10 +26,28 @@ describe("Person should have a graphql type", () => {
 describe("Person should have extra fields, which will be used later in context if users are authorized", () => {
   it("Should contain an eyeColor field", () =>
     expect(Person.attributes.eyeColor).toBeDefined());
+
   it("Should be able to have an empty eyeColor", () =>
     expect(Person.attributes.eyeColor.allowNull).toBe(false));
+
   it("Should contain an birthYear field", () =>
     expect(Person.attributes.birthYear).toBeDefined());
+
   it("Should be able to have an empty birthYear", () =>
     expect(Person.attributes.birthYear.allowNull).toBe(false));
+
+  it("Should contain an gender field", () =>
+    expect(Person.attributes.gender).toBeDefined());
+
+  it("Should contain an hairColor field", () =>
+    expect(Person.attributes.hairColor).toBeDefined());
+
+  it("Should contain an height field", () =>
+    expect(Person.attributes.height).toBeDefined());
+
+  it("Should contain an mass field", () =>
+    expect(Person.attributes.mass).toBeDefined());
+
+  it("Should contain an skinColor field", () =>
+    expect(Person.attributes.skinColor).toBeDefined());
 });
