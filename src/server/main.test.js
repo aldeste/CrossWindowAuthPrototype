@@ -1,6 +1,6 @@
 const supertest = require("supertest");
 const main = require("./main");
-const { default: server } = main;
+const { default: server, loggingMiddleware } = main;
 
 const consoleLogMock = jest.fn();
 global.console.log = msg => consoleLogMock(msg);
@@ -27,6 +27,34 @@ describe("Accessing /graphql", () => {
   it("yields faliure without parameters", async () => {
     const response = await supertest(server).get("/graphql");
     expect(response.status).toBe(400);
+  });
+});
+
+describe("Accessing /connect", () => {
+  beforeEach(async () => {
+    await require("../database").initializeDatabase();
+  });
+
+  it("yields faliure without parameters", async () => {
+    const response = await supertest(server).post("/connect");
+    expect(response.status).toBe(404);
+    expect(response.text).toBe("");
+  });
+
+  it("yields null response with invalid token", async () => {
+    const response = await supertest(server)
+      .post("/connect")
+      .send({ data: { key: "BOTTLE_OF_WINE", token: 3 } });
+    expect(response.status).toBe(200);
+    expect(response.text).toBe("");
+  });
+
+  it("yields good response with valid token", async () => {
+    const response = await supertest(server)
+      .post("/connect")
+      .send({ data: { key: "BOTTLE_OF_WINE", token: "cGVvcGxlOjE5" } });
+    expect(response.status).toBe(200);
+    expect(response.text).toMatchSnapshot();
   });
 });
 
@@ -137,5 +165,23 @@ describe("Queries", () => {
       "/graphql?query={person(personId:4){id,name}}"
     );
     expect(JSON.parse(response.text).extensions.timeTaken).toBeDefined();
+  });
+});
+
+describe("loggingMiddleware", () => {
+  it("Doesn't print cookies if cookies are not present", () => {
+    consoleLogMock.mockReset();
+    loggingMiddleware({}, null, jest.fn);
+    expect(consoleLogMock).not.toHaveBeenCalledWith("Current signed cookies");
+  });
+
+  it("prints cookies if cookies are present", () => {
+    consoleLogMock.mockReset();
+    const signedCookies = {
+      signedCookies: { thisiscookie: JSON.stringify({ I: "testing" }) }
+    };
+    loggingMiddleware(signedCookies, null, jest.fn);
+
+    expect(consoleLogMock).toHaveBeenCalledWith("Current signed cookies");
   });
 });
