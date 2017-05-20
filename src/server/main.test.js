@@ -75,10 +75,6 @@ describe("Cookies", () => {
     await require("../database").initializeDatabase();
   });
 
-  // jest.mock("cookie-parser", () => ({
-  //
-  // }))
-
   it("Returns a HttpOnly signed cookie", async () => {
     const response = await supertest(server)
       .post("/login")
@@ -107,7 +103,6 @@ describe("Cookies", () => {
     global.Date = _Date;
     expect(gqlResponse.req._headers.cookie).toBeDefined();
     expect(gqlResponse.header["set-cookie"][0]).toBeDefined();
-    expect(consoleLogMock).toBeCalledWith("Current signed cookies");
   });
 
   it("Reads cookies and doesn't make new if cookie is fresh", async () => {
@@ -121,7 +116,6 @@ describe("Cookies", () => {
 
     expect(gqlResponse.req._headers.cookie).toBeDefined();
     expect(gqlResponse.header["set-cookie"]).toBeUndefined();
-    expect(consoleLogMock).toBeCalledWith("Current signed cookies");
   });
 });
 
