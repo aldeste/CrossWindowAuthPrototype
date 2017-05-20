@@ -1,15 +1,19 @@
 /* @flow */
 import DataLoader from "dataloader";
 import chalk from "chalk";
-import { Person } from "../database";
+import { Person, Planet } from "../database";
 import User, { type Viewer } from "../service/User";
 
+import { type GraphQLObjectType } from "graphql";
+
 export type Loaders = {
-  Person: Function
+  Person: Function,
+  Planet: Function
 };
 
 export type DataLoaders = {
-  Person: DataLoader<*, *>
+  Person: DataLoader<*, *>,
+  Planet: DataLoader<*, *>
 };
 
 /**
@@ -44,12 +48,24 @@ export function getResolve(type: Class<*>, ids: Array<string>): Promise<*> {
  */
 export function createLoaders(Viewer: ?Viewer): Loaders {
   const loaders: DataLoaders = {
-    Person: new DataLoader(ids => getResolve(Person, ids))
+    Person: new DataLoader(ids => getResolve(Person, ids)),
+    // Planet: new DataLoader(ids => getResolve(Planet, ids))
+    Planet: new DataLoader(ids =>
+      Promise.all(
+        ids.map(id =>
+          Planet.findById(id, {
+            include: [{ model: Person, as: "residents" }]
+          })
+        )
+      )
+    )
   };
 
   return {
     Person: (id: string): Promise<?User> =>
-      User.gen(Viewer || null, id, loaders)
+      User.gen(Viewer || null, id, loaders),
+    PersonConnection: ids => User.genMany(Viewer || null, loaders, Person, ids),
+    Planet: (id: string): Promise<?Object> => loaders.Planet.load(id)
   };
 }
 
@@ -59,8 +75,23 @@ export function createLoaders(Viewer: ?Viewer): Loaders {
 export async function getObjectFromTypeAndId(
   type: Object,
   id: string,
-  viewer?: Object
+  context?: Object
 ): Promise<Object> {
-  const Loaders = (viewer && viewer.loaders) || createLoaders();
+  const Loaders = (context && context.loaders) || createLoaders();
   return await Loaders[type.name](id);
+}
+
+/**
+ * Given a type, fetch all objects
+ */
+export async function getObjectsByType(
+  type: GraphQLObjectType,
+  args?: ?Object,
+  context: Object,
+  ids: Array<string>
+): Promise<Object> {
+  const Loaders = (context && context.loaders) || createLoaders();
+  const objects = await Loaders[type.name + "Connection"](ids);
+
+  return { objects, currentCount: objects.length };
 }
