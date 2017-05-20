@@ -18,7 +18,7 @@ describe("personType is a GraphQL type", () => {
 
   it("should return on every field", async () => {
     const query = `query Test {
-      person(personId:4) {
+      person(personId:5) {
         name
         birthYear
         eyeColor
@@ -27,7 +27,6 @@ describe("personType is a GraphQL type", () => {
         height
         mass
         skinColor
-        password
         token
         id
       }
@@ -39,7 +38,7 @@ describe("personType is a GraphQL type", () => {
 
   it("should return on every field with id", async () => {
     const query = `query Test {
-      person(id: "UGVyc29uOjQ=") {
+      person(id: "cGVvcGxlOjU=") {
         name
         birthYear
         eyeColor
@@ -48,7 +47,6 @@ describe("personType is a GraphQL type", () => {
         height
         mass
         skinColor
-        password
         token
         id
       }

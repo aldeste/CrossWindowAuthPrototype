@@ -1,12 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`User service layer with connection Returns a class with a valid parameter 1`] = `
+exports[`User service layer with connection Returns a class with a valid integer id 1`] = `
 User {
   "GraphQLType": "Person",
   "birthYear": "33BBY",
   "eyeColor": "red",
+  "gender": "n/a",
+  "hairColor": "n/a",
+  "height": 96,
+  "homeworld": 7,
   "id": 3,
+  "mass": 32,
   "name": "R2-D2",
+  "skinColor": "white, blue",
+  "token": "cGVvcGxlOjM=",
+}
+`;
+
+exports[`User service layer with connection Returns a class with a valid string id 1`] = `
+User {
+  "GraphQLType": "Person",
+  "birthYear": "33BBY",
+  "eyeColor": "red",
+  "gender": "n/a",
+  "hairColor": "n/a",
+  "height": 96,
+  "homeworld": 7,
+  "id": 3,
+  "mass": 32,
+  "name": "R2-D2",
+  "skinColor": "white, blue",
   "token": "cGVvcGxlOjM=",
 }
 `;

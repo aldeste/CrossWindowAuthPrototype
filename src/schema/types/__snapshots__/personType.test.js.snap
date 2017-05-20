@@ -3,17 +3,16 @@
 exports[`personType is a GraphQL type should return on every field 1`] = `
 Object {
   "person": Object {
-    "birthYear": "41.9BBY",
-    "eyeColor": "yellow",
-    "gender": null,
-    "hairColor": null,
-    "height": null,
-    "id": "UGVyc29uOjQ=",
-    "mass": null,
-    "name": "Darth Vader",
-    "password": null,
-    "skinColor": null,
-    "token": "cGVvcGxlOjQ=",
+    "birthYear": "19BBY",
+    "eyeColor": "brown",
+    "gender": "female",
+    "hairColor": "brown",
+    "height": 150,
+    "id": "cGVvcGxlOjU=",
+    "mass": 49,
+    "name": "Leia Organa",
+    "skinColor": "light",
+    "token": "cGVvcGxlOjU=",
   },
 }
 `;
@@ -21,17 +20,16 @@ Object {
 exports[`personType is a GraphQL type should return on every field with id 1`] = `
 Object {
   "person": Object {
-    "birthYear": "41.9BBY",
-    "eyeColor": "yellow",
-    "gender": null,
-    "hairColor": null,
-    "height": null,
-    "id": "UGVyc29uOjQ=",
-    "mass": null,
-    "name": "Darth Vader",
-    "password": null,
-    "skinColor": null,
-    "token": "cGVvcGxlOjQ=",
+    "birthYear": "19BBY",
+    "eyeColor": "brown",
+    "gender": "female",
+    "hairColor": "brown",
+    "height": 150,
+    "id": "cGVvcGxlOjU=",
+    "mass": 49,
+    "name": "Leia Organa",
+    "skinColor": "light",
+    "token": "cGVvcGxlOjU=",
   },
 }
 `;
