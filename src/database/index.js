@@ -7,9 +7,15 @@ import generateMockData from "./generateMockData";
  * We define relations here, so they'll be defined before
  * databse is syncronised and included in the export.
  */
-Planet.hasMany(Person, {
+Planet.belongsToMany(Person, {
   constraints: false,
-  as: "habitants"
+  as: "residents",
+  through: "residents"
+});
+
+Person.belongsTo(Planet, {
+  constraints: false,
+  as: "homeworld"
 });
 
 /**
@@ -17,17 +23,17 @@ Planet.hasMany(Person, {
  * callable when fetching from the database. defaultScope
  * is always applied unless another scope is choosen.
  */
-// Planet.addScope(
-//   "defaultScope",
-//   {
-//     include: [{ model: Person, as: "habitants" }]
-//   },
-//   { override: true }
-// );
+Person.addScope(
+  "defaultScope",
+  {
+    include: [{ model: Planet, as: "homeworld", attributes: ["id"] }]
+  },
+  { override: true }
+);
 
-export async function initializeDatabase(): Promise<*> {
-  await connection.sync({ force: false });
-  return generateMockData();
+export async function initializeDatabase(): Promise<Function> {
+  await connection.sync({ force: true });
+  return await generateMockData(true);
 }
 
 export default connection;
