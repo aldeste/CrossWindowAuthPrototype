@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`planetType is a GraphQL type should return on every field 1`] = `
+Object {
+  "person": Object {
+    "homeworld": Object {
+      "climates": Array [
+        "arid",
+      ],
+      "diameter": 10465,
+      "gravity": "1 standard",
+      "id": "cGxhbmV0czo2MA==",
+      "name": "Tatooine",
+      "orbitalPeriod": null,
+      "population": 200000,
+      "residentConnection": Object {
+        "edges": Array [
+          Object {
+            "node": Object {
+              "name": "Luke Skywalker",
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "C-3PO",
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Darth Vader",
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Owen Lars",
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Beru Whitesun lars",
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "R5-D4",
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Biggs Darklighter",
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Anakin Skywalker",
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Shmi Skywalker",
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Cliegg Lars",
+            },
+          },
+        ],
+      },
+      "rotationPeriod": null,
+      "surfaceWater": null,
+      "terrains": Array [
+        "desert",
+      ],
+    },
+  },
+}
+`;

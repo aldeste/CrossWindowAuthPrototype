@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createLoaders Creates Person loader 1`] = `
+User {
+  "GraphQLType": "Person",
+  "birthYear": "33BBY",
+  "eyeColor": "red",
+  "gender": "n/a",
+  "hairColor": "n/a",
+  "height": 96,
+  "homeworld": 7,
+  "id": 3,
+  "mass": 32,
+  "name": "R2-D2",
+  "skinColor": "white, blue",
+  "token": "cGVvcGxlOjM=",
+}
+`;
+
+exports[`createLoaders Creates Planet loader 1`] = `
+Object {
+  "GraphQLType": "Planet",
+  "climates": "frozen",
+  "diameter": 7200,
+  "gravity": "1.1 standard",
+  "id": 3,
+  "name": "Hoth",
+  "orbitalPeriod": 549,
+  "population": null,
+  "residents": Array [],
+  "rotationPeriod": 23,
+  "surfaceWater": 100,
+  "terrains": "tundra, ice caves, mountain ranges",
+}
+`;
+
+exports[`getObjectFromTypeAndId Returns one instance 1`] = `
+User {
+  "GraphQLType": "Person",
+  "birthYear": "112BBY",
+  "eyeColor": "yellow",
+  "gender": "n/a",
+  "hairColor": "n/a",
+  "height": 167,
+  "homeworld": 60,
+  "id": 2,
+  "mass": 75,
+  "name": "C-3PO",
+  "skinColor": "gold",
+  "token": "cGVvcGxlOjI=",
+}
+`;
+
+exports[`getObjectFromTypeAndId Returns one instance even when loader isn't initialized 1`] = `
+User {
+  "GraphQLType": "Person",
+  "birthYear": "112BBY",
+  "eyeColor": "yellow",
+  "gender": "n/a",
+  "hairColor": "n/a",
+  "height": 167,
+  "homeworld": 60,
+  "id": 2,
+  "mass": 75,
+  "name": "C-3PO",
+  "skinColor": "gold",
+  "token": "cGVvcGxlOjI=",
+}
+`;
+
+exports[`getObjectsByType Returns a full object 1`] = `
+Object {
+  "currentCount": 3,
+  "objects": Array [
+    User {
+      "GraphQLType": "Person",
+      "birthYear": "19BBY",
+      "eyeColor": "blue",
+      "gender": "male",
+      "hairColor": "blond",
+      "height": 172,
+      "homeworld": 60,
+      "id": 1,
+      "mass": 77,
+      "name": "Luke Skywalker",
+      "skinColor": "fair",
+      "token": "cGVvcGxlOjE=",
+    },
+    User {
+      "GraphQLType": "Person",
+      "birthYear": "112BBY",
+      "eyeColor": "yellow",
+      "gender": "n/a",
+      "hairColor": "n/a",
+      "height": 167,
+      "homeworld": 60,
+      "id": 2,
+      "mass": 75,
+      "name": "C-3PO",
+      "skinColor": "gold",
+      "token": "cGVvcGxlOjI=",
+    },
+    User {
+      "GraphQLType": "Person",
+      "birthYear": "33BBY",
+      "eyeColor": "red",
+      "gender": "n/a",
+      "hairColor": "n/a",
+      "height": 96,
+      "homeworld": 7,
+      "id": 3,
+      "mass": 32,
+      "name": "R2-D2",
+      "skinColor": "white, blue",
+      "token": "cGVvcGxlOjM=",
+    },
+  ],
+}
+`;
+
+exports[`getObjectsByType Returns a full object even without loader initialized 1`] = `
+Object {
+  "currentCount": 3,
+  "objects": Array [
+    User {
+      "GraphQLType": "Person",
+      "birthYear": "19BBY",
+      "eyeColor": "blue",
+      "gender": "male",
+      "hairColor": "blond",
+      "height": 172,
+      "homeworld": 60,
+      "id": 1,
+      "mass": 77,
+      "name": "Luke Skywalker",
+      "skinColor": "fair",
+      "token": "cGVvcGxlOjE=",
+    },
+    User {
+      "GraphQLType": "Person",
+      "birthYear": "112BBY",
+      "eyeColor": "yellow",
+      "gender": "n/a",
+      "hairColor": "n/a",
+      "height": 167,
+      "homeworld": 60,
+      "id": 2,
+      "mass": 75,
+      "name": "C-3PO",
+      "skinColor": "gold",
+      "token": "cGVvcGxlOjI=",
+    },
+    User {
+      "GraphQLType": "Person",
+      "birthYear": "33BBY",
+      "eyeColor": "red",
+      "gender": "n/a",
+      "hairColor": "n/a",
+      "height": 96,
+      "homeworld": 7,
+      "id": 3,
+      "mass": 32,
+      "name": "R2-D2",
+      "skinColor": "white, blue",
+      "token": "cGVvcGxlOjM=",
+    },
+  ],
+}
+`;

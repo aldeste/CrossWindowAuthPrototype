@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Accessing /connect yields good response with valid token 1`] = `"{\\"personId\\":\\"19\\",\\"name\\":\\"Yoda\\",\\"token\\":\\"cGVvcGxlOjE5\\",\\"id\\":\\"cGVvcGxlOjE5\\"}"`;
+
 exports[`Accessing /login returns a user with corect parameters 1`] = `
 Object {
   "id": "cGVvcGxlOjE5",

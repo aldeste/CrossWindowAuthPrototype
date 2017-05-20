@@ -8,6 +8,10 @@ Object {
     "gender": "female",
     "hairColor": "brown",
     "height": 150,
+    "homeworld": Object {
+      "id": "cGxhbmV0czox",
+      "name": "Alderaan",
+    },
     "id": "cGVvcGxlOjU=",
     "mass": 49,
     "name": "Leia Organa",
@@ -25,6 +29,10 @@ Object {
     "gender": "female",
     "hairColor": "brown",
     "height": 150,
+    "homeworld": Object {
+      "id": "cGxhbmV0czox",
+      "name": "Alderaan",
+    },
     "id": "cGVvcGxlOjU=",
     "mass": 49,
     "name": "Leia Organa",
