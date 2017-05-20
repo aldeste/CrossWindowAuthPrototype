@@ -4,6 +4,9 @@ import { globalIdField } from "graphql-relay";
 
 import { nodeInterface } from "../relayNode";
 import { createdField, editedField } from "../commonFields";
+import { getObjectFromTypeAndId } from "../apiHelper";
+
+import PlanetType from "./planetType";
 
 /**
  * The GraphQL type equivalent of the People resource
@@ -53,11 +56,11 @@ person does not have hair.`
       resolve: person => person.skinColor,
       description: "The skin color of this person."
     },
-    password: {
-      type: GraphQLString,
-      resolve: person =>
-        process.env.NODE_ENV !== "production" && person.password,
-      description: "The users password, available for testing purpouses."
+    homeworld: {
+      type: PlanetType,
+      resolve: ({ homeworld }, _, viewer) =>
+        getObjectFromTypeAndId(PlanetType, homeworld, viewer),
+      description: "A planet that this person was born on or inhabits."
     },
     token: {
       type: GraphQLString,
@@ -71,7 +74,7 @@ person does not have hair.`
     },
     created: createdField(),
     edited: editedField(),
-    id: globalIdField("Person")
+    id: globalIdField("people")
   }),
   interfaces: () => [nodeInterface]
 });
