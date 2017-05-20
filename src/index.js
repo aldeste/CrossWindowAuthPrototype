@@ -1,5 +1,6 @@
 // Enable modern javascript using babel.
 require("babel-register");
+require("babel-polyfill");
 
 // Load env variables from .env file if exists in root, otherwise fail
 // silently. .env variables never overide set variables from terminal, they're
