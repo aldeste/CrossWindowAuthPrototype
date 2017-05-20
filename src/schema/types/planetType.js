@@ -20,11 +20,13 @@ const PlanetType = new GraphQLObjectType({
   fields: () => ({
     name: {
       type: GraphQLString,
-      description: "The name of this planet."
+      description: "The name of this planet.",
+      resolve: planet => planet.name
     },
     diameter: {
       type: GraphQLInt,
-      description: "The diameter of this planet in kilometers."
+      description: "The diameter of this planet in kilometers.",
+      resolve: planet => planet.diameter
     },
     rotationPeriod: {
       type: GraphQLInt,
@@ -38,11 +40,13 @@ const PlanetType = new GraphQLObjectType({
     },
     gravity: {
       type: GraphQLString,
-      description: `A number denoting the gravity of this planet, where "1" is normal or 1 standard G. "2" is twice or 2 standard Gs. "0.5" is half or 0.5 standard Gs.`
+      description: `A number denoting the gravity of this planet, where "1" is normal or 1 standard G. "2" is twice or 2 standard Gs. "0.5" is half or 0.5 standard Gs.`,
+      resolve: planet => planet.gravity
     },
     population: {
       type: GraphQLInt,
-      description: "The average population of sentient beings inhabiting this planet."
+      description: "The average population of sentient beings inhabiting this planet.",
+      resolve: planet => planet.population
     },
     climates: {
       type: new GraphQLList(GraphQLString),
@@ -63,11 +67,10 @@ const PlanetType = new GraphQLObjectType({
       resolve: planet => planet.surface_water,
       description: `The percentage of the planet surface that is naturally occuring water or bodies of water.`
     },
-    residentConnection: connectionFromType(
-      "PlanetResidents",
-      PersonType,
-      "residents"
-    ),
+    residentConnection: {
+      ...connectionFromType("PlanetResidents", PersonType, "residents"),
+      description: "People from this planet"
+    },
     // filmConnection: connectionFromUrls("PlanetFilms", "films", FilmType),
     created: createdField(),
     edited: editedField(),

@@ -5,8 +5,11 @@ Promise.all(
     describe(`Dummy ${data}`, () => {
       it("contains an array", () =>
         expect(typeof dummyData[data]).toBe("object"));
+
       it("contains atleast one value", () =>
         expect(dummyData[data][0]).toBeDefined());
+
+      it("contains an id", () => expect(dummyData[data][0].id).toBeDefined());
     })
   )
 );

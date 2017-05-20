@@ -17,6 +17,7 @@ const PersonType = new GraphQLObjectType({
   fields: () => ({
     name: {
       type: GraphQLString,
+      resolve: person => person.name,
       description: "The name of this person."
     },
     birthYear: {
@@ -34,6 +35,7 @@ person does not have an eye.`
     },
     gender: {
       type: GraphQLString,
+      resolve: person => person.gender,
       description: `The gender of this person. Either "Male", "Female" or "unknown",
 "n/a" if the person does not have a gender.`
     },
@@ -45,10 +47,12 @@ person does not have hair.`
     },
     height: {
       type: GraphQLInt,
+      resolve: person => person.height,
       description: "The height of the person in centimeters."
     },
     mass: {
       type: GraphQLInt,
+      resolve: person => person.mass,
       description: "The mass of the person in kilograms."
     },
     skinColor: {
