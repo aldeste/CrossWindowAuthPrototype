@@ -33,7 +33,7 @@ import { GraphQLString } from "graphql";
 describe("createdField", () => {
   const createdFieldRun = createdField();
   it("resolves correctly", () => {
-    expect(createdFieldRun.resolve({ createdAt: "now!" })).toBe("now!");
+    expect(createdFieldRun.resolve({ created: "now!" })).toBe("now!");
   });
 
   it("is of type string", () => {
@@ -44,7 +44,7 @@ describe("createdField", () => {
 describe("editedField", () => {
   const editedFieldRun = editedField();
   it("resolves correctly", () => {
-    expect(editedFieldRun.resolve({ editedAt: "now!" })).toBe("now!");
+    expect(editedFieldRun.resolve({ edited: "now!" })).toBe("now!");
   });
 
   it("is of type string", () => {
