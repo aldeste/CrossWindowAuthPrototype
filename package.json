@@ -75,9 +75,9 @@
     "build": "NODE_ENV=production webpack --config=./example/config/webpack/webpack.base.js --env=production",
     "lint": "eslint **/*.js",
     "precommit": "lint-staged",
-    "start": "nodemon ./src & cross-env NODE_ENV=development webpack-dev-server --config=./example/config/webpack/webpack.base.js --env=development",
-    "start:app": "nodemon ./src",
-    "start:example": "NODE_ENV=development webpack-dev-server --config=./example/config/webpack/webpack.base.js --env=development",
+    "start": "npm run start:app & npm run start:example",
+    "start:app": "nodemon --watch src ./src",
+    "start:example": "cross-env NODE_ENV=development webpack-dev-server --config=./example/config/webpack/webpack.base.js --env=development",
     "test": "jest",
     "test:cov": "jest --coverage"
   },
