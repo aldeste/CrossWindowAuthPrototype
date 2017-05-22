@@ -32,10 +32,18 @@ export default class extends React.PureComponent<*, Props, State> {
       body: `{ person(personId: ${token}) { name token personId id } }`
     }).then(response => response.json());
 
-    window.postMessage(
-      { type: "AuthVerificationConnection", data: user },
-      "http://localhost:4000"
-    );
+    const iframe = document && document.querySelector("iframe");
+    !!window &&
+      window.top.postMessage(
+        { type: "AuthVerificationConnection", data: user },
+        "http://localhost:4000"
+      );
+
+    !!iframe &&
+      iframe.contentWindow.postMessage(
+        { type: "AuthVerificationConnection", data: user },
+        "http://localhost:4050"
+      );
 
     return { user, time };
   };
