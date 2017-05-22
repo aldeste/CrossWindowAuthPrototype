@@ -39,6 +39,7 @@ module.exports = {
       template: join(process.cwd(), `${PUBLIC}/index.html`)
     })
   ],
+  performance: false,
   devServer: {
     publicPath: "/",
     hot: true,
