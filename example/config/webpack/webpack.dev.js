@@ -1,7 +1,11 @@
 const { join } = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { APP_PORT, APP_HOST } = require("../../../config/config");
+const {
+  APP_FRONT_PORT,
+  APP_PORT,
+  APP_HOST
+} = require("../../../config/config");
 
 const FRONTEND = "example/app/src";
 const PUBLIC = "example/app/public";
@@ -12,7 +16,7 @@ module.exports = {
   cache: sharedCache,
   entry: [
     "react-hot-loader/patch",
-    `webpack-dev-server/client?http://${APP_HOST}:${APP_PORT * 2}`,
+    `webpack-dev-server/client?http://${APP_HOST}:${APP_FRONT_PORT}`,
     "webpack/hot/only-dev-server",
     join(process.cwd(), `${FRONTEND}/index.js`)
   ],
@@ -40,7 +44,7 @@ module.exports = {
     hot: true,
     inline: true,
     host: APP_HOST,
-    port: APP_PORT * 2,
+    port: APP_FRONT_PORT,
     proxy: {
       "/api": {
         target: `http://${APP_HOST}:${APP_PORT}`,

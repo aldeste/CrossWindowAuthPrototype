@@ -83,7 +83,7 @@ module.exports = {
     }),
     // Generate chunk manifest, used for caching.
     new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.ModuleConcatenationPlugin(),
+    // new webpack.optimize.ModuleConcatenationPlugin(),
     new WebpackChunkHash(),
     new ChunkManifestPlugin({
       inlineManifest: true
