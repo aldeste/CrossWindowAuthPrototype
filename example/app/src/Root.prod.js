@@ -1,9 +1,16 @@
 // @flow
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import "./Document/Styles";
+import LoadAsync from "./LoadAsync/LoadAsync";
+import generateGlobalStyles from "./Document/Styles";
 // babel-polyfill will be transformed to required polyfills
 import "babel-polyfill";
+
+generateGlobalStyles();
+
+const App = LoadAsync({
+  loader: () =>
+    window.self === window.top ? import("./App") : import("./IframeContent/App")
+});
 
 ReactDOM.render(<App />, document.getElementById("root"));
