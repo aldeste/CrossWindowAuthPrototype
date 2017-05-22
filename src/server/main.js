@@ -110,13 +110,7 @@ app.use(
     const { body }: Object = req;
 
     // Check if connection is from a relevant source
-    if (
-      body &&
-      body.data &&
-      body.data.key &&
-      body.data.token &&
-      body.data.key === "BOTTLE_OF_WINE"
-    ) {
+    if (body && body.data && body.data.token) {
       const user = await fromAuthToken(body.data.token);
 
       return !!Object.keys(user).length ? res.send(user) : res.send(null);
