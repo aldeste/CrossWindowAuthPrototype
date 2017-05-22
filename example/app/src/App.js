@@ -1,16 +1,16 @@
 // @flow
 import React from "react";
 import { Map, type Map as ImmutableMap } from "immutable";
-import { Wrapper, Text } from "./Tags";
+import { Wrapper, Text, Iframe } from "./Tags";
 import LoadAsync from "./LoadAsync/LoadAsync";
 import DocumentTitle from "./Document/Title";
 
-type MessageEventWithOptions = {
+export type MessageEventWithOptions = {
   ...MessageEvent,
   data: { type: string, data: string }
 };
 
-type State = {
+export type State = {
   signedIn: ImmutableMap<string, ImmutableMap<string, string>>
 };
 
@@ -35,7 +35,7 @@ class App extends React.Component<*, State, *> {
         "Content-Type": "application/json"
       },
       mode: "cors",
-      body: JSON.stringify({ data: { key: "BOTTLE_OF_WINE", ...data } })
+      body: JSON.stringify({ data })
     }).then(response => response.json());
 
     const UserBases: Array<string> = ["StarWars", "StarWarsCharacters"];
@@ -52,9 +52,13 @@ class App extends React.Component<*, State, *> {
   };
 
   receiveMessage = (event: MessageEventWithOptions): boolean => {
-    const { origin, data } = event;
+    const { origin, data, source } = event;
+    const iframe = document && document.querySelector("iframe");
+
     if (
-      origin === "http://localhost:4000" &&
+      (origin === "http://localhost:4000" ||
+        origin === "http://localhost:4050") &&
+      (source === window || (iframe && source === iframe.contentWindow)) &&
       data.type === "AuthVerificationConnection"
     ) {
       const { data: submitData }: Object = data;
@@ -114,6 +118,11 @@ class App extends React.Component<*, State, *> {
                   onLoginSubmit={this.handleLogin(part)}
                 />
         )}
+        <Text>
+          What follows is an iframe, the colors are different to illustrate
+          that we're accessing a different website
+        </Text>
+        <Iframe title="application_display" src="http://localhost:4050" />
       </Wrapper>
     );
   }
