@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Application loads asynchronously loads in the welcome screen asynchronously 1`] = `<div />`;
+
+exports[`Application loads asynchronously starts of empty 1`] = `<div />`;
+
+exports[`Application start file Logs in users by token 1`] = `
+<div>
+  <div>
+    <h1>
+      Star Wars login terminal inside iframe
+    </h1>
+    <p>
+      Please log in
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <div>
+        <label
+          htmlFor="StarWarsusername"
+          required={false}
+        >
+          Username
+        </label>
+        <input
+          id="StarWarsusername"
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="StarWarspassword"
+          required={false}
+        >
+          Password
+        </label>
+        <input
+          id="StarWarspassword"
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        disabled={true}
+      >
+        Form fields not valid
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Application start file Removes the welcome screen on logout 1`] = `
+<div>
+  <div>
+    <h1>
+      Star Wars login terminal inside iframe
+    </h1>
+    <p>
+      Please log in
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <div>
+        <label
+          htmlFor="StarWarsusername"
+          required={false}
+        >
+          Username
+        </label>
+        <input
+          id="StarWarsusername"
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="StarWarspassword"
+          required={false}
+        >
+          Password
+        </label>
+        <input
+          id="StarWarspassword"
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        disabled={true}
+      >
+        Form fields not valid
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Application start file Renders the welcome screen on login 1`] = `
+<div>
+  <div>
+    <h1>
+      Star Wars user logged in inside iframe!
+    </h1>
+    <p>
+      You're logged in as 
+      Yoda
+    </p>
+    <button
+      alternative={true}
+      onClick={[Function]}
+    >
+      Log out
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Application start file renders without crashing 1`] = `
+<div>
+  <div>
+    <h1>
+      Star Wars login terminal inside iframe
+    </h1>
+    <p>
+      Please log in
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <div>
+        <label
+          htmlFor="StarWarsusername"
+          required={false}
+        >
+          Username
+        </label>
+        <input
+          id="StarWarsusername"
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="StarWarspassword"
+          required={false}
+        >
+          Password
+        </label>
+        <input
+          id="StarWarspassword"
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        disabled={true}
+      >
+        Form fields not valid
+      </button>
+    </form>
+  </div>
+</div>
+`;

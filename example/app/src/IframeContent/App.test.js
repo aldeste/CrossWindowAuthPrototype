@@ -3,8 +3,8 @@ import App from "./App";
 import renderer from "react-test-renderer";
 
 jest
-  .mock("./Document/Title", () => ({ children }) => <title>{children}</title>)
-  .mock("./Tags", () => ({
+  .mock("../Document/Title", () => ({ children }) => <title>{children}</title>)
+  .mock("../Tags", () => ({
     Button: ({ className, children, ...props }) => (
       <button {...props}>{children}</button>
     ),
@@ -44,6 +44,8 @@ beforeEach(() => {
     addEventListener: (type, callback, options) =>
       addEventListener(type, callback, options)
   };
+
+  global.window.parent = {};
 
   global.document = {};
   global.document.querySelector = () => ({});
@@ -112,7 +114,7 @@ describe("Application start file", () => {
     const component = renderer.create(<App />);
     const message = component.getInstance().receiveMessage({
       origin: "http://localhost:4000",
-      source: global.window,
+      source: global.window.parent,
       data: { type: "AuthVerificationConnection", data: "cGVvcGxlOjQ=" }
     });
     expect(message).toBeTruthy();
@@ -141,7 +143,7 @@ describe("Application start file", () => {
     const component = renderer.create(<App />);
     component.getInstance().receiveMessage({
       origin: "http://localhost:4000",
-      source: global.window,
+      source: global.window.parent,
       data: {
         type: "AuthVerificationConnection",
         data: {

@@ -39,7 +39,14 @@ describe("PingTest / Ping", () => {
       })
     );
 
-  global.window = { postMessage: msg => PostWindowMessage(msg) };
+  const postMessage = { postMessage: msg => PostWindowMessage(msg) };
+
+  global.window = postMessage;
+  global.window.top = postMessage;
+  global.document = {};
+  global.document.querySelector = () => ({
+    contentWindow: postMessage
+  });
 
   it("Matches previous setup", () => {
     const tree = renderer.create(<Ping />).toJSON();
