@@ -26,6 +26,9 @@ jest
     ),
     Wrapper: ({ className, children, ...props }) => (
       <div {...props}>{children}</div>
+    ),
+    Iframe: ({ className, children, ...props }) => (
+      <div {...props}>{children}</div>
     )
   }));
 
@@ -94,6 +97,7 @@ describe("Application start file", () => {
     const component = renderer.create(<App />);
     const message = component.getInstance().receiveMessage({
       origin: "http://localhost:4000",
+      source: "Not same window",
       data: { type: "AuthVerificationConnection", data: true }
     });
     expect(message).toBeTruthy();
@@ -101,34 +105,19 @@ describe("Application start file", () => {
 
   it("Sends callback to fetch users if data is correct", () => {
     const fetchCall = jest.fn();
-    global.fetch = () =>
-      new Promise(resolve =>
-        resolve({
-          json: () => ({
-            data: {
-              person: {
-                name: "Darth Vader",
-                token: "cGVvcGxlOjQ=",
-                personId: "4",
-                id: "UGVyc29uOjQ="
-              }
-            }
-          })
-        })
-      );
-
     global.fetch = () => fetchCall();
 
     const component = renderer.create(<App />);
     component.getInstance().receiveMessage({
       origin: "http://localhost:4000",
+      source: "Not same window",
       data: {
         type: "AuthVerificationConnection",
         data: {
-          name: "R2-D2",
-          token: "cGVvcGxlOjM=",
-          personId: "3",
-          id: "UGVyc29uOjM="
+          name: "Darth Vader",
+          token: "cGVvcGxlOjQ==",
+          personId: "4",
+          id: "cGVvcGxlOjQ="
         }
       }
     });
@@ -139,6 +128,7 @@ describe("Application start file", () => {
     const component = renderer.create(<App />);
     const message = component.getInstance().receiveMessage({
       origin: "http://localhost:4",
+      source: "not same window",
       data: { type: "AuthVerificationConnection", data: true }
     });
     expect(message).toBeFalsy();
@@ -148,6 +138,7 @@ describe("Application start file", () => {
     const component = renderer.create(<App />);
     const message = component.getInstance().receiveMessage({
       origin: "http://localhost:4",
+      source: "Not same window",
       data: { type: "NotCorrect", data: true }
     });
     expect(message).toBeFalsy();

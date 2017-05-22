@@ -23,6 +23,7 @@ jest.mock("../Tags", () => ({
 
 const PostWindowMessage = jest.fn();
 global.window = { postMessage: msg => PostWindowMessage(msg) };
+global.window.top = { postMessage: msg => PostWindowMessage(msg) };
 
 describe("Login react component", () => {
   it("Is a react component", () => {

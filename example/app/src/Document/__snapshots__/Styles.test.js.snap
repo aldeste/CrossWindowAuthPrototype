@@ -12,8 +12,7 @@ Array [
 
   *::after, *::before {
     box-sizing: inherit;
-  }
-",
+  }",
   ],
 ]
 `;

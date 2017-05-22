@@ -72,6 +72,13 @@ exports[`Application loads asynchronously loads in the welcome screen asynchrono
       </button>
     </form>
   </div>
+  <p>
+    What follows is an iframe, the colors are different to illustrate that we're accessing a different website
+  </p>
+  <div
+    src="http://localhost:4050"
+    title="application_display"
+  />
 </div>
 `;
 
@@ -80,6 +87,13 @@ exports[`Application loads asynchronously starts of empty 1`] = `
   <title>
     AuthJazz
   </title>
+  <p>
+    What follows is an iframe, the colors are different to illustrate that we're accessing a different website
+  </p>
+  <div
+    src="http://localhost:4050"
+    title="application_display"
+  />
 </div>
 `;
 
@@ -196,6 +210,13 @@ exports[`Application start file Logs in users by token 1`] = `
       </button>
     </form>
   </div>
+  <p>
+    What follows is an iframe, the colors are different to illustrate that we're accessing a different website
+  </p>
+  <div
+    src="http://localhost:4050"
+    title="application_display"
+  />
 </div>
 `;
 
@@ -312,6 +333,13 @@ exports[`Application start file Removes the welcome screen on logout 1`] = `
       </button>
     </form>
   </div>
+  <p>
+    What follows is an iframe, the colors are different to illustrate that we're accessing a different website
+  </p>
+  <div
+    src="http://localhost:4050"
+    title="application_display"
+  />
 </div>
 `;
 
@@ -402,6 +430,13 @@ exports[`Application start file Renders the welcome screen on login 1`] = `
       </button>
     </form>
   </div>
+  <p>
+    What follows is an iframe, the colors are different to illustrate that we're accessing a different website
+  </p>
+  <div
+    src="http://localhost:4050"
+    title="application_display"
+  />
 </div>
 `;
 
@@ -518,5 +553,12 @@ exports[`Application start file renders without crashing 1`] = `
       </button>
     </form>
   </div>
+  <p>
+    What follows is an iframe, the colors are different to illustrate that we're accessing a different website
+  </p>
+  <div
+    src="http://localhost:4050"
+    title="application_display"
+  />
 </div>
 `;
