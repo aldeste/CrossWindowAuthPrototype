@@ -52,11 +52,15 @@ class Login extends React.PureComponent<*, Props, State> {
       return this.setState(() => ({ error: true }));
     }
 
-    window &&
-      window.postMessage(
-        { type: "AuthVerificationConnection", data: user },
-        "http://localhost:4000"
-      );
+    const iframe = document && document.querySelector("iframe");
+    [window && window.top, iframe && iframe.contentWindow].forEach(
+      (w: window) =>
+        w &&
+        w.postMessage(
+          { type: "AuthVerificationConnection", data: user },
+          "http://localhost:4000"
+        )
+    );
 
     return this.props.onLoginSubmit(user);
   };
