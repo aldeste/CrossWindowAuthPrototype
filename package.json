@@ -15,7 +15,7 @@
     "express": "^4.15.3",
     "express-graphql": "^0.6.5",
     "graphql": "^0.9.6",
-    "immutable": "4.0.0-rc.2",
+    "immutable": "^4.0.0-rc.2",
     "mysql": "^2.13.0",
     "sequelize": "^3.30.4"
   },
