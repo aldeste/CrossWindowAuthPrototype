@@ -5,31 +5,22 @@ import schema from "../schema";
 import { Person } from "../database";
 import { createLoaders } from "../schema/apiHelper";
 
-export type UserTokenData = {
+export type UserToken = {
   name: string,
   id: string,
   token: string,
   personId: string
 };
 
-export type userValidationData =
-  | {|
-      name: string,
-      id: string,
-      token: string,
-      password: string
-    |}
-  | null;
-
 type validationParameters = {
   name: string,
   password: string
 };
 
-export async function fromAuthToken(token: string): UserTokenData | {} {
-  type responseFromGQL = { data: { person: UserTokenData } } | Object;
+export async function fromAuthToken(token: string): UserToken | {} {
+  type responseType = { data: { person: UserToken } } | Object;
 
-  const response: responseFromGQL = await graphql(
+  const response: responseType = await graphql(
     schema,
     `{ person(id: "${token}") { personId name token id } }`,
     {},
@@ -50,9 +41,9 @@ export async function fromAuthToken(token: string): UserTokenData | {} {
 export async function validateUser({
   name,
   password
-}: validationParameters): Promise<UserTokenData | { error: string }> {
+}: validationParameters): Promise<UserToken | { error: string }> {
   try {
-    const user: userValidationData = await Person.findOne({
+    const user: UserToken | null = await Person.findOne({
       where: { name },
       attributes: ["id", "name", "token", "password"]
     });
