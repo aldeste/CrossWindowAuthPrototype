@@ -1,3 +1,4 @@
+// @flow
 import database from "../databaseConnection";
 import { STRING, INTEGER, VIRTUAL } from "sequelize";
 

@@ -1,3 +1,6 @@
+// @flow
+const process = require("process");
+
 export default (startTime = process.hrtime()) => (
   endTime = process.hrtime(startTime)
 ) => ({
