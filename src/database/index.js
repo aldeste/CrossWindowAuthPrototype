@@ -8,13 +8,13 @@ import generateMockData from "./generateMockData";
  * databse is syncronised and included in the export.
  */
 Planet.belongsToMany(Person, {
-  constraints: false,
+  // constraints: false,
   as: "residents",
   through: "residents"
 });
 
 Person.belongsTo(Planet, {
-  constraints: false,
+  // constraints: false,
   as: "homeworld"
 });
 
