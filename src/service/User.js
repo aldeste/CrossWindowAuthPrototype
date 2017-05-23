@@ -1,9 +1,10 @@
+// @flow
 import { type DataLoaders } from "../schema/apiHelper";
 
 export type Viewer = {
   birthYear: string,
-  created: date,
-  edited: date,
+  created: Date,
+  edited: Date,
   eyeColor: string,
   gender: string,
   hairColor: string,
@@ -11,16 +12,25 @@ export type Viewer = {
   id: string,
   mass: number,
   name: string,
+  homeworld: string,
   personId?: ?number,
   skinColor: string,
   token: string,
   GraphQLType: string
 };
 
-export default class User {
+type PersonModel = Viewer & {
+  createdAt: Date,
+  updatedAt: Date,
+  homeworld: {
+    id: number
+  }
+};
+
+export default class UserServieLayer {
   birthYear: string;
-  created: date;
-  edited: date;
+  created: Date;
+  edited: Date;
   eyeColor: string;
   gender: string;
   hairColor: string;
@@ -33,7 +43,7 @@ export default class User {
   GraphQLType: string;
   homeworld: number;
 
-  constructor(data: Viewer) {
+  constructor(data: PersonModel) {
     this.birthYear = data.birthYear;
     this.created = data.createdAt;
     this.edited = data.updatedAt;
@@ -46,9 +56,7 @@ export default class User {
     this.name = data.name;
     this.skinColor = data.skinColor;
     this.token = data.token;
-
     this.homeworld = data.homeworld.id;
-
     this.GraphQLType = data.GraphQLType;
   }
 
@@ -56,9 +64,9 @@ export default class User {
     viewer: ?Viewer,
     id: string,
     { Person }: DataLoaders
-  ): Promise<?Object> {
-    const data: Object | null = await Person.load(id);
-    return data ? new User(data) : null;
+  ): Promise<?UserServieLayer> {
+    const data: PersonModel | null = await Person.load(id);
+    return data ? new UserServieLayer(data) : null;
   }
 
   static async genMany(
@@ -66,13 +74,17 @@ export default class User {
     { Person }: DataLoaders,
     connection: Class<*>,
     ids: Array<string>
-  ): Promise<?Object> {
-    const data: Object | null = await connection.findAll({
+  ): Promise<?Array<UserServieLayer>> {
+    const data: Array<PersonModel> | null = await connection.findAll({
       where: { id: [ids] }
     });
 
-    await data.forEach(result => Person.prime(result.id, result.dataValues));
+    // return imideately if failed to fetch
+    if (!data) return null;
 
-    return await data.filter(result => result).map(result => new User(result));
+    // We put each field in the dataloader cache
+    await data.forEach(result => Person.prime(result.id, result));
+
+    return await data.map(result => new UserServieLayer(result));
   }
 }
