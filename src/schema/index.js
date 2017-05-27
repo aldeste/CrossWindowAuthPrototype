@@ -15,11 +15,7 @@ const Root = new GraphQLObjectType({
     viewer: {
       type: personType,
       description: "The viewr field is associated with the currently logged in viewer.",
-      resolve: (
-        _: *,
-        args: arguments,
-        viewer: Object
-      ): Promise<Object> | null => {
+      resolve: (_: *, args: Object, viewer: Object): Promise<Object> | null => {
         if (viewer.viewer && viewer.viewer.personId) {
           return getObjectFromTypeAndId(
             personType,
