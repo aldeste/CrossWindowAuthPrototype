@@ -8,7 +8,7 @@ type Props = {
   onLogoutSubmit: Function
 };
 
-export default function Welcome(props: Props): React$Element<{}> {
+export default function Welcome(props: Props): React$Element<*> {
   return (
     <View>
       <Title>{props.title}</Title>
