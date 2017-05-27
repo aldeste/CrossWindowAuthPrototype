@@ -31,9 +31,9 @@ Person.addScope(
   { override: true }
 );
 
-export async function initializeDatabase(): Promise<Function> {
+export async function initializeDatabase(): Promise<void> {
   await connection.sync({ force: true });
-  return await generateMockData(true);
+  await generateMockData(true);
 }
 
 export default connection;

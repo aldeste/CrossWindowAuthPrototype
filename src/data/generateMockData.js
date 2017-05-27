@@ -1,7 +1,7 @@
 // @flow
 import chalk from "chalk";
 import { toGlobalId } from "graphql-relay";
-import { Person, Planet } from "./";
+import { Person, Planet } from "../data";
 
 export default async function generateMockData(
   forceInsert: boolean = false

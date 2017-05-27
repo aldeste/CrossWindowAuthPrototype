@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`User service layer with connection Returns a class with a valid integer id 1`] = `
-UserServieLayer {
+UserInstance {
   "GraphQLType": "Person",
   "birthYear": "33BBY",
   "eyeColor": "red",
@@ -18,7 +18,7 @@ UserServieLayer {
 `;
 
 exports[`User service layer with connection Returns a class with a valid string id 1`] = `
-UserServieLayer {
+UserInstance {
   "GraphQLType": "Person",
   "birthYear": "33BBY",
   "eyeColor": "red",

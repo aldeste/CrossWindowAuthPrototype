@@ -1,4 +1,4 @@
-import dummyPlanets from "./planets.swapi";
+import dummyPlanets from "../../data/dummy/planets.swapi";
 
 const Planet = dummyPlanets[0];
 

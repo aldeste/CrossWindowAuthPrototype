@@ -2,7 +2,7 @@
 import { graphql } from "graphql";
 import chalk from "chalk";
 import schema from "../schema";
-import { Person } from "../database";
+import { Person } from "../data";
 import { createLoaders } from "../schema/apiHelper";
 
 export type UserToken = {

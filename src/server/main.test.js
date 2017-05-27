@@ -32,7 +32,7 @@ describe("Accessing /graphql", () => {
 
 describe("Accessing /connect", () => {
   beforeEach(async () => {
-    await require("../database").initializeDatabase();
+    await require("../data").initializeDatabase();
   });
 
   it("yields faliure without parameters", async () => {
@@ -60,7 +60,7 @@ describe("Accessing /connect", () => {
 
 describe("Accessing /login", () => {
   beforeEach(async () => {
-    await require("../database").initializeDatabase();
+    await require("../data").initializeDatabase();
   });
 
   it("returns an invalid response without parameters", async () => {
@@ -100,7 +100,7 @@ describe("Accessing /login", () => {
 
 describe("Cookies", () => {
   beforeEach(async () => {
-    await require("../database").initializeDatabase();
+    await require("../data").initializeDatabase();
   });
 
   it("Returns a HttpOnly signed cookie", async () => {
@@ -149,7 +149,7 @@ describe("Cookies", () => {
 
 describe("Queries", () => {
   beforeEach(async () => {
-    await require("../database").initializeDatabase();
+    await require("../data").initializeDatabase();
   });
 
   it("queries with graphql", async () => {

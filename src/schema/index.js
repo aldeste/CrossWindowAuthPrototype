@@ -10,7 +10,7 @@ type arguments = { personId?: ?string, id?: ?string };
 type globalIdObejct = { type?: ?string, id?: ?string };
 
 const Root = new GraphQLObjectType({
-  name: "Root",
+  name: "RootQueryType",
   fields: () => ({
     viewer: {
       type: personType,

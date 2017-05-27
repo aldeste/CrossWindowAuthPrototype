@@ -10,7 +10,7 @@ jest.mock("dotenv", () => {
   };
 });
 jest.mock("babel-register", () => mockFunctionFileLoaded("babel-register"));
-jest.mock("./database", () => ({
+jest.mock("./data", () => ({
   initializeDatabase: () => mockFunctionFileLoaded("initializeDatabase()")
 }));
 

@@ -13,7 +13,7 @@ describe("idFetcher", () => {
   });
 
   it("should return an object if parameters are valid ", async () => {
-    await require("../database").initializeDatabase();
+    await require("../data").initializeDatabase();
     const result = await idFetcher("UGVyc29uOjQ=");
     expect(result.name).toBeDefined();
     expect(result.token).toBeDefined();
@@ -36,7 +36,7 @@ describe("typeResolver", () => {
 
 describe("nodeInterface", () => {
   beforeEach(async () => {
-    await require("../database").initializeDatabase();
+    await require("../data").initializeDatabase();
   });
 
   const rootValue = {};

@@ -12,4 +12,4 @@ require("dotenv").config({ silent: true });
 require("./server/main");
 
 // Initialize database
-require("./database").initializeDatabase();
+require("./data").initializeDatabase();

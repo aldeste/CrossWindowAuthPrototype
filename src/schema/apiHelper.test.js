@@ -8,7 +8,7 @@ import PersonType from "./types/personType";
 
 beforeEach(async () => {
   global.console.log = () => ({});
-  await require("../database").initializeDatabase();
+  await require("../data").initializeDatabase();
 });
 
 describe("getObjectsByType", () => {

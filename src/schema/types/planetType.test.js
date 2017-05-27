@@ -6,7 +6,7 @@ import { createLoaders } from "../apiHelper";
 describe("planetType is a GraphQL type", () => {
   beforeEach(async () => {
     console.log = jest.fn();
-    await require("../../database").initializeDatabase();
+    await require("../../data").initializeDatabase();
   });
 
   const rootValue = {};

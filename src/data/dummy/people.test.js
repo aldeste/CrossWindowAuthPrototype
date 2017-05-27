@@ -1,4 +1,4 @@
-import dummyPeople from "./people.swapi";
+import dummyPeople from "../../data/dummy/people.swapi";
 
 const Person = dummyPeople[0];
 

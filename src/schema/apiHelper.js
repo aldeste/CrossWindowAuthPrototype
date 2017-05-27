@@ -1,8 +1,8 @@
 /* @flow */
 import DataLoader from "dataloader";
 import chalk from "chalk";
-import { Person, Planet } from "../database";
-import User, { type Viewer } from "../service/User";
+import { Person, Planet } from "../data";
+import User, { type Viewer } from "../models/User";
 
 import { type GraphQLObjectType } from "graphql";
 

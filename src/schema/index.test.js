@@ -16,7 +16,7 @@ describe("Schema", () => {
 
 describe("Queries", () => {
   beforeEach(async () => {
-    await require("../database").initializeDatabase();
+    await require("../data").initializeDatabase();
   });
 
   it("runs person scehma by personId", async () => {

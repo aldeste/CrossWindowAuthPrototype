@@ -1,5 +1,5 @@
 import User from "./User";
-import { Person } from "../database";
+import { Person } from "../data";
 import DataLoader from "DataLoader";
 
 function getResolve(type, ids) {
@@ -13,7 +13,7 @@ const loaders = {
 describe("User service layer with connection", () => {
   beforeEach(async () => {
     global.console.log = jest.fn();
-    await require("../database").initializeDatabase();
+    await require("../data").initializeDatabase();
   });
 
   it("Returns a class with a valid integer id", async () => {
