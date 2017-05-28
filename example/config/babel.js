@@ -2,7 +2,10 @@ const env = process.env.BABEL_ENV || process.env.NODE_ENV;
 const path = require("path");
 
 const plugins = [
-  require.resolve("babel-plugin-relay"),
+  // current version of babel-plugin-relay doesn't work well
+  // with graphql >= 0.10.0. GraphQL is used heavyl,
+  // Relay not so much but might come back. Comment out for now
+  // require.resolve("babel-plugin-relay"),
   // Remove flow types
   require.resolve("babel-plugin-transform-flow-strip-types"),
   [
