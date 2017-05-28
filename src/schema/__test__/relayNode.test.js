@@ -42,10 +42,23 @@ describe("nodeInterface", () => {
   const rootValue = {};
   const context = { loaders: createLoaders() };
 
-  it("should return field with id", async () => {
+  it("should return person with valid person id", async () => {
     const query = `query Test {
       node(id:"cGVvcGxlOjQ=") {
         ... on Person {
+          name
+        }
+      }
+    }`;
+
+    const { data } = await graphql(schema, query, rootValue, context);
+    expect(data).toMatchSnapshot();
+  });
+
+  it("should return planet with valid planet id", async () => {
+    const query = `query Test {
+      node(id:"cGxhbmV0czo2MA==") {
+        ... on Planet {
           name
         }
       }
