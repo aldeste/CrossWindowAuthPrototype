@@ -57,10 +57,7 @@ export default class PlanetInstance extends InfoFields {
     this.surfaceWater = data.surfaceWater;
     this.terrains = data.terrains;
     this.residents = data.residents
-      ? data.residents.reduce(
-          (previous, current) => [...previous, current.id],
-          []
-        )
+      ? data.residents.reduce((pre, cur) => [...pre, cur.id], [])
       : [];
   }
 
@@ -80,9 +77,10 @@ export default class PlanetInstance extends InfoFields {
   ): Promise<?Array<PlanetInstance>> {
     const data: Array<PlanetModel> | null = await dbPlanet
       .scope("withIds")
-      .findAll({
-        where: { id: [ids] }
-      });
+      .findAll({ where: { id: [ids] } })
+      // Only get pure JSON from fetch,
+      // Though unlikely, this prevents memory leak.
+      .map(response => response.toJSON());
 
     // return imideately if failed to fetch
     if (!data) return null;

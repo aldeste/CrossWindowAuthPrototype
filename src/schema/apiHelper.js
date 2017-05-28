@@ -22,11 +22,7 @@ export type DataLoaders = {
  * single fetch. this function is memoized as a response to DataLoader,
  * meaning the same ID won't be fetched twice in the same query.
  */
-export function getResolve(
-  type: Class<*>,
-  ids: Array<string>,
-  options: Object = {}
-): Promise<*> {
+export function getResolve(type: Class<*>, ids: Array<string>): Promise<*> {
   return Promise.all(
     ids.map(id => {
       // We console log each request to ilustrate how dataloader works,
@@ -41,7 +37,8 @@ export function getResolve(
           "from database"
         )
       );
-      return type.scope("withIds").findById(id, options);
+
+      return type.scope("withIds").findById(id).then(data => data.toJSON());
     })
   );
 }

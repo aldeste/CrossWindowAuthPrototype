@@ -78,9 +78,10 @@ export default class UserInstance extends InfoFields {
   ): Promise<?Array<UserInstance>> {
     const data: Array<PersonModel> | null = await dbPerson
       .scope("withIds")
-      .findAll({
-        where: { id: [ids] }
-      });
+      .findAll({ where: { id: [ids] } })
+      // Only get pure JSON from fetch,
+      // Though unlikely, this prevents memory leak.
+      .map(response => response.toJSON());
 
     // return imideately if failed to fetch
     if (!data) return null;
