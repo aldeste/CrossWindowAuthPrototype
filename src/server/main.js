@@ -1,6 +1,6 @@
 // @flow
 import express from "express";
-import GraphHTTP from "express-graphql";
+import GraphqlHTTP from "express-graphql";
 import chalk from "chalk";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
@@ -22,9 +22,11 @@ import type {
 
 // Initialize express
 const app: $Application = express();
+
+// Settup bodyParser to parse json
 const parseJson: Middleware = bodyParser.json();
 
-// Initialize cookieParser to easier use it as a middleware later
+// Settup cookieParser to easier use it as a middleware later
 const parseCookies: Middleware = cookieParser("v2TqCgORps-IgwsZmQRDl", {
   decode
 });
@@ -129,7 +131,7 @@ app.all("/", (req: $Request, res: $Response): $Response =>
 app.use(
   "/graphql",
   parseCookies,
-  GraphHTTP(async (req: $Request, res: $Response): Object => {
+  GraphqlHTTP(async (req: $Request, res: $Response): Object => {
     type signedCookiesType = { signedCookies: Object | { herring: string } };
 
     // Get all signed cookies, then if our herring cookie exists,
