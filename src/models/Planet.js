@@ -5,6 +5,7 @@ import InfoFields, {
   type InfoFieldFromDatabase,
   type InfoFieldTypes
 } from "./InfoFields";
+import { Planet as dbPlanet } from "../data";
 
 export type PlanetType = InfoFieldTypes & {
   climates: string,
@@ -19,7 +20,18 @@ export type PlanetType = InfoFieldTypes & {
   terrains: string
 };
 
-type PlanetModel = PlanetType & InfoFieldFromDatabase;
+type PlanetModel = InfoFieldFromDatabase & {
+  climates: string,
+  diameter: number,
+  gravity: string,
+  name: string,
+  orbitalPeriod: number,
+  population: number,
+  residents: Array<{ id: string }>,
+  rotationPeriod: number,
+  surfaceWater: number,
+  terrains: string
+};
 
 export default class PlanetInstance extends InfoFields {
   climates: string;
@@ -44,6 +56,12 @@ export default class PlanetInstance extends InfoFields {
     this.rotationPeriod = data.rotationPeriod;
     this.surfaceWater = data.surfaceWater;
     this.terrains = data.terrains;
+    this.residents = data.residents
+      ? data.residents.reduce(
+          (previous, current) => [...previous, current.id],
+          []
+        )
+      : [];
   }
 
   static async gen(
@@ -52,18 +70,28 @@ export default class PlanetInstance extends InfoFields {
     { Planet }: DataLoaders
   ): Promise<?PlanetInstance> {
     const data: PlanetModel | null = await Planet.load(id);
+
+    data &&
+      console.log(
+        data.residents.reduce(
+          (previous, current) => [...previous, current.id],
+          []
+        )
+      );
+
     return data ? new PlanetInstance(data) : null;
   }
 
   static async genMany(
     viewer: ?Viewer,
-    { Planet }: DataLoaders,
-    connection: Class<*>,
-    ids: Array<string>
+    ids: Array<string>,
+    { Planet }: DataLoaders
   ): Promise<?Array<PlanetInstance>> {
-    const data: Array<PlanetModel> | null = await connection.findAll({
-      where: { id: [ids] }
-    });
+    const data: Array<PlanetModel> | null = await dbPlanet
+      .scope("withIds")
+      .findAll({
+        where: { id: [ids] }
+      });
 
     // return imideately if failed to fetch
     if (!data) return null;

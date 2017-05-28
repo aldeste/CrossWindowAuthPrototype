@@ -9,7 +9,8 @@ jest.mock("../models", () => ({
     hasMany: () => jest.fn(),
     belongsToMany: () => jest.fn(),
     create: () => jest.fn(),
-    findOne: () => new Promise(resolve => resolve({ addResidents: jest.fn() }))
+    findOne: () => new Promise(resolve => resolve({ addResidents: jest.fn() })),
+    addScope: () => jest.fn()
   },
   Person: {
     hasMany: () => jest.fn(),

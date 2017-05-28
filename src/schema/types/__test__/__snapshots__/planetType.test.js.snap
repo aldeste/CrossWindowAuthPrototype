@@ -14,6 +14,7 @@ Object {
       "orbitalPeriod": null,
       "population": 200000,
       "residentConnection": Object {
+        "currentCount": 10,
         "edges": Array [
           Object {
             "node": Object {

@@ -30,6 +30,7 @@ describe("planetType is a GraphQL type", () => {
           terrains
           surfaceWater
           residentConnection {
+            currentCount
             edges {
               node {
                 name

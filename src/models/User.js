@@ -4,6 +4,7 @@ import InfoFields, {
   type InfoFieldFromDatabase,
   type InfoFieldTypes
 } from "./InfoFields";
+import { Person as dbPerson } from "../data";
 
 export type Viewer = InfoFieldTypes & {
   birthYear: string,
@@ -72,13 +73,14 @@ export default class UserInstance extends InfoFields {
 
   static async genMany(
     viewer: ?Viewer,
-    { Person }: DataLoaders,
-    connection: Class<*>,
-    ids: Array<string>
+    ids: Array<string>,
+    { Person }: DataLoaders
   ): Promise<?Array<UserInstance>> {
-    const data: Array<PersonModel> | null = await connection.findAll({
-      where: { id: [ids] }
-    });
+    const data: Array<PersonModel> | null = await dbPerson
+      .scope("withIds")
+      .findAll({
+        where: { id: [ids] }
+      });
 
     // return imideately if failed to fetch
     if (!data) return null;

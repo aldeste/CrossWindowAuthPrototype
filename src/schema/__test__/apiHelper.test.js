@@ -71,12 +71,11 @@ describe("getObjectFromTypeAndId", () => {
 describe("createLoaders", () => {
   it("Creates Planet loader", async () => {
     const loaders = createLoaders();
-    const result = await loaders.Planet(3).then(x => x.get({ pure: true }));
-
-    expect(result.createdAt).toBeDefined();
-    expect(result.updatedAt).toBeDefined();
-    delete result.createdAt;
-    delete result.updatedAt;
+    const result = await loaders.Planet(3);
+    expect(result.created).toBeDefined();
+    expect(result.edited).toBeDefined();
+    delete result.created;
+    delete result.edited;
 
     expect(result).toMatchSnapshot();
   });

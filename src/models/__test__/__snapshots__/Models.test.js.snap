@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlanetInstance service layer with connection Returns a class with a valid array of ids 1`] = `
+Array [
+  PlanetInstance {
+    "GraphQLType": "Planet",
+    "climates": "temperate",
+    "diameter": 12500,
+    "gravity": "1 standard",
+    "id": 1,
+    "name": "Alderaan",
+    "orbitalPeriod": 364,
+    "population": 2000000000,
+    "residents": Array [
+      5,
+      65,
+      79,
+    ],
+    "rotationPeriod": 24,
+    "surfaceWater": 40,
+    "terrains": "grasslands, mountains",
+  },
+  PlanetInstance {
+    "GraphQLType": "Planet",
+    "climates": "temperate, tropical",
+    "diameter": 10200,
+    "gravity": "1 standard",
+    "id": 2,
+    "name": "Yavin IV",
+    "orbitalPeriod": 4818,
+    "population": 1000,
+    "residents": Array [],
+    "rotationPeriod": 24,
+    "surfaceWater": 8,
+    "terrains": "jungle, rainforests",
+  },
+  PlanetInstance {
+    "GraphQLType": "Planet",
+    "climates": "frozen",
+    "diameter": 7200,
+    "gravity": "1.1 standard",
+    "id": 3,
+    "name": "Hoth",
+    "orbitalPeriod": 549,
+    "population": null,
+    "residents": Array [],
+    "rotationPeriod": 23,
+    "surfaceWater": 100,
+    "terrains": "tundra, ice caves, mountain ranges",
+  },
+]
+`;
+
+exports[`PlanetInstance service layer with connection Returns a class with a valid integer id 1`] = `
+PlanetInstance {
+  "GraphQLType": "Planet",
+  "climates": "frozen",
+  "diameter": 7200,
+  "gravity": "1.1 standard",
+  "id": 3,
+  "name": "Hoth",
+  "orbitalPeriod": 549,
+  "population": null,
+  "residents": Array [],
+  "rotationPeriod": 23,
+  "surfaceWater": 100,
+  "terrains": "tundra, ice caves, mountain ranges",
+}
+`;
+
+exports[`PlanetInstance service layer with connection Returns a class with a valid string id 1`] = `
+PlanetInstance {
+  "GraphQLType": "Planet",
+  "climates": "frozen",
+  "diameter": 7200,
+  "gravity": "1.1 standard",
+  "id": 3,
+  "name": "Hoth",
+  "orbitalPeriod": 549,
+  "population": null,
+  "residents": Array [],
+  "rotationPeriod": 23,
+  "surfaceWater": 100,
+  "terrains": "tundra, ice caves, mountain ranges",
+}
+`;
+
+exports[`UserInstance service layer with connection Returns a class with a valid array of ids 1`] = `
+Array [
+  UserInstance {
+    "GraphQLType": "Person",
+    "birthYear": "19BBY",
+    "eyeColor": "blue",
+    "gender": "male",
+    "hairColor": "blond",
+    "height": 172,
+    "homeworld": 60,
+    "id": 1,
+    "mass": 77,
+    "name": "Luke Skywalker",
+    "skinColor": "fair",
+    "token": "cGVvcGxlOjE=",
+  },
+  UserInstance {
+    "GraphQLType": "Person",
+    "birthYear": "112BBY",
+    "eyeColor": "yellow",
+    "gender": "n/a",
+    "hairColor": "n/a",
+    "height": 167,
+    "homeworld": 60,
+    "id": 2,
+    "mass": 75,
+    "name": "C-3PO",
+    "skinColor": "gold",
+    "token": "cGVvcGxlOjI=",
+  },
+  UserInstance {
+    "GraphQLType": "Person",
+    "birthYear": "33BBY",
+    "eyeColor": "red",
+    "gender": "n/a",
+    "hairColor": "n/a",
+    "height": 96,
+    "homeworld": 7,
+    "id": 3,
+    "mass": 32,
+    "name": "R2-D2",
+    "skinColor": "white, blue",
+    "token": "cGVvcGxlOjM=",
+  },
+]
+`;
+
+exports[`UserInstance service layer with connection Returns a class with a valid integer id 1`] = `
+UserInstance {
+  "GraphQLType": "Person",
+  "birthYear": "33BBY",
+  "eyeColor": "red",
+  "gender": "n/a",
+  "hairColor": "n/a",
+  "height": 96,
+  "homeworld": 7,
+  "id": 3,
+  "mass": 32,
+  "name": "R2-D2",
+  "skinColor": "white, blue",
+  "token": "cGVvcGxlOjM=",
+}
+`;
+
+exports[`UserInstance service layer with connection Returns a class with a valid string id 1`] = `
+UserInstance {
+  "GraphQLType": "Person",
+  "birthYear": "33BBY",
+  "eyeColor": "red",
+  "gender": "n/a",
+  "hairColor": "n/a",
+  "height": 96,
+  "homeworld": 7,
+  "id": 3,
+  "mass": 32,
+  "name": "R2-D2",
+  "skinColor": "white, blue",
+  "token": "cGVvcGxlOjM=",
+}
+`;

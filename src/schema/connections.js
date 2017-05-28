@@ -39,7 +39,7 @@ for example.`
         type,
         args,
         ctx,
-        currentType[idField].map(x => x.id)
+        currentType[idField]
       );
       return {
         ...connectionFromArray(objects, args),

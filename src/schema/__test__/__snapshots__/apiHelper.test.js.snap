@@ -18,7 +18,7 @@ UserInstance {
 `;
 
 exports[`createLoaders Creates Planet loader 1`] = `
-Object {
+PlanetInstance {
   "GraphQLType": "Planet",
   "climates": "frozen",
   "diameter": 7200,

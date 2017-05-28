@@ -24,10 +24,14 @@ Person.belongsTo(Planet, {
  * is always applied unless another scope is choosen.
  */
 Person.addScope(
-  "defaultScope",
-  {
-    include: [{ model: Planet, as: "homeworld", attributes: ["id"] }]
-  },
+  "withIds",
+  { include: [{ model: Planet, as: "homeworld", attributes: ["id"] }] },
+  { override: true }
+);
+
+Planet.addScope(
+  "withIds",
+  { include: [{ model: Person, as: "residents", attributes: ["id"] }] },
   { override: true }
 );
 

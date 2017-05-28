@@ -1,8 +1,9 @@
 /* @flow */
 import DataLoader from "dataloader";
 import chalk from "chalk";
-import { Person, Planet } from "../data";
+import { Person as dbPerson, Planet as dbPlanet } from "../data";
 import User, { type Viewer } from "../models/User";
+import Planet from "../models/Planet";
 
 import { type GraphQLObjectType } from "graphql";
 
@@ -21,7 +22,11 @@ export type DataLoaders = {
  * single fetch. this function is memoized as a response to DataLoader,
  * meaning the same ID won't be fetched twice in the same query.
  */
-export function getResolve(type: Class<*>, ids: Array<string>): Promise<*> {
+export function getResolve(
+  type: Class<*>,
+  ids: Array<string>,
+  options: Object = {}
+): Promise<*> {
   return Promise.all(
     ids.map(id => {
       // We console log each request to ilustrate how dataloader works,
@@ -36,7 +41,7 @@ export function getResolve(type: Class<*>, ids: Array<string>): Promise<*> {
           "from database"
         )
       );
-      return type.findById(id);
+      return type.scope("withIds").findById(id, options);
     })
   );
 }
@@ -48,24 +53,16 @@ export function getResolve(type: Class<*>, ids: Array<string>): Promise<*> {
  */
 export function createLoaders(Viewer: ?Viewer): Loaders {
   const loaders: DataLoaders = {
-    Person: new DataLoader(ids => getResolve(Person, ids)),
-    // Planet: new DataLoader(ids => getResolve(Planet, ids))
-    Planet: new DataLoader(ids =>
-      Promise.all(
-        ids.map(id =>
-          Planet.findById(id, {
-            include: [{ model: Person, as: "residents" }]
-          })
-        )
-      )
-    )
+    Person: new DataLoader(ids => getResolve(dbPerson, ids)),
+    Planet: new DataLoader(ids => getResolve(dbPlanet, ids))
   };
 
   return {
     Person: (id: string): Promise<?User> =>
       User.gen(Viewer || null, id, loaders),
-    PersonConnection: ids => User.genMany(Viewer || null, loaders, Person, ids),
-    Planet: (id: string): Promise<?Object> => loaders.Planet.load(id)
+    PersonConnection: ids => User.genMany(Viewer || null, ids, loaders),
+    Planet: (id: string): Promise<?Object> =>
+      Planet.gen(Viewer || null, id, loaders)
   };
 }
 
