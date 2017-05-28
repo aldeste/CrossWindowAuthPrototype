@@ -14,7 +14,7 @@ describe("idFetcher", () => {
 
   it("should return an object if parameters are valid ", async () => {
     await require("../../data").initializeDatabase();
-    const result = await idFetcher("UGVyc29uOjQ=");
+    const result = await idFetcher("cGVvcGxlOjQ=");
     expect(result.name).toBeDefined();
     expect(result.token).toBeDefined();
     expect(result.id).toBeDefined();
@@ -44,7 +44,7 @@ describe("nodeInterface", () => {
 
   it("should return field with id", async () => {
     const query = `query Test {
-      node(id:"UGVyc29uOjQ=") {
+      node(id:"cGVvcGxlOjQ=") {
         ... on Person {
           name
         }
