@@ -1,7 +1,9 @@
 // @flow
 import { fromGlobalId, nodeDefinitions } from "graphql-relay";
 
-import personType from "./types/personType";
+import PersonType from "./types/personType";
+import PlanetType from "./types/planetType";
+
 import { getObjectFromTypeAndId } from "./apiHelper";
 
 export function idFetcher(
@@ -9,15 +11,22 @@ export function idFetcher(
   context: Object
 ): Promise<Object> | null {
   const { type, id } = fromGlobalId(globalId);
-  if (type === "Person") {
-    return getObjectFromTypeAndId(personType, id, context);
+  const resolve = (type: Object) => getObjectFromTypeAndId(type, id, context);
+  if (type === "people") {
+    return resolve(PersonType);
+  }
+  if (type === "planets") {
+    return resolve(PlanetType);
   }
   return null;
 }
 
 export function typeResolver(object: { GraphQLType?: Object }): Object | null {
-  if (object.GraphQLType === personType.name) {
-    return personType;
+  if (object.GraphQLType === PersonType.name) {
+    return PersonType;
+  }
+  if (object.GraphQLType === PlanetType.name) {
+    return PlanetType;
   }
   return null;
 }
