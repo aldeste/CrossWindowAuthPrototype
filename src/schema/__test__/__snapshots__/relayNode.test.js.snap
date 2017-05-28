@@ -6,14 +6,6 @@ Object {
 }
 `;
 
-exports[`nodeInterface should return field with id 1`] = `
-Object {
-  "node": Object {
-    "name": "Darth Vader",
-  },
-}
-`;
-
 exports[`nodeInterface should return person with valid person id 1`] = `
 Object {
   "node": Object {
