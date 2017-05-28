@@ -70,15 +70,6 @@ export default class PlanetInstance extends InfoFields {
     { Planet }: DataLoaders
   ): Promise<?PlanetInstance> {
     const data: PlanetModel | null = await Planet.load(id);
-
-    data &&
-      console.log(
-        data.residents.reduce(
-          (previous, current) => [...previous, current.id],
-          []
-        )
-      );
-
     return data ? new PlanetInstance(data) : null;
   }
 
