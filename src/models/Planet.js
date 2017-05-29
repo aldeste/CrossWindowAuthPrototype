@@ -56,9 +56,7 @@ export default class PlanetInstance extends InfoFields {
     this.rotationPeriod = data.rotationPeriod;
     this.surfaceWater = data.surfaceWater;
     this.terrains = data.terrains;
-    this.residents = data.residents
-      ? data.residents.reduce((pre, cur) => [...pre, cur.id], [])
-      : [];
+    this.residents = data.residents.reduce((pre, { id }) => [...pre, id], []);
   }
 
   static async gen(
@@ -83,7 +81,7 @@ export default class PlanetInstance extends InfoFields {
       .map(response => response.toJSON());
 
     // return imideately if failed to fetch
-    if (!data) return null;
+    if (!data || !data.length) return null;
 
     // We put each field in the dataloader cache
     await data.forEach(result => Planet.prime(result.id, result));

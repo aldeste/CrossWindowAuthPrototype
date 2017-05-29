@@ -84,7 +84,7 @@ export default class UserInstance extends InfoFields {
       .map(response => response.toJSON());
 
     // return imideately if failed to fetch
-    if (!data) return null;
+    if (!data || !data.length) return null;
 
     // We put each field in the dataloader cache
     await data.forEach(result => Person.prime(result.id, result));
