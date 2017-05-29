@@ -14,7 +14,7 @@ const loaders = {
 
 [User, Planet].map(model =>
   describe(`${model.name} service layer with connection`, () => {
-    beforeEach(async () => {
+    beforeAll(async () => {
       global.console.log = jest.fn();
       await require("../../data").initializeDatabase();
     });
@@ -43,11 +43,15 @@ const loaders = {
       expect(result).toMatchSnapshot();
     });
 
+    it("Returns null if id is invalid", async () => {
+      const result = await model.gen(null, "This is an invalid id", loaders);
+      expect(result).toBeNull();
+    });
+
     it("Returns a class with a valid array of ids", async () => {
       const results = await model.genMany(null, ["1", "2", "3"], loaders);
       // Remove created and edited as they're inconsistent
       // after testing if they exist, as they should
-
       results.forEach(result => {
         expect(result.created).toBeDefined();
         expect(result.edited).toBeDefined();
@@ -58,9 +62,9 @@ const loaders = {
       expect(results).toMatchSnapshot();
     });
 
-    it("Returns null if id is invalid", async () => {
-      const result = await model.gen(null, "This is an invalid id", loaders);
-      expect(result).toBeNull();
+    it("Returns empty array if id argument is an array of invalid ids", async () => {
+      const results = await model.genMany(null, ["a", "b", "c"], loaders);
+      expect(results).toBeNull();
     });
   })
 );
