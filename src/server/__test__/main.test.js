@@ -35,10 +35,6 @@ describe("Accessing /graphql", () => {
 });
 
 describe("Accessing /connect", () => {
-  // beforeEach(async () => {
-  //   await require("../../data").initializeDatabase();
-  // });
-
   it("yields faliure without parameters", async () => {
     const response = await supertest(server).post("/connect");
     expect(response.status).toBe(404);
@@ -63,10 +59,6 @@ describe("Accessing /connect", () => {
 });
 
 describe("Accessing /login", () => {
-  // beforeEach(async () => {
-  //   await require("../../data").initializeDatabase();
-  // });
-
   it("returns an invalid response without parameters", async () => {
     const response = await supertest(server).post("/login");
     expect(response.status).toBe(404);
@@ -103,10 +95,6 @@ describe("Accessing /login", () => {
 });
 
 describe("Cookies", () => {
-  // beforeEach(async () => {
-  //   await require("../../data").initializeDatabase();
-  // });
-
   it("Returns a HttpOnly signed cookie", async () => {
     const response = await supertest(server)
       .post("/login")
@@ -152,10 +140,6 @@ describe("Cookies", () => {
 });
 
 describe("Queries", () => {
-  // beforeEach(async () => {
-  //   await require("../../data").initializeDatabase();
-  // });
-
   it("queries with graphql", async () => {
     const response = await supertest(server).get(
       "/graphql?query={person(personId:4){id,name}}"
