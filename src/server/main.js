@@ -5,7 +5,12 @@ import chalk from "chalk";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 
-import { APP_PROTOCOL, APP_HOST, APP_PORT } from "../../config/config";
+import {
+  APP_PROTOCOL,
+  APP_HOST,
+  APP_PORT,
+  APP_FRONT_PORT
+} from "../../config/config";
 import Schema from "../schema";
 import hrTimer from "../utils/hrTimer";
 import { createLoaders } from "../schema/apiHelper";
@@ -179,8 +184,14 @@ app.use(
 
 // Ggive a friendly message that the app us up and running
 const server: $Application = app.listen(APP_PORT, (): void => {
-  const address: string = `${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/`;
-  console.log(chalk.blue(`App is running at ${chalk.magenta.bold(address)}`));
+  const address = (port: string, route = ""): string =>
+    chalk.magenta.bold(`${APP_PROTOCOL}://${APP_HOST}:${port}/${route}`);
+  console.log(
+    chalk.blue(`Server instance is running at ${address(APP_PORT)}
+If you've launched the frontend, the API is proxied to ${address(APP_FRONT_PORT, "api")}
+
+${chalk.bold(`To access the graphical user interface, go to ${address(APP_FRONT_PORT)}`)}`)
+  );
 });
 
 // Export server, this helps with testing.
