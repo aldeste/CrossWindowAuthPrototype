@@ -37,7 +37,7 @@ Planet.addScope(
 
 export async function initializeDatabase(): Promise<void> {
   await connection.sync({ force: true });
-  await generateMockData(true);
+  await generateMockData(true, process.env.NODE_ENV !== "test");
 }
 
 export default connection;

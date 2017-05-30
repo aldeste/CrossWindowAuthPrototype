@@ -2,20 +2,31 @@
 import chalk from "chalk";
 import { toGlobalId } from "graphql-relay";
 import { Person, Planet } from "../data";
+import ProgressBar from "progress";
 
 export default async function generateMockData(
-  forceInsert: boolean = false
+  forceInsert: boolean = false,
+  useProgressBar: boolean = false
 ): Promise<void> {
   if (forceInsert || (await Person.count()) === 0) {
     const { peopleDummy, planetsDummy } = require("./dummy");
     const isKnown = val => (val === "unknown" ? null : val);
 
-    console.log(chalk.yellow.bold("Initiating database..."));
+    console.log();
+    const bar: null | ProgressBar =
+      useProgressBar &&
+      new ProgressBar("Initiating database  :bar :percent :current/:total", {
+        complete: "█",
+        incomplete: "░",
+        clear: true,
+        total: peopleDummy.length * 2 + planetsDummy.length * 2
+      });
 
     // Fill the database with dymmy people
     await Promise.all(
-      peopleDummy.map((person: Object, index: number) =>
-        Person.create({
+      peopleDummy.map((person: Object, index: number) => {
+        bar && bar.tick(1);
+        return Person.create({
           ...person,
           id: null,
           token: toGlobalId("people", index + 1),
@@ -26,14 +37,15 @@ export default async function generateMockData(
           skinColor: person.skin_color,
           eyeColor: person.eye_color,
           birthYear: person.birth_year
-        })
-      )
+        });
+      })
     );
 
     // Fill the database with dymmy planets
     await Promise.all(
-      planetsDummy.map((planet: Object) =>
-        Planet.create({
+      planetsDummy.map((planet: Object) => {
+        bar && bar.tick(1);
+        return Planet.create({
           ...planet,
           id: null,
           climates: planet.climate,
@@ -44,13 +56,14 @@ export default async function generateMockData(
           orbitalPeriod: isKnown(planet.orbital_period),
           rotationPeriod: isKnown(planet.rotation_period),
           surfaceWater: isKnown(planet.surface_water)
-        })
-      )
+        });
+      })
     );
 
     // Associate homeworld to each user.
     await Promise.all(
       peopleDummy.map(async ({ name, homeworld: home }, index) => {
+        bar && bar.tick(1);
         const currentPerson = await Person.findOne({ where: { name } });
         const planet = planetsDummy.find(planet => planet.id === home);
         const homeworld =
@@ -63,6 +76,7 @@ export default async function generateMockData(
     // Associate habitants to each planet
     await Promise.all(
       planetsDummy.map(async ({ name, residents }, index) => {
+        bar && bar.tick(1);
         const currentPlanet = await Planet.findOne({ where: { name } });
         const planetsResidents = peopleDummy
           .filter(person => residents.includes(person.id))
