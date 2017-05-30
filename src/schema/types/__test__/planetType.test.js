@@ -4,7 +4,7 @@ import { graphql } from "graphql";
 import { createLoaders } from "../../apiHelper";
 
 describe("planetType is a GraphQL type", () => {
-  beforeEach(async () => {
+  beforeAll(async () => {
     console.log = jest.fn();
     await require("../../../data").initializeDatabase();
   });

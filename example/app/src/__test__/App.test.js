@@ -39,7 +39,7 @@ const sleep = ms =>
 
 const addEventListener = jest.fn();
 
-beforeEach(() => {
+beforeAll(() => {
   global.window = {
     addEventListener: (type, callback, options) =>
       addEventListener(type, callback, options)

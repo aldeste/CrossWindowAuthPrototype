@@ -6,7 +6,7 @@ import {
 
 import PersonType from "../types/personType";
 
-beforeEach(async () => {
+beforeAll(async () => {
   global.console.log = () => ({});
   await require("../../data").initializeDatabase();
 });

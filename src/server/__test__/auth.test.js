@@ -1,6 +1,6 @@
 import { fromAuthToken, validateUser } from "../auth";
 
-beforeEach(async () => {
+beforeAll(async () => {
   console.log = jest.fn();
   await require("../../data").initializeDatabase();
 });

@@ -4,7 +4,7 @@ import { graphql } from "graphql";
 import { createLoaders } from "../../apiHelper";
 
 describe("personType is a GraphQL type", () => {
-  beforeEach(async () => {
+  beforeAll(async () => {
     console.log = jest.fn();
     await require("../../../data").initializeDatabase();
   });

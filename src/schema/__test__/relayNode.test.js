@@ -3,8 +3,9 @@ import schema from "../";
 import { graphql } from "graphql";
 import { createLoaders } from "../apiHelper";
 
-beforeEach(async () => {
+beforeAll(async () => {
   console.log = jest.fn();
+  await require("../../data").initializeDatabase();
 });
 
 describe("idFetcher", () => {
@@ -13,7 +14,6 @@ describe("idFetcher", () => {
   });
 
   it("should return an object if parameters are valid ", async () => {
-    await require("../../data").initializeDatabase();
     const result = await idFetcher("cGVvcGxlOjQ=");
     expect(result.name).toBeDefined();
     expect(result.token).toBeDefined();
@@ -35,10 +35,6 @@ describe("typeResolver", () => {
 });
 
 describe("nodeInterface", () => {
-  beforeEach(async () => {
-    await require("../../data").initializeDatabase();
-  });
-
   const rootValue = {};
   const context = { loaders: createLoaders() };
 

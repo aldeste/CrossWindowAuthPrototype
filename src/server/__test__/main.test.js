@@ -5,6 +5,10 @@ const { default: server, loggingMiddleware } = main;
 const consoleLogMock = jest.fn();
 global.console.log = msg => consoleLogMock(msg);
 
+beforeAll(async () => {
+  await require("../../data").initializeDatabase();
+});
+
 afterEach(() => {
   server.close();
 });
@@ -31,9 +35,9 @@ describe("Accessing /graphql", () => {
 });
 
 describe("Accessing /connect", () => {
-  beforeEach(async () => {
-    await require("../../data").initializeDatabase();
-  });
+  // beforeEach(async () => {
+  //   await require("../../data").initializeDatabase();
+  // });
 
   it("yields faliure without parameters", async () => {
     const response = await supertest(server).post("/connect");
@@ -59,9 +63,9 @@ describe("Accessing /connect", () => {
 });
 
 describe("Accessing /login", () => {
-  beforeEach(async () => {
-    await require("../../data").initializeDatabase();
-  });
+  // beforeEach(async () => {
+  //   await require("../../data").initializeDatabase();
+  // });
 
   it("returns an invalid response without parameters", async () => {
     const response = await supertest(server).post("/login");
@@ -99,9 +103,9 @@ describe("Accessing /login", () => {
 });
 
 describe("Cookies", () => {
-  beforeEach(async () => {
-    await require("../../data").initializeDatabase();
-  });
+  // beforeEach(async () => {
+  //   await require("../../data").initializeDatabase();
+  // });
 
   it("Returns a HttpOnly signed cookie", async () => {
     const response = await supertest(server)
@@ -148,9 +152,9 @@ describe("Cookies", () => {
 });
 
 describe("Queries", () => {
-  beforeEach(async () => {
-    await require("../../data").initializeDatabase();
-  });
+  // beforeEach(async () => {
+  //   await require("../../data").initializeDatabase();
+  // });
 
   it("queries with graphql", async () => {
     const response = await supertest(server).get(

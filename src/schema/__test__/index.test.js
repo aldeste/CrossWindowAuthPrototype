@@ -15,7 +15,7 @@ describe("Schema", () => {
 });
 
 describe("Queries", () => {
-  beforeEach(async () => {
+  beforeAll(async () => {
     await require("../../data").initializeDatabase();
   });
 
