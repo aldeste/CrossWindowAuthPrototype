@@ -28,8 +28,6 @@ jest
     )
   }));
 
-const PostWindowMessage = jest.fn();
-
 describe("PingTest / Ping", () => {
   global.fetch = () =>
     new Promise(resolve =>
