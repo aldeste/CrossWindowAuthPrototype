@@ -57,6 +57,14 @@ describe("generateMockData", () => {
     );
   });
 
+  it("Defaults to not forcing database entry", async () => {
+    jest.clearAllMocks();
+    await generateMockData();
+    expect(consoleLogMockFunction).toHaveBeenCalledWith(
+      chalk.yellow.bold("Fields already in database, have fun")
+    );
+  });
+
   it("Console logs friendly message if all fields already were inserted and progress was requested", async () => {
     jest.clearAllMocks();
     await generateMockData(false, true);
