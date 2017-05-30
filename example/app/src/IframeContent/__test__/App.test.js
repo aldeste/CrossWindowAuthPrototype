@@ -50,6 +50,7 @@ beforeAll(() => {
   global.window.addEventListener = (type, callback, options) =>
     addEventListener(type, callback, options);
   global.window.top = postMessage;
+  global.window.parent = postMessage;
   global.document = {};
   global.document.querySelector = () => ({
     contentWindow: postMessage
@@ -93,12 +94,7 @@ describe("Application start file", () => {
   });
 
   it("Adds an eventlistener for messages on mount", () => {
-    const component = renderer.create(<App />);
-    expect(addEventListener).toHaveBeenCalledWith(
-      "message",
-      component.getInstance().receiveMessage,
-      false
-    );
+    expect(addEventListener).toHaveBeenCalled();
   });
 
   it("Processes messages with correct origin and type", () => {
@@ -123,7 +119,8 @@ describe("Application start file", () => {
     expect(message).toBeTruthy();
   });
 
-  it("Sends callback to fetch users if data is correct", () => {
+  it("Sends callback to verify user if origin is correct", () => {
+    jest.clearAllMocks();
     const fetchCall = jest.fn();
     global.fetch = () => {
       fetchCall();
@@ -144,7 +141,7 @@ describe("Application start file", () => {
     };
 
     const component = renderer.create(<App />);
-    component.getInstance().receiveMessage({
+    component.getInstance().receiveMessage(3)({
       origin: "http://localhost:4000",
       source: global.window.parent,
       data: {
@@ -157,22 +154,145 @@ describe("Application start file", () => {
         }
       }
     });
+
+    expect(PostWindowMessage).toHaveBeenCalledWith({
+      data: {
+        id: "cGVvcGxlOjQ=",
+        key: 3,
+        name: "Darth Vader",
+        personId: "4",
+        token: "cGVvcGxlOjQ="
+      },
+      type: "AuthVerificationConnectionVerify"
+    });
+  });
+
+  it("Sends verified user if user is correct", async () => {
+    jest.clearAllMocks();
+    global.fetch = () =>
+      new Promise(resolve =>
+        resolve({
+          json: () => ({
+            data: {
+              viewer: {
+                name: "Darth Vader",
+                token: "cGVvcGxlOjQ=",
+                personId: "4",
+                id: "UGVyc29uOjQ="
+              }
+            }
+          })
+        })
+      );
+
+    const component = renderer.create(<App />);
+    await component.getInstance().receiveMessage(3)({
+      origin: "http://localhost:4000",
+      source: global.window,
+      data: {
+        type: "AuthVerificationConnectionVerify",
+        data: {
+          name: "Darth Vader",
+          token: "cGVvcGxlOjQ=",
+          personId: "4",
+          id: "cGVvcGxlOjQ=",
+          key: 50
+        }
+      }
+    });
+
+    expect(PostWindowMessage).toHaveBeenCalledWith({
+      data: {
+        id: "UGVyc29uOjQ=",
+        key: 50,
+        name: "Darth Vader",
+        personId: "4",
+        token: "cGVvcGxlOjQ="
+      },
+      type: "AuthVerificationConnectionVerified"
+    });
+  });
+
+  it("Doens't send verified user if user is incorrect", async () => {
+    jest.clearAllMocks();
+    global.fetch = () =>
+      new Promise(resolve =>
+        resolve({
+          json: () => ({
+            data: {
+              viewer: {
+                name: "Darth Vader",
+                token: "cGVvcGxlOjQ=",
+                personId: "4",
+                id: "UGVyc29uOjQ="
+              }
+            }
+          })
+        })
+      );
+
+    const component = renderer.create(<App />);
+    await component.getInstance().receiveMessage(3)({
+      origin: "http://localhost:4000",
+      source: global.window,
+      data: {
+        type: "AuthVerificationConnectionVerify",
+        data: {
+          personId: "1",
+          name: "Luke Skywalker",
+          token: "cGVvcGxlOjE=",
+          id: "cGVvcGxlOjE=",
+          key: 50
+        }
+      }
+    });
+
+    expect(PostWindowMessage).not.toHaveBeenCalled();
+  });
+
+  it("Processes verified user if verified user is recieved", async () => {
+    jest.clearAllMocks();
+    const fetchCall = jest.fn();
+    global.fetch = () => {
+      fetchCall();
+      return new Promise(resolve =>
+        resolve({
+          json: () => ({
+            data: {
+              person: {
+                name: "Darth Vader",
+                token: "cGVvcGxlOjQ=",
+                personId: "4",
+                id: "UGVyc29uOjQ="
+              }
+            }
+          })
+        })
+      );
+    };
+
+    const component = renderer.create(<App />);
+    await component.getInstance().receiveMessage(3)({
+      origin: "http://localhost:4000",
+      source: global.window.parent,
+      data: {
+        type: "AuthVerificationConnectionVerified",
+        data: {
+          name: "Darth Vader",
+          token: "cGVvcGxlOjQ=",
+          personId: "4",
+          id: "cGVvcGxlOjQ=",
+          key: 3
+        }
+      }
+    });
+
     expect(fetchCall).toHaveBeenCalled();
   });
 
-  it("Doesn't process on wrong origin", () => {
+  it("Doesn't process on wrong origin", async () => {
     const component = renderer.create(<App />);
-    const message = component.getInstance().receiveMessage({
-      origin: "http://localhost:4",
-      source: "not same window",
-      data: { type: "AuthVerificationConnection", data: true }
-    });
-    expect(message).toBeFalsy();
-  });
-
-  it("Doesn't process on wrong origin", () => {
-    const component = renderer.create(<App />);
-    const message = component.getInstance().receiveMessage({
+    const message = await component.getInstance().receiveMessage(3)({
       origin: "http://localhost:4",
       source: "Not same window",
       data: { type: "NotCorrect", data: true }
@@ -189,24 +309,20 @@ describe("Application start file", () => {
     });
   });
 
-  it("Logs in users by token", () => {
+  it("Logs in users by token sent to method connectUser", async () => {
     global.fetch = () =>
       new Promise(resolve =>
         resolve({
           json: () => ({
-            data: {
-              person: {
-                name: "Darth Vader",
-                token: "cGVvcGxlOjQ=",
-                personId: "4",
-                id: "UGVyc29uOjQ="
-              }
-            }
+            name: "Darth Vader",
+            token: "cGVvcGxlOjQ=",
+            personId: "4",
+            id: "UGVyc29uOjQ="
           })
         })
       );
     const component = renderer.create(<App />);
-    component.getInstance().connectUser("cGVvcGxlOjQ=");
+    await component.getInstance().connectUser("cGVvcGxlOjQ=");
     expect(component.toJSON()).toMatchSnapshot();
   });
 
@@ -223,5 +339,31 @@ describe("Application start file", () => {
     expect(() =>
       component.getInstance().connectUser("Token That Fails")
     ).not.toThrowError();
+  });
+
+  it("Getts the authorized user", async () => {
+    global.fetch = () =>
+      new Promise(resolve =>
+        resolve({
+          json: () => ({
+            data: {
+              viewer: {
+                id: "cGVvcGxlOjE5",
+                name: "Yoda"
+              }
+            },
+            extensions: {
+              timeTaken: "0s 5.79305ms"
+            }
+          })
+        })
+      );
+    const component = renderer.create(<App />);
+    const user = await component.getInstance().getCurrentlyAuthorizedUserInfo();
+
+    expect(user).toMatchObject({
+      id: "cGVvcGxlOjE5",
+      name: "Yoda"
+    });
   });
 });

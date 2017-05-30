@@ -29,6 +29,7 @@ class Login extends React.PureComponent<*, Props, State> {
     }));
   };
 
+  // FRONTEND LOGIC STEP 1: This function generates a cookie if the user is validated.
   handleOnSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
     event.stopPropagation();

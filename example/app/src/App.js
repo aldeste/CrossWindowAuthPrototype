@@ -5,9 +5,8 @@ import { Wrapper, Text, Iframe } from "./Tags";
 import LoadAsync from "./LoadAsync/LoadAsync";
 import DocumentTitle from "./Document/Title";
 
-export type MessageEventWithOptions = {
-  ...MessageEvent,
-  data: { type: string, data: string }
+export type MessageEventWithOptions = MessageEvent & {
+  data: { type: string, data: Object }
 };
 
 export type State = {
@@ -25,6 +24,7 @@ class App extends React.Component<*, State, *> {
     signedIn: Map()
   };
 
+  // This connects a user based on data. The user is validated to cookie
   connectUser = async (data: Object) => {
     const response: Object = await fetch("/api/connect", {
       method: "POST",
@@ -41,7 +41,9 @@ class App extends React.Component<*, State, *> {
     const UserBases: Array<string> = ["StarWars", "StarWarsCharacters"];
 
     if (!response.error && response.name && response.token) {
-      UserBases.forEach(userBase => {
+      UserBases.filter(
+        userBase => !this.state.signedIn.has(userBase)
+      ).forEach(userBase => {
         this.setState(() => ({
           signedIn: this.state.signedIn.set(userBase, Map(response))
         }));
@@ -51,40 +53,128 @@ class App extends React.Component<*, State, *> {
     return response;
   };
 
-  receiveMessage = (event: MessageEventWithOptions): boolean => {
-    const { origin, data, source } = event;
-    const iframe = document && document.querySelector("iframe");
+  // The heart of the operation.
+  // The logic can be constructed many ways, but in my case;
+  // A key is curried into the operation when initialized, this key will be essential
+  // to run the entire operation on my end.
+  receiveMessage = (key: number): Function => {
+    // This is the function the event handler uses
+    return async (event: MessageEventWithOptions): Promise<boolean> => {
+      const iframe = document && document.querySelector("iframe");
+      const { origin, data, source } = event;
+      // Set the submit to address based on origin
+      const SubmitToAddress = source === window
+        ? "http://localhost:4000"
+        : "http://localhost:4050";
 
-    if (
-      (origin === "http://localhost:4000" ||
-        origin === "http://localhost:4050") &&
-      (source === window || (iframe && source === iframe.contentWindow)) &&
-      data.type === "AuthVerificationConnection"
-    ) {
-      const { data: submitData }: Object = data;
-      this.connectUser(submitData);
-      return true;
-    }
+      // Verefy that the request is from a good origin and source
+      if (
+        ((origin === "http://localhost:4000" && source === window) ||
+          (origin === "http://localhost:4050" &&
+            iframe &&
+            source === iframe.contentWindow)) &&
+        source
+      ) {
+        // Step one, send a request to message source asking
+        // which user is logged in
+        if (data.type === "AuthVerificationConnection") {
+          const { data: initialUserData }: Object = data;
+          source.postMessage(
+            {
+              type: "AuthVerificationConnectionVerify",
+              data: { ...initialUserData, key }
+            },
+            SubmitToAddress
+          );
+        }
 
-    return false;
+        // Step two occurs on the other side, it returns the key recieved
+        // from the request ( this keeps track that this is a response )
+        // and checks which user is signed in and verefied by checking
+        // with the backend for a verefied token.
+        // This token could be sessions, cookies and whatever you want.
+        // I'm using signed cookies.
+        if (data.type === "AuthVerificationConnectionVerify") {
+          const CurrentlyAuthorizedUserInfo = await this.getCurrentlyAuthorizedUserInfo();
+          if (
+            CurrentlyAuthorizedUserInfo &&
+            CurrentlyAuthorizedUserInfo.token === data.data.token
+          ) {
+            source.postMessage(
+              {
+                data: {
+                  ...CurrentlyAuthorizedUserInfo,
+                  key: data.data.key
+                },
+                type: "AuthVerificationConnectionVerified"
+              },
+              SubmitToAddress
+            );
+          }
+        }
+
+        // Step three, user is obtained. User is then submitted and logged in.
+        if (
+          data.type === "AuthVerificationConnectionVerified" &&
+          data.data.key
+        ) {
+          const { data: userData }: Object = data;
+          this.connectUser(userData);
+        }
+
+        return true;
+      }
+
+      return false;
+    };
   };
 
-  postMessage = (data: Object): void => {
+  postMessage = (
+    data: Object,
+    type: string = "AuthVerificationConnection"
+  ): void => {
     const iframe = document && document.querySelector("iframe");
-    !!window &&
-      window.top.postMessage(
-        { type: "AuthVerificationConnection", data: data },
-        "http://localhost:4000"
-      );
+    !!window && window.top.postMessage({ type, data }, "http://localhost:4000");
 
     !!iframe &&
-      iframe.contentWindow.postMessage(
-        { type: "AuthVerificationConnection", data: data },
-        "http://localhost:4050"
-      );
+      iframe.contentWindow.postMessage({ type, data }, "http://localhost:4050");
   };
 
-  handleLogin = (formName: string): Function => (props: Object): void => {
+  getCurrentlyAuthorizedUserInfo = async () => {
+    const { data: { viewer } }: Object = await fetch("/api/graphql", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Accept-Encoding": "gzip",
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/graphql"
+      },
+      mode: "cors",
+      cache: "default",
+      body: `{
+              viewer {
+                name
+                token
+                homeworld {
+                  name
+                  residentConnection {
+                    edges {
+                      node {
+                        name
+                      }
+                    }
+                  }
+                }
+              }
+            }`
+    }).then(response => response.json());
+
+    return viewer;
+  };
+
+  handleLogin = (formName: string): Function => async (
+    props: Object
+  ): Promise<?Object> => {
     this.setState(() => ({
       signedIn: this.state.signedIn.set(formName, Map(props))
     }));
@@ -100,7 +190,12 @@ class App extends React.Component<*, State, *> {
   };
 
   componentDidMount() {
-    window && window.addEventListener("message", this.receiveMessage, false);
+    window &&
+      window.addEventListener(
+        "message",
+        this.receiveMessage(Math.random()),
+        false
+      );
   }
 
   shouldComponentUpdate(nextState: State) {

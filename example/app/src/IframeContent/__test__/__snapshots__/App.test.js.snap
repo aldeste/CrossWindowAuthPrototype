@@ -4,55 +4,22 @@ exports[`Application loads asynchronously loads in the welcome screen asynchrono
 
 exports[`Application loads asynchronously starts of empty 1`] = `<div />`;
 
-exports[`Application start file Logs in users by token 1`] = `
+exports[`Application start file Logs in users by token sent to method connectUser 1`] = `
 <div>
   <div>
     <h1>
-      Star Wars login terminal inside iframe
+      Star Wars user logged in inside iframe!
     </h1>
     <p>
-      Please log in
+      You're logged in as 
+      Darth Vader
     </p>
-    <form
-      onSubmit={[Function]}
+    <button
+      alternative={true}
+      onClick={[Function]}
     >
-      <div>
-        <label
-          htmlFor="StarWarsusername"
-          required={false}
-        >
-          Username
-        </label>
-        <input
-          id="StarWarsusername"
-          name="username"
-          onChange={[Function]}
-          placeholder="Username"
-          value=""
-        />
-      </div>
-      <div>
-        <label
-          htmlFor="StarWarspassword"
-          required={false}
-        >
-          Password
-        </label>
-        <input
-          id="StarWarspassword"
-          name="password"
-          onChange={[Function]}
-          placeholder="Password"
-          type="password"
-          value=""
-        />
-      </div>
-      <button
-        disabled={true}
-      >
-        Form fields not valid
-      </button>
-    </form>
+      Log out
+    </button>
   </div>
 </div>
 `;
