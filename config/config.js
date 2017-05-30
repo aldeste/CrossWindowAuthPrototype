@@ -17,6 +17,17 @@ const DB_USER /*: string */ = process.env.DB_USER || "root";
 const DB_PASS /*: string */ = process.env.DB_PASS || "password";
 const DB_NAME /*: string */ = process.env.DB_NAME || "authjazz";
 
+// Settings used based on process.env flags
+const CONNECTION_SETTINGS /*: Object */ = process.env.NODE_ENV !== "production"
+  ? {
+      dialect: "sqlite"
+    }
+  : {
+      dialect: "mariadb",
+      host: DB_HOST,
+      port: DB_PORT
+    };
+
 module.exports = {
   APP_PORT,
   APP_HOST,
@@ -26,5 +37,6 @@ module.exports = {
   DB_PORT,
   DB_USER,
   DB_PASS,
-  DB_NAME
+  DB_NAME,
+  CONNECTION_SETTINGS
 };

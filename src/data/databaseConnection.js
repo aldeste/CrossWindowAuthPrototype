@@ -1,22 +1,11 @@
 // @flow
 import Sequelize from "sequelize";
 import {
-  DB_HOST,
   DB_USER,
   DB_PASS,
   DB_NAME,
-  DB_PORT
+  CONNECTION_SETTINGS
 } from "../../config/config";
-
-const connectionOptions = process.env.NODE_ENV !== "production"
-  ? {
-      dialect: "sqlite"
-    }
-  : {
-      dialect: "mariadb",
-      host: DB_HOST,
-      port: DB_PORT
-    };
 
 const connection = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
   logging: false,
@@ -28,7 +17,7 @@ const connection = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
     collate: "utf8mb4_general_ci",
     timestamps: true
   },
-  ...connectionOptions
+  ...CONNECTION_SETTINGS
 });
 
 export default connection;
