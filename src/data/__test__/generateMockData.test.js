@@ -38,7 +38,9 @@ describe("generateMockData", () => {
 
   it("Console logs friendly message if all fields are inserted", async () => {
     expect(consoleLogMockFunction).toHaveBeenCalledWith(
-      chalk.green.bold("All fields and connections are inserted")
+      chalk.green.bold(
+        "All fields and connections have been inserted in database"
+      )
     );
   });
 

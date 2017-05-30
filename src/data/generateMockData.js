@@ -8,8 +8,9 @@ export default async function generateMockData(
 ): Promise<void> {
   if (forceInsert || (await Person.count()) === 0) {
     const { peopleDummy, planetsDummy } = require("./dummy");
-
     const isKnown = val => (val === "unknown" ? null : val);
+
+    console.log(chalk.yellow.bold("Initiating database..."));
 
     // Fill the database with dymmy people
     await Promise.all(
@@ -54,6 +55,7 @@ export default async function generateMockData(
         const planet = planetsDummy.find(planet => planet.id === home);
         const homeworld =
           planet && (await Planet.findOne({ where: { name: planet.name } }));
+
         return currentPerson.setHomeworld(homeworld);
       })
     );
@@ -77,7 +79,9 @@ export default async function generateMockData(
     );
 
     return console.log(
-      chalk.green.bold("All fields and connections are inserted")
+      chalk.green.bold(
+        "All fields and connections have been inserted in database"
+      )
     );
   }
   return console.log(chalk.yellow.bold("Fields already in database, have fun"));
