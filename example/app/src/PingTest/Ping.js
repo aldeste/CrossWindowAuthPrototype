@@ -9,7 +9,7 @@ type State =
       time?: string
     };
 
-type Props = { token: ?string };
+type Props = { token: ?string, callback: ?Function };
 
 export default class extends React.PureComponent<*, Props, State> {
   state = {};
@@ -32,24 +32,12 @@ export default class extends React.PureComponent<*, Props, State> {
       body: `{ person(personId: ${token}) { name token personId id } }`
     }).then(response => response.json());
 
-    const iframe = document && document.querySelector("iframe");
-    !!window &&
-      window.top.postMessage(
-        { type: "AuthVerificationConnection", data: user },
-        "http://localhost:4000"
-      );
-
-    !!iframe &&
-      iframe.contentWindow.postMessage(
-        { type: "AuthVerificationConnection", data: user },
-        "http://localhost:4050"
-      );
-
     return { user, time };
   };
 
   handleClick = async () => {
     const user = await this.resolveToken(this.props.token);
+    this.props.callback && this.props.callback(user.user);
     this.setState(user);
   };
 

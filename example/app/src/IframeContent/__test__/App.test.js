@@ -40,19 +40,20 @@ const sleep = ms =>
   });
 
 const addEventListener = jest.fn();
+const PostWindowMessage = jest.fn();
+const postMessage = { postMessage: msg => PostWindowMessage(msg) };
 
 beforeAll(() => {
-  global.window = {
-    addEventListener: (type, callback, options) =>
-      addEventListener(type, callback, options)
-  };
-
-  global.window.parent = {};
-
   global.document = {};
-  global.document.querySelector = () => ({});
-
   global.console.log = jest.fn();
+  global.window = postMessage;
+  global.window.addEventListener = (type, callback, options) =>
+    addEventListener(type, callback, options);
+  global.window.top = postMessage;
+  global.document = {};
+  global.document.querySelector = () => ({
+    contentWindow: postMessage
+  });
 });
 
 describe("Application loads asynchronously", () => {
@@ -177,6 +178,15 @@ describe("Application start file", () => {
       data: { type: "NotCorrect", data: true }
     });
     expect(message).toBeFalsy();
+  });
+
+  it("Posts a message event to window", async () => {
+    const component = renderer.create(<App />);
+    await component.getInstance().postMessage({ name: "Yoda" });
+    expect(PostWindowMessage).toHaveBeenCalledWith({
+      data: { name: "Yoda" },
+      type: "AuthVerificationConnection"
+    });
   });
 
   it("Logs in users by token", () => {

@@ -41,15 +41,6 @@ describe("PingTest / Ping", () => {
       })
     );
 
-  const postMessage = { postMessage: msg => PostWindowMessage(msg) };
-
-  global.window = postMessage;
-  global.window.top = postMessage;
-  global.document = {};
-  global.document.querySelector = () => ({
-    contentWindow: postMessage
-  });
-
   it("Matches previous setup", () => {
     const tree = renderer.create(<Ping />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -58,15 +49,6 @@ describe("PingTest / Ping", () => {
   it("Is a react component", () => {
     expect(typeof Ping).toBe("function");
     expect(<Ping />.$$typeof.toString()).toBe("Symbol(react.element)");
-  });
-
-  it("Posts a message event to window", async () => {
-    const component = renderer.create(<Ping token="foo bar" />);
-    await component.getInstance().handleClick();
-    expect(PostWindowMessage).toHaveBeenCalledWith({
-      data: { name: "Yoda" },
-      type: "AuthVerificationConnection"
-    });
   });
 
   it("Fetches and updates state if button is clicked", async () => {
@@ -103,5 +85,12 @@ describe("PingTest / Ping", () => {
     await component.getInstance().handleClick();
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  it("Ussues callback on click", async () => {
+    const callbackChecker = jest.fn();
+    const component = renderer.create(<Ping callback={callbackChecker} />);
+    await component.getInstance().handleClick();
+    expect(callbackChecker).toHaveBeenCalled();
   });
 });

@@ -54,10 +54,19 @@ class App extends React.Component<*, State, *> {
     return false;
   };
 
+  postMessage = (data: Object): void => {
+    !!window &&
+      window.top.postMessage(
+        { type: "AuthVerificationConnection", data: data },
+        "http://localhost:4000"
+      );
+  };
+
   handleLogin = (formName: string): Function => (props: Object): void => {
     this.setState(() => ({
       signedIn: this.state.signedIn.set(formName, Map(props))
     }));
+    this.postMessage(props);
   };
 
   handleLogOut = (logoutName: string): Function => (

@@ -69,10 +69,26 @@ class App extends React.Component<*, State, *> {
     return false;
   };
 
+  postMessage = (data: Object): void => {
+    const iframe = document && document.querySelector("iframe");
+    !!window &&
+      window.top.postMessage(
+        { type: "AuthVerificationConnection", data: data },
+        "http://localhost:4000"
+      );
+
+    !!iframe &&
+      iframe.contentWindow.postMessage(
+        { type: "AuthVerificationConnection", data: data },
+        "http://localhost:4050"
+      );
+  };
+
   handleLogin = (formName: string): Function => (props: Object): void => {
     this.setState(() => ({
       signedIn: this.state.signedIn.set(formName, Map(props))
     }));
+    this.postMessage(props);
   };
 
   handleLogOut = (logoutName: string): Function => (
@@ -101,7 +117,7 @@ class App extends React.Component<*, State, *> {
         <DocumentTitle>AuthJazz</DocumentTitle>
         {UserBases.some(userBase => signedIn.has(userBase)) &&
           <Text>{JSON.stringify(signedIn, null, 2)}</Text>}
-        <Ping token={token} />
+        <Ping token={token} callback={this.postMessage} />
         {UserBases.map(
           part =>
             signedIn.has(part)
