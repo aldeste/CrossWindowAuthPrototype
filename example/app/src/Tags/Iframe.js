@@ -1,10 +1,10 @@
 // @flow
 import styled from "styled-components";
 
-const Label = styled.iframe`
+const Iframe = styled.iframe`
   height: 500px;
   border: 0;
-  filter: invert();
+  filter: invert() hue-rotate(180deg);
 `;
 
-export default Label;
+export default Iframe;
