@@ -185,7 +185,7 @@ app.use(
 // Ggive a friendly message that the app us up and running
 const server: $Application = app.listen(APP_PORT, (): void => {
   const address = (port: string, route = ""): string =>
-    chalk.magenta.bold(`${APP_PROTOCOL}://${APP_HOST}:${port}/${route}`);
+    chalk.magenta.bold.italic(`${APP_PROTOCOL}://${APP_HOST}:${port}/${route}`);
   console.log(
     chalk.blue(`Server instance is running at ${address(APP_PORT)}
 If you've launched the frontend, the API is proxied to ${address(APP_FRONT_PORT, "api")}
