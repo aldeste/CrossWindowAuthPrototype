@@ -30,7 +30,8 @@ const plugins = [
       useBuiltIns: true
     }
   ],
-  require.resolve("babel-plugin-transform-decorators")
+  require.resolve("babel-plugin-transform-decorators"),
+  [require.resolve("react-loadable/babel"), { webpack: true }]
 ];
 
 const presets = [
@@ -40,6 +41,10 @@ const presets = [
   // all the way down
   require.resolve("babel-preset-stage-0")
 ];
+
+if (env === "development") {
+  plugins.push.apply(plugins, [require.resolve("react-hot-loader/babel")]);
+}
 
 if (env === "development" || env === "test") {
   // helps React error message become more firendly and readable
