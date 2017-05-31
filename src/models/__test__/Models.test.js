@@ -12,13 +12,13 @@ const loaders = {
   Person: new DataLoader(ids => getResolve(dbPerson, ids))
 };
 
+beforeAll(async () => {
+  global.console.log = jest.fn();
+  await require("../../data").initializeDatabase();
+});
+
 [User, Planet].map(model =>
   describe(`${model.name} service layer with connection`, () => {
-    beforeAll(async () => {
-      global.console.log = jest.fn();
-      await require("../../data").initializeDatabase();
-    });
-
     it("Returns a class with a valid integer id", async () => {
       const result = await model.gen(null, 3, loaders);
       // Remove created and edited as they're inconsistent
