@@ -30,8 +30,7 @@ const plugins = [
       useBuiltIns: true
     }
   ],
-  require.resolve("babel-plugin-transform-decorators"),
-  [require.resolve("react-loadable/babel"), { webpack: true }]
+  require.resolve("babel-plugin-transform-decorators")
 ];
 
 const presets = [
@@ -42,8 +41,12 @@ const presets = [
   require.resolve("babel-preset-stage-0")
 ];
 
-if (env === "development") {
-  plugins.push.apply(plugins, [require.resolve("react-hot-loader/babel")]);
+if (env === "development" || env === "production") {
+  plugins.push.apply(plugins, [
+    // Increases performance of async module fetching when using webpack.
+    // Since tests run wouthit webpack, this casues tests to crash
+    [require.resolve("react-loadable/babel"), { webpack: true }]
+  ]);
 }
 
 if (env === "development" || env === "test") {
@@ -54,6 +57,11 @@ if (env === "development" || env === "test") {
     // Adds __self attribute to JSX which React will use for some warnings
     require.resolve("babel-plugin-transform-react-jsx-self")
   ]);
+}
+
+if (env === "development") {
+  // Helps with hot module reloading
+  plugins.push.apply(plugins, [require.resolve("react-hot-loader/babel")]);
 }
 
 if (env === "test") {

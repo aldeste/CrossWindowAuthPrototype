@@ -8,7 +8,7 @@ type Props = {
   pastDelay: boolean
 };
 
-export default function LoadAsync(opts: Object) {
+export default function LoadAsync(opts: Object): Loadable {
   return Loadable({
     LoadingComponent({ isLoading, error, pastDelay }: Props) {
       if (isLoading && pastDelay) {

@@ -8,25 +8,34 @@ import "babel-polyfill";
 
 generateGlobalStyles();
 
-const App = LoadAsync({
-  loader: () =>
-    window.self === window.top ? import("./App") : import("./IframeContent/App")
-});
-
-const renderApp = Component =>
+const render = Component =>
   ReactDOM.render(
     <AppContainer>
       <Component />
     </AppContainer>,
     document.getElementById("root")
   );
-export default renderApp;
-renderApp(App);
+export default render;
+render(
+  LoadAsync({
+    loader: () =>
+      window.self === window.top
+        ? import("./App")
+        : import("./IframeContent/App")
+  })
+);
 
 // Hot Module Replacement API.
 // This will render components on component updates and edits.
 if (module.hot) {
   module.hot.accept("./App", () => {
-    renderApp(App);
+    render(
+      LoadAsync({
+        loader: () =>
+          window.self === window.top
+            ? import("./App")
+            : import("./IframeContent/App")
+      })
+    );
   });
 }
