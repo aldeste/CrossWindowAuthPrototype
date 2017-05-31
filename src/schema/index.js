@@ -7,7 +7,7 @@ import personType from "./types/personType";
 import { getObjectFromTypeAndId } from "./apiHelper";
 
 type arguments = { personId?: ?string, id?: ?string };
-type globalIdObejct = { type?: ?string, id?: ?string };
+type globalIdObejct = { type: string, id: string };
 
 const Root = new GraphQLObjectType({
   name: "RootQueryType",
@@ -44,7 +44,7 @@ const Root = new GraphQLObjectType({
 
         if (typeof globalId === "string") {
           const { id, type }: globalIdObejct = fromGlobalId(globalId);
-          if (!id || id === "" || type === "") {
+          if (id === "" || type === "") {
             throw new Error(`No valid ID extracted from ${globalId}`);
           }
 

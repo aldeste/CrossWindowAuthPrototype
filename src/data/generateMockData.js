@@ -29,7 +29,7 @@ export default async function generateMockData(
         return Person.create({
           ...person,
           id: null,
-          token: toGlobalId("people", index + 1),
+          token: toGlobalId("people", (index + 1).toString()),
           password: "password",
           hairColor: person.hair_color,
           mass: isKnown(person.mass) && parseInt(person.mass, 10),
