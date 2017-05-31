@@ -11,8 +11,10 @@ exports[`Application start file Logs in users by token sent to method connectUse
       Star Wars user logged in inside iframe!
     </h1>
     <p>
-      You're logged in as 
-      Darth Vader
+      Here's some private information about you
+    </p>
+    <p>
+      You can log out and try another user by clicking the log out button
     </p>
     <button
       alternative={true}
@@ -84,8 +86,10 @@ exports[`Application start file Renders the welcome screen on login 1`] = `
       Star Wars user logged in inside iframe!
     </h1>
     <p>
-      You're logged in as 
-      Yoda
+      Here's some private information about you
+    </p>
+    <p>
+      You can log out and try another user by clicking the log out button
     </p>
     <button
       alternative={true}

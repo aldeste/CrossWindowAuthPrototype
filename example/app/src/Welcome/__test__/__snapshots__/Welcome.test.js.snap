@@ -6,8 +6,38 @@ exports[`Welcome react component Matches earlier configuration 1`] = `
     This is title
   </h1>
   <p>
-    You're logged in as 
-    This is username
+    Here's some private information about you
+  </p>
+  <div>
+    <h2>
+      Yoda
+    </h2>
+    <p>
+      Born: 
+      896BBY
+    </p>
+    <p>
+      Your eyes are 
+      brown
+    </p>
+    <p>
+      Your gender is 
+      male
+    </p>
+    <h3>
+      Your homeworld
+    </h3>
+    <div>
+      <p>
+        We don't know where you're from, just like some of the other characters. Maybe you know them?
+      </p>
+      <p>
+        IG-88, Arvel Crynyd, Qui-Gon Jinn, R4-P17, Finn, Rey, Poe Dameron, BB8, Captain Phasma
+      </p>
+    </div>
+  </div>
+  <p>
+    You can log out and try another user by clicking the log out button
   </p>
   <button
     alternative={true}

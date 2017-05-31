@@ -12,6 +12,12 @@ jest
     Title: ({ className, children, ...props }) => (
       <h1 {...props}>{children}</h1>
     ),
+    TitleH2: ({ className, children, ...props }) => (
+      <h2 {...props}>{children}</h2>
+    ),
+    TitleH3: ({ className, children, ...props }) => (
+      <h3 {...props}>{children}</h3>
+    ),
     Form: ({ className, children, ...props }) => (
       <form {...props}>{children}</form>
     ),
@@ -41,6 +47,31 @@ const addEventListener = jest.fn();
 const PostWindowMessage = jest.fn();
 const postMessage = { postMessage: msg => PostWindowMessage(msg) };
 
+const PersonInfo = {
+  name: "Yoda",
+  birthYear: "896BBY",
+  eyeColor: "brown",
+  hairColor: "white",
+  gender: "male",
+  homeworld: {
+    name: "unknown",
+    residentConnection: {
+      edges: [
+        {
+          node: {
+            name: "Yoda"
+          }
+        },
+        {
+          node: {
+            name: "IG-88"
+          }
+        }
+      ]
+    }
+  }
+};
+
 beforeAll(() => {
   global.document = {};
   global.console.log = jest.fn();
@@ -52,6 +83,17 @@ beforeAll(() => {
   global.document.querySelector = () => ({
     contentWindow: postMessage
   });
+  global.fetch = () =>
+    new Promise(resolve =>
+      resolve({
+        json: () => ({
+          data: {
+            viewer: PersonInfo,
+            person: PersonInfo
+          }
+        })
+      })
+    );
 });
 
 describe("Application loads asynchronously", () => {
@@ -60,8 +102,9 @@ describe("Application loads asynchronously", () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
 
-  it("loads in the welcome screen asynchronously", () => {
+  it("loads in the welcome screen asynchronously", async () => {
     const component = renderer.create(<App />);
+    sleep(1);
     component.getInstance().handleLogin("StarWars")({ name: "Yoda" });
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -75,17 +118,31 @@ describe("Application start file", () => {
   });
 
   it("Renders the welcome screen on login", async () => {
+    global.fetch = () =>
+      new Promise(resolve =>
+        resolve({
+          json: () => ({
+            data: {
+              viewer: PersonInfo,
+              person: PersonInfo
+            }
+          })
+        })
+      );
+
     const component = renderer.create(<App />);
-    component.getInstance().handleLogin("StarWars")({ name: "Yoda" });
+    await component.getInstance().handleLogin("StarWars")({ name: "Yoda" });
     await sleep(1);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("Removes the welcome screen on logout", () => {
+  it("Removes the welcome screen on logout", async () => {
     const component = renderer.create(<App />);
     component.getInstance().handleLogin("StarWars")({ name: "Yoda" });
+    await sleep(1);
     component.getInstance().handleLogOut("StarWars")();
+    await sleep(1);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -321,6 +378,7 @@ describe("Application start file", () => {
       new Promise(resolve =>
         resolve({
           json: () => ({
+            data: PersonInfo,
             name: "Darth Vader",
             token: "cGVvcGxlOjQ=",
             personId: "4",
@@ -330,6 +388,7 @@ describe("Application start file", () => {
       );
     const component = renderer.create(<App />);
     await component.getInstance().connectUser("cGVvcGxlOjQ=");
+    await sleep(1);
     expect(component.toJSON()).toMatchSnapshot();
   });
 

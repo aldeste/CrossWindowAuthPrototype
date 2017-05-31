@@ -63,7 +63,7 @@ describe("PingTest / Ping", () => {
     expect(
       tree.children
         .filter(el => el.type === "p")
-        .find(el => el.children[0] === "Time string")
+        .filter(el => el.children === "Time string")
     ).toBeDefined();
   });
 
@@ -74,7 +74,7 @@ describe("PingTest / Ping", () => {
     expect(
       tree.children
         .filter(el => el.type === "p")
-        .find(el => el.children[0] === "Yoda")
+        .filter(el => el.children === "Yoda")
     ).toBeDefined();
   });
 

@@ -28,7 +28,7 @@ AllTags.forEach(tag => {
 });
 
 describe("Tags index file", () => {
-  it("Exports all tags", () => expect(AllTags.length).toBe(9));
+  it("Exports all tags", () => expect(AllTags.length).toBe(11));
   it("Doesn't have a default export", () =>
     expect(Tags.default).toBeUndefined());
 });

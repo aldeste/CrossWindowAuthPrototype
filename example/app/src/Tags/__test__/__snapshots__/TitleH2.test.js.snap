@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Title tag Matches earlier configuration 1`] = `
-.gxinMP {
+exports[`TitleH2 tag Matches earlier configuration 1`] = `
+.jeYlWx {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 2.824rem;
+  font-size: 2.500rem;
+  line-height: 1.05;
   font-weight: 500;
-  letter-spacing: 0.006em;
-  line-height: 1.04167;
+  letter-spacing: 0.008em;
 }
 
-<h1
-  className="Title__Title-lbDhID gxinMP"
+<h2
+  className="TitleH2__Title-keORPm jeYlWx"
 />
 `;

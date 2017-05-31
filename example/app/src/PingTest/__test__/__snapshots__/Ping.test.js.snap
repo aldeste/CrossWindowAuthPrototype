@@ -5,6 +5,9 @@ exports[`PingTest / Ping Changes nothing if there's no prop passed in 1`] = `
   <h1>
     Connection testing field
   </h1>
+  <p>
+    This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
+  </p>
   <button
     alternative={true}
     onClick={[Function]}
@@ -20,6 +23,9 @@ exports[`PingTest / Ping Fetches and updates state if button is clicked 1`] = `
   <h1>
     Connection testing field
   </h1>
+  <p>
+    This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
+  </p>
   <button
     alternative={true}
     onClick={[Function]}
@@ -28,9 +34,11 @@ exports[`PingTest / Ping Fetches and updates state if button is clicked 1`] = `
     Click to ping
   </button>
   <p>
+    Pinged with user 
     Yoda
   </p>
   <p>
+    The whole opperatiorn took 
     Time string
   </p>
 </div>
@@ -41,6 +49,9 @@ exports[`PingTest / Ping Matches previous setup 1`] = `
   <h1>
     Connection testing field
   </h1>
+  <p>
+    This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
+  </p>
   <button
     alternative={true}
     onClick={[Function]}

@@ -17,12 +17,17 @@ exports[`LoadAsync renders loading element 1`] = `
   className="View__View-jelnfZ bnYeJt"
 >
   <h1
-    className="Title__Text-hPdHUJ cXYtHj"
+    className="Title__Title-lbDhID gxinMP"
   />
   <p
     className="Text__Text-jpiXUO hvuOVR"
   >
-    You're logged in as 
+    Here's some private information about you
+  </p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
+    You can log out and try another user by clicking the log out button
   </p>
   <button
     className="Button__Button-jkHDFw jHVgyi"

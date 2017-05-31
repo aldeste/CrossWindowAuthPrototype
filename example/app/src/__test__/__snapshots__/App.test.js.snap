@@ -5,17 +5,13 @@ exports[`Application loads asynchronously loads in the welcome screen asynchrono
   <title>
     AuthJazz
   </title>
-  <p>
-    {
-      "StarWars": {
-        "name": "Yoda"
-      }
-    }
-  </p>
   <div>
     <h1>
       Connection testing field
     </h1>
+    <p>
+      This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
+    </p>
     <button
       alternative={true}
       onClick={[Function]}
@@ -23,6 +19,14 @@ exports[`Application loads asynchronously loads in the welcome screen asynchrono
     >
       Click to ping
     </button>
+  </div>
+  <div>
+    <p>
+      Have fun logging in as any Star Wars character in the database.
+    </p>
+    <p>
+      HINT: the password is always password
+    </p>
   </div>
   <div>
     <h1>
@@ -87,6 +91,14 @@ exports[`Application loads asynchronously starts of empty 1`] = `
   <title>
     AuthJazz
   </title>
+  <div>
+    <p>
+      Have fun logging in as any Star Wars character in the database.
+    </p>
+    <p>
+      HINT: the password is always password
+    </p>
+  </div>
   <p>
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
@@ -102,26 +114,13 @@ exports[`Application start file Logs in users by token sent to method connectUse
   <title>
     AuthJazz
   </title>
-  <p>
-    {
-      "StarWars": {
-        "name": "Darth Vader",
-        "token": "cGVvcGxlOjQ=",
-        "personId": "4",
-        "id": "UGVyc29uOjQ="
-      },
-      "StarWarsCharacters": {
-        "name": "Darth Vader",
-        "token": "cGVvcGxlOjQ=",
-        "personId": "4",
-        "id": "UGVyc29uOjQ="
-      }
-    }
-  </p>
   <div>
     <h1>
       Connection testing field
     </h1>
+    <p>
+      This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
+    </p>
     <button
       alternative={true}
       onClick={[Function]}
@@ -131,12 +130,22 @@ exports[`Application start file Logs in users by token sent to method connectUse
     </button>
   </div>
   <div>
+    <p>
+      Have fun logging in as any Star Wars character in the database.
+    </p>
+    <p>
+      HINT: the password is always password
+    </p>
+  </div>
+  <div>
     <h1>
       Star Wars user logged in!
     </h1>
     <p>
-      You're logged in as 
-      Darth Vader
+      Here's some private information about you
+    </p>
+    <p>
+      You can log out and try another user by clicking the log out button
     </p>
     <button
       alternative={true}
@@ -150,8 +159,10 @@ exports[`Application start file Logs in users by token sent to method connectUse
       Star Wars Characters user logged in!
     </h1>
     <p>
-      You're logged in as 
-      Darth Vader
+      Here's some private information about you
+    </p>
+    <p>
+      You can log out and try another user by clicking the log out button
     </p>
     <button
       alternative={true}
@@ -179,6 +190,9 @@ exports[`Application start file Removes the welcome screen on logout 1`] = `
     <h1>
       Connection testing field
     </h1>
+    <p>
+      This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
+    </p>
     <button
       alternative={true}
       onClick={[Function]}
@@ -186,6 +200,14 @@ exports[`Application start file Removes the welcome screen on logout 1`] = `
     >
       Click to ping
     </button>
+  </div>
+  <div>
+    <p>
+      Have fun logging in as any Star Wars character in the database.
+    </p>
+    <p>
+      HINT: the password is always password
+    </p>
   </div>
   <div>
     <h1>
@@ -298,17 +320,13 @@ exports[`Application start file Renders the welcome screen on login 1`] = `
   <title>
     AuthJazz
   </title>
-  <p>
-    {
-      "StarWars": {
-        "name": "Yoda"
-      }
-    }
-  </p>
   <div>
     <h1>
       Connection testing field
     </h1>
+    <p>
+      This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
+    </p>
     <button
       alternative={true}
       onClick={[Function]}
@@ -318,12 +336,54 @@ exports[`Application start file Renders the welcome screen on login 1`] = `
     </button>
   </div>
   <div>
+    <p>
+      Have fun logging in as any Star Wars character in the database.
+    </p>
+    <p>
+      HINT: the password is always password
+    </p>
+  </div>
+  <div>
     <h1>
       Star Wars user logged in!
     </h1>
     <p>
-      You're logged in as 
-      Yoda
+      Here's some private information about you
+    </p>
+    <div>
+      <h2>
+        Yoda
+      </h2>
+      <p>
+        Born: 
+        896BBY
+      </p>
+      <p>
+        Your hair is 
+        white
+      </p>
+      <p>
+        Your eyes are 
+        brown
+      </p>
+      <p>
+        Your gender is 
+        male
+      </p>
+      <h3>
+        Your homeworld
+      </h3>
+      <div>
+        <p>
+          We don't know where you're from, just like some of the other characters. Maybe you know them?
+        </p>
+        <p>
+          IG-88
+        </p>
+      </div>
+    </div>
+    <p>
+      You can log out and try another user by clicking the log out button
     </p>
     <button
       alternative={true}
@@ -399,6 +459,9 @@ exports[`Application start file renders without crashing 1`] = `
     <h1>
       Connection testing field
     </h1>
+    <p>
+      This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
+    </p>
     <button
       alternative={true}
       onClick={[Function]}
@@ -406,6 +469,14 @@ exports[`Application start file renders without crashing 1`] = `
     >
       Click to ping
     </button>
+  </div>
+  <div>
+    <p>
+      Have fun logging in as any Star Wars character in the database.
+    </p>
+    <p>
+      HINT: the password is always password
+    </p>
   </div>
   <div>
     <h1>

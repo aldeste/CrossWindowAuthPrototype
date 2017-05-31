@@ -8,6 +8,12 @@ jest.mock("../../Tags", () => ({
   ),
   Text: ({ className, children, ...props }) => <p {...props}>{children}</p>,
   Title: ({ className, children, ...props }) => <h1 {...props}>{children}</h1>,
+  TitleH2: ({ className, children, ...props }) => (
+    <h2 {...props}>{children}</h2>
+  ),
+  TitleH3: ({ className, children, ...props }) => (
+    <h3 {...props}>{children}</h3>
+  ),
   Form: ({ className, children, ...props }) => (
     <form {...props}>{children}</form>
   ),
@@ -21,6 +27,11 @@ jest.mock("../../Tags", () => ({
 }));
 
 const mockClickFunction = jest.fn();
+
+const sleep = ms =>
+  new Promise(res => {
+    setTimeout(res, ms);
+  });
 
 describe("Welcome react component", () => {
   const component = renderer.create(
@@ -38,7 +49,95 @@ describe("Welcome react component", () => {
     expect(<Welcome />.$$typeof.toString()).toBe("Symbol(react.element)");
   });
 
-  it("Matches earlier configuration", () => {
+  it("Matches earlier configuration", async () => {
+    global.fetch = () =>
+      new Promise(resolve =>
+        resolve({
+          json: () => ({
+            data: {
+              viewer: {
+                name: "Yoda",
+                birthYear: "896BBY",
+                eyeColor: "brown",
+                gender: "male",
+                height: 66,
+                mass: 17,
+                homeworld: {
+                  name: "unknown",
+                  diameter: 0,
+                  residentConnection: {
+                    edges: [
+                      {
+                        node: {
+                          name: "Yoda"
+                        }
+                      },
+                      {
+                        node: {
+                          name: "IG-88"
+                        }
+                      },
+                      {
+                        node: {
+                          name: "Arvel Crynyd"
+                        }
+                      },
+                      {
+                        node: {
+                          name: "Qui-Gon Jinn"
+                        }
+                      },
+                      {
+                        node: {
+                          name: "R4-P17"
+                        }
+                      },
+                      {
+                        node: {
+                          name: "Finn"
+                        }
+                      },
+                      {
+                        node: {
+                          name: "Rey"
+                        }
+                      },
+                      {
+                        node: {
+                          name: "Poe Dameron"
+                        }
+                      },
+                      {
+                        node: {
+                          name: "BB8"
+                        }
+                      },
+                      {
+                        node: {
+                          name: "Captain Phasma"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            extensions: {
+              timeTaken: "0s 39.838016ms"
+            }
+          })
+        })
+      );
+
+    const component = renderer.create(
+      <Welcome
+        title="This is title"
+        username="This is username"
+        onLogoutSubmit={e => mockClickFunction()}
+      />
+    );
+    await sleep(1);
+    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
