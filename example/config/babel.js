@@ -41,13 +41,14 @@ const presets = [
   require.resolve("babel-preset-stage-0")
 ];
 
-if (env === "development" || env === "production") {
-  plugins.push.apply(plugins, [
-    // Increases performance of async module fetching when using webpack.
-    // Since tests run wouthit webpack, this casues tests to crash
-    [require.resolve("react-loadable/babel"), { webpack: true }]
-  ]);
-}
+// React loadable babel webpack currently has bugs, remove for now
+// if (env === "development" || env === "production") {
+//   plugins.push.apply(plugins, [
+//     // Increases performance of async module fetching when using webpack.
+//     // Since tests run wouthit webpack, this casues tests to crash
+//     [require.resolve("react-loadable/babel"), { webpack: true }]
+//   ]);
+// }
 
 if (env === "development" || env === "test") {
   // helps React error message become more firendly and readable
@@ -57,11 +58,6 @@ if (env === "development" || env === "test") {
     // Adds __self attribute to JSX which React will use for some warnings
     require.resolve("babel-plugin-transform-react-jsx-self")
   ]);
-}
-
-if (env === "development") {
-  // Helps with hot module reloading
-  plugins.push.apply(plugins, [require.resolve("react-hot-loader/babel")]);
 }
 
 if (env === "test") {
@@ -97,7 +93,12 @@ if (env === "development") {
         }
       ]
     ].concat(presets),
-    plugins: plugins
+    plugins: [
+      // Helps with hot module reloading
+      // Hot module reloading is buggy with async deffered loading at the moment.
+      // Not acrtive.
+      // require.resolve("react-hot-loader/babel")
+    ].concat(plugins)
   };
 }
 
