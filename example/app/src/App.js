@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 import { Map, type Map as ImmutableMap } from "immutable";
-import { Wrapper, Text, Iframe } from "./Tags";
+import { Wrapper, Text, Iframe, View } from "./Tags";
 import LoadAsync from "./LoadAsync/LoadAsync";
 import DocumentTitle from "./Document/Title";
 
@@ -206,26 +206,32 @@ class App extends React.Component<*, State, *> {
     const UserBases: Array<string> = ["StarWars", "StarWarsCharacters"];
     const { signedIn } = this.state;
     const token: number = Math.ceil(Math.random() * 50);
+    const splitSpaces = text => text.replace(/([a-z])([A-Z])/g, "$1 $2");
 
     return (
       <Wrapper>
         <DocumentTitle>AuthJazz</DocumentTitle>
-        {UserBases.some(userBase => signedIn.has(userBase)) &&
-          <Text>{JSON.stringify(signedIn, null, 2)}</Text>}
         <Ping token={token} callback={this.postMessage} />
+        <View>
+          <Text>
+            Have fun logging in as any Star Wars character in
+            the database.
+          </Text>
+          <Text>HINT: the password is always password</Text>
+        </View>
         {UserBases.map(
           part =>
             signedIn.has(part)
               ? <Welcome
                   key={part}
-                  title={`${part.replace(/([a-z])([A-Z])/g, "$1 $2")} user logged in!`}
+                  title={`${splitSpaces(part)} user logged in!`}
                   username={signedIn.getIn([part, "name"])}
                   onLogoutSubmit={this.handleLogOut(part)}
                 />
               : <Login
                   key={part}
                   prefix={part}
-                  title={`${part.replace(/([a-z])([A-Z])/g, "$1 $2")} login`}
+                  title={`${splitSpaces(part)} login`}
                   onLoginSubmit={this.handleLogin(part)}
                 />
         )}
