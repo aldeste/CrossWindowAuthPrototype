@@ -45,13 +45,18 @@ export default class extends React.PureComponent<*, Props, State> {
     return (
       <View>
         <Title>Connection testing field</Title>
+        <Text>
+          This will ping a random user thowards the server.
+          However. it won't sign in the user since the user isn't verefied
+        </Text>
         <Button onClick={this.handleClick} alternative outlined>
           Click to ping
         </Button>
         {!!this.state.user &&
           !!this.state.user.name &&
-          <Text>{this.state.user.name}</Text>}
-        {!!this.state.time && <Text>{this.state.time}</Text>}
+          <Text>Pinged with user {this.state.user.name}</Text>}
+        {!!this.state.time &&
+          <Text>The whole opperatiorn took {this.state.time}</Text>}
       </View>
     );
   }
