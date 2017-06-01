@@ -15,7 +15,7 @@ const render = Component =>
     </AppContainer>,
     document.getElementById("root")
   );
-export default render;
+
 render(
   LoadAsync({
     loader: () =>
@@ -39,3 +39,5 @@ if (module.hot) {
     );
   });
 }
+
+export default render;
