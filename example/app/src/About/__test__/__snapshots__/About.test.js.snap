@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About component Renders correctly on fetch 1`] = `
+<div>
+  <h2>
+    Luke Skywalker
+  </h2>
+  <p>
+    Born: 
+    19BBY
+  </p>
+  <p>
+    Your hair is 
+    blond
+  </p>
+  <p>
+    Your eyes are 
+    blue
+  </p>
+  <p>
+    Your gender is 
+    male
+  </p>
+  <h3>
+    Your homeworld
+  </h3>
+  <div>
+    <p>
+      You're from 
+      Tatooine
+      ! Other people are also from there! Maybe you know them?
+    </p>
+    <p>
+      C-3PO, Darth Vader, Owen Lars, Beru Whitesun lars, R5-D4, Biggs Darklighter, Anakin Skywalker, Shmi Skywalker, Cliegg Lars
+    </p>
+  </div>
+</div>
+`;

@@ -34,6 +34,85 @@ const sleep = ms =>
   });
 
 describe("Welcome react component", () => {
+  global.fetch = () =>
+    new Promise(resolve =>
+      resolve({
+        json: () => ({
+          data: {
+            viewer: {
+              name: "Yoda",
+              birthYear: "896BBY",
+              eyeColor: "brown",
+              gender: "male",
+              height: 66,
+              mass: 17,
+              homeworld: {
+                name: "unknown",
+                diameter: 0,
+                residentConnection: {
+                  edges: [
+                    {
+                      node: {
+                        name: "Yoda"
+                      }
+                    },
+                    {
+                      node: {
+                        name: "IG-88"
+                      }
+                    },
+                    {
+                      node: {
+                        name: "Arvel Crynyd"
+                      }
+                    },
+                    {
+                      node: {
+                        name: "Qui-Gon Jinn"
+                      }
+                    },
+                    {
+                      node: {
+                        name: "R4-P17"
+                      }
+                    },
+                    {
+                      node: {
+                        name: "Finn"
+                      }
+                    },
+                    {
+                      node: {
+                        name: "Rey"
+                      }
+                    },
+                    {
+                      node: {
+                        name: "Poe Dameron"
+                      }
+                    },
+                    {
+                      node: {
+                        name: "BB8"
+                      }
+                    },
+                    {
+                      node: {
+                        name: "Captain Phasma"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          extensions: {
+            timeTaken: "0s 39.838016ms"
+          }
+        })
+      })
+    );
+
   const component = renderer.create(
     <Welcome
       title="This is title"
@@ -50,85 +129,6 @@ describe("Welcome react component", () => {
   });
 
   it("Matches earlier configuration", async () => {
-    global.fetch = () =>
-      new Promise(resolve =>
-        resolve({
-          json: () => ({
-            data: {
-              viewer: {
-                name: "Yoda",
-                birthYear: "896BBY",
-                eyeColor: "brown",
-                gender: "male",
-                height: 66,
-                mass: 17,
-                homeworld: {
-                  name: "unknown",
-                  diameter: 0,
-                  residentConnection: {
-                    edges: [
-                      {
-                        node: {
-                          name: "Yoda"
-                        }
-                      },
-                      {
-                        node: {
-                          name: "IG-88"
-                        }
-                      },
-                      {
-                        node: {
-                          name: "Arvel Crynyd"
-                        }
-                      },
-                      {
-                        node: {
-                          name: "Qui-Gon Jinn"
-                        }
-                      },
-                      {
-                        node: {
-                          name: "R4-P17"
-                        }
-                      },
-                      {
-                        node: {
-                          name: "Finn"
-                        }
-                      },
-                      {
-                        node: {
-                          name: "Rey"
-                        }
-                      },
-                      {
-                        node: {
-                          name: "Poe Dameron"
-                        }
-                      },
-                      {
-                        node: {
-                          name: "BB8"
-                        }
-                      },
-                      {
-                        node: {
-                          name: "Captain Phasma"
-                        }
-                      }
-                    ]
-                  }
-                }
-              }
-            },
-            extensions: {
-              timeTaken: "0s 39.838016ms"
-            }
-          })
-        })
-      );
-
     const component = renderer.create(
       <Welcome
         title="This is title"
