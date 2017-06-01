@@ -4,6 +4,7 @@ import { Map } from "immutable";
 import { Wrapper } from "../Tags";
 import LoadAsync from "../LoadAsync/LoadAsync";
 import { type State, type MessageEventWithOptions } from "../App";
+import graphql from "../Connection";
 
 // We load components in asynchronously using React Loadable.
 // That way we minimize initial paint time of files and perceved load time.
@@ -12,7 +13,7 @@ const Welcome = LoadAsync({
 });
 const Login = LoadAsync({ loader: () => import("../Login/Login") });
 
-class App extends React.Component<*, State, *> {
+class IframeApp extends React.Component<*, State, *> {
   state = {
     signedIn: Map()
   };
@@ -116,35 +117,17 @@ class App extends React.Component<*, State, *> {
   };
 
   getCurrentlyAuthorizedUserInfo = async () => {
-    const { data: { viewer } }: Object = await fetch("/api/graphql", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Accept-Encoding": "gzip",
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/graphql"
-      },
-      mode: "cors",
-      cache: "default",
-      body: `{
-              viewer {
-                name
-                token
-                homeworld {
-                  name
-                  residentConnection {
-                    edges {
-                      node {
-                        name
-                      }
-                    }
-                  }
-                }
-              }
-            }`
-    }).then(response => response.json());
+    const data: ?Object = await graphql`{
+      viewer {
+        name
+        token
+      }
+    }`;
 
-    return viewer;
+    if (data && data.data && data.data.viewer) {
+      return data.data.viewer;
+    }
+    return null;
   };
 
   handleLogin = (formName: string): Function => (props: Object): void => {
@@ -196,4 +179,4 @@ class App extends React.Component<*, State, *> {
   }
 }
 
-export default App;
+export default IframeApp;

@@ -1,6 +1,7 @@
 // @flow
 import React from "react";
 import { View, Title, Button, Text } from "../Tags";
+import graphql from "../Connection";
 
 type State =
   | {}
@@ -19,18 +20,12 @@ export default class extends React.PureComponent<*, Props, State> {
     const {
       data: { person: user },
       extensions: { timeTaken: time }
-    }: Object = await fetch("/api/graphql", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Accept-Encoding": "gzip",
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/graphql"
-      },
-      mode: "cors",
-      cache: "default",
-      body: `{ person(personId: ${token}) { name token personId id } }`
-    }).then(response => response.json());
+    }: Object = await graphql`{
+      person(personId: ${token}) {
+        name
+        token
+      }
+    }`;
 
     return { user, time };
   };

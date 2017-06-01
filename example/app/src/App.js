@@ -4,6 +4,7 @@ import { Map, type Map as ImmutableMap } from "immutable";
 import { Wrapper, Text, Iframe, View } from "./Tags";
 import LoadAsync from "./LoadAsync/LoadAsync";
 import DocumentTitle from "./Document/Title";
+import graphql from "./Connection";
 
 export type MessageEventWithOptions = MessageEvent & {
   data: { type: string, data: Object }
@@ -141,35 +142,17 @@ class App extends React.Component<*, State, *> {
   };
 
   getCurrentlyAuthorizedUserInfo = async () => {
-    const { data: { viewer } }: Object = await fetch("/api/graphql", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Accept-Encoding": "gzip",
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/graphql"
-      },
-      mode: "cors",
-      cache: "default",
-      body: `{
-              viewer {
-                name
-                token
-                homeworld {
-                  name
-                  residentConnection {
-                    edges {
-                      node {
-                        name
-                      }
-                    }
-                  }
-                }
-              }
-            }`
-    }).then(response => response.json());
+    const data: ?Object = await graphql`{
+      viewer {
+        name
+        token
+      }
+    }`;
 
-    return viewer;
+    if (data && data.data && data.data.viewer) {
+      return data.data.viewer;
+    }
+    return null;
   };
 
   handleLogin = (formName: string): Function => async (
