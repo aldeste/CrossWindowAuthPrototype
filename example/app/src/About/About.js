@@ -1,6 +1,5 @@
 // @flow
 import React from "react";
-import Homeworld from "./Homeworld";
 import ProfileInfo from "./ProfileInfo";
 import graphql from "../Connection";
 
