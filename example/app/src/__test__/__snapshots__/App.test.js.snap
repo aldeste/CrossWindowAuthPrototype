@@ -1,51 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App loads asynchronously loads in the welcome screen asynchronously 1`] = `
-<div>
+<div
+  className="Wrapper__Wrapper-cZxMuO esaSay View__View-jelnfZ bnYeJt"
+>
   <title>
     AuthJazz
   </title>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Connection testing field
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
     </p>
     <button
-      alternative={true}
+      className="Button__Button-jkHDFw hKMOLu"
       onClick={[Function]}
-      outlined={true}
     >
       Click to ping
     </button>
   </div>
-  <div>
-    <p>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Have fun logging in as any Star Wars character in the database.
     </p>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       HINT: the password is always password
     </p>
   </div>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars Characters login
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Please log in
     </p>
     <form
+      className="Form__Form-PASBS imuxEL"
       onSubmit={[Function]}
     >
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarsCharactersusername"
           required={false}
         >
           Username
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarsCharactersusername"
           name="username"
           onChange={[Function]}
@@ -53,14 +77,18 @@ exports[`App loads asynchronously loads in the welcome screen asynchronously 1`]
           value=""
         />
       </div>
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarsCharacterspassword"
           required={false}
         >
           Password
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarsCharacterspassword"
           name="password"
           onChange={[Function]}
@@ -70,16 +98,20 @@ exports[`App loads asynchronously loads in the welcome screen asynchronously 1`]
         />
       </div>
       <button
+        className="Button__Button-jkHDFw jklsEJ"
         disabled={true}
       >
         Form fields not valid
       </button>
     </form>
   </div>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
-  <div
+  <iframe
+    className="Iframe__Iframe-hXkCjZ NyIwm"
     src="http://localhost:4050"
     title="application_display"
   />
@@ -87,22 +119,33 @@ exports[`App loads asynchronously loads in the welcome screen asynchronously 1`]
 `;
 
 exports[`App loads asynchronously starts of empty 1`] = `
-<div>
+<div
+  className="Wrapper__Wrapper-cZxMuO esaSay View__View-jelnfZ bnYeJt"
+>
   <title>
     AuthJazz
   </title>
-  <div>
-    <p>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Have fun logging in as any Star Wars character in the database.
     </p>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       HINT: the password is always password
     </p>
   </div>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
-  <div
+  <iframe
+    className="Iframe__Iframe-hXkCjZ NyIwm"
     src="http://localhost:4050"
     title="application_display"
   />
@@ -110,71 +153,103 @@ exports[`App loads asynchronously starts of empty 1`] = `
 `;
 
 exports[`App start file Logs in users by token sent to method connectUser 1`] = `
-<div>
+<div
+  className="Wrapper__Wrapper-cZxMuO esaSay View__View-jelnfZ bnYeJt"
+>
   <title>
     AuthJazz
   </title>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Connection testing field
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
     </p>
     <button
-      alternative={true}
+      className="Button__Button-jkHDFw hKMOLu"
       onClick={[Function]}
-      outlined={true}
     >
       Click to ping
     </button>
   </div>
-  <div>
-    <p>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Have fun logging in as any Star Wars character in the database.
     </p>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       HINT: the password is always password
     </p>
   </div>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars user logged in!
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Here's some private information about you
     </p>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       You can log out and try another user by clicking the log out button
     </p>
     <button
-      alternative={true}
+      className="Button__Button-jkHDFw jHVgyi"
       onClick={[Function]}
     >
       Log out
     </button>
   </div>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars Characters user logged in!
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Here's some private information about you
     </p>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       You can log out and try another user by clicking the log out button
     </p>
     <button
-      alternative={true}
+      className="Button__Button-jkHDFw jHVgyi"
       onClick={[Function]}
     >
       Log out
     </button>
   </div>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
-  <div
+  <iframe
+    className="Iframe__Iframe-hXkCjZ NyIwm"
     src="http://localhost:4050"
     title="application_display"
   />
@@ -182,51 +257,75 @@ exports[`App start file Logs in users by token sent to method connectUser 1`] = 
 `;
 
 exports[`App start file Removes the welcome screen on logout 1`] = `
-<div>
+<div
+  className="Wrapper__Wrapper-cZxMuO esaSay View__View-jelnfZ bnYeJt"
+>
   <title>
     AuthJazz
   </title>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Connection testing field
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
     </p>
     <button
-      alternative={true}
+      className="Button__Button-jkHDFw hKMOLu"
       onClick={[Function]}
-      outlined={true}
     >
       Click to ping
     </button>
   </div>
-  <div>
-    <p>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Have fun logging in as any Star Wars character in the database.
     </p>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       HINT: the password is always password
     </p>
   </div>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars login
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Please log in
     </p>
     <form
+      className="Form__Form-PASBS imuxEL"
       onSubmit={[Function]}
     >
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarsusername"
           required={false}
         >
           Username
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarsusername"
           name="username"
           onChange={[Function]}
@@ -234,14 +333,18 @@ exports[`App start file Removes the welcome screen on logout 1`] = `
           value=""
         />
       </div>
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarspassword"
           required={false}
         >
           Password
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarspassword"
           name="password"
           onChange={[Function]}
@@ -251,30 +354,42 @@ exports[`App start file Removes the welcome screen on logout 1`] = `
         />
       </div>
       <button
+        className="Button__Button-jkHDFw jklsEJ"
         disabled={true}
       >
         Form fields not valid
       </button>
     </form>
   </div>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars Characters login
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Please log in
     </p>
     <form
+      className="Form__Form-PASBS imuxEL"
       onSubmit={[Function]}
     >
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarsCharactersusername"
           required={false}
         >
           Username
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarsCharactersusername"
           name="username"
           onChange={[Function]}
@@ -282,14 +397,18 @@ exports[`App start file Removes the welcome screen on logout 1`] = `
           value=""
         />
       </div>
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarsCharacterspassword"
           required={false}
         >
           Password
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarsCharacterspassword"
           name="password"
           onChange={[Function]}
@@ -299,16 +418,20 @@ exports[`App start file Removes the welcome screen on logout 1`] = `
         />
       </div>
       <button
+        className="Button__Button-jkHDFw jklsEJ"
         disabled={true}
       >
         Form fields not valid
       </button>
     </form>
   </div>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
-  <div
+  <iframe
+    className="Iframe__Iframe-hXkCjZ NyIwm"
     src="http://localhost:4050"
     title="application_display"
   />
@@ -316,102 +439,154 @@ exports[`App start file Removes the welcome screen on logout 1`] = `
 `;
 
 exports[`App start file Renders the welcome screen on login 1`] = `
-<div>
+<div
+  className="Wrapper__Wrapper-cZxMuO esaSay View__View-jelnfZ bnYeJt"
+>
   <title>
     AuthJazz
   </title>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Connection testing field
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
     </p>
     <button
-      alternative={true}
+      className="Button__Button-jkHDFw hKMOLu"
       onClick={[Function]}
-      outlined={true}
     >
       Click to ping
     </button>
   </div>
-  <div>
-    <p>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Have fun logging in as any Star Wars character in the database.
     </p>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       HINT: the password is always password
     </p>
   </div>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars user logged in!
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Here's some private information about you
     </p>
-    <div>
-      <h2>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
+      <h2
+        className="TitleH2__Title-keORPm jeYlWx"
+      >
         Luke Skywalker
       </h2>
-      <p>
+      <p
+        className="Text__Text-jpiXUO hvuOVR"
+      >
         Born: 
         19BBY
       </p>
-      <p>
+      <p
+        className="Text__Text-jpiXUO hvuOVR"
+      >
         Your hair is 
         blond
       </p>
-      <p>
+      <p
+        className="Text__Text-jpiXUO hvuOVR"
+      >
         Your eyes are 
         blue
       </p>
-      <p>
+      <p
+        className="Text__Text-jpiXUO hvuOVR"
+      >
         Your gender is 
         male
       </p>
-      <h3>
+      <h1
+        className="TitleH3__Title-dYKMyV ipbgyT"
+      >
         Your homeworld
-      </h3>
-      <div>
-        <p>
+      </h1>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
+        <p
+          className="Text__Text-jpiXUO hvuOVR"
+        >
           You're from 
           Tatooine
           ! Other people are also from there! Maybe you know them?
         </p>
-        <p>
+        <p
+          className="Text__Text-jpiXUO hvuOVR"
+        >
           C-3PO, Darth Vader, Owen Lars, Beru Whitesun lars, R5-D4, Biggs Darklighter, Anakin Skywalker, Shmi Skywalker, Cliegg Lars
         </p>
       </div>
     </div>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       You can log out and try another user by clicking the log out button
     </p>
     <button
-      alternative={true}
+      className="Button__Button-jkHDFw jHVgyi"
       onClick={[Function]}
     >
       Log out
     </button>
   </div>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars Characters login
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Please log in
     </p>
     <form
+      className="Form__Form-PASBS imuxEL"
       onSubmit={[Function]}
     >
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarsCharactersusername"
           required={false}
         >
           Username
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarsCharactersusername"
           name="username"
           onChange={[Function]}
@@ -419,14 +594,18 @@ exports[`App start file Renders the welcome screen on login 1`] = `
           value=""
         />
       </div>
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarsCharacterspassword"
           required={false}
         >
           Password
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarsCharacterspassword"
           name="password"
           onChange={[Function]}
@@ -436,16 +615,20 @@ exports[`App start file Renders the welcome screen on login 1`] = `
         />
       </div>
       <button
+        className="Button__Button-jkHDFw jklsEJ"
         disabled={true}
       >
         Form fields not valid
       </button>
     </form>
   </div>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
-  <div
+  <iframe
+    className="Iframe__Iframe-hXkCjZ NyIwm"
     src="http://localhost:4050"
     title="application_display"
   />
@@ -453,51 +636,75 @@ exports[`App start file Renders the welcome screen on login 1`] = `
 `;
 
 exports[`App start file renders without crashing 1`] = `
-<div>
+<div
+  className="Wrapper__Wrapper-cZxMuO esaSay View__View-jelnfZ bnYeJt"
+>
   <title>
     AuthJazz
   </title>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Connection testing field
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
     </p>
     <button
-      alternative={true}
+      className="Button__Button-jkHDFw hKMOLu"
       onClick={[Function]}
-      outlined={true}
     >
       Click to ping
     </button>
   </div>
-  <div>
-    <p>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Have fun logging in as any Star Wars character in the database.
     </p>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       HINT: the password is always password
     </p>
   </div>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars login
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Please log in
     </p>
     <form
+      className="Form__Form-PASBS imuxEL"
       onSubmit={[Function]}
     >
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarsusername"
           required={false}
         >
           Username
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarsusername"
           name="username"
           onChange={[Function]}
@@ -505,14 +712,18 @@ exports[`App start file renders without crashing 1`] = `
           value=""
         />
       </div>
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarspassword"
           required={false}
         >
           Password
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarspassword"
           name="password"
           onChange={[Function]}
@@ -522,30 +733,42 @@ exports[`App start file renders without crashing 1`] = `
         />
       </div>
       <button
+        className="Button__Button-jkHDFw jklsEJ"
         disabled={true}
       >
         Form fields not valid
       </button>
     </form>
   </div>
-  <div>
-    <h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars Characters login
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Please log in
     </p>
     <form
+      className="Form__Form-PASBS imuxEL"
       onSubmit={[Function]}
     >
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarsCharactersusername"
           required={false}
         >
           Username
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarsCharactersusername"
           name="username"
           onChange={[Function]}
@@ -553,14 +776,18 @@ exports[`App start file renders without crashing 1`] = `
           value=""
         />
       </div>
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarsCharacterspassword"
           required={false}
         >
           Password
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarsCharacterspassword"
           name="password"
           onChange={[Function]}
@@ -570,40 +797,62 @@ exports[`App start file renders without crashing 1`] = `
         />
       </div>
       <button
+        className="Button__Button-jkHDFw jklsEJ"
         disabled={true}
       >
         Form fields not valid
       </button>
     </form>
   </div>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
-  <div
+  <iframe
+    className="Iframe__Iframe-hXkCjZ NyIwm"
     src="http://localhost:4050"
     title="application_display"
   />
 </div>
 `;
 
-exports[`IframeApp loads asynchronously loads in the welcome screen asynchronously 1`] = `<div />`;
+exports[`IframeApp loads asynchronously loads in the welcome screen asynchronously 1`] = `
+<div
+  className="Wrapper__Wrapper-cZxMuO esaSay View__View-jelnfZ bnYeJt"
+/>
+`;
 
-exports[`IframeApp loads asynchronously starts of empty 1`] = `<div />`;
+exports[`IframeApp loads asynchronously starts of empty 1`] = `
+<div
+  className="Wrapper__Wrapper-cZxMuO esaSay View__View-jelnfZ bnYeJt"
+/>
+`;
 
 exports[`IframeApp start file Logs in users by token sent to method connectUser 1`] = `
-<div>
-  <div>
-    <h1>
+<div
+  className="Wrapper__Wrapper-cZxMuO esaSay View__View-jelnfZ bnYeJt"
+>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars user logged in inside iframe!
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Here's some private information about you
     </p>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       You can log out and try another user by clicking the log out button
     </p>
     <button
-      alternative={true}
+      className="Button__Button-jkHDFw jHVgyi"
       onClick={[Function]}
     >
       Log out
@@ -613,25 +862,38 @@ exports[`IframeApp start file Logs in users by token sent to method connectUser 
 `;
 
 exports[`IframeApp start file Removes the welcome screen on logout 1`] = `
-<div>
-  <div>
-    <h1>
+<div
+  className="Wrapper__Wrapper-cZxMuO esaSay View__View-jelnfZ bnYeJt"
+>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars login terminal inside iframe
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Please log in
     </p>
     <form
+      className="Form__Form-PASBS imuxEL"
       onSubmit={[Function]}
     >
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarsusername"
           required={false}
         >
           Username
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarsusername"
           name="username"
           onChange={[Function]}
@@ -639,14 +901,18 @@ exports[`IframeApp start file Removes the welcome screen on logout 1`] = `
           value=""
         />
       </div>
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarspassword"
           required={false}
         >
           Password
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarspassword"
           name="password"
           onChange={[Function]}
@@ -656,6 +922,7 @@ exports[`IframeApp start file Removes the welcome screen on logout 1`] = `
         />
       </div>
       <button
+        className="Button__Button-jkHDFw jklsEJ"
         disabled={true}
       >
         Form fields not valid
@@ -666,53 +933,83 @@ exports[`IframeApp start file Removes the welcome screen on logout 1`] = `
 `;
 
 exports[`IframeApp start file Renders the welcome screen on login 1`] = `
-<div>
-  <div>
-    <h1>
+<div
+  className="Wrapper__Wrapper-cZxMuO esaSay View__View-jelnfZ bnYeJt"
+>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars user logged in inside iframe!
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Here's some private information about you
     </p>
-    <div>
-      <h2>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
+      <h2
+        className="TitleH2__Title-keORPm jeYlWx"
+      >
         Luke Skywalker
       </h2>
-      <p>
+      <p
+        className="Text__Text-jpiXUO hvuOVR"
+      >
         Born: 
         19BBY
       </p>
-      <p>
+      <p
+        className="Text__Text-jpiXUO hvuOVR"
+      >
         Your hair is 
         blond
       </p>
-      <p>
+      <p
+        className="Text__Text-jpiXUO hvuOVR"
+      >
         Your eyes are 
         blue
       </p>
-      <p>
+      <p
+        className="Text__Text-jpiXUO hvuOVR"
+      >
         Your gender is 
         male
       </p>
-      <h3>
+      <h1
+        className="TitleH3__Title-dYKMyV ipbgyT"
+      >
         Your homeworld
-      </h3>
-      <div>
-        <p>
+      </h1>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
+        <p
+          className="Text__Text-jpiXUO hvuOVR"
+        >
           You're from 
           Tatooine
           ! Other people are also from there! Maybe you know them?
         </p>
-        <p>
+        <p
+          className="Text__Text-jpiXUO hvuOVR"
+        >
           C-3PO, Darth Vader, Owen Lars, Beru Whitesun lars, R5-D4, Biggs Darklighter, Anakin Skywalker, Shmi Skywalker, Cliegg Lars
         </p>
       </div>
     </div>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       You can log out and try another user by clicking the log out button
     </p>
     <button
-      alternative={true}
+      className="Button__Button-jkHDFw jHVgyi"
       onClick={[Function]}
     >
       Log out
@@ -722,25 +1019,38 @@ exports[`IframeApp start file Renders the welcome screen on login 1`] = `
 `;
 
 exports[`IframeApp start file renders without crashing 1`] = `
-<div>
-  <div>
-    <h1>
+<div
+  className="Wrapper__Wrapper-cZxMuO esaSay View__View-jelnfZ bnYeJt"
+>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <h1
+      className="Title__Title-lbDhID gxinMP"
+    >
       Star Wars login terminal inside iframe
     </h1>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       Please log in
     </p>
     <form
+      className="Form__Form-PASBS imuxEL"
       onSubmit={[Function]}
     >
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarsusername"
           required={false}
         >
           Username
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarsusername"
           name="username"
           onChange={[Function]}
@@ -748,14 +1058,18 @@ exports[`IframeApp start file renders without crashing 1`] = `
           value=""
         />
       </div>
-      <div>
+      <div
+        className="View__View-jelnfZ bnYeJt"
+      >
         <label
+          className="Label__Label-jsURsk iCwAoZ"
           htmlFor="StarWarspassword"
           required={false}
         >
           Password
         </label>
         <input
+          className="TextInput__Text-jwTuSF bRSPUO"
           id="StarWarspassword"
           name="password"
           onChange={[Function]}
@@ -765,6 +1079,7 @@ exports[`IframeApp start file renders without crashing 1`] = `
         />
       </div>
       <button
+        className="Button__Button-jkHDFw jklsEJ"
         disabled={true}
       >
         Form fields not valid

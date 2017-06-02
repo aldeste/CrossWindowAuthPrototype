@@ -1,43 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PingTest / Ping Changes nothing if there's no prop passed in 1`] = `
-<div>
-  <h1>
-    Connection testing field
-  </h1>
-  <p>
-    This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
-  </p>
-  <button
-    alternative={true}
-    onClick={[Function]}
-    outlined={true}
-  >
-    Click to ping
-  </button>
-</div>
-`;
-
 exports[`PingTest / Ping Fetches and updates state if button is clicked 1`] = `
-<div>
-  <h1>
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <h1
+    className="Title__Title-lbDhID gxinMP"
+  >
     Connection testing field
   </h1>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
   </p>
   <button
-    alternative={true}
+    className="Button__Button-jkHDFw hKMOLu"
     onClick={[Function]}
-    outlined={true}
   >
     Click to ping
   </button>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Pinged with user 
     Yoda
   </p>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     The whole opperatiorn took 
     Time string
   </p>
@@ -45,17 +36,22 @@ exports[`PingTest / Ping Fetches and updates state if button is clicked 1`] = `
 `;
 
 exports[`PingTest / Ping Matches previous setup 1`] = `
-<div>
-  <h1>
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <h1
+    className="Title__Title-lbDhID gxinMP"
+  >
     Connection testing field
   </h1>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     This will ping a random user thowards the server. However. it won't sign in the user since the user isn't verefied
   </p>
   <button
-    alternative={true}
+    className="Button__Button-jkHDFw hKMOLu"
     onClick={[Function]}
-    outlined={true}
   >
     Click to ping
   </button>

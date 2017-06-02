@@ -1,13 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`About component Renders correctly 1`] = `
-<div>
-  <p>
+exports[`About component Renders correctly with empty residents 1`] = `
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
+    You're from $
+    Tatooine
+    !
+  </p>
+</div>
+`;
+
+exports[`About component Renders correctly with residents 1`] = `
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     You're from 
     Tatooine
     ! Other people are also from there! Maybe you know them?
   </p>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Luke Skywalker, C-3PO, Darth Vader, Owen Lars, Beru Whitesun lars, R5-D4, Biggs Darklighter, Anakin Skywalker, Shmi Skywalker, Cliegg Lars
   </p>
 </div>

@@ -1,22 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login react component Enterint text in input changes value 1`] = `
-<div>
-  <h1 />
-  <p>
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <h1
+    className="Title__Title-lbDhID gxinMP"
+  />
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Please log in
   </p>
   <form
+    className="Form__Form-PASBS imuxEL"
     onSubmit={[Function]}
   >
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="formNameusername"
         required={false}
       >
         Username
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="formNameusername"
         name="username"
         onChange={[Function]}
@@ -24,14 +35,18 @@ exports[`Login react component Enterint text in input changes value 1`] = `
         value="haschanged"
       />
     </div>
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="formNamepassword"
         required={false}
       >
         Password
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="formNamepassword"
         name="password"
         onChange={[Function]}
@@ -41,6 +56,7 @@ exports[`Login react component Enterint text in input changes value 1`] = `
       />
     </div>
     <button
+      className="Button__Button-jkHDFw jklsEJ"
       disabled={false}
     >
       Sign in
@@ -50,22 +66,33 @@ exports[`Login react component Enterint text in input changes value 1`] = `
 `;
 
 exports[`Login react component Marks button as valid if both fields has 5 characters 1`] = `
-<div>
-  <h1 />
-  <p>
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <h1
+    className="Title__Title-lbDhID gxinMP"
+  />
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Please log in
   </p>
   <form
+    className="Form__Form-PASBS imuxEL"
     onSubmit={[Function]}
   >
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="formNameusername"
         required={false}
       >
         Username
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="formNameusername"
         name="username"
         onChange={[Function]}
@@ -73,14 +100,18 @@ exports[`Login react component Marks button as valid if both fields has 5 charac
         value=""
       />
     </div>
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="formNamepassword"
         required={false}
       >
         Password
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="formNamepassword"
         name="password"
         onChange={[Function]}
@@ -90,6 +121,7 @@ exports[`Login react component Marks button as valid if both fields has 5 charac
       />
     </div>
     <button
+      className="Button__Button-jkHDFw jklsEJ"
       disabled={true}
     >
       Form fields not valid
@@ -99,22 +131,33 @@ exports[`Login react component Marks button as valid if both fields has 5 charac
 `;
 
 exports[`Login react component Marks button as valid if both fields has 5 characters 2`] = `
-<div>
-  <h1 />
-  <p>
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <h1
+    className="Title__Title-lbDhID gxinMP"
+  />
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Please log in
   </p>
   <form
+    className="Form__Form-PASBS imuxEL"
     onSubmit={[Function]}
   >
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="formNameusername"
         required={false}
       >
         Username
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="formNameusername"
         name="username"
         onChange={[Function]}
@@ -122,14 +165,18 @@ exports[`Login react component Marks button as valid if both fields has 5 charac
         value="More than 5"
       />
     </div>
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="formNamepassword"
         required={false}
       >
         Password
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="formNamepassword"
         name="password"
         onChange={[Function]}
@@ -139,6 +186,7 @@ exports[`Login react component Marks button as valid if both fields has 5 charac
       />
     </div>
     <button
+      className="Button__Button-jkHDFw jklsEJ"
       disabled={false}
     >
       Sign in
@@ -148,24 +196,35 @@ exports[`Login react component Marks button as valid if both fields has 5 charac
 `;
 
 exports[`Login react component Matches earlier configuration 1`] = `
-<div>
-  <h1>
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <h1
+    className="Title__Title-lbDhID gxinMP"
+  >
     This is a title
   </h1>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Please log in
   </p>
   <form
+    className="Form__Form-PASBS imuxEL"
     onSubmit={[Function]}
   >
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="formNameusername"
         required={false}
       >
         Username
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="formNameusername"
         name="username"
         onChange={[Function]}
@@ -173,14 +232,18 @@ exports[`Login react component Matches earlier configuration 1`] = `
         value=""
       />
     </div>
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="formNamepassword"
         required={false}
       >
         Password
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="formNamepassword"
         name="password"
         onChange={[Function]}
@@ -190,6 +253,7 @@ exports[`Login react component Matches earlier configuration 1`] = `
       />
     </div>
     <button
+      className="Button__Button-jkHDFw jklsEJ"
       disabled={true}
     >
       Form fields not valid
@@ -199,27 +263,40 @@ exports[`Login react component Matches earlier configuration 1`] = `
 `;
 
 exports[`Login react component Returns an error if password is invalid 1`] = `
-<div>
-  <h1>
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <h1
+    className="Title__Title-lbDhID gxinMP"
+  >
     This is a title
   </h1>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Please log in
   </p>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     It appears something went terribly wrong!
   </p>
   <form
+    className="Form__Form-PASBS imuxEL"
     onSubmit={[Function]}
   >
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="formNameusername"
         required={false}
       >
         Username
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="formNameusername"
         name="username"
         onChange={[Function]}
@@ -227,14 +304,18 @@ exports[`Login react component Returns an error if password is invalid 1`] = `
         value="Yoda"
       />
     </div>
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="formNamepassword"
         required={false}
       >
         Password
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="formNamepassword"
         name="password"
         onChange={[Function]}
@@ -244,6 +325,7 @@ exports[`Login react component Returns an error if password is invalid 1`] = `
       />
     </div>
     <button
+      className="Button__Button-jkHDFw jklsEJ"
       disabled={false}
     >
       Sign in
@@ -253,27 +335,40 @@ exports[`Login react component Returns an error if password is invalid 1`] = `
 `;
 
 exports[`Login react component Returns an error if username is invalid 1`] = `
-<div>
-  <h1>
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <h1
+    className="Title__Title-lbDhID gxinMP"
+  >
     This is a title
   </h1>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Please log in
   </p>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     It appears something went terribly wrong!
   </p>
   <form
+    className="Form__Form-PASBS imuxEL"
     onSubmit={[Function]}
   >
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="undefinedusername"
         required={false}
       >
         Username
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="undefinedusername"
         name="username"
         onChange={[Function]}
@@ -281,14 +376,18 @@ exports[`Login react component Returns an error if username is invalid 1`] = `
         value="This name doesn't exist in Star Wars"
       />
     </div>
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="undefinedpassword"
         required={false}
       >
         Password
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="undefinedpassword"
         name="password"
         onChange={[Function]}
@@ -298,6 +397,7 @@ exports[`Login react component Returns an error if username is invalid 1`] = `
       />
     </div>
     <button
+      className="Button__Button-jkHDFw jklsEJ"
       disabled={false}
     >
       Sign in
@@ -307,24 +407,35 @@ exports[`Login react component Returns an error if username is invalid 1`] = `
 `;
 
 exports[`Login react component Signs in the user of password and username are correct 1`] = `
-<div>
-  <h1>
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <h1
+    className="Title__Title-lbDhID gxinMP"
+  >
     This is a title
   </h1>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Please log in
   </p>
   <form
+    className="Form__Form-PASBS imuxEL"
     onSubmit={[Function]}
   >
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="formNameusername"
         required={false}
       >
         Username
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="formNameusername"
         name="username"
         onChange={[Function]}
@@ -332,14 +443,18 @@ exports[`Login react component Signs in the user of password and username are co
         value="Yoda"
       />
     </div>
-    <div>
+    <div
+      className="View__View-jelnfZ bnYeJt"
+    >
       <label
+        className="Label__Label-jsURsk iCwAoZ"
         htmlFor="formNamepassword"
         required={false}
       >
         Password
       </label>
       <input
+        className="TextInput__Text-jwTuSF bRSPUO"
         id="formNamepassword"
         name="password"
         onChange={[Function]}
@@ -349,6 +464,7 @@ exports[`Login react component Signs in the user of password and username are co
       />
     </div>
     <button
+      className="Button__Button-jkHDFw jklsEJ"
       disabled={false}
     >
       Sign in

@@ -2,31 +2,7 @@ import React from "react";
 import Ping from "../Ping";
 import renderer from "react-test-renderer";
 
-jest
-  .mock("../../Document/Title", () => ({ children }) => (
-    <title>{children}</title>
-  ))
-  .mock("../../Tags", () => ({
-    Button: ({ className, children, ...props }) => (
-      <button {...props}>{children}</button>
-    ),
-    Text: ({ className, children, ...props }) => <p {...props}>{children}</p>,
-    Title: ({ className, children, ...props }) => (
-      <h1 {...props}>{children}</h1>
-    ),
-    Form: ({ className, children, ...props }) => (
-      <form {...props}>{children}</form>
-    ),
-    Label: ({ className, children, ...props }) => (
-      <label {...props}>{children}</label>
-    ),
-    TextInput: ({ className, children, ...props }) => (
-      <input {...props}>{children}</input>
-    ),
-    View: ({ className, children, ...props }) => (
-      <div {...props}>{children}</div>
-    )
-  }));
+jest.mock("../../Document/Title").mock("../../Tags");
 
 describe("PingTest / Ping", () => {
   global.fetch = () =>
@@ -50,14 +26,14 @@ describe("PingTest / Ping", () => {
   });
 
   it("Fetches and updates state if button is clicked", async () => {
-    const component = renderer.create(<Ping token="foo bar" />);
+    const component = renderer.create(<Ping />);
     await component.getInstance().handleClick();
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("Prints out timeTaken", async () => {
-    const component = renderer.create(<Ping token="foo bar" />);
+    const component = renderer.create(<Ping />);
     await component.getInstance().handleClick();
     const tree = component.toJSON();
     expect(
@@ -68,7 +44,7 @@ describe("PingTest / Ping", () => {
   });
 
   it("Prints out data", async () => {
-    const component = renderer.create(<Ping token="foo bar" />);
+    const component = renderer.create(<Ping />);
     await component.getInstance().handleClick();
     const tree = component.toJSON();
     expect(
@@ -76,13 +52,6 @@ describe("PingTest / Ping", () => {
         .filter(el => el.type === "p")
         .filter(el => el.children === "Yoda")
     ).toBeDefined();
-  });
-
-  it("Changes nothing if there's no prop passed in", async () => {
-    const component = renderer.create(<Ping />);
-    await component.getInstance().handleClick();
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
   });
 
   it("Ussues callback on click", async () => {

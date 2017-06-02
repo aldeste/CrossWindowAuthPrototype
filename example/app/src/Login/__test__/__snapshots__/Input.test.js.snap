@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input react component Matches earlier configuration 1`] = `
-<View>
-  <Label
+<View__View>
+  <Label__Label
     htmlFor={NaN}
     required={false}
   />
-  <TextInput
+  <TextInput__Text
     id={NaN}
   />
-</View>
+</View__View>
 `;

@@ -1,36 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`About component Renders correctly 1`] = `
-<div>
-  <h2>
+exports[`About component Renders correctly with all parameters 1`] = `
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <h2
+    className="TitleH2__Title-keORPm jeYlWx"
+  >
     Luke Skywalker
   </h2>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Born: 
     19BBY
   </p>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Your hair is 
     blond
   </p>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Your eyes are 
     blue
   </p>
-  <p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
     Your gender is 
     male
   </p>
-  <h3>
+  <h1
+    className="TitleH3__Title-dYKMyV ipbgyT"
+  >
     Your homeworld
-  </h3>
-  <div>
-    <p>
+  </h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       You're from 
       Tatooine
       ! Other people are also from there! Maybe you know them?
     </p>
-    <p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
+      C-3PO, Darth Vader, Owen Lars, Beru Whitesun lars, R5-D4, Biggs Darklighter, Anakin Skywalker, Shmi Skywalker, Cliegg Lars
+    </p>
+  </div>
+</div>
+`;
+
+exports[`About component Renders correctly with no gender 1`] = `
+<div
+  className="View__View-jelnfZ bnYeJt"
+>
+  <h2
+    className="TitleH2__Title-keORPm jeYlWx"
+  >
+    Luke Skywalker
+  </h2>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
+    Born: 
+    19BBY
+  </p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
+    Your hair is 
+    blond
+  </p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
+    Your eyes are 
+    blue
+  </p>
+  <p
+    className="Text__Text-jpiXUO hvuOVR"
+  >
+    You have no gender
+  </p>
+  <h1
+    className="TitleH3__Title-dYKMyV ipbgyT"
+  >
+    Your homeworld
+  </h1>
+  <div
+    className="View__View-jelnfZ bnYeJt"
+  >
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
+      You're from 
+      Tatooine
+      ! Other people are also from there! Maybe you know them?
+    </p>
+    <p
+      className="Text__Text-jpiXUO hvuOVR"
+    >
       C-3PO, Darth Vader, Owen Lars, Beru Whitesun lars, R5-D4, Biggs Darklighter, Anakin Skywalker, Shmi Skywalker, Cliegg Lars
     </p>
   </div>

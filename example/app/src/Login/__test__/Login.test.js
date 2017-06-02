@@ -3,23 +3,7 @@ import Login from "../Login";
 import renderer from "react-test-renderer";
 require("jasmine-check").install();
 
-jest.mock("../../Tags", () => ({
-  Button: ({ className, children, ...props }) => (
-    <button {...props}>{children}</button>
-  ),
-  Text: ({ className, children, ...props }) => <p {...props}>{children}</p>,
-  Title: ({ className, children, ...props }) => <h1 {...props}>{children}</h1>,
-  Form: ({ className, children, ...props }) => (
-    <form {...props}>{children}</form>
-  ),
-  Label: ({ className, children, ...props }) => (
-    <label {...props}>{children}</label>
-  ),
-  TextInput: ({ className, children, ...props }) => (
-    <input {...props}>{children}</input>
-  ),
-  View: ({ className, children, ...props }) => <div {...props}>{children}</div>
-}));
+jest.mock("../../Tags");
 
 const PostWindowMessage = jest.fn();
 global.window = { postMessage: msg => PostWindowMessage(msg) };
