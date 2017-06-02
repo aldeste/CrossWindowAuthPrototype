@@ -188,13 +188,12 @@ class App extends React.Component<*, State, *> {
   render() {
     const UserBases: Array<string> = ["StarWars", "StarWarsCharacters"];
     const { signedIn } = this.state;
-    const token: number = Math.ceil(Math.random() * 50);
     const splitSpaces = text => text.replace(/([a-z])([A-Z])/g, "$1 $2");
 
     return (
       <Wrapper>
         <DocumentTitle>AuthJazz</DocumentTitle>
-        <Ping token={token} callback={this.postMessage} />
+        <Ping callback={this.postMessage} />
         <View>
           <Text>
             Have fun logging in as any Star Wars character in

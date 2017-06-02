@@ -10,13 +10,12 @@ type State =
       time?: string
     };
 
-type Props = { token: ?string, callback: ?Function };
+type Props = { callback: ?Function };
 
 export default class extends React.PureComponent<*, Props, State> {
   state = {};
 
-  resolveToken = async (token: ?string): Promise<Object> => {
-    if (!token) return {};
+  resolveToken = async (token: number): Promise<Object> => {
     const {
       data: { person: user },
       extensions: { timeTaken: time }
@@ -31,7 +30,8 @@ export default class extends React.PureComponent<*, Props, State> {
   };
 
   handleClick = async () => {
-    const user = await this.resolveToken(this.props.token);
+    const randomNumber: number = Math.ceil(Math.random() * 50);
+    const user = await this.resolveToken(randomNumber);
     this.props.callback && this.props.callback(user.user);
     this.setState(user);
   };
