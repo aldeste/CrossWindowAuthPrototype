@@ -30,7 +30,7 @@ export default class extends React.PureComponent<*, Props, State> {
   };
 
   handleClick = async () => {
-    const randomNumber: number = Math.ceil(Math.random() * 50);
+    const randomNumber: number = Math.ceil(Math.random() * 80);
     const user = await this.resolveToken(randomNumber);
     this.props.callback && this.props.callback(user.user);
     this.setState(user);
