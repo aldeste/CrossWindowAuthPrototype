@@ -2,7 +2,7 @@ import * as Tags from "../";
 import React from "react";
 import renderer from "react-test-renderer";
 
-const AllTags = Object.keys(Tags);
+const AllTags = Object.keys(Tags).filter(Tag => Tag !== "__esModule");
 
 AllTags.forEach(tag => {
   const currentTag = Tags[tag];
