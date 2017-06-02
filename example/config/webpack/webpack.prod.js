@@ -47,7 +47,8 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production")
     }),
-    new PrepackWebpackPlugin(),
+    // Prepack plugin is still buggy, not safe for usage
+    // new PrepackWebpackPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         screw_ie8: true,
