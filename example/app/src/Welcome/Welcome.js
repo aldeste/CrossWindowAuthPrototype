@@ -3,8 +3,6 @@ import React from "react";
 import { View, Title, Button, Text } from "../Tags";
 import LoadAsync from "../LoadAsync/LoadAsync";
 
-const About = LoadAsync({ loader: () => import("../About/About") });
-
 type Props = {
   title: string,
   username: string,
@@ -12,6 +10,8 @@ type Props = {
 };
 
 export default function Welcome(props: Props): React$Element<*> {
+  const About = LoadAsync({ loader: () => import("../About/About") });
+
   return (
     <View>
       <Title>{props.title}</Title>
