@@ -1,7 +1,7 @@
 [ignore]
 /node_modules/fbjs/.*
 .*/node_modules/styled-components/.*
-*/__test__/.*
+*/__tests__/.*
 
 [include]
 
