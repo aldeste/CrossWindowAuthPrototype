@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TitleH2 tag Matches earlier configuration 1`] = `
-.jeYlWx {
+.jBxvTF {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 2.500rem;
   line-height: 1.05;
@@ -10,6 +10,6 @@ exports[`TitleH2 tag Matches earlier configuration 1`] = `
 }
 
 <h2
-  className="TitleH2__Title-keORPm jeYlWx"
+  className="TitleH2__TitleH2-dymhMn jBxvTF"
 />
 `;

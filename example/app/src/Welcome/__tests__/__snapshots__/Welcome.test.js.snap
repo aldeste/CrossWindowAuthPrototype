@@ -18,7 +18,7 @@ exports[`Welcome react component Matches earlier configuration 1`] = `
     className="View__View-jelnfZ bnYeJt"
   >
     <h2
-      className="TitleH2__Title-keORPm jeYlWx"
+      className="TitleH2__TitleH2-dymhMn jBxvTF"
     >
       Yoda
     </h2>
@@ -41,7 +41,7 @@ exports[`Welcome react component Matches earlier configuration 1`] = `
       male
     </p>
     <h1
-      className="TitleH3__Title-dYKMyV ipbgyT"
+      className="TitleH3__TitleH3-jUefWF bXBjdj"
     >
       Your homeworld
     </h1>

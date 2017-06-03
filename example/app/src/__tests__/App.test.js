@@ -117,7 +117,9 @@ beforeAll(() => {
     it("loads in the welcome screen asynchronously", async () => {
       const component = renderer.create(<App />);
       sleep(1);
-      component.getInstance().handleLogin("StarWars")({ name: "Yoda" });
+      (await App.name) === "App"
+        ? component.getInstance().handleLogin("StarWars")({ name: "Yoda" })
+        : component.getInstance().handleLogin({ name: "Yoda" });
       expect(component.toJSON()).toMatchSnapshot();
     });
   });
@@ -143,7 +145,9 @@ beforeAll(() => {
         );
 
       const component = renderer.create(<App />);
-      await component.getInstance().handleLogin("StarWars")({ name: "Yoda" });
+      (await App.name) === "App"
+        ? component.getInstance().handleLogin("StarWars")({ name: "Yoda" })
+        : component.getInstance().handleLogin({ name: "Yoda" });
       await sleep(1);
       const tree = component.toJSON();
       expect(tree).toMatchSnapshot();
@@ -163,9 +167,13 @@ beforeAll(() => {
         );
 
       const component = renderer.create(<App />);
-      component.getInstance().handleLogin("StarWars")({ name: "Yoda" });
+      (await App.name) === "App"
+        ? component.getInstance().handleLogin("StarWars")({ name: "Yoda" })
+        : component.getInstance().handleLogin({ name: "Yoda" });
       await sleep(1);
-      component.getInstance().handleLogOut("StarWars")();
+      (await App.name) === "App"
+        ? component.getInstance().handleLogOut("StarWars")()
+        : component.getInstance().handleLogOut();
       await sleep(1);
       const tree = component.toJSON();
       expect(tree).toMatchSnapshot();

@@ -494,7 +494,7 @@ exports[`App start file Renders the welcome screen on login 1`] = `
       className="View__View-jelnfZ bnYeJt"
     >
       <h2
-        className="TitleH2__Title-keORPm jeYlWx"
+        className="TitleH2__TitleH2-dymhMn jBxvTF"
       >
         Luke Skywalker
       </h2>
@@ -523,7 +523,7 @@ exports[`App start file Renders the welcome screen on login 1`] = `
         male
       </p>
       <h1
-        className="TitleH3__Title-dYKMyV ipbgyT"
+        className="TitleH3__TitleH3-jUefWF bXBjdj"
       >
         Your homeworld
       </h1>
@@ -953,7 +953,7 @@ exports[`IframeApp start file Renders the welcome screen on login 1`] = `
       className="View__View-jelnfZ bnYeJt"
     >
       <h2
-        className="TitleH2__Title-keORPm jeYlWx"
+        className="TitleH2__TitleH2-dymhMn jBxvTF"
       >
         Luke Skywalker
       </h2>
@@ -982,7 +982,7 @@ exports[`IframeApp start file Renders the welcome screen on login 1`] = `
         male
       </p>
       <h1
-        className="TitleH3__Title-dYKMyV ipbgyT"
+        className="TitleH3__TitleH3-jUefWF bXBjdj"
       >
         Your homeworld
       </h1>

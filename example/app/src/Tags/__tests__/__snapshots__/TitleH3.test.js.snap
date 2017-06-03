@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TitleH3 tag Matches earlier configuration 1`] = `
-.ipbgyT {
+.bXBjdj {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 2rem;
   line-height: 1.09375;
@@ -10,6 +10,6 @@ exports[`TitleH3 tag Matches earlier configuration 1`] = `
 }
 
 <h1
-  className="TitleH3__Title-dYKMyV ipbgyT"
+  className="TitleH3__TitleH3-jUefWF bXBjdj"
 />
 `;
