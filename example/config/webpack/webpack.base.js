@@ -48,8 +48,9 @@ const baseSettup = {
     ]
   },
   resolve: {
-    modules: ["node_modules"],
-    extensions: [".js", ".jsx"]
+    extensions: [".js", ".jsx"],
+    mainFields: ["jsnext:main", "esnext", "module", "browser", "main"],
+    modules: ["node_modules"]
   },
   devtool: "cheap-module-eval-source-map",
   target: "web",
