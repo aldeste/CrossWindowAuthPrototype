@@ -13,16 +13,20 @@ type Props = {
   required?: boolean
 };
 
+// A functional component, since there's no internal state in this component
 const Input = ({
   required,
   label,
   prefix,
   ...props
-}: Props): React$Element<*> => (
-  <View>
-    <Label required={!!required} htmlFor={prefix + props.name}>{label}</Label>
-    <TextInput id={prefix + props.name} {...props} />
-  </View>
-);
+}: Props): React$Element<*> => {
+  const forLabel = prefix + props.name;
+  return (
+    <View>
+      <Label required={!!required} htmlFor={forLabel}>{label}</Label>
+      <TextInput id={forLabel} {...props} />
+    </View>
+  );
+};
 
 export default Input;

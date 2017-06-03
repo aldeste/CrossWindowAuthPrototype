@@ -36,6 +36,7 @@ export default async (
     method: "POST",
     credentials: "include",
     headers: {
+      // Every response is returned gziped, for maximum awesomeability
       "Accept-Encoding": "gzip",
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/graphql"

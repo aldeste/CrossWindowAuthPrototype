@@ -7,21 +7,29 @@ type Props = {
   residents: Array<string>
 };
 
+// A function that renders homeworld information
 export default function Homeworld({
   name,
   residents
 }: Props): React$Element<*> {
+  // Store which friendly message to display
+  // telling user where they're from
+  const YoureFrom = !!name && name !== "unknown"
+    ? `You're from ${name}`
+    : `We don't know where you're from`;
+
+  // Display this if the planet has more residents
   if (!!residents.length) {
     return (
       <View>
-        {name && name !== "unknown"
+        {!!name && name !== "unknown"
           ? <Text>
-              You're from {name}!
+              {YoureFrom}!
               Other people are also from there!
               Maybe you know them?
             </Text>
           : <Text>
-              We don't know where you're from,
+              {YoureFrom},
               just like some of the other characters.
               Maybe you know them?
             </Text>}
@@ -29,10 +37,10 @@ export default function Homeworld({
       </View>
     );
   }
-
+  // If there are no residents, display this.
   return (
     <View>
-      <Text>You're from ${name}!</Text>
+      <Text>{YoureFrom}!</Text>
     </View>
   );
 }

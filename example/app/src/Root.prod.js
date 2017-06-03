@@ -6,6 +6,7 @@ import generateGlobalStyles from "./Document/Styles";
 // babel-polyfill will be transformed to required polyfills
 import "babel-polyfill";
 
+// Generate global styles.
 generateGlobalStyles();
 
 const App = LoadAsync({

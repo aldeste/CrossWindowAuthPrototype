@@ -51,7 +51,8 @@ exports[`Welcome react component Matches earlier configuration 1`] = `
       <p
         className="Text__Text-jpiXUO hvuOVR"
       >
-        We don't know where you're from, just like some of the other characters. Maybe you know them?
+        We don't know where you're from
+        , just like some of the other characters. Maybe you know them?
       </p>
       <p
         className="Text__Text-jpiXUO hvuOVR"

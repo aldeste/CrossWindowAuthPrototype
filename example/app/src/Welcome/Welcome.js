@@ -9,7 +9,10 @@ type Props = {
   onLogoutSubmit: Function
 };
 
+// This is a functional component, since there's no
+// application state associated with this function.
 export default function Welcome(props: Props): React$Element<*> {
+  // About is loaded asynchronously.
   const About = LoadAsync({ loader: () => import("../About/About") });
 
   return (

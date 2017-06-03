@@ -1,6 +1,7 @@
 // @flow
 import styled from "styled-components";
 
+// CSS written with the power of javascript using styled components
 const Text = styled.input`
   background-color: transparent;
   border: solid 1px #333;

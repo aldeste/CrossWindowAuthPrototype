@@ -1,7 +1,7 @@
 // @flow
 import { injectGlobal } from "styled-components";
 
-/*eslint no-unused-expressions: "off"*/
+// A function to inject global CSS styles, giving me the power of CSS-in-JS.
 export default () => injectGlobal`
   * {
     box-sizing: border-box;

@@ -533,8 +533,7 @@ exports[`App start file Renders the welcome screen on login 1`] = `
         <p
           className="Text__Text-jpiXUO hvuOVR"
         >
-          You're from 
-          Tatooine
+          You're from Tatooine
           ! Other people are also from there! Maybe you know them?
         </p>
         <p
@@ -992,8 +991,7 @@ exports[`IframeApp start file Renders the welcome screen on login 1`] = `
         <p
           className="Text__Text-jpiXUO hvuOVR"
         >
-          You're from 
-          Tatooine
+          You're from Tatooine
           ! Other people are also from there! Maybe you know them?
         </p>
         <p

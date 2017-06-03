@@ -4,13 +4,18 @@ import { View, TitleH2, TitleH3, Text } from "../Tags";
 import Homeworld from "./Homeworld";
 import { type QueryResults } from "./About";
 
+// Exports a functional component
 const ProfileInfo = ({ viewer }: QueryResults) => {
+  // Variable containing residents of the same planet that should render
   const residents =
     viewer.homeworld &&
     viewer.homeworld.residentConnection &&
     viewer.homeworld.residentConnection.edges
+      // Remove current user from array
       .filter(({ node }) => node.name !== viewer.name)
+      // Return only an array of names
       .map(({ node }) => node.name);
+
   return (
     <View>
       <TitleH2>{viewer.name}</TitleH2>

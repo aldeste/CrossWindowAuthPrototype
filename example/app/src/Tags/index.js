@@ -1,6 +1,8 @@
 // @flow
 import LoadAsync from "../LoadAsync/LoadAsync";
 
+// Each field is loaded asynchronously, this makes for
+// a smalled initial file size and is great for HTML2.
 const Button = LoadAsync({ loader: () => import("./Button") });
 const Form = LoadAsync({ loader: () => import("./Form") });
 const Iframe = LoadAsync({ loader: () => import("./Iframe") });

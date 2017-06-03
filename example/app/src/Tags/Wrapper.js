@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import View from "./View";
 
+// CSS written with the power of javascript using styled components
 const Wrapper = styled(View)`
   color: #333;
   background: #fff;

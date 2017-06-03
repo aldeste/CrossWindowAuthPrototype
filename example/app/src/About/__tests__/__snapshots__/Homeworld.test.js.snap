@@ -7,8 +7,7 @@ exports[`About component Renders correctly with empty residents 1`] = `
   <p
     className="Text__Text-jpiXUO hvuOVR"
   >
-    You're from $
-    Tatooine
+    You're from Tatooine
     !
   </p>
 </div>
@@ -21,8 +20,7 @@ exports[`About component Renders correctly with residents 1`] = `
   <p
     className="Text__Text-jpiXUO hvuOVR"
   >
-    You're from 
-    Tatooine
+    You're from Tatooine
     ! Other people are also from there! Maybe you know them?
   </p>
   <p

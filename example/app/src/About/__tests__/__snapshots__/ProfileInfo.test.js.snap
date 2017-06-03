@@ -44,8 +44,7 @@ exports[`About component Renders correctly with all parameters 1`] = `
     <p
       className="Text__Text-jpiXUO hvuOVR"
     >
-      You're from 
-      Tatooine
+      You're from Tatooine
       ! Other people are also from there! Maybe you know them?
     </p>
     <p
@@ -100,8 +99,7 @@ exports[`About component Renders correctly with no gender 1`] = `
     <p
       className="Text__Text-jpiXUO hvuOVR"
     >
-      You're from 
-      Tatooine
+      You're from Tatooine
       ! Other people are also from there! Maybe you know them?
     </p>
     <p

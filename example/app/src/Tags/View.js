@@ -1,6 +1,7 @@
 // @flow
 import styled from "styled-components";
 
+// CSS written with the power of javascript using styled components
 const View = styled.div`
   align-items: stretch;
   border: 0;
