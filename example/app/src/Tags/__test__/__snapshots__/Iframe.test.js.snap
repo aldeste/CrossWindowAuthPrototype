@@ -1,13 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Iframe tag Matches earlier configuration 1`] = `
-.NyIwm {
-  height: 500px;
+.HaLVb {
   border: 0;
-  filter: invert() hue-rotate(180deg);
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  filter: invert();
 }
 
 <iframe
-  className="Iframe__Iframe-hXkCjZ NyIwm"
+  className="Iframe__Iframe-hXkCjZ HaLVb"
 />
 `;

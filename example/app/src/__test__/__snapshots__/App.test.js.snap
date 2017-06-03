@@ -111,7 +111,8 @@ exports[`App loads asynchronously loads in the welcome screen asynchronously 1`]
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
   <iframe
-    className="Iframe__Iframe-hXkCjZ NyIwm"
+    className="Iframe__Iframe-hXkCjZ HaLVb"
+    height="500px"
     src="http://localhost:4050"
     title="application_display"
   />
@@ -144,11 +145,6 @@ exports[`App loads asynchronously starts of empty 1`] = `
   >
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
-  <iframe
-    className="Iframe__Iframe-hXkCjZ NyIwm"
-    src="http://localhost:4050"
-    title="application_display"
-  />
 </div>
 `;
 
@@ -249,7 +245,8 @@ exports[`App start file Logs in users by token sent to method connectUser 1`] = 
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
   <iframe
-    className="Iframe__Iframe-hXkCjZ NyIwm"
+    className="Iframe__Iframe-hXkCjZ HaLVb"
+    height="500px"
     src="http://localhost:4050"
     title="application_display"
   />
@@ -431,7 +428,8 @@ exports[`App start file Removes the welcome screen on logout 1`] = `
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
   <iframe
-    className="Iframe__Iframe-hXkCjZ NyIwm"
+    className="Iframe__Iframe-hXkCjZ HaLVb"
+    height="500px"
     src="http://localhost:4050"
     title="application_display"
   />
@@ -628,7 +626,8 @@ exports[`App start file Renders the welcome screen on login 1`] = `
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
   <iframe
-    className="Iframe__Iframe-hXkCjZ NyIwm"
+    className="Iframe__Iframe-hXkCjZ HaLVb"
+    height="500px"
     src="http://localhost:4050"
     title="application_display"
   />
@@ -810,7 +809,8 @@ exports[`App start file renders without crashing 1`] = `
     What follows is an iframe, the colors are different to illustrate that we're accessing a different website
   </p>
   <iframe
-    className="Iframe__Iframe-hXkCjZ NyIwm"
+    className="Iframe__Iframe-hXkCjZ HaLVb"
+    height="500px"
     src="http://localhost:4050"
     title="application_display"
   />

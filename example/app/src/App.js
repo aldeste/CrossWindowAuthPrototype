@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 import { Map, type Map as ImmutableMap } from "immutable";
-import { Wrapper, Text, Iframe, View } from "./Tags";
+import { Wrapper, Text, View } from "./Tags";
 import LoadAsync from "./LoadAsync/LoadAsync";
 import DocumentTitle from "./Document/Title";
 import graphql from "./Connection";
@@ -19,6 +19,7 @@ export type State = {
 const Welcome = LoadAsync({ loader: () => import("./Welcome/Welcome") });
 const Login = LoadAsync({ loader: () => import("./Login/Login") });
 const Ping = LoadAsync({ loader: () => import("./PingTest/Ping") });
+const Iframe = LoadAsync({ loader: () => import("./Iframe/Iframe") });
 
 class App extends React.Component<*, State, *> {
   state = {
@@ -56,78 +57,73 @@ class App extends React.Component<*, State, *> {
 
   // The heart of the operation.
   // The logic can be constructed many ways, but in my case;
-  // A key is curried into the operation when initialized, this key will be essential
-  // to run the entire operation on my end.
-  receiveMessage = (key: number): Function => {
+  // A key is curried into the an asynchronously run function,
+  // trapping a key in the closure of the main function used
+  // by the event listener.
+  receiveMessage = (key: number): Function => async (
+    event: MessageEventWithOptions
+  ): Promise<boolean> => {
     // This is the function the event handler uses
-    return async (event: MessageEventWithOptions): Promise<boolean> => {
-      const iframe = document && document.querySelector("iframe");
-      const { origin, data, source } = event;
-      // Set the submit to address based on origin
-      const SubmitToAddress = source === window
-        ? "http://localhost:4000"
-        : "http://localhost:4050";
+    const iframe = document && document.querySelector("iframe");
+    const { origin, data, source } = event;
+    // Set the submit to address based on origin
+    const SubmitToAddress = source === window
+      ? "http://localhost:4000"
+      : "http://localhost:4050";
 
-      // Verefy that the request is from a good origin and source
-      if (
-        ((origin === "http://localhost:4000" && source === window) ||
-          (origin === "http://localhost:4050" &&
-            iframe &&
-            source === iframe.contentWindow)) &&
-        source
-      ) {
-        // Step one, send a request to message source asking
-        // which user is logged in
-        if (data.type === "AuthVerificationConnection") {
-          const { data: initialUserData }: Object = data;
+    // Verefy that the request is from a good origin and source
+    if (
+      ((origin === "http://localhost:4000" && source === window) ||
+        (origin === "http://localhost:4050" &&
+          iframe &&
+          source === iframe.contentWindow)) &&
+      source
+    ) {
+      // Step one, send a request to message source asking
+      // which user is logged in
+      if (data.type === "AuthVerificationConnection") {
+        const { data: initialUserData }: Object = data;
+        source.postMessage(
+          {
+            type: "AuthVerificationConnectionVerify",
+            data: { ...initialUserData, key }
+          },
+          SubmitToAddress
+        );
+      }
+
+      // Step two occurs on the other side, it returns the key recieved
+      // from the request ( this keeps track that this is a response )
+      // and checks which user is signed in and verefied by checking
+      // with the backend for a verefied token.
+      // This token could be sessions, cookies and whatever you want.
+      // I'm using signed cookies.
+      if (data.type === "AuthVerificationConnectionVerify") {
+        const AuthorizedUser = await this.getCurrentlyAuthorizedUserInfo();
+        if (!!AuthorizedUser && AuthorizedUser.token === data.data.token) {
           source.postMessage(
             {
-              type: "AuthVerificationConnectionVerify",
-              data: { ...initialUserData, key }
+              data: {
+                ...AuthorizedUser,
+                key: data.data.key
+              },
+              type: "AuthVerificationConnectionVerified"
             },
             SubmitToAddress
           );
         }
-
-        // Step two occurs on the other side, it returns the key recieved
-        // from the request ( this keeps track that this is a response )
-        // and checks which user is signed in and verefied by checking
-        // with the backend for a verefied token.
-        // This token could be sessions, cookies and whatever you want.
-        // I'm using signed cookies.
-        if (data.type === "AuthVerificationConnectionVerify") {
-          const CurrentlyAuthorizedUserInfo = await this.getCurrentlyAuthorizedUserInfo();
-          if (
-            CurrentlyAuthorizedUserInfo &&
-            CurrentlyAuthorizedUserInfo.token === data.data.token
-          ) {
-            source.postMessage(
-              {
-                data: {
-                  ...CurrentlyAuthorizedUserInfo,
-                  key: data.data.key
-                },
-                type: "AuthVerificationConnectionVerified"
-              },
-              SubmitToAddress
-            );
-          }
-        }
-
-        // Step three, user is obtained. User is then submitted and logged in.
-        if (
-          data.type === "AuthVerificationConnectionVerified" &&
-          data.data.key
-        ) {
-          const { data: userData }: Object = data;
-          this.connectUser(userData);
-        }
-
-        return true;
       }
 
-      return false;
-    };
+      // Step three, user is obtained. User is then submitted and logged in.
+      if (data.type === "AuthVerificationConnectionVerified" && data.data.key) {
+        const { data: userData }: Object = data;
+        this.connectUser(userData);
+      }
+
+      return true;
+    }
+
+    return false;
   };
 
   postMessage = (
@@ -135,7 +131,7 @@ class App extends React.Component<*, State, *> {
     type: string = "AuthVerificationConnection"
   ): void => {
     const iframe = document && document.querySelector("iframe");
-    !!window && window.top.postMessage({ type, data }, "http://localhost:4000");
+    window.top.postMessage({ type, data }, "http://localhost:4000");
 
     !!iframe &&
       iframe.contentWindow.postMessage({ type, data }, "http://localhost:4050");
@@ -173,12 +169,11 @@ class App extends React.Component<*, State, *> {
   };
 
   componentDidMount() {
-    window &&
-      window.addEventListener(
-        "message",
-        this.receiveMessage(Math.random()),
-        false
-      );
+    window.addEventListener(
+      "message",
+      this.receiveMessage(Math.random()),
+      false
+    );
   }
 
   shouldComponentUpdate(nextState: State) {

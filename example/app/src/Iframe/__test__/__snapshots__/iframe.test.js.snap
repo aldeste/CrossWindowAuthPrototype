@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Iframe component wrapper Renders as previously 1`] = `
+<iframe
+  className="Iframe__Iframe-hXkCjZ HaLVb"
+  height="500px"
+/>
+`;

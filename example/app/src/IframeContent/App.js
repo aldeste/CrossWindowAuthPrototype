@@ -5,12 +5,11 @@ import { Wrapper } from "../Tags";
 import LoadAsync from "../LoadAsync/LoadAsync";
 import { type State, type MessageEventWithOptions } from "../App";
 import graphql from "../Connection";
+import HeightNotifierHOC from "../Iframe/HeightNotifierHOC";
 
 // We load components in asynchronously using React Loadable.
 // That way we minimize initial paint time of files and perceved load time.
-const Welcome = LoadAsync({
-  loader: () => import("../Welcome/Welcome")
-});
+const Welcome = LoadAsync({ loader: () => import("../Welcome/Welcome") });
 const Login = LoadAsync({ loader: () => import("../Login/Login") });
 
 class IframeApp extends React.Component<*, State, *> {
@@ -43,77 +42,69 @@ class IframeApp extends React.Component<*, State, *> {
   // This is another implementation similar to the one found in the outer window.
   // Here, since there's only one login system on this website, we eliminate any
   // requests comming from the same window.
-  receiveMessage = (key: number): Function => {
-    // This is the function the event handler uses
-    return async (event: MessageEventWithOptions): Promise<boolean> => {
-      const { origin, data, source } = event;
+  receiveMessage = (key: number): Function => async (
+    event: MessageEventWithOptions
+  ): Promise<boolean> => {
+    const { origin, data, source } = event;
 
-      // Verefy that the request is from a good origin and source
-      if (
-        origin === "http://localhost:4000" &&
-        source &&
-        source === window.parent
-      ) {
-        // Step one, send a request to message source asking
-        // which user is logged in
-        if (data.type === "AuthVerificationConnection") {
-          const { data: initialUserData }: Object = data;
+    // Verefy that the request is from a good origin and source
+    if (
+      origin === "http://localhost:4000" &&
+      source &&
+      source === window.parent
+    ) {
+      // Step one, send a request to message source asking
+      // which user is logged in
+      if (data.type === "AuthVerificationConnection") {
+        const { data: initialUserData }: Object = data;
+        source.postMessage(
+          {
+            type: "AuthVerificationConnectionVerify",
+            data: { ...initialUserData, key }
+          },
+          "http://localhost:4000"
+        );
+      }
+
+      // Step two occurs on the other side, it returns the key recieved
+      // from the request ( this keeps track that this is a response )
+      // and checks which user is signed in and verefied by checking
+      // with the backend for a verefied token.
+      // This token could be sessions, cookies and whatever you want.
+      // I'm using signed cookies.
+      if (data.type === "AuthVerificationConnectionVerify") {
+        const AuthorizedUser = await this.getCurrentlyAuthorizedUserInfo();
+        if (!!AuthorizedUser && AuthorizedUser.token === data.data.token) {
           source.postMessage(
             {
-              type: "AuthVerificationConnectionVerify",
-              data: { ...initialUserData, key }
+              data: {
+                ...AuthorizedUser,
+                key: data.data.key
+              },
+              type: "AuthVerificationConnectionVerified"
             },
             "http://localhost:4000"
           );
         }
-
-        // Step two occurs on the other side, it returns the key recieved
-        // from the request ( this keeps track that this is a response )
-        // and checks which user is signed in and verefied by checking
-        // with the backend for a verefied token.
-        // This token could be sessions, cookies and whatever you want.
-        // I'm using signed cookies.
-        if (data.type === "AuthVerificationConnectionVerify") {
-          const CurrentlyAuthorizedUserInfo = await this.getCurrentlyAuthorizedUserInfo();
-          if (
-            CurrentlyAuthorizedUserInfo &&
-            CurrentlyAuthorizedUserInfo.token === data.data.token
-          ) {
-            source.postMessage(
-              {
-                data: {
-                  ...CurrentlyAuthorizedUserInfo,
-                  key: data.data.key
-                },
-                type: "AuthVerificationConnectionVerified"
-              },
-              "http://localhost:4000"
-            );
-          }
-        }
-
-        // Step three, user is obtained. User is then submitted and logged in.
-        if (
-          data.type === "AuthVerificationConnectionVerified" &&
-          data.data.key
-        ) {
-          const { data: userData }: Object = data;
-          this.connectUser(userData);
-        }
-
-        return true;
       }
 
-      return false;
-    };
+      // Step three, user is obtained. User is then submitted and logged in.
+      if (data.type === "AuthVerificationConnectionVerified" && data.data.key) {
+        const { data: userData }: Object = data;
+        this.connectUser(userData);
+      }
+
+      return true;
+    }
+
+    return false;
   };
 
-  postMessage = (data: Object): void => {
-    !!window &&
-      window.top.postMessage(
-        { type: "AuthVerificationConnection", data: data },
-        "http://localhost:4000"
-      );
+  postMessage = (
+    data: Object,
+    type: string = "AuthVerificationConnection"
+  ): void => {
+    window.top.postMessage({ type, data }, "http://localhost:4000");
   };
 
   getCurrentlyAuthorizedUserInfo = async () => {
@@ -146,12 +137,11 @@ class IframeApp extends React.Component<*, State, *> {
   };
 
   componentDidMount() {
-    window &&
-      window.addEventListener(
-        "message",
-        this.receiveMessage(Math.random()),
-        false
-      );
+    window.addEventListener(
+      "message",
+      this.receiveMessage(Math.random()),
+      false
+    );
   }
 
   shouldComponentUpdate(nextState: State) {
@@ -179,4 +169,4 @@ class IframeApp extends React.Component<*, State, *> {
   }
 }
 
-export default IframeApp;
+export default HeightNotifierHOC(IframeApp);

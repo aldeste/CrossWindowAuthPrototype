@@ -2,9 +2,10 @@
 import styled from "styled-components";
 
 const Iframe = styled.iframe`
-  height: 500px;
   border: 0;
-  filter: invert() hue-rotate(180deg);
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  filter: invert();
 `;
 
 export default Iframe;

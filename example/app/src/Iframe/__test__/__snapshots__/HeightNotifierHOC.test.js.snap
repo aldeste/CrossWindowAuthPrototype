@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Iframe component wrapper Returnes wrapped component 1`] = `
+<div>
+  This is just a component to be passed through a HOC
+</div>
+`;
