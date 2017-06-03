@@ -9,40 +9,42 @@ beforeAll(async () => {
   await require("../../data").initializeDatabase();
 });
 
-afterEach(() => {
+const supertestServer = supertest(server);
+
+afterAll(() => {
   server.close();
 });
 
 describe("Express server starts server", () => {
   it("gives a response when accessing '/'", async () => {
-    const response = await supertest(server).get("/");
+    const response = await supertestServer.get("/");
     expect(response.status).not.toBe(200);
   });
 });
 
 describe("Accessing /", () => {
   it("yields response", async () => {
-    const response = await supertest(server).get("/");
+    const response = await supertestServer.get("/");
     expect(response.header.location).toBe("/graphql");
   });
 });
 
 describe("Accessing /graphql", () => {
   it("yields faliure without parameters", async () => {
-    const response = await supertest(server).get("/graphql");
+    const response = await supertestServer.get("/graphql");
     expect(response.status).toBe(400);
   });
 });
 
 describe("Accessing /connect", () => {
   it("yields faliure without parameters", async () => {
-    const response = await supertest(server).post("/connect");
+    const response = await supertestServer.post("/connect");
     expect(response.status).toBe(404);
     expect(response.text).toBe("");
   });
 
   it("yields null response with invalid token", async () => {
-    const response = await supertest(server)
+    const response = await supertestServer
       .post("/connect")
       .send({ data: { key: "BOTTLE_OF_WINE", token: 3 } });
     expect(response.status).toBe(200);
@@ -50,7 +52,7 @@ describe("Accessing /connect", () => {
   });
 
   it("yields good response with valid token", async () => {
-    const response = await supertest(server)
+    const response = await supertestServer
       .post("/connect")
       .send({ data: { key: "BOTTLE_OF_WINE", token: "cGVvcGxlOjE5" } });
     expect(response.status).toBe(200);
@@ -60,33 +62,33 @@ describe("Accessing /connect", () => {
 
 describe("Accessing /login", () => {
   it("returns an invalid response without parameters", async () => {
-    const response = await supertest(server).post("/login");
+    const response = await supertestServer.post("/login");
     expect(response.status).toBe(404);
   });
 
   it("returns an invalid response if it doesn't have the correct parameters", async () => {
-    const response = await supertest(server)
+    const response = await supertestServer
       .post("/login")
       .send({ mayTheForce: "be with you" });
     expect(response.status).toBe(404);
   });
 
   it("returns a user with corect parameters", async () => {
-    const response = await supertest(server)
+    const response = await supertestServer
       .post("/login")
       .send({ name: "Yoda", password: "password" });
     expect(JSON.parse(response.text)).toMatchSnapshot();
   });
 
   it("returns an error if it fails due to wrong password", async () => {
-    const response = await supertest(server)
+    const response = await supertestServer
       .post("/login")
       .send({ name: "Yoda", password: "Wrong Password" });
     expect(JSON.parse(response.text).error).toBeDefined();
   });
 
   it("returns an error if it fails due to unexisting username", async () => {
-    const response = await supertest(server).post("/login").send({
+    const response = await supertestServer.post("/login").send({
       name: "Someone WHo Isn't In Star Wars",
       password: "Wrong Password"
     });
@@ -96,7 +98,7 @@ describe("Accessing /login", () => {
 
 describe("Cookies", () => {
   it("Returns a HttpOnly signed cookie", async () => {
-    const response = await supertest(server)
+    const response = await supertestServer
       .post("/login")
       .send({ name: "Yoda", password: "password" });
     expect(response.header["set-cookie"][0]).toBeDefined();
@@ -141,7 +143,7 @@ describe("Cookies", () => {
 
 describe("Queries", () => {
   it("queries with graphql", async () => {
-    const response = await supertest(server).get(
+    const response = await supertestServer.get(
       "/graphql?query={person(personId:4){id,name}}"
     );
     expect(response.text.data).toMatchSnapshot();
@@ -149,7 +151,7 @@ describe("Queries", () => {
   });
 
   it("runs timer diagnostics", async () => {
-    const response = await supertest(server).get(
+    const response = await supertestServer.get(
       "/graphql?query={person(personId:4){id,name}}"
     );
     expect(JSON.parse(response.text).extensions.timeTaken).toBeDefined();
