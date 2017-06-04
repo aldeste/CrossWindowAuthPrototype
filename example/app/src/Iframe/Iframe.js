@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { Iframe } from "../Tags";
+import { Iframe } from "../Tags/Tags";
 
 export type MessageEventWithOptions = MessageEvent & {
   data: { type: string, data: Object }

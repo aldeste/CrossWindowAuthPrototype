@@ -1,4 +1,4 @@
-import * as Tags from "../";
+import * as Tags from "../Tags";
 import React from "react";
 import renderer from "react-test-renderer";
 

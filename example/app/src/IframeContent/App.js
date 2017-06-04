@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 import { Map as ImmutableMap } from "immutable";
-import { Wrapper } from "../Tags";
+import { Wrapper } from "../Tags/Tags";
 import LoadAsync from "../LoadAsync/LoadAsync";
 import { type State, type MessageEventWithOptions } from "../App";
 import graphql from "../Connection";

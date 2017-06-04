@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { Text, View, Form, Title } from "../Tags";
+import { Text, View, Form, Title } from "../Tags/Tags";
 import LoginButton from "./LoginButton";
 import Input from "./Input";
 

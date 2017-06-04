@@ -2,7 +2,7 @@ import React from "react";
 import Welcome from "../Welcome";
 import renderer from "react-test-renderer";
 
-jest.mock("../../Tags");
+jest.mock("../../Tags/Tags");
 
 const mockClickFunction = jest.fn();
 

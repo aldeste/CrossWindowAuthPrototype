@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import About from "../About";
 
-jest.mock("../../Tags");
+jest.mock("../../Tags/Tags");
 
 const PersonInfo = {
   name: "Luke Skywalker",

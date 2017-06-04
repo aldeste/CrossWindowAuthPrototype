@@ -2,7 +2,7 @@ import Iframe from "../Iframe";
 import React from "react";
 import renderer from "react-test-renderer";
 
-jest.mock("../../Tags");
+jest.mock("../../Tags/Tags");
 
 describe("Iframe component wrapper", () => {
   beforeAll(() => {

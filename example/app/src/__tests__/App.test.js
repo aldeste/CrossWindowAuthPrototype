@@ -5,7 +5,7 @@ import renderer from "react-test-renderer";
 
 jest
   .mock("../Document/Title")
-  .mock("../Tags")
+  .mock("../Tags/Tags")
   .mock("../Iframe/HeightNotifierHOC");
 
 const sleep = ms =>

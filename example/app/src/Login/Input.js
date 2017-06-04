@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { TextInput, Label, View } from "../Tags";
+import { TextInput, Label, View } from "../Tags/Tags";
 
 type Props = {
   label: string,

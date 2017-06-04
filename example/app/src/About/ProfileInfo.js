@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { View, TitleH2, TitleH3, Text } from "../Tags";
+import { View, TitleH2, TitleH3, Text } from "../Tags/Tags";
 import Homeworld from "./Homeworld";
 import { type QueryResults } from "./About";
 

@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import ProfileInfo from "../ProfileInfo";
 
-jest.mock("../../Tags");
+jest.mock("../../Tags/Tags");
 
 const viewer = {
   name: "Luke Skywalker",

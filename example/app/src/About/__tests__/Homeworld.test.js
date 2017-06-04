@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Homeworld from "../Homeworld";
 
-jest.mock("../../Tags");
+jest.mock("../../Tags/Tags");
 
 const residents = [
   "Luke Skywalker",

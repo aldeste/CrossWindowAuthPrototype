@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { Button } from "../Tags";
+import { Button } from "../Tags/Tags";
 
 type Props = {
   disabled: boolean,

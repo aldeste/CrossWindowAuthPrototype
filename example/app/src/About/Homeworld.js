@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { Text, View } from "../Tags";
+import { Text, View } from "../Tags/Tags";
 
 type Props = {
   name: string,

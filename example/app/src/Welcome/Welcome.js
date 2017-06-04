@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { View, Title, Button, Text } from "../Tags";
+import { View, Title, Button, Text } from "../Tags/Tags";
 import LoadAsync from "../LoadAsync/LoadAsync";
 
 type Props = {

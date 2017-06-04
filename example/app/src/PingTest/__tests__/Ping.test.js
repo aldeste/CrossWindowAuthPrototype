@@ -2,7 +2,7 @@ import React from "react";
 import Ping from "../Ping";
 import renderer from "react-test-renderer";
 
-jest.mock("../../Document/Title").mock("../../Tags");
+jest.mock("../../Document/Title").mock("../../Tags/Tags");
 
 describe("PingTest / Ping", () => {
   beforeAll(() => {

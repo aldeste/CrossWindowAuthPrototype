@@ -3,7 +3,7 @@ import Input from "../Input";
 import ReactShallowRenderer from "react-test-renderer/shallow";
 const renderer = new ReactShallowRenderer();
 
-jest.mock("../../Tags");
+jest.mock("../../Tags/Tags");
 
 describe("Input react component", () => {
   const tree = renderer.render(<Input />);

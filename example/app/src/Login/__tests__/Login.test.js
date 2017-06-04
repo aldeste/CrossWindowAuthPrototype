@@ -3,7 +3,7 @@ import Login from "../Login";
 import renderer from "react-test-renderer";
 require("jasmine-check").install();
 
-jest.mock("../../Tags");
+jest.mock("../../Tags/Tags");
 
 const PostWindowMessage = jest.fn();
 global.window = { postMessage: msg => PostWindowMessage(msg) };
