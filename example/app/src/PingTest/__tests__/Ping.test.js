@@ -5,15 +5,17 @@ import renderer from "react-test-renderer";
 jest.mock("../../Document/Title").mock("../../Tags");
 
 describe("PingTest / Ping", () => {
-  global.fetch = () =>
-    new Promise(resolve =>
-      resolve({
-        json: () => ({
-          data: { person: { name: "Yoda" } },
-          extensions: { timeTaken: "Time string" }
+  beforeAll(() => {
+    global.fetch = () =>
+      new Promise(resolve =>
+        resolve({
+          json: () => ({
+            data: { person: { name: "Yoda" } },
+            extensions: { timeTaken: "Time string" }
+          })
         })
-      })
-    );
+      );
+  });
 
   it("Matches previous setup", () => {
     const tree = renderer.create(<Ping />).toJSON();
@@ -59,5 +61,42 @@ describe("PingTest / Ping", () => {
     const component = renderer.create(<Ping callback={callbackChecker} />);
     await component.getInstance().handleClick();
     expect(callbackChecker).toHaveBeenCalled();
+  });
+
+  it("Resolves token", async () => {
+    const callbackChecker = jest.fn();
+    const component = renderer.create(<Ping callback={callbackChecker} />);
+    const resolved = await component.getInstance().resolveToken("3");
+    expect(resolved).toMatchObject({
+      time: "Time string",
+      user: { name: "Yoda" }
+    });
+  });
+});
+
+describe("No connectio in PingTest", () => {
+  beforeAll(() => {
+    global.fetch = () =>
+      new Promise(resolve =>
+        resolve({
+          json: () => ({
+            data: null,
+            extensions: { timeTaken: "Time string" }
+          })
+        })
+      );
+  });
+  it("Doesn't issue callback if token can't resolve on click", async () => {
+    const callbackChecker = jest.fn();
+    const component = renderer.create(<Ping callback={callbackChecker} />);
+    await component.getInstance().handleClick();
+    expect(callbackChecker).not.toHaveBeenCalled();
+  });
+
+  it("Returns null id token can't resolve", async () => {
+    const callbackChecker = jest.fn();
+    const component = renderer.create(<Ping callback={callbackChecker} />);
+    const resolved = await component.getInstance().resolveToken("3");
+    expect(resolved).toBeNull();
   });
 });
