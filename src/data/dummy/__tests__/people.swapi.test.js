@@ -47,16 +47,27 @@ describe("Person should have extra fields, which will be used later in context i
 
 describe("Person dummy data should include some key characters from Star Wars I - VIII for easy testing", () => {
   [
-    "Yoda",
+    "Obi-Wan Kenobi",
     "Darth Vader",
-    "Luke Skywalker",
     "Han Solo",
-    "Leia Organa",
-    "Chewbacca",
+    "Yoda",
     "R2-D2",
+    "Chewbacca",
+    "Luke Skywalker",
+    "Leia Organa",
+    "Boba Fett",
+    "Darth Maul",
     "C-3PO",
+    "Palpatine",
+    "Qui-Gon Jinn",
+    "Lando Calrissian",
+    "Mace Windu",
+    "Padmé Amidala",
     "Rey",
-    "BB8"
+    "Ackbar",
+    "Jabba Desilijic Tiure",
+    "BB8",
+    "Finn"
   ].forEach(name =>
     it("Includes " + name, () =>
       expect(dummyPeople.find(x => x.name === name)).toBeDefined()

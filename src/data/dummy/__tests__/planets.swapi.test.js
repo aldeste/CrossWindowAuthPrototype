@@ -36,7 +36,23 @@ describe("Planet", () => {
 });
 
 describe("Person dummy data should include some key characters from Star Wars I - VIII for easy testing", () => {
-  ["Tatooine", "Alderaan", "Endor", "Naboo"].forEach(name =>
+  [
+    "Coruscant",
+    "Mustafar",
+    "Tatooine",
+    "Naboo",
+    "Hoth",
+    "Kamino",
+    "Geonosis",
+    "Kashyyyk",
+    "Bespin",
+    "Felucia",
+    "Dagobah",
+    "Alderaan",
+    "Utapau",
+    "Endor",
+    "Jakku"
+  ].forEach(name =>
     it("Includes " + name, () =>
       expect(dummyPlanets.find(x => x.name === name)).toBeDefined()
     )
