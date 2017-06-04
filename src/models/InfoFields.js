@@ -1,4 +1,6 @@
 // @flow
+import { type InfoFieldFromDatabase } from "../data/models";
+
 export type InfoFieldTypes = {
   created: Date,
   edited: Date,
@@ -6,13 +8,7 @@ export type InfoFieldTypes = {
   GraphQLType: string
 };
 
-export type InfoFieldFromDatabase = {
-  createdAt: Date,
-  updatedAt: Date,
-  id: string,
-  GraphQLType: string
-};
-
+// A base class exposing common fields available in each model.
 export default class InfoFields {
   created: Date;
   edited: Date;

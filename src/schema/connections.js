@@ -1,4 +1,9 @@
-/* @flow */
+// @flow
+
+/**
+ * Connections in GraphQL are relations to other graphql types.
+ */
+
 import {
   connectionFromArray,
   connectionArgs,
@@ -11,11 +16,13 @@ import {
   GraphQLInt
 } from "graphql";
 
+// Connection factory creating connections based on graphql types.
 export function connectionFromType(
   name: string,
   type: GraphQLObjectType,
   idField: string
 ): GraphQLFieldConfig<*, *> {
+  // Generate a graphql connection defenition type.
   const { connectionType } = connectionDefinitions({
     name,
     nodeType: type,
@@ -31,17 +38,22 @@ for example.`
       }
     })
   });
+
   return {
     type: connectionType,
     args: connectionArgs,
-    resolve: async (currentType: Object, args: Object, ctx: Object) => {
+    resolve: async (currentType: Object, args: Object, context: Object) => {
       const { objects, currentCount } = await getObjectsByType(
         type,
         args,
-        ctx,
+        context,
+        // currentType[idField] is the main field responsable for
+        // resolving the connection. The current connection parent
+        // in use must expose an array of ids of each connection.
         currentType[idField]
       );
       return {
+        // Object exposing an array of each element in connection, resolved.
         ...connectionFromArray(objects, args),
         currentCount
       };

@@ -1,19 +1,17 @@
 // @flow
 import { GraphQLInt, GraphQLObjectType, GraphQLString } from "graphql";
 import { globalIdField } from "graphql-relay";
-
 import { nodeInterface } from "../relayNode";
 import { createdField, editedField } from "../commonFields";
 import { getObjectFromTypeAndId } from "../apiHelper";
 
 import PlanetType from "./planetType";
 
-/**
- * The GraphQL type equivalent of the People resource
- */
+// The GraphQL type equivalent of the People resource
 const PersonType = new GraphQLObjectType({
   name: "Person",
-  description: "An individual person or character within the Star Wars universe.",
+  description:
+    "An individual person or character within the Star Wars universe.",
   fields: () => ({
     name: {
       type: GraphQLString,
@@ -62,7 +60,7 @@ person does not have hair.`
     },
     homeworld: {
       type: PlanetType,
-      resolve: ({ homeworld }, _, viewer) =>
+      resolve: ({ homeworld }, args, viewer) =>
         getObjectFromTypeAndId(PlanetType, homeworld, viewer),
       description: "A planet that this person was born on or inhabits."
     },

@@ -1,4 +1,5 @@
 // @flow
+// Export each dummy field
 import filmsDummy from "../../data/dummy/films.swapi";
 import peopleDummy from "../../data/dummy/people.swapi";
 import planetsDummy from "../../data/dummy/planets.swapi";

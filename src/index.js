@@ -1,5 +1,6 @@
-// Enable modern javascript using babel.
+// Enable modern javascript using babel, #hardcore
 require("babel-register");
+// Polyfill all the cool new things. Needed untill babel 7 is released.
 require("babel-polyfill");
 
 // Load env variables from .env file if exists in root, otherwise fail

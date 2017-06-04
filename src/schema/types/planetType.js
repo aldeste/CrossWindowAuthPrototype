@@ -11,9 +11,10 @@ import { createdField, editedField } from "../commonFields";
 import { nodeInterface } from "../relayNode";
 import { connectionFromType } from "../connections";
 
-// import FilmType from "./film";
 import PersonType from "./personType";
 
+// GraphQL type defenition. For readability, each field also exposes
+// a description method which makes it clear what each field does.
 const PlanetType = new GraphQLObjectType({
   name: "Planet",
   description: `A large mass, planet or planetoid in the Star Wars Universe, at the time of 0 ABY.`,
@@ -45,21 +46,20 @@ const PlanetType = new GraphQLObjectType({
     },
     population: {
       type: GraphQLInt,
-      description: "The average population of sentient beings inhabiting this planet.",
+      description:
+        "The average population of sentient beings inhabiting this planet.",
       resolve: planet => planet.population
     },
     climates: {
       type: new GraphQLList(GraphQLString),
-      resolve: planet => {
-        return planet.climates && planet.climates.split(",").map(s => s.trim());
-      },
+      resolve: planet =>
+        planet.climates && planet.climates.split(",").map(s => s.trim()),
       description: "The climates of this planet."
     },
     terrains: {
       type: new GraphQLList(GraphQLString),
-      resolve: planet => {
-        return planet.terrains && planet.terrains.split(",").map(s => s.trim());
-      },
+      resolve: planet =>
+        planet.terrains && planet.terrains.split(",").map(s => s.trim()),
       description: "The terrains of this planet."
     },
     surfaceWater: {

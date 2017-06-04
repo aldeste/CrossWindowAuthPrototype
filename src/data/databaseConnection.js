@@ -7,7 +7,9 @@ import {
   CONNECTION_SETTINGS
 } from "../../config/config";
 
+// Sequelize connection settings.
 const connection = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
+  // Disable logging, since it'as intrucive and obnoxiously loud
   logging: false,
   define: {
     underscored: false,

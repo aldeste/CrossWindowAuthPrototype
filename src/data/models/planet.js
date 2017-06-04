@@ -1,7 +1,7 @@
 import database from "../databaseConnection";
 import { STRING, INTEGER, FLOAT, VIRTUAL } from "sequelize";
 
-const Planet = database.define("planet", {
+export default database.define("planet", {
   id: { type: INTEGER, autoIncrement: true, primaryKey: true },
   climates: { type: STRING },
   diameter: { type: INTEGER },
@@ -18,4 +18,20 @@ const Planet = database.define("planet", {
   }
 });
 
-export default Planet;
+// Flowtype defenition of the database connection layer
+export type PlanetModel = {
+  createdAt: Date,
+  updatedAt: Date,
+  id: string,
+  GraphQLType: string,
+  climates: string,
+  diameter: number,
+  gravity: string,
+  name: string,
+  orbitalPeriod: number,
+  population: number,
+  residents: Array<{ id: string }>,
+  rotationPeriod: number,
+  surfaceWater: number,
+  terrains: string
+};

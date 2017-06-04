@@ -2,6 +2,8 @@
 import database from "../databaseConnection";
 import { STRING, INTEGER } from "sequelize";
 
+// Representation of a vehicle structure for sequelize.
+// NOTE: Currently not implemented
 export default database.define("vehicle", {
   id: { type: INTEGER, autoIncrement: true, primaryKey: true },
   name: { type: STRING },
