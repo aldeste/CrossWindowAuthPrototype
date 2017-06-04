@@ -23,11 +23,14 @@ export default async function generateMockData(
     // Initiallize progress bar if progress bar option is set
     const bar: null | ProgressBar =
       useProgressBar &&
-      new ProgressBar("Initiating database  :bar :percent :current/:total", {
+      new ProgressBar("Initiating database :bar :percent :current/:total", {
         complete: "█",
         incomplete: "░",
         clear: true,
-        total: peopleDummy.length * 2 + planetsDummy.length * 2
+        total:
+          peopleDummy.length * 2 +
+            planetsDummy.length +
+            planetsDummy.reduce((p, c) => [...p, ...c.residents], []).length
       });
 
     // Fill the database with dymmy people
@@ -97,7 +100,7 @@ export default async function generateMockData(
     await Promise.all(
       planetsDummy.map(async ({ name, residents }, index) => {
         // Update progressbar
-        bar && bar.tick(1);
+        bar && bar.tick(residents.length);
 
         // Return imediately if planet has no residents
         if (!residents.length) return null;
