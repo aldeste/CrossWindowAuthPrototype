@@ -79,12 +79,6 @@ class App extends React.Component<*, State, *> {
     // Destructure origin, data and source from
     // event for easier, more readable use.
     const { origin, data, source } = event;
-    // Set the submit to address based on origin. This makes the
-    // response logic more dynamic since this function will also
-    // be replying to itself as it accepts same-window messages.
-    const SubmitToAddress = source === window
-      ? "http://localhost:4000"
-      : "http://localhost:4050";
 
     // Verefy that the request is from a good origin and source. Returns
     // true if it is, false otherwise. This helps with testing the funcion.
@@ -107,7 +101,7 @@ class App extends React.Component<*, State, *> {
             type: "AuthVerificationConnectionVerify",
             data: { ...initialUserData, key }
           },
-          SubmitToAddress
+          origin
         );
       }
 
@@ -130,7 +124,7 @@ class App extends React.Component<*, State, *> {
               },
               type: "AuthVerificationConnectionVerified"
             },
-            SubmitToAddress
+            origin
           );
         }
       }

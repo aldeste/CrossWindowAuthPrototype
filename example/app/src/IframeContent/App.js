@@ -73,7 +73,7 @@ class IframeApp extends React.Component<*, State, *> {
             type: "AuthVerificationConnectionVerify",
             data: { ...initialUserData, key }
           },
-          "http://localhost:4000"
+          origin
         );
       }
 
@@ -96,7 +96,7 @@ class IframeApp extends React.Component<*, State, *> {
               },
               type: "AuthVerificationConnectionVerified"
             },
-            "http://localhost:4000"
+            origin
           );
         }
       }
