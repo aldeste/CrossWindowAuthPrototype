@@ -16,7 +16,9 @@ module.exports = {
   cache: sharedCache,
   entry: [
     "react-hot-loader/patch",
-    `webpack-dev-server/client?http://${APP_HOST}:${APP_FRONT_PORT}`,
+    `webpack-dev-server/client?http://${require(
+      "os"
+    ).hostname()}:${APP_FRONT_PORT}`,
     "webpack/hot/only-dev-server",
     join(process.cwd(), `${FRONTEND}/index.js`)
   ],
