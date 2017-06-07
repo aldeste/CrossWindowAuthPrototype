@@ -43,7 +43,6 @@ module.exports = {
   ],
   performance: false,
   devServer: {
-    quiet: true,
     publicPath: "/",
     hot: true,
     inline: true,
