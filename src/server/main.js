@@ -177,9 +177,7 @@ app.use(
     // A simple helper function to time our requests. Its a higher order function
     // that initiates a timer, and echoes when the returned function is called.
     const timer = hrTimer();
-    // ###################
-    // #### I'M HERE #####
-    // ###################
+
     // Return a graphql response.
     return {
       // The schema describes the structure of the graphql interface.
