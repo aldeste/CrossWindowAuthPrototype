@@ -26,9 +26,9 @@ describe("Models are defined", () => {
   );
 });
 
-describe("Connection goes through settup", () => {
+describe("Database connection", () => {
   initializeDatabase();
-  it("Passes connection", () => expect(connection).toBeDefined());
+  it("Connection is defined", () => expect(connection).toBeDefined());
 });
 
 describe("Connection is synched", () => {
